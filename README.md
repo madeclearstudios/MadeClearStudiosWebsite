@@ -67,7 +67,7 @@ To add a case study or insight, copy an existing entry in the JSON file and give
 
 - `metaTitle`, `metaDescription`: the search result title and description
 - `shortDescription`: the line under the title
-- `whyThisMatters` (HTML): the "What it is" section. Start it with a one-sentence definition; search engines and AI assistants quote that line.
+- `whyThisMatters` (HTML): the explainer under the hero. Start it with a one-sentence definition; search engines and AI assistants quote that line.
 - `outcomesMainTitle`, `outcomesDescription`, `outcomesFirst…Third` `Title`/`Description`: the three outcomes
 - `deliverables`: the "What we capture" list
 - `process`: the "How it works" steps (`title`, `text`)
