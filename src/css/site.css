@@ -381,3 +381,29 @@
   position: absolute;
   inset: 0;
 }
+
+/* Award mentions (The Rx Club): small badge under the homepage intro, and in the footer */
+.award-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+  text-align: left;
+}
+.award-badge-logo {
+  width: 88px;
+  height: auto;
+}
+.award-badge-text {
+  line-height: 1.4;
+}
+.award-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.award-footer-logo {
+  width: 64px;
+  height: auto;
+}
