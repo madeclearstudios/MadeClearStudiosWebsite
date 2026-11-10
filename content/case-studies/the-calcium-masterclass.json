@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 4,
   "overview": "Producing a 10 part TV-series style masterclass to teach physicians how to modify calcium in coronary arteries.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69f98dc28505df2aafefc100_MDC005_Case-Study5_Shockwave02_landscape.avif",
+  "coverPhoto": "/images/uploads/webflow/69f98dc28505df2aafefc100_MDC005_Case-Study5_Shockwave02_landscape.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -33,7 +33,7 @@
     {
       "title": "The Calcium Masterclass | The Making Of",
       "link": "https://www.youtube.com/embed/J3-fZvUYvDg?si=u_DHQQ-hWYxiMY9q",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab51413ffd83f8ffbf4b970_J3-fZvUYvDg-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab51413ffd83f8ffbf4b970_J3-fZvUYvDg-HD.jpg"
     }
   ]
 }

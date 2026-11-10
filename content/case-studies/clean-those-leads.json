@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 2,
   "overview": "6 films about the contamination risks of lead aprons in real-world healthcare settings. Backed by research and frontline voices, they make one thing clear: It’s time to clean those leads.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6a05c3d871c78847a568b927_P1223055.jpg",
+  "coverPhoto": "/images/uploads/webflow/6a05c3d871c78847a568b927_P1223055.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -19,11 +19,11 @@
   "client": "radcare-medical-services",
   "featuredOnKolPage": true,
   "imageSlider": [
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fdd0a9777b7223dc789945_1768838284930.avif",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fdd0a8567b702dcc4ef734_1768838484580.jpeg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fdd0a9e7d024f9e45e1489_1768838566744.avif",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fdd0a8841c442b7027a279_1768838607972.jpeg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fdd0a8783cdae3a60a81da_1776009275083.jpg"
+    "/images/uploads/webflow/69fdd0a9777b7223dc789945_1768838284930.avif",
+    "/images/uploads/webflow/69fdd0a8567b702dcc4ef734_1768838484580.jpeg",
+    "/images/uploads/webflow/69fdd0a9e7d024f9e45e1489_1768838566744.avif",
+    "/images/uploads/webflow/69fdd0a8841c442b7027a279_1768838607972.jpeg",
+    "/images/uploads/webflow/69fdd0a8783cdae3a60a81da_1776009275083.jpg"
   ],
   "testimonial": "“What stood out most was the creativity. In an industry that can feel really cold, Made Clear are willing to push the boundaries and humanise it, and that matters enormously to use as a brand. Everything proposed was reasonable and considered; we never felt like we were being sold to. I had to trust the process, and it worked. The collaboration was good, the people are good, and I see this as a lifelong relationship, whatever business I’m in, I’ll come back.”",
   "authorName": "Hayley Cazares",
@@ -41,32 +41,32 @@
     {
       "title": "A Day in the Life of a Lead",
       "link": "https://youtu.be/Cgmb27YqBPw",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab521c170c18db782889faf_Cgmb27YqBPw-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab521c170c18db782889faf_Cgmb27YqBPw-HD.jpg"
     },
     {
       "title": "Hidden Dangers",
       "link": "https://youtu.be/HQhKDWxwj8M",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab521d6f1b27f93c60a89c1_HQhKDWxwj8M-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab521d6f1b27f93c60a89c1_HQhKDWxwj8M-HD.jpg"
     },
     {
       "title": "The Dirty Truth",
       "link": "https://youtu.be/bnO6Ib5LbHU",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab521ebfaf7d0b60e75099b_bnO6Ib5LbHU-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab521ebfaf7d0b60e75099b_bnO6Ib5LbHU-HD.jpg"
     },
     {
       "title": "Apron Roulette",
       "link": "https://youtu.be/ba1dacX6Jzw",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab522ec749190fc4698eb6d_ba1dacX6Jzw-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab522ec749190fc4698eb6d_ba1dacX6Jzw-HD.jpg"
     },
     {
       "title": "Bill’s Story",
       "link": "https://youtu.be/HgRmJfQKRhc",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab5221538e96dccbfaec52a_HgRmJfQKRhc-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab5221538e96dccbfaec52a_HgRmJfQKRhc-HD.jpg"
     },
     {
       "title": "The Clean Effect",
       "link": "https://youtu.be/Xa019ffO7Tc",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab5222cbe112177617263ea_Xa019ffO7Tc-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab5222cbe112177617263ea_Xa019ffO7Tc-HD.jpg"
     }
   ]
 }

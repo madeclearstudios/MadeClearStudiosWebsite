@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 7,
   "overview": "Paying tribute to healthcare professionals affected by radiation.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69f9914e05fbf2c42094f016_MDC005_Case-Study6_ORSIF02_landscape.avif",
+  "coverPhoto": "/images/uploads/webflow/69f9914e05fbf2c42094f016_MDC005_Case-Study6_ORSIF02_landscape.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -33,7 +33,7 @@
     {
       "title": "Is Not Here | Case Study",
       "link": "https://www.youtube.com/embed/w1PoLwVi2Qw?si=UlJPkvKUYqTEvDmy",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab51474500d02ea30b02be5_w1PoLwVi2Qw-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab51474500d02ea30b02be5_w1PoLwVi2Qw-HD.jpg"
     }
   ]
 }

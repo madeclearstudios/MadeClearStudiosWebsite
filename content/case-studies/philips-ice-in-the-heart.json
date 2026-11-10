@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 8,
   "overview": "Introducing the Philips VeriSight Pro ICE catheter to the world.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69f9922c4ed383d68fe00fb2_MDC005_Case-Study2_Philips-ICE02_landscape.avif",
+  "coverPhoto": "/images/uploads/webflow/69f9922c4ed383d68fe00fb2_MDC005_Case-Study2_Philips-ICE02_landscape.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -33,7 +33,7 @@
     {
       "title": "Philips ICE | Case Study",
       "link": "https://www.youtube.com/embed/zIDUl9Q0AKI?si=wdcAjc5N-uMLDen0",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab513605606e58090db1483_zIDUl9Q0AKI-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab513605606e58090db1483_zIDUl9Q0AKI-HD.jpg"
     }
   ]
 }

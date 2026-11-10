@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 5,
   "overview": "Revealing the impact of scatter radiation affecting the cath lab team.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a779a250bbb5e03e524_0S7A9708.jpg",
+  "coverPhoto": "/images/uploads/webflow/69fc7a779a250bbb5e03e524_0S7A9708.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -16,12 +16,12 @@
   "client": "egg-medical",
   "featuredOnKolPage": true,
   "imageSlider": [
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a771c23b15bc4fa8f3d_0S7A9601.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a776e374ee6ad809399_0S7A9673.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a777b2c5e1fb8479630_0S7A9627.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a77171b05019744b8eb_0S7A9674.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a77e55c5e8379e5cfff_0S7A9606.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a779a250bbb5e03e524_0S7A9708.jpg"
+    "/images/uploads/webflow/69fc7a771c23b15bc4fa8f3d_0S7A9601.jpg",
+    "/images/uploads/webflow/69fc7a776e374ee6ad809399_0S7A9673.jpg",
+    "/images/uploads/webflow/69fc7a777b2c5e1fb8479630_0S7A9627.jpg",
+    "/images/uploads/webflow/69fc7a77171b05019744b8eb_0S7A9674.jpg",
+    "/images/uploads/webflow/69fc7a77e55c5e8379e5cfff_0S7A9606.jpg",
+    "/images/uploads/webflow/69fc7a779a250bbb5e03e524_0S7A9708.jpg"
   ],
   "testimonial": "\"Working with Made Clear on this project was a great partnership. They understood immediately that the challenge wasn't scientific, given we’ve had the data on radiation exposure for years. What they brought was a real instinct for finding the human story inside the clinical one, and the craft to tell it in a way that moved people rather than just informing them. The film started conversations that the numbers alone never had.\"",
   "authorName": "James Beabout",
@@ -39,7 +39,7 @@
     {
       "title": "The Radiation Problem | Original Documentary",
       "link": "https://youtu.be/1g2b6fq1Y6M",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab5202c2202a32492b78a14_1g2b6fq1Y6M-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab5202c2202a32492b78a14_1g2b6fq1Y6M-HD.jpg"
     },
     {
       "title": "The Radiation Problem | A Cardiologist's Truth",
@@ -49,7 +49,7 @@
     {
       "title": "The Radiation Problem | Case Study",
       "link": "https://www.youtube.com/embed/a04pSrphlmI?si=J_liOVnp7hzByuTU",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab515f45ffbb5bed74ea76b_a04pSrphlmI-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab515f45ffbb5bed74ea76b_a04pSrphlmI-HD.jpg"
     },
     {
       "title": "The Radiation Problem | Teaser Trailer",

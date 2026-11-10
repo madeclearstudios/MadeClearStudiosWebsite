@@ -6,7 +6,7 @@
   "publishedOn": "2026-09-24",
   "order": 3,
   "overview": "Helping explain the benefits of Renal Denervation as an adjunctive therapy for treating Hypertension.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69f98d34886eface3091f35e_HTN%20RDN%20Medtronic%20Made%20Clear%20Studios.avif",
+  "coverPhoto": "/images/uploads/webflow/69f98d34886eface3091f35e_HTN-RDN-Medtronic-Made-Clear-Studios.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -33,12 +33,12 @@
     {
       "title": "HTN:RDN | Case Study",
       "link": "https://www.youtube.com/embed/MkGLScF9KAw?si=fTb5ag3P8tO69E1a",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab514db12b2d891ee1fc33a_MkGLScF9KAw-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab514db12b2d891ee1fc33a_MkGLScF9KAw-HD.jpg"
     },
     {
       "title": "HTN:RDN | Teaser Trailer",
       "link": "https://youtu.be/AKyHA9hisCI",
-      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab5216c083d332c2972ebaf_AKyHA9hisCI-HD.jpg"
+      "thumbnail": "/images/uploads/webflow/6ab5216c083d332c2972ebaf_AKyHA9hisCI-HD.jpg"
     },
     {
       "title": "Episode 1 | The History & The Hope",

@@ -6,7 +6,7 @@
   "publishedOn": "2026-05-15",
   "order": 6,
   "overview": "Demonstrating the efficacy of the Angiolite DES expanding stent. The story of the “Angiolite” stent.",
-  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6a05c15950957b3d567f7c2b_DSC00772.jpg",
+  "coverPhoto": "/images/uploads/webflow/6a05c15950957b3d567f7c2b_DSC00772.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
@@ -17,9 +17,9 @@
   "client": "ivascular",
   "featuredOnKolPage": true,
   "imageSlider": [
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc770e05d9cfc9a30de3c2_DSC00767.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc770efba3b207c84b3873_DSC00773.jpg",
-    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc770d4587c2b9f879d9ea_DSC00780.jpg"
+    "/images/uploads/webflow/69fc770e05d9cfc9a30de3c2_DSC00767.jpg",
+    "/images/uploads/webflow/69fc770efba3b207c84b3873_DSC00773.jpg",
+    "/images/uploads/webflow/69fc770d4587c2b9f879d9ea_DSC00780.jpg"
   ],
   "testimonial": "We are thrilled with the work delivered by Made Clear Studios for our Angiolite stent campaign. Their professionalism, attention to detail, and ability to translate complex medical concepts into engaging visual content have made them an invaluable partner to support us with our marketing challenges, they understood the need and provided us with solutions.",
   "authorName": "Sandra Falcó",
