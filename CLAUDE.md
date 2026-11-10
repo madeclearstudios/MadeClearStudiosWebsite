@@ -24,8 +24,8 @@ npm run build    # production build into _site/
 | Insight page design (`/insights/...`) | `src/insight.njk` |
 | Pages | `src/index.njk`, `about.njk`, `services.njk`, `case-studies.njk`, `kol.njk`, `kol-list.njk`, `insights.njk`, `contact.njk`, `sectors.njk`, `terms-conditions.njk`, `privacy-policy.njk`, `womenasone.njk`, `404.njk` |
 | Terms & Conditions and Privacy Policy text (clause numbers are written out, so update cross-references by hand if clauses move) | `src/_includes/legal/terms.njk`, `src/_includes/legal/privacy.njk` |
-| Homepage liquid blob (WebGL shader; add `?blob=classic` to the URL to see the original). Trial A sits under the copy; trial B (`data-blob-mode="lens"`, below it on the homepage) passes over the copy and magnifies it. Remove the trial you don't keep from `src/index.njk` | `src/js/fluid-blob.js`, sizing in `src/css/site.css` |
-| Trial B blob packaged for Webflow (paste-in embed and footer code; rebuild with `node webflow-export/blob-lens/build.mjs`) | `webflow-export/blob-lens/` |
+| Homepage hero blob: a WebGL water drop over the hero copy that magnifies it (`data-blob-mode="lens"`). The script also supports an "under" mode, where the copy sits on top and drifts with the blob | `src/js/fluid-blob.js`, sizing in `src/css/site.css` |
+| The hero blob packaged as a standalone Webflow embed (rebuild with `node webflow-export/blob-lens/build.mjs`) | `webflow-export/blob-lens/` |
 | Webflow's site-wide custom CSS embed | `src/_includes/global-styles.njk` |
 | Styles | `src/css/made-clear-wip.webflow.css` (Webflow export), `src/css/site.css` (our additions) |
 | Images and fonts | `src/images/`, `src/fonts/` |
@@ -55,7 +55,6 @@ To add a case study or insight, copy an existing entry in the JSON file and give
 
 ## Search engines
 
-- **While testing, the whole site is hidden from search** by an `X-Robots-Tag: noindex` header in `netlify.toml`. Delete that block when the site launches on madeclearstudios.com.
 - `src/sitemap.njk` builds `/sitemap.xml` from every page plus the published case studies and insights. `src/robots.njk` builds `/robots.txt`. Both use the main address, `https://madeclearstudios.com` (`siteUrl` in `eleventy.config.js`).
 - To keep a page out of search and the sitemap, add `noindex: true` to its front matter and a `<meta name="robots" content="noindex">` tag to its head. The Sectors page is hidden like this until its copy is written.
 - Redirects live in `src/_redirects` (Netlify format). Add one whenever a page or CMS slug is renamed.
