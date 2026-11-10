@@ -17,13 +17,17 @@ const PUBLIC_PREFIX = "/images/uploads/webflow/";
 const DRY_RUN = process.argv.includes("--dry-run");
 
 // Webflow CDN hosts. A link ends at a quote, whitespace or angle bracket; brackets inside file names
-// such as "Logo (1).png" are kept, and a trailing unmatched ")" (from CSS url(...)) is trimmed.
+// such as "Logo (1).png" are kept, and an unmatched ")" (the end of a CSS url(...)) ends the link.
 const URL_RE = /https:\/\/(?:cdn\.prod\.website-files\.com|uploads-ssl\.webflow\.com|assets-global\.website-files\.com)\/[^"'\s<>]+/g;
 
 function cleanUrl(raw) {
-  let url = raw;
-  while (url.endsWith(")") && (url.match(/\(/g) || []).length < (url.match(/\)/g) || []).length) url = url.slice(0, -1);
-  return url.replace(/[,;]+$/, "");
+  // Cut at the first ")" with no matching "(" (the end of a CSS url(...), even if "!important" follows)
+  let depth = 0, end = raw.length;
+  for (let i = 0; i < raw.length; i++) {
+    if (raw[i] === "(") depth++;
+    else if (raw[i] === ")" && depth-- === 0) { end = i; break; }
+  }
+  return raw.slice(0, end).replace(/[,;]+$/, "");
 }
 
 function localName(url) {
