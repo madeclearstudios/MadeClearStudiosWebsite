@@ -7,7 +7,17 @@ export default function (eleventyConfig) {
 
   // Used by the footer copyright line and the sitemap
   eleventyConfig.addGlobalData("year", () => new Date().getFullYear());
-  eleventyConfig.addGlobalData("siteUrl", "https://madeclearstudios.com");
+  const siteUrl = "https://madeclearstudios.com";
+  eleventyConfig.addGlobalData("siteUrl", siteUrl);
+
+  // Canonical tag on every page: tells search engines the real address is the clean madeclearstudios.com
+  // one (not www, the .netlify.app address, or /page.html). Skipped on the 404 page and noindex pages.
+  eleventyConfig.addTransform("canonical", function (content) {
+    const out = this.page.outputPath;
+    if (!out || !out.endsWith(".html") || this.page.url === "/404.html" || /name="robots" content="noindex"/.test(content)) return content;
+    const path = this.page.url === "/" ? "/" : this.page.url.replace(/\.html$/, "");
+    return content.replace("</head>", `  <link rel="canonical" href="${siteUrl}${path}">\n</head>`);
+  });
 
   // CMS helpers. The collections live in src/_data/*.json (exported from the Webflow CMS).
   // Items with "draft": true or "archived": true are left off the site, like in Webflow.
