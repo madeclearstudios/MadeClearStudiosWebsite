@@ -30,6 +30,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("sortBy", (items = [], key) =>
     [...items].sort((a, b) => String(a[key] ?? "").localeCompare(String(b[key] ?? ""), "en", { sensitivity: "base" }))
   );
+  // KOL names: surname from the CMS "Last Name" field (else the last word of the name); first name without titles
+  const surname = (e = {}) => (e.lastName || String(e.name || "").trim().split(/\s+/).pop() || "").trim();
+  eleventyConfig.addFilter("surname", surname);
+  eleventyConfig.addFilter("surnameInitial", (e) => surname(e).charAt(0).toUpperCase());
+  eleventyConfig.addFilter("firstName", (e = {}) =>
+    String(e.name || "").replace(/^(dr|prof|sir|mr|mrs|ms|miss)\.?\s+/i, "").trim().split(/\s+/)[0] || "");
   eleventyConfig.addFilter("sortByOrder", (items = []) => [...items].sort((a, b) => (a.order ?? 99) - (b.order ?? 99)));
 
   // Webflow lightbox data for a Vimeo link, e.g. https://vimeo.com/882463366/148615107a?share=copy

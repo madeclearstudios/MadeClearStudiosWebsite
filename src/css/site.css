@@ -161,3 +161,52 @@
 .blob-lens-copy .max-width-360 {
   max-width: min(18rem, 60vw);
 }
+
+/* KOL Hub surname filter (js/kol-filter.js): the letter row reuses the /kol filter styles */
+.kol-filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 1.25rem;
+  font-size: var(--_typography---text--small);
+  letter-spacing: 0.0875rem;
+}
+
+.kol-filter-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.kol-filter-select {
+  font: inherit;
+  font-weight: 400;
+  letter-spacing: inherit;
+  padding: 0.375rem 2rem 0.375rem 0.75rem;
+  border: 1px solid var(--main--grey-4);
+  border-radius: var(--_sizes---0-25);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23373737'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+  appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+}
+
+.kol-filter-clear {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  color: inherit;
+}
+
+.kol-filter-clear[hidden] {
+  display: none;
+}
