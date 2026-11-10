@@ -1,5 +1,6 @@
-// KOL Hub: filter the KOL cards by surname initial (A–Z letters, several can be ticked) and sort them.
-// Markup: the form in [data-kol-filter] and the cards in [data-kol-list], each card carrying
+// KOL Hub: filter the KOL cards by surname initial, one letter at a time, and sort them.
+// Click a letter to show only those KOLs; click the same letter again to show everyone.
+// Markup: the letter buttons in [data-kol-filter] and the cards in [data-kol-list], each card carrying
 // data-surname, data-first and data-letter (set in src/kol-hub.njk).
 (function () {
   var root = document.querySelector("[data-kol-filter]");
@@ -7,26 +8,26 @@
   if (!root || !list) return;
 
   var cards = [].slice.call(list.children);
-  var boxes = [].slice.call(root.querySelectorAll('input[name="surname"]'));
+  var buttons = [].slice.call(root.querySelectorAll(".kol-letter:not([disabled])"));
   var sort = root.querySelector('select[name="sort"]');
   var count = root.querySelector(".kol-filter-count");
-  var clear = root.querySelector(".kol-filter-clear");
   var collator = new Intl.Collator("en", { sensitivity: "base" });
+  var active = null;
 
   function update() {
-    var picked = boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.value; });
-    boxes.forEach(function (b) {
-      // Webflow's custom checkbox style
-      b.previousElementSibling.classList.toggle("w--redirected-checked", b.checked);
+    root.classList.toggle("is-filtered", !!active);
+    buttons.forEach(function (b) {
+      var on = b.getAttribute("data-letter") === active;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
     });
     var shown = 0;
     cards.forEach(function (card) {
-      var show = !picked.length || picked.indexOf(card.getAttribute("data-letter")) !== -1;
+      var show = !active || card.getAttribute("data-letter") === active;
       card.style.display = show ? "" : "none";
       if (show) shown++;
     });
-    clear.hidden = !picked.length;
-    count.textContent = picked.length ? shown + (shown === 1 ? " KOL" : " KOLs") : "";
+    count.textContent = active ? shown + (shown === 1 ? " KOL" : " KOLs") + " · " + active : "";
   }
 
   function order() {
@@ -40,11 +41,13 @@
     cards.forEach(function (card) { list.appendChild(card); });
   }
 
-  boxes.forEach(function (b) { b.addEventListener("change", update); });
-  sort.addEventListener("change", order);
-  clear.addEventListener("click", function () {
-    boxes.forEach(function (b) { b.checked = false; });
-    update();
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var letter = b.getAttribute("data-letter");
+      active = active === letter ? null : letter; // the same letter again shows everyone
+      update();
+    });
   });
+  sort.addEventListener("change", order);
   update();
 })();

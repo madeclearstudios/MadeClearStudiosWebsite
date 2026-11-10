@@ -195,18 +195,40 @@
   color: inherit;
 }
 
-.kol-filter-clear {
-  padding: 0;
+/* Letter buttons: all black while everyone shows; once a letter is picked it stays black and the rest fade.
+   Letters with no KOLs keep the greyed-out .filter-disable look from the page. */
+.kol-letter {
   border: 0;
+  padding: 0;
   background: none;
   font: inherit;
-  font-weight: 600;
-  letter-spacing: inherit;
-  text-decoration: underline;
   cursor: pointer;
-  color: inherit;
 }
 
-.kol-filter-clear[hidden] {
-  display: none;
+.kol-letter:not(.filter-disable) .filter-checkbox {
+  background-color: var(--dark);
 }
+
+.kol-filter.is-filtered .kol-letter:not(.is-active):not(.filter-disable) {
+  color: var(--main--grey-3);
+}
+
+.kol-filter.is-filtered .kol-letter:not(.is-active):not(.filter-disable) .filter-checkbox {
+  background-color: var(--main--grey-1);
+  box-shadow: inset 0 0 0 1px var(--main--grey-2);
+}
+
+.kol-filter.is-filtered .kol-letter:not(.is-active):not(.filter-disable):hover {
+  color: var(--main--marker-yellow);
+}
+
+.kol-filter.is-filtered .kol-letter:not(.is-active):not(.filter-disable):hover .filter-checkbox {
+  background-color: var(--dark);
+  box-shadow: none;
+}
+
+.kol-letter:focus-visible {
+  outline: 2px solid var(--dark);
+  outline-offset: 3px;
+}
+

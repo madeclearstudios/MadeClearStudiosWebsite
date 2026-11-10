@@ -138,14 +138,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <main class="main">
       <section class="section">
         <div class="container">
-          {#- Surname A–Z filter and sort, like the client filter on /kol. Driven by js/kol-filter.js. -#}
+          {#- Surname A–Z filter (one letter at a time; click it again to show everyone) and sort. Driven by js/kol-filter.js. -#}
           {%- set kolInitials = [] %}{% for e in experts | published %}{% set kolInitials = (kolInitials.push(e | surnameInitial), kolInitials) %}{% endfor %}
           <div class="margin-0 w-form kol-filter" data-kol-filter>
             <form class="filters-form" aria-label="Filter KOLs by surname" onsubmit="return false">
-              <div class="flex gap-1 children-wrap t_justify-center">
+              <div class="flex gap-1 children-wrap t_justify-center" role="group" aria-label="Surname starts with">
                 {%- for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
                 {%- set hasKol = letter in kolInitials %}
-                <label class="w-checkbox c_filter-checkbox{{ ' filter-disable' if not hasKol }}"><div class="w-checkbox-input w-checkbox-input--inputType-custom filter-checkbox"></div><input type="checkbox" name="surname" value="{{ letter }}" aria-label="Surnames starting with {{ letter }}"{{ ' disabled' if not hasKol }} style="opacity:0;position:absolute;z-index:-1"><span class="filter-checkbox-letter w-form-label">{{ letter }}</span></label>
+                <button type="button" class="c_filter-checkbox kol-letter{{ ' filter-disable' if not hasKol }}" data-letter="{{ letter }}" aria-pressed="false"{{ ' disabled' if not hasKol }}><span class="filter-checkbox" aria-hidden="true"></span><span class="filter-checkbox-letter">{{ letter }}</span></button>
                 {%- endfor %}
               </div>
               <div class="kol-filter-bar">
@@ -157,7 +157,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                   </select>
                 </label>
                 <span class="kol-filter-count" aria-live="polite"></span>
-                <button type="button" class="kol-filter-clear" hidden>Show all</button>
               </div>
             </form>
           </div>
