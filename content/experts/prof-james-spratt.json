@@ -1,0 +1,22 @@
+{
+  "name": "Prof. James Spratt",
+  "slug": "prof-james-spratt",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-08-24",
+  "overlay": "",
+  "photo": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69dbd8516ac924e98ab9f1f8_Screenshot%202026-02-13%20at%2012.34.56%2017.avif",
+  "roleLine1": "Interventional Cardiology",
+  "roleLine2": "",
+  "testimonial": "",
+  "district": "",
+  "city": "London",
+  "country": "UK",
+  "lastName": "Spratt",
+  "clientsWorkedWith": [
+    "abbott",
+    "shockwave-medical",
+    "egg-medical"
+  ],
+  "order": 3
+}

@@ -137,13 +137,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </div>
         </div>
       </section>
-      {%- if cs.videoLink1 or cs.videoLink2 %}
+      {%- set vids = cs.videos or [] %}
+      {%- if vids.length %}
       <section class="section padding-5 highlighted-videos">
         <div class="container">
           <div class="grid _12-col gap-1-25 t_flex t_vertical">
-            {%- for n in [1, 2] %}
+            {%- for n in [0, 1] %}
             <div class="_6-col">
-              {%- set video = { link: cs["videoLink" + n], thumbnail: cs["video" + n + "Thumbnail"], title: cs["videoTitle" + n] } %}
+              {%- set video = vids[n] or {} %}
               {% include "video-lightbox.njk" %}
             </div>
             {%- endfor %}
@@ -223,16 +224,16 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
       </section>
       {%- endif %}
-      {%- if cs.videoLink3 or cs.videoLink4 or cs.videoLink5 or cs.videoLink6 or cs.videoLink7 or cs.videoLink8 %}
+      {%- if vids.length > 2 %}
       <section class="section padding-5 overflow-hidden">
         <div class="container">
           <div class="video-gallery">
             <div>
               <div>
                 <div class="grid _12-col gap-5 row-gap-3 t_flex t_vertical">
-                  {%- for n in range(3, 9) %}
+                  {%- for n in range(2, 8) %}
                   <div class="_6-col">
-                    {%- set video = { link: cs["videoLink" + n], thumbnail: cs["video" + n + "Thumbnail"], title: cs["videoTitle" + n] } %}
+                    {%- set video = vids[n] or {} %}
                     {% include "video-lightbox.njk" %}
                   </div>
                   {%- endfor %}

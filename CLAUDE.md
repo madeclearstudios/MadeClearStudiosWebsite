@@ -31,28 +31,36 @@ npm run build    # production build into _site/
 | Styles | `src/css/made-clear-wip.webflow.css` (Webflow export), `src/css/site.css` (our additions) |
 | Images and fonts | `src/images/`, `src/fonts/` |
 
-## CMS content (formerly the Webflow CMS)
+## CMS content (edited in Pages CMS)
 
-Each Webflow collection is a JSON file in `src/_data/`, converted from the CSV exports. Edit the file and push.
+The content that used to live in the Webflow CMS is in `content/`, one folder per collection and one JSON file per item, named after its slug. Edit it in **[Pages CMS](https://app.pagescms.org)**: saving there commits to GitHub, and Netlify publishes the change within about a minute. The editing forms are defined in `.pages.yml`; uploaded images go to `src/images/uploads/`.
 
-| Collection | File | Used on |
+| Collection | Folder | Used on |
 | --- | --- | --- |
-| Case Studies | `caseStudies.json` | Case Studies list, a page each at `/case-study/<slug>`, KOL Hub, "Further case studies" |
-| Insights | `insights.json` | Insights list, a page each at `/insights/<slug>` |
-| Clients | `clients.json` | Testimonials sliders, KOL Hub client list |
-| Experts | `experts.json` | "In safe hands" slider (Home), KOL list |
-| Client Logos | `clientLogos.json` | Home logo sliders (`secondLine: true` puts a logo on the second row) |
-| Services, Service Categories | `services.json`, `serviceCategories.json` | Services page, nav dropdown, case study "Services" list |
-| FAQs | `faqs.json` | About |
-| Sectors | `sectors.json` | Sectors |
-| Case Study / Insight Categories | `caseStudyCategories.json`, `insightCategories.json` | Filters (currently hidden) |
+| Case studies | `content/case-studies/` | Case Studies list, a page each at `/case-study/<slug>`, KOL Hub, "Further case studies" |
+| Micro case studies | `content/micro-case-studies/` | Short project pages at `/work/<slug>`, and Recent work on service pages |
+| Insights | `content/insights/` | Insights list, a page each at `/insights/<slug>` |
+| KOLs | `content/experts/` | Home page slider, KOL Hub |
+| Clients | `content/clients/` | Testimonial sliders, KOL page client list |
+| Client logos | `content/client-logos/` | Home page logo rows (`secondLine` puts a logo on the second row) |
+| Services, service categories | `content/services/`, `content/service-categories/` | Services page, nav dropdown, service pages, case study "Services" list |
+| FAQs | `content/faqs/` | About |
+| Sectors | `content/sectors/` | Sectors (hidden from search) |
+| Case study / insight categories | `content/case-study-categories/`, `content/insight-categories/` | Filters (currently hidden) |
 
-- References to other items use the other item's `slug`, e.g. a case study's `"client": "ivascular"` or `"services": ["animation", ...]`.
-- `order` sets the position in lists. `draft: true` or `archived: true` keeps an item out of the site.
-- Rich text fields (`body`, `body1`–`body4`, `answer`, `description`) are HTML.
-- A case study has up to 8 videos (`videoLink1`…`videoLink8`, Vimeo links). Videos 1–2 show under the intro. Videos 3–8 show in the gallery lower down, which becomes a slider with 3 or more. When `video<N>Thumbnail` is empty, the thumbnail is fetched from Vimeo.
+- `src/_data/<name>.js` reads each folder (via `lib/content.js`), so templates still see `caseStudies`, `experts` and so on as lists, sorted by `order`.
+- References to other items use the other item's `slug`, e.g. a case study's `"client": "ivascular"`. Pages CMS shows these as dropdowns.
+- `order` sets the position in lists. `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
+- Rich text fields are HTML.
+- A case study's `videos` list holds up to 8 Vimeo videos: the first two show under the intro, the rest in the gallery lower down (a slider with 3 or more). When a video has no thumbnail, it is fetched from Vimeo.
+- If you add a field to the content, add it to `.pages.yml` too, so it shows in the editor.
 
-To add a case study or insight, copy an existing entry in the JSON file and give it a new `slug`.
+### Setting up Pages CMS
+
+1. Go to [app.pagescms.org](https://app.pagescms.org) and sign in with the GitHub account that owns the repository.
+2. Install the Pages CMS GitHub app when asked, and give it access to this repository.
+3. Open the repository and the `main` branch. The collections appear in the sidebar.
+4. To add editors, use **Collaborators** in Pages CMS and invite them by email. They sign in with a code sent to their inbox; they don't need a GitHub account.
 
 ## Search engines
 
@@ -91,7 +99,7 @@ Set up email notifications there. `src/js/contact-form.js` sends the form and sh
 
 - The Webflow export doesn't include the case study page's video, image slider and testimonial sections, or the insight body. Their scripts were exported, so these sections were rebuilt in `case-study.njk` and `insight.njk` with the site's own classes. Check them against the Webflow site.
 - Left out: the style guide (`design-system`), `womenasoneold`, the password page (`401`), and the empty Webflow detail pages for collections without their own pages. No service has page content yet, so services don't get their own pages.
-- CMS images, and some images in page scripts and meta tags, still load from Webflow's CDN (`cdn.prod.website-files.com`). Move them into `src/images/` before the Webflow site is deleted.
+- Images that were on Webflow's CDN are moved into `src/images/uploads/webflow/` by the one-off \"Move Webflow images into the site\" GitHub Action (`scripts/migrate-webflow-images.mjs`). Run it before cancelling Webflow.
 - jQuery is now hosted with the site (`src/js/jquery-3.5.1.min.js`), the same file Webflow used. Splide, three.js, GSAP and Finsweet Attributes still load from public CDNs, as they did on Webflow.
 
 ## Rules for changes

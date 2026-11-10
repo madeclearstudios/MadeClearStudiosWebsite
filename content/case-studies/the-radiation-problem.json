@@ -1,0 +1,60 @@
+{
+  "title": "Egg Medical | The Radiation Problem",
+  "slug": "the-radiation-problem",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-09-24",
+  "order": 5,
+  "overview": "Revealing the impact of scatter radiation affecting the cath lab team.",
+  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a779a250bbb5e03e524_0S7A9708.jpg",
+  "overlay": "",
+  "caseStudyCategory": "",
+  "services": [
+    "film-and-video-content",
+    "animation"
+  ],
+  "client": "egg-medical",
+  "featuredOnKolPage": true,
+  "imageSlider": [
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a771c23b15bc4fa8f3d_0S7A9601.jpg",
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a776e374ee6ad809399_0S7A9673.jpg",
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a777b2c5e1fb8479630_0S7A9627.jpg",
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a77171b05019744b8eb_0S7A9674.jpg",
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a77e55c5e8379e5cfff_0S7A9606.jpg",
+    "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69fc7a779a250bbb5e03e524_0S7A9708.jpg"
+  ],
+  "testimonial": "\"Working with Made Clear on this project was a great partnership. They understood immediately that the challenge wasn't scientific, given we’ve had the data on radiation exposure for years. What they brought was a real instinct for finding the human story inside the clinical one, and the craft to tell it in a way that moved people rather than just informing them. The film started conversations that the numbers alone never had.\"",
+  "authorName": "James Beabout",
+  "authorRoleLine1": "Marketing Director",
+  "authorRoleLine2": "Egg Medical",
+  "title1": "Diagnosis",
+  "body1": "<p>Interventional cath lab and radiology lab physicians and staff are exposed to three times as much radiation per year as nuclear power plant workers.</p><p>‍</p><p>“1 in 25 high volume operators will acquire a radiation-caused cancer”&nbsp;&nbsp;</p><p>‍</p><p>“1 in 50 will die as a result”&nbsp;</p><p>‍</p><p>Despite hard hitting facts like these, radiation protection is often seen as a literal and metaphorical burden to cath-lab workers around the world. Radiation safety courses are yet another qualification staff have to take, and badges worn by the team are often out of date or inaccurate. </p>",
+  "title2": "Pre-procedural planning",
+  "body2": "<p>The challenge was to help Cath Lab teams start conversations with Hospital Administrators about improving their radiation protection.​</p><p>‍</p><p>​So we set about researching and contacting influential KOLs who could explain both the science of the problem, and the emotional impact it had on them and their colleagues. </p>",
+  "title3": "The procedure",
+  "body3": "<p>So we teamed up with Egg Medical and Optima education to produce the ‘The Radiation Problem” an emotionally-charged mini documentary, featuring 7 of the top interventional cardiologists in the US and the UK.&nbsp;&nbsp;</p><p>‍</p><p>Previous communication on the subject focussed on the facts and figures behind the science of ionizing radiation, but with this film we set out to move the audience into action with emotionally charged personal stories. </p>",
+  "title4": "The outcome",
+  "body4": "<p>The film was launched on the Egg Medical channel on Wondr Medical, which invited press contacts and its network of 68,000 cardiologists to watch the film live – to start the conversation at the same time around the world. Several short teaser films were used to promote the event via social media, and it became the main focus of the Egg Medical booth at conferences around the world.</p>",
+  "videos": [
+    {
+      "title": "The Radiation Problem | Original Documentary",
+      "link": "https://youtu.be/1g2b6fq1Y6M",
+      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab5202c2202a32492b78a14_1g2b6fq1Y6M-HD.jpg"
+    },
+    {
+      "title": "The Radiation Problem | A Cardiologist's Truth",
+      "link": "https://vimeo.com/798455145/6ca23789df?share=copy&fl=sv&fe=ci",
+      "thumbnail": ""
+    },
+    {
+      "title": "The Radiation Problem | Case Study",
+      "link": "https://www.youtube.com/embed/a04pSrphlmI?si=J_liOVnp7hzByuTU",
+      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab515f45ffbb5bed74ea76b_a04pSrphlmI-HD.jpg"
+    },
+    {
+      "title": "The Radiation Problem | Teaser Trailer",
+      "link": "https://vimeo.com/800486657?share=copy&fl=sv&fe=ci",
+      "thumbnail": ""
+    }
+  ]
+}

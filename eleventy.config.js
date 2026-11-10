@@ -4,6 +4,8 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy(`src/${dir}`);
   }
   eleventyConfig.addPassthroughCopy("src/_redirects");
+  // CMS content (one JSON file per item, edited in Pages CMS) lives in content/; rebuild the preview when it changes
+  eleventyConfig.addWatchTarget("content/");
 
   // Used by the footer copyright line and the sitemap
   eleventyConfig.addGlobalData("year", () => new Date().getFullYear());
@@ -17,6 +19,15 @@ export default function (eleventyConfig) {
     if (!out || !out.endsWith(".html") || this.page.url === "/404.html" || /name="robots" content="noindex"/.test(content)) return content;
     const path = this.page.url === "/" ? "/" : this.page.url.replace(/\.html$/, "");
     return content.replace("</head>", `  <link rel="canonical" href="${siteUrl}${path}">\n</head>`);
+  });
+
+  // Share images (og:image / twitter:image) must be full addresses; turn site-relative ones into absolute ones
+  eleventyConfig.addTransform("absolute-share-images", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(
+      /(<meta content=")(\/[^"]+)(" (?:property="og:image"|name="twitter:image")>)/g,
+      (m, a, url, b) => a + siteUrl + url + b
+    );
   });
 
   // CMS helpers. The collections live in src/_data/*.json (exported from the Webflow CMS).

@@ -1,0 +1,39 @@
+{
+  "title": "ORSIF | Is Not Here",
+  "slug": "orsif-is-not-here",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-09-24",
+  "order": 7,
+  "overview": "Paying tribute to healthcare professionals affected by radiation.",
+  "coverPhoto": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/69f9914e05fbf2c42094f016_MDC005_Case-Study6_ORSIF02_landscape.avif",
+  "overlay": "",
+  "caseStudyCategory": "",
+  "services": [
+    "film-and-video-content",
+    "animation",
+    "web-and-interactive-content"
+  ],
+  "client": "orsif",
+  "featuredOnKolPage": true,
+  "imageSlider": [],
+  "testimonial": "\"They are a creative force that this industry needs to make real change that is critically needed for healthcare worker’s safety. We will continue to work with them to make an impact worldwide.\"",
+  "authorName": "Bob Foster",
+  "authorRoleLine1": "President",
+  "authorRoleLine2": "ORIF",
+  "title1": "Diagnosis",
+  "body1": "<p>ORSIF, (or Occupational Radiation Safety in Interventional Fluoroscopy) realised that although they had been established for 10 years, the international interventional community was not aware of the work they did.</p>",
+  "title2": "Pre-procedural planning",
+  "body2": "<p>Working with an experienced documentary researcher, Made Clear Studios reached out to hundreds of healthcare workers, to find these stories of sacrifice.</p>",
+  "title3": "The procedure",
+  "body3": "<p>21 agreed to be filmed, 15 were featured on a bespoke site commemorating those who are not here. 11 of whom lost their lives to radiation-related cancer. The site, called is-not-here.com – was celebrated by the radiation protection industry, and promoted through social channels.</p>",
+  "title4": "The outcome",
+  "body4": "<p>“We extend our deepest gratitude to family, friends, and colleagues for sharing their moving testimony about these incredible people. ORSIF and its members are committed to occupational radiation safety through education, resources, best practices, technology, and combining our voices to affect change.”</p>",
+  "videos": [
+    {
+      "title": "Is Not Here | Case Study",
+      "link": "https://www.youtube.com/embed/w1PoLwVi2Qw?si=UlJPkvKUYqTEvDmy",
+      "thumbnail": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6ab51474500d02ea30b02be5_w1PoLwVi2Qw-HD.jpg"
+    }
+  ]
+}

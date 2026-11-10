@@ -1,0 +1,456 @@
+# Pages CMS settings (https://pagescms.org): the editing screens for the site's content.
+# Each collection is a folder in content/, one JSON file per item, named after its slug.
+# Saving in Pages CMS commits to GitHub and Netlify publishes the change within about a minute.
+
+media:
+  input: src/images/uploads
+  output: /images/uploads
+  categories: [image]
+
+content:
+  - name: work
+    label: Work
+    type: group
+    items:
+      - name: case-studies
+        label: Case studies
+        description: Full case studies, at /case-study/<slug>.
+        type: collection
+        path: content/case-studies
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [title, client, order, draft]
+          primary: title
+          sort: [order, title]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - name: slug
+            label: Slug
+            description: The address, /case-study/<slug>. Lowercase letters, numbers and hyphens. Changing it breaks existing links.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, description: "Drafts are kept here but not shown on the site.", type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: order, label: Order, description: "Position in lists (1 comes first).", type: number }
+          - { name: overview, label: Overview, description: "The intro under the title, also used on cards and in search results.", type: text }
+          - { name: coverPhoto, label: Cover photo, type: image }
+          - name: client
+            label: Client
+            type: reference
+            options: { collection: clients, search: name, value: "{fields.slug}", label: "{fields.name}" }
+          - name: services
+            label: Services
+            type: reference
+            options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
+          - name: caseStudyCategory
+            label: Case study category
+            type: reference
+            options: { collection: case-study-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
+          - { name: featuredOnKolPage, label: Featured on the KOL page, type: boolean, default: false }
+          - { name: publishedOn, label: Published on, description: "The KOL page shows each client's most recent case study.", type: date }
+          - { name: title1, label: Section 1 title, type: string }
+          - { name: body1, label: Section 1 text, type: rich-text, options: { format: html } }
+          - { name: title2, label: Section 2 title, type: string }
+          - { name: body2, label: Section 2 text, type: rich-text, options: { format: html } }
+          - { name: title3, label: Section 3 title, type: string }
+          - { name: body3, label: Section 3 text, type: rich-text, options: { format: html } }
+          - { name: title4, label: Section 4 title, type: string }
+          - { name: body4, label: Section 4 text, type: rich-text, options: { format: html } }
+          - { name: imageSlider, label: Image slider, description: "Photos for the scrolling strip.", type: image, options: { multiple: true } }
+          - { name: testimonial, label: Testimonial, type: text }
+          - { name: authorName, label: Testimonial author, type: string }
+          - { name: authorRoleLine1, label: Author role (line 1), type: string }
+          - { name: authorRoleLine2, label: Author role (line 2), type: string }
+          - name: videos
+            label: Videos
+            description: "Vimeo videos. The first two sit under the intro; the rest go in the gallery lower down (a slider from three)."
+            type: object
+            list: { max: 8, collapsible: { collapsed: true, summary: "{fields.title}" } }
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: link, label: Vimeo link, type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+          - { name: overlay, label: Overlay, type: string, hidden: true }
+
+      - name: micro-case-studies
+        label: Micro case studies
+        description: Short project pages for smaller jobs, at /work/<slug>. They appear under Recent work on the service pages they're tagged with.
+        type: collection
+        path: content/micro-case-studies
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [title, event, hidden, order]
+          primary: title
+          sort: [order, title]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - name: slug
+            label: Slug
+            description: The address, /work/<slug>. Lowercase letters, numbers and hyphens.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: hidden, label: Hidden for review, description: "Live at its address but not linked, not in search and not in the sitemap. Untick to publish.", type: boolean, default: true }
+          - { name: draft, label: Draft, description: "Not built at all.", type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: order, label: Order, description: "Position in lists (1 comes first).", type: number }
+          - name: client
+            label: Client
+            type: reference
+            options: { collection: clients, search: name, value: "{fields.slug}", label: "{fields.name}" }
+          - { name: clientLabel, label: Client name as shown, description: "e.g. Shockwave Medical, part of Johnson & Johnson. Leave empty to use the client's name.", type: string }
+          - { name: event, label: Event, description: "e.g. TCT 2026", type: string }
+          - { name: year, label: Year, type: number }
+          - name: services
+            label: Services
+            type: reference
+            options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
+          - { name: summary, label: Summary, description: "One or two sentences, used under the title, on the service page and in search results.", type: text }
+          - { name: body, label: Write-up, type: rich-text, options: { format: html } }
+          - { name: captured, label: What we captured, type: string, list: true }
+          - { name: coverPhoto, label: Cover photo, type: image }
+          - { name: gallery, label: Gallery, type: image, options: { multiple: true } }
+          - name: videos
+            label: Videos
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: link, label: Vimeo link, type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+
+      - name: insights
+        label: Insights
+        description: Articles, at /insights/<slug>.
+        type: collection
+        path: content/insights
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [title, order, draft]
+          primary: title
+          sort: [order, title]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - name: slug
+            label: Slug
+            description: The address, /insights/<slug>. Lowercase letters, numbers and hyphens. Changing it breaks existing links.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: order, label: Order, type: number }
+          - { name: overview, label: Overview, description: "The intro under the title, also used in search results.", type: text }
+          - { name: coverPhoto, label: Cover photo, type: image }
+          - { name: author, label: Author, type: string }
+          - name: insightCategory
+            label: Category
+            type: reference
+            options: { collection: insight-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
+          - { name: body, label: Article, type: rich-text, options: { format: html } }
+          - { name: imageSlider, label: Image slider, type: image, options: { multiple: true } }
+          - { name: publishedOn, label: Published on, type: date }
+          - { name: overlay, label: Overlay, type: string, hidden: true }
+
+  - name: people
+    label: People
+    type: group
+    items:
+      - name: experts
+        label: KOLs
+        description: Key opinion leaders, shown on the home page slider and the KOL Hub.
+        type: collection
+        path: content/experts
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, roleLine1, country, draft]
+          primary: name
+          sort: [lastName, name]
+          default: { sort: lastName, order: asc }
+        fields:
+          - { name: name, label: Name, description: "As shown on the card, with title, e.g. Dr. Jane Smith.", type: string, required: true }
+          - { name: lastName, label: Surname, description: "Used for the A–Z filter and sorting.", type: string, required: true }
+          - name: slug
+            label: Slug
+            description: Lowercase letters, numbers and hyphens, e.g. dr-jane-smith.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: photo, label: Photo, type: image }
+          - { name: roleLine1, label: Speciality, description: "e.g. Interventional Cardiology", type: string }
+          - { name: roleLine2, label: Role (line 2), type: string }
+          - { name: district, label: Hospital or institution, type: string }
+          - { name: city, label: City, type: string }
+          - { name: country, label: Country, type: string }
+          - name: clientsWorkedWith
+            label: Clients worked with
+            type: reference
+            options: { collection: clients, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
+          - { name: testimonial, label: Testimonial, description: "Shown in the KOL testimonials on the KOL page.", type: text }
+          - { name: order, label: Order, type: number, hidden: true }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+          - { name: overlay, label: Overlay, type: string, hidden: true }
+
+      - name: clients
+        label: Clients
+        description: Clients and their testimonials, used on the testimonial sliders and the KOL page.
+        type: collection
+        path: content/clients
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, order, draft]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: order, label: Order, description: "Position in the testimonial sliders.", type: number }
+          - { name: logo, label: Logo, type: image }
+          - { name: testimonial, label: Testimonial, description: "Leave empty to keep this client out of the testimonial sliders.", type: text }
+          - { name: authorRoleLine1, label: Testimonial author, type: string }
+          - { name: authorRoleLine2, label: Author role, type: string }
+          - name: experts
+            label: KOLs
+            description: "The KOL count shown on the KOL page."
+            type: reference
+            options: { collection: experts, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+      - name: client-logos
+        label: Client logos
+        description: The two logo rows on the home page.
+        type: collection
+        path: content/client-logos
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, secondLine, order]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: logotype, label: Logo, type: image }
+          - { name: secondLine, label: Show on the second row, type: boolean, default: false }
+          - { name: order, label: Order, type: number }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+  - name: services-group
+    label: Services
+    type: group
+    items:
+      - name: services
+        label: Services
+        description: Every service on the Services page. Tick "Has its own page" to give one a service page at /services/<slug>.
+        type: collection
+        path: content/services
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, serviceCategory, hasPage, hidden]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            description: The address of its page, /services/<slug>. Changing it breaks existing links.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - name: serviceCategory
+            label: Category
+            type: reference
+            options: { collection: service-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
+          - { name: order, label: Order, description: "Position within its category.", type: number }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: hasPage, label: Has its own page, type: boolean, default: false }
+          - { name: hidden, label: Page hidden for review, description: "Live at its address but not linked, not in search and not in the sitemap. Untick to publish.", type: boolean, default: true }
+          - { name: metaTitle, label: Search title, description: "The title in search results, e.g. On-site congress production for cardiology | Made Clear", type: string }
+          - { name: metaDescription, label: Search description, description: "About 150 characters for search results.", type: text }
+          - { name: image, label: Share image, type: image }
+          - { name: shortDescription, label: Line under the title, type: text }
+          - { name: whyThisMatters, label: Explainer, description: "Opens the page. Start with a one-sentence definition of the service: search engines and AI assistants quote it.", type: rich-text, options: { format: html } }
+          - { name: outcomesMainTitle, label: Outcomes heading, type: string }
+          - { name: outcomesDescription, label: Outcomes intro, type: string }
+          - { name: outcomesFirstTitle, label: Outcome 1 title, type: string }
+          - { name: outcomesFirstDescription, label: Outcome 1 text, type: text }
+          - { name: outcomesSecondTitle, label: Outcome 2 title, type: string }
+          - { name: outcomesSecondDescription, label: Outcome 2 text, type: text }
+          - { name: outcomesThirdTitle, label: Outcome 3 title, type: string }
+          - { name: outcomesThirdDescription, label: Outcome 3 text, type: text }
+          - { name: deliverables, label: What we capture, type: string, list: true }
+          - name: process
+            label: How it works
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
+            fields:
+              - { name: title, label: Step, type: string }
+              - { name: text, label: Description, type: text }
+          - name: faqs
+            label: FAQs
+            description: Also published as FAQ structured data for search engines.
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.question}" } }
+            fields:
+              - { name: question, label: Question, type: string }
+              - { name: answer, label: Answer, type: rich-text, options: { format: html } }
+          - name: relatedServices
+            label: Related services
+            type: reference
+            options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
+          - { name: gallery, label: Gallery, type: image, options: { multiple: true } }
+          - name: videos
+            label: Videos
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: link, label: Vimeo link, type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+          - { name: extraDescription, label: Extra description, type: rich-text, hidden: true, options: { format: html } }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+      - name: service-categories
+        label: Service categories
+        description: Strategy, Creative, Production, Distribution.
+        type: collection
+        path: content/service-categories
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, order]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            description: Also the anchor on the Services page, /services#<slug>.
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: order, label: Order, type: number }
+          - { name: description, label: Description, type: rich-text, options: { format: html } }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+  - name: site
+    label: Site
+    type: group
+    items:
+      - name: faqs
+        label: About page FAQs
+        type: collection
+        path: content/faqs
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [question, order, draft]
+          primary: question
+          sort: [order, question]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: question, label: Question, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: answer, label: Answer, type: rich-text, options: { format: html } }
+          - { name: order, label: Order, type: number }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+      - name: sectors
+        label: Sectors
+        description: The Sectors page, which is hidden from search until its copy is written.
+        type: collection
+        path: content/sectors
+        format: json
+        filename: "{fields.slug}.json"
+        view:
+          fields: [name, order]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: order, label: Order, type: number }
+          - { name: description, label: Description, type: rich-text, options: { format: html } }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+          - { name: publishedOn, label: Published on, type: date, hidden: true }
+
+  - name: categories
+    label: Filter categories
+    type: group
+    items:
+      - name: case-study-categories
+        label: Case study categories
+        description: Categories for the (currently hidden) filter on the Case Studies page.
+        type: collection
+        path: content/case-study-categories
+        format: json
+        filename: "{fields.slug}.json"
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }
+
+      - name: insight-categories
+        label: Insight categories
+        description: Categories for the (currently hidden) filter on the Insights page.
+        type: collection
+        path: content/insight-categories
+        format: json
+        filename: "{fields.slug}.json"
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: slug
+            label: Slug
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
+          - { name: draft, label: Draft, type: boolean, default: false }
+          - { name: archived, label: Archived, type: boolean, default: false }

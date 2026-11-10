@@ -1,0 +1,24 @@
+{
+  "name": "Medtronic",
+  "slug": "medtronic",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-05-15",
+  "authorRoleLine1": "Kris Flanagan",
+  "authorRoleLine2": "Principal Market Development Manager, Cardiac & Vascular Group Global Renal Denervation",
+  "testimonial": "\"Made Clear Studios are timely, committed, inclusive and flexible. They’re easy to work with, they have great thought processes, and I know that they’ll solve any problems I have.”",
+  "logo": "https://cdn.prod.website-files.com/69d7a9d5d387ff8d4be61f61/6a06e4a594de51f9664b288f_Medtronic%20(1).avif",
+  "experts": [
+    "dr-david-kandzari",
+    "dr-felix-mahfoud",
+    "prof-roland-schmieder",
+    "dr-nikhil-ahluwalia",
+    "dr-anastasia-mihailidou",
+    "prof-atul-pathak",
+    "prof-andrew-sharp",
+    "prof-dan-atar",
+    "dr-ziad-a-ali",
+    "dr-matthew-price"
+  ],
+  "order": 1
+}

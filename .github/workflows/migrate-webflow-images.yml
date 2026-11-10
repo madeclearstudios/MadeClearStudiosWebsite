@@ -1,0 +1,37 @@
+# One-off: moves every image still served from Webflow's CDN into the site (src/images/uploads/webflow/)
+# and updates the links, so the site keeps working after Webflow is cancelled and images are editable in Pages CMS.
+# Run it from the Actions tab: "Move Webflow images into the site" > Run workflow. Safe to run again: it only
+# commits if something changed, and changes nothing if any download fails.
+name: Move Webflow images into the site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download images and update links
+        run: node scripts/migrate-webflow-images.mjs
+      - name: Check the site still builds
+        run: |
+          npm ci
+          npm run build
+          if grep -rlE 'cdn\.prod\.website-files\.com|uploads-ssl\.webflow\.com' _site; then
+            echo "Webflow links are still in the built site" && exit 1
+          fi
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content src
+          if git diff --cached --quiet; then echo "Nothing to change"; exit 0; fi
+          git commit -m "Move Webflow-hosted images into the site" -m "Downloaded by the migrate-webflow-images workflow; links now point to /images/uploads/webflow/."
+          git push
