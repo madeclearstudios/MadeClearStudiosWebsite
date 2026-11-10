@@ -195,6 +195,22 @@
   color: inherit;
 }
 
+.kol-filter-clear {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  color: inherit;
+}
+
+.kol-filter-clear[hidden] {
+  display: none;
+}
+
 /* Letter buttons: all black while everyone shows; once a letter is picked it stays black and the rest fade.
    Letters with no KOLs keep the greyed-out .filter-disable look from the page. */
 .kol-letter {
