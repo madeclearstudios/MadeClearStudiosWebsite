@@ -1,0 +1,80 @@
+{#- Body of a micro case study page (src/micro-case-study.njk). Expects `m` (an item from microCaseStudies.json). -#}
+{%- set mClient = clients | findBy("slug", m.client) %}
+{%- set mServices = services | published | whereIn("slug", m.services or []) %}
+{%- set moreFromClient = caseStudies | published | where("client", m.client) | sortByOrder %}
+{%- if m.hidden %}
+      <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in microCaseStudies.json to publish it.</div>
+{%- endif %}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="grid _12-col gap-1 t_flex t_vertical">
+            <div class="_4-col flex vertical gap-2 align-start t_gap-1">
+              <div class="flex vertical gap-0-5">
+                <p class="text-size-xsmall font-600 text-color-grey-4">Client</p>
+                <p>{{ m.clientLabel or (mClient.name if mClient) }}</p>
+              </div>
+              <div class="flex vertical gap-0-5">
+                <p class="text-size-xsmall font-600 text-color-grey-4">Event</p>
+                <p>{{ m.event }}</p>
+              </div>
+              {%- if mServices.length %}
+              <div class="flex vertical gap-0-5">
+                <p class="text-size-xsmall font-600 text-color-grey-4">Service</p>
+                {%- for s in mServices %}
+                <p>{% if s.hasPage and not s.hidden %}<a href="/services/{{ s.slug }}" class="link-dark">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</p>
+                {%- endfor %}
+              </div>
+              {%- endif %}
+            </div>
+            <div class="_8-col">
+              <div class="height-1-5 none t_block"></div>
+              <div class="text-rich-text w-richtext">{{ m.body | safe }}</div>
+              {%- if m.captured and m.captured.length %}
+              <div class="height-2"></div>
+              <h2 class="h4">What we captured</h2>
+              <div class="height-1"></div>
+              <ul role="list" class="service-list micro-list">
+                {%- for item in m.captured %}
+                <li class="relative padding-vertical padding-1">{{ item }}<div class="divider absolute bottom-0"></div></li>
+                {%- endfor %}
+              </ul>
+              {%- endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {%- set gallery = m.gallery or [] %}
+      {%- set videos = m.videos or [] %}
+      {%- set svc = null %}
+      {%- include "service/media.njk" %}
+
+      {%- if moreFromClient.length or mServices.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="flex vertical align-center text-align-center gap-1">
+            {%- if moreFromClient.length %}
+            <h2 class="relative">More with {{ mClient.name if mClient else "this client" }}</h2>
+            <div class="height-1"></div>
+            <div class="flex gap-1 children-wrap justify-center">
+              {%- for cs in moreFromClient %}
+              <a href="/case-study/{{ cs.slug }}" class="button-secondary w-inline-block">
+                <div class="text-size-xsmall font-600 relative">
+                  <div class="text-breaking-no-wrap">{{ cs.title }}</div>
+                  <div class="button-secondary-bg"></div>
+                </div>
+              </a>
+              {%- endfor %}
+            </div>
+            {%- endif %}
+            {%- for s in mServices %}{% if s.hasPage and not s.hidden %}
+            <div class="height-2"></div>
+            <a href="/services/{{ s.slug }}" class="button primary w-inline-block">
+              <div>More about {{ s.name | lower }}</div>
+              <div class="hover-button-blur"></div>
+            </a>
+            {%- endif %}{% endfor %}
+          </div>
+        </div>
+      </section>
+      {%- endif %}

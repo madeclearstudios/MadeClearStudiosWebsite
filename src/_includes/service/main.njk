@@ -1,0 +1,228 @@
+{#- Body of a service page (src/service.njk). Expects `svc` (a service from services.json with hasPage: true). -#}
+{%- set cat = serviceCategories | findBy("slug", svc.serviceCategory) %}
+{%- set micros = microCaseStudies | published | whereIncludes("services", svc.slug) | sortByOrder %}
+{%- set bigCases = caseStudies | published | whereIncludes("services", svc.slug) | sortByOrder %}
+{%- set related = services | published | whereIn("slug", svc.relatedServices or []) %}
+{%- if svc.hidden %}
+      <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in services.json to publish it.</div>
+{%- endif %}
+
+      {#- What it is: the opening definition answer engines quote -#}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="flex vertical align-center text-align-center gap-1">
+            <div class="max-w-450">
+              <h2 class="relative">What it is</h2>
+            </div>
+            <div class="max-w-670">
+              <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | safe }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {#- Outcomes -#}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="flex vertical gap-4 t_gap-3 m_gap-2">
+            <div class="flex vertical gap-0-5">
+              <h2 class="relative">{{ svc.outcomesMainTitle }}</h2>
+              <p>{{ svc.outcomesDescription }}</p>
+            </div>
+            <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
+              {%- for n in ["First", "Second", "Third"] %}
+              <div class="_4-col">
+                <div class="flex vertical gap-0-75 service-outcome">
+                  <h3>{{ svc["outcomes" + n + "Title"] }}</h3>
+                  <p>{{ svc["outcomes" + n + "Description"] }}</p>
+                </div>
+              </div>
+              {%- endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {#- What we capture: same list style as the Services page -#}
+      {%- if svc.deliverables and svc.deliverables.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
+            <div class="_5-col">
+              <div class="relative">
+                <h2 class="h3 padding-top padding-2">What we capture</h2>
+                <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
+              </div>
+            </div>
+            <div class="_8-col">
+              <ul role="list" class="grid _8-col col-gap-5 row-gap-1-25 t_col-gap-3 m_flex m_vertical m_gap-0 service-list">
+                {%- for item in svc.deliverables %}
+                <li class="_4-col">
+                  <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative height-100-pct t_padding-1 m_padding-1-25 gap-1">
+                    <h3>{{ item }}</h3>
+                    <div class="divider absolute bottom-0"></div>
+                  </div>
+                </li>
+                {%- endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      {%- endif %}
+
+      {#- How it works on the day -#}
+      {%- if svc.process and svc.process.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">How it works</h2>
+          <div class="height-2"></div>
+          <ol role="list" class="grid _12-col gap-1-25 t_flex t_vertical service-steps">
+            {%- for step in svc.process %}
+            <li class="_3-col border-1 radius-0-25 padding-1-5 m_padding-1-25">
+              <div class="service-step-num">{{ ("0" + loop.index) if loop.index < 10 else loop.index }}</div>
+              <h3 class="h4">{{ step.title }}</h3>
+              <div class="height-0-75"></div>
+              <p>{{ step.text }}</p>
+            </li>
+            {%- endfor %}
+          </ol>
+        </div>
+      </section>
+      {%- endif %}
+
+      {#- Recent work: micro case studies first, then any full case studies using this service -#}
+      {%- if micros.length or bigCases.length or svc.hidden %}
+      <section class="section padding-5" id="recent-work">
+        <div class="container">
+          <div class="flex vertical gap-0-5">
+            <h2 class="relative">Recent work</h2>
+            <p>The latest congresses and events we have filmed.</p>
+          </div>
+          <div class="height-2"></div>
+          <div class="flex vertical gap-1-5">
+            {%- for m in micros %}
+            {%- set mClient = clients | findBy("slug", m.client) %}
+            <div class="bg-grey-1 border-1 radius-1-px">
+              <div class="padding-vertical padding-4 t_padding-2 m_padding-1-5">
+                <div class="padding-horizontal padding-5 t_padding-2 m_padding-1-5">
+                  <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
+                    <div class="_4-col relative">
+                      {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="_16x9 width-100-pct radius-0-25">
+                      {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.event }}</div>{% endif %}
+                    </div>
+                    <div class="_8-col">
+                      <div class="flex vertical gap-2 height-100-pct justify-space-between t_gap-1-5">
+                        <div class="flex vertical gap-0-5">
+                          <p class="text-size-xsmall font-600 text-color-grey-4">{{ m.event }} · {{ m.clientLabel or (mClient.name if mClient) }}</p>
+                          <h3>{{ m.title }}</h3>
+                          <p>{{ m.summary }}</p>
+                        </div>
+                        <div class="flex align-center gap-3 m_vertical m_align-stretch m_text-align-center m_gap-1-5">
+                          <a href="/work/{{ m.slug }}" class="button primary w-inline-block">
+                            <div>Read the project</div>
+                            <div class="hover-button-blur"></div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%- endfor %}
+            {%- for cs in bigCases %}
+            <div class="bg-grey-1 border-1 radius-1-px">
+              <div class="padding-vertical padding-4 t_padding-2 m_padding-1-5">
+                <div class="padding-horizontal padding-5 t_padding-2 m_padding-1-5">
+                  <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
+                    <div class="_4-col relative">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="_16x9 width-100-pct radius-0-25">{% endif %}</div>
+                    <div class="_8-col">
+                      <div class="flex vertical gap-2 height-100-pct justify-space-between t_gap-1-5">
+                        <div class="flex vertical gap-0-5">
+                          <h3>{{ cs.title }}</h3>
+                          <p>{{ cs.overview }}</p>
+                        </div>
+                        <div class="flex align-center gap-3 m_vertical m_align-stretch m_text-align-center m_gap-1-5">
+                          <a href="/case-study/{{ cs.slug }}" class="button primary w-inline-block">
+                            <div>Read Case Study</div>
+                            <div class="hover-button-blur"></div>
+                          </a>
+                          <a href="/case-studies" class="button-secondary w-inline-block">
+                            <div class="text-size-xsmall font-600 relative">
+                              <div class="text-breaking-no-wrap">Further Case Studies</div>
+                              <div class="button-secondary-bg"></div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%- endfor %}
+          </div>
+        </div>
+      </section>
+      {%- endif %}
+
+      {%- set gallery = svc.gallery or [] %}
+      {%- set videos = svc.videos or [] %}
+      {%- include "service/media.njk" %}
+
+      {#- FAQs: the questions people (and answer engines) ask; also published as FAQPage structured data -#}
+      {%- if svc.faqs and svc.faqs.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="grid _12-col gap-1">
+            <div class="_3-col flex justify-start">
+              <div class="relative flex justify-center">
+                <h2 class="relative">FAQ</h2><img loading="lazy" src="/images/Vector-2_1.svg" alt="" class="vector-bg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="section padding-3 bg-brand height-transition">
+        <div class="container-medium">
+          <div class="faq-list">
+            {%- for faq in svc.faqs %}
+            <button class="faq-item" type="button">
+              <div class="faq-title">
+                <h3 class="h2 text-capitalize-none">{{ faq.question }}</h3>
+              </div>
+              <div class="padding-horizontal padding-1 faq-bottom">
+                <div class="faq-content">
+                  <div class="text-rich-text overflow-hidden w-richtext">{{ faq.answer | safe }}</div>
+                  <div class="height-1"></div>
+                </div>
+              </div>
+            </button>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+
+      {#- Related services -#}
+      {%- if related.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">Related services</h2>
+          <div class="height-2"></div>
+          <ul role="list" class="grid _12-col col-gap-5 row-gap-1-25 t_flex t_vertical t_gap-0 service-list">
+            {%- for r in related %}
+            {%- set rCat = serviceCategories | findBy("slug", r.serviceCategory) %}
+            <li class="_6-col">
+              <a href="{{ ('/services/' + r.slug) if (r.hasPage and not r.hidden) else ('/services#' + (rCat.slug if rCat else '')) }}" class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct gap-1 service-link-row">
+                <h3>{{ r.name }}</h3>
+                <span aria-hidden="true">→</span>
+                <div class="divider absolute bottom-0"></div>
+              </a>
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </section>
+      {%- endif %}

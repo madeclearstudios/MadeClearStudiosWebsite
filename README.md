@@ -61,6 +61,27 @@ To add a case study or insight, copy an existing entry in the JSON file and give
 - Every page gets a canonical tag pointing at its `https://madeclearstudios.com` address, added at build time by the `canonical` transform in `eleventy.config.js` (skipped on the 404 page and noindex pages). The main address is the bare domain; `www` redirects to it.
 - Redirects live in `src/_redirects` (Netlify format). Add one whenever a page or CMS slug is renamed.
 
+## Service pages and micro case studies
+
+**Service pages** live at `/services/<slug>`, built by `src/service.njk` (body in `src/_includes/service/`). A service gets a page when its entry in `src/_data/services.json` has `"hasPage": true`. The page fields:
+
+- `metaTitle`, `metaDescription`: the search result title and description
+- `shortDescription`: the line under the title
+- `whyThisMatters` (HTML): the "What it is" section. Start it with a one-sentence definition; search engines and AI assistants quote that line.
+- `outcomesMainTitle`, `outcomesDescription`, `outcomesFirst…Third` `Title`/`Description`: the three outcomes
+- `deliverables`: the "What we capture" list
+- `process`: the "How it works" steps (`title`, `text`)
+- `faqs`: questions and HTML answers. They also go into the page's FAQPage structured data.
+- `relatedServices`: slugs of services to link at the bottom
+- `gallery`: image URLs (or `{ "src": …, "alt": … }`); `videos`: `{ "link": "<Vimeo link>", "thumbnail": …, "title": … }`
+- `hidden`: `true` while the page is being reviewed (see below)
+
+Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug.
+
+**Micro case studies** are short project pages for smaller jobs, at `/work/<slug>`, built by `src/micro-case-study.njk` from `src/_data/microCaseStudies.json`. Fields: `title`, `slug`, `client` (a client slug), `clientLabel`, `event`, `year`, `services` (service slugs), `summary`, `body` (HTML), `captured` (list), `coverPhoto`, `gallery`, `videos`, `order`, `hidden`.
+
+**Publishing:** `"hidden": true` keeps a page live at its address for review but out of search (noindex), out of the sitemap and unlinked, with a yellow review banner and placeholders for empty galleries. Set `"hidden": false` to publish it: the banner and placeholders go, it joins the sitemap, gets a canonical tag, and the Services page links to it.
+
 ## Contact form
 
 The enquiry form uses **Netlify Forms** (form name `contact`). Submissions appear in the Netlify dashboard under *Forms*.

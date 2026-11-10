@@ -25,6 +25,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("published", published);
   eleventyConfig.addFilter("where", (items = [], key, value) => items.filter((i) => i[key] === value));
   eleventyConfig.addFilter("whereIn", (items = [], key, values = []) => items.filter((i) => values.includes(i[key])));
+  eleventyConfig.addFilter("whereIncludes", (items = [], key, value) => items.filter((i) => (i[key] || []).includes(value)));
+  // FAQ structured data (schema.org FAQPage) from [{ question, answer (HTML) }]
+  eleventyConfig.addFilter("faqSchema", (faqs = []) =>
+    faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: String(f.answer).replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim() },
+    }))
+  );
   eleventyConfig.addFilter("findBy", (items = [], key, value) => items.find((i) => i[key] === value));
   eleventyConfig.addFilter("except", (items = [], item) => items.filter((i) => i !== item));
   eleventyConfig.addFilter("sortBy", (items = [], key) =>

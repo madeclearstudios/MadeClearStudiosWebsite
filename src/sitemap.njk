@@ -2,7 +2,7 @@
 permalink: sitemap.xml
 eleventyExcludeFromCollections: true
 ---
-{#- Every page except 404 and pages marked `noindex: true`. Case studies and insights are listed from the CMS data. -#}
+{#- Every page except 404 and pages marked `noindex: true`. Case studies, insights, service pages and micro case studies are listed from the CMS data (hidden ones are left out). -#}
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for item in collections.all %}{% if not item.data.noindex %}
@@ -11,6 +11,12 @@ eleventyExcludeFromCollections: true
 {%- for cs in caseStudies | published %}
   <url><loc>{{ siteUrl }}/case-study/{{ cs.slug }}</loc></url>
 {%- endfor %}
+{%- for svc in services | published %}{% if svc.hasPage and not svc.hidden %}
+  <url><loc>{{ siteUrl }}/services/{{ svc.slug }}</loc></url>
+{%- endif %}{% endfor %}
+{%- for m in microCaseStudies | published %}{% if not m.hidden %}
+  <url><loc>{{ siteUrl }}/work/{{ m.slug }}</loc></url>
+{%- endif %}{% endfor %}
 {%- for insight in insights | published %}
   <url><loc>{{ siteUrl }}/insights/{{ insight.slug }}</loc></url>
 {%- endfor %}

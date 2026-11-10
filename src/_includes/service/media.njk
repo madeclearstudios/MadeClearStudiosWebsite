@@ -1,0 +1,44 @@
+{#- Photo and video galleries for a service or micro case study. Expects `gallery` (image URLs or
+    { src, alt } objects), `videos` ({ link, thumbnail, title }) and `svc` or `m` with `hidden` for placeholders.
+    Empty galleries are left out, except on hidden review pages, where placeholders show what goes there. -#}
+{%- set reviewing = (svc and svc.hidden) or (m and m.hidden) %}
+      {%- if gallery.length or reviewing %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">Gallery</h2>
+          <div class="height-2"></div>
+          <div class="media-grid">
+            {%- for img in gallery %}
+            {%- set src = img.src or img %}
+            <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
+              <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}">
+              <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
+            </a>
+            {%- endfor %}
+            {%- if not gallery.length %}
+            {%- for i in range(0, 6) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
+            {%- endif %}
+          </div>
+        </div>
+      </section>
+      {%- endif %}
+
+      {%- if videos.length or reviewing %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">Video</h2>
+          <div class="height-2"></div>
+          <div class="grid _12-col gap-1-25 t_flex t_vertical">
+            {%- for v in videos %}
+            <div class="_6-col">
+              {%- set video = v %}
+              {% include "video-lightbox.njk" %}
+            </div>
+            {%- endfor %}
+            {%- if not videos.length %}
+            {%- for i in range(0, 2) %}<div class="_6-col"><div class="_16x9 width-100-pct radius-0-25 media-placeholder">Video</div></div>{% endfor %}
+            {%- endif %}
+          </div>
+        </div>
+      </section>
+      {%- endif %}

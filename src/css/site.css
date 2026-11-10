@@ -248,3 +248,136 @@
   outline-offset: 3px;
 }
 
+
+/* Service pages (/services/<slug>) and micro case studies (/work/<slug>) */
+.review-banner {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.625rem 1rem;
+  background: var(--main--marker-yellow);
+  color: var(--dark);
+  font-size: var(--_typography---text--small);
+  letter-spacing: 0.05rem;
+  text-align: center;
+}
+
+.service-breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: var(--_typography---text--small);
+  letter-spacing: 0.0875rem;
+}
+
+.service-breadcrumb a {
+  color: inherit;
+}
+
+.service-lead p:first-child {
+  font-size: var(--_typography---text--normal);
+}
+
+.service-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.service-list li {
+  margin-bottom: 0;
+}
+
+.service-steps {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.service-steps li {
+  margin-bottom: 0;
+}
+
+.service-step-num {
+  font-weight: 700;
+  font-size: var(--_typography---text--small);
+  letter-spacing: 0.0875rem;
+  margin-bottom: 1.25rem;
+}
+
+.service-link-row {
+  color: inherit;
+  text-decoration: none;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.media-grid-item {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--_sizes---0-25);
+}
+
+.media-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.media-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Shown only on hidden review pages, where a photo or video still needs adding */
+.media-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main--grey-1);
+  border: 1px dashed var(--main--grey-2);
+  border-radius: var(--_sizes---0-25);
+  color: var(--main--grey-3);
+  font-size: var(--_typography---text--small);
+  letter-spacing: 0.0875rem;
+}
+
+.faq-list {
+  counter-reset: faq;
+}
+
+.faq-item {
+  counter-increment: faq;
+}
+
+.faq-title h3::before {
+  content: counter(faq, decimal-leading-zero) ": ";
+}
+
+.faq-item.is-open,
+.faq-item:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.service-page-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.service-page-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}

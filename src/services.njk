@@ -150,7 +150,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         {%- for service in services | published | where("serviceCategory", cat.slug) %}
                         <div role="listitem" class="_4-col w-dyn-item">
                           <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct t_padding-1 m_padding-1-25 gap-1">
-                            <h3>{{ service.name }}</h3>
+                            {%- if service.hasPage and not service.hidden %}<h3><a href="/services/{{ service.slug }}" class="service-page-link">{{ service.name }}</a></h3>{% else %}<h3>{{ service.name }}</h3>{% endif %}
                             <div class="divider absolute bottom-0"></div>
                           </div>
                         </div>
@@ -201,7 +201,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         {%- for service in services | published | where("serviceCategory", cat.slug) %}
                         <div role="listitem" class="_4-col w-dyn-item">
                           <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct t_padding-1 m_padding-1-25 gap-1">
-                            <h3>{{ service.name }}</h3>
+                            {%- if service.hasPage and not service.hidden %}<h3><a href="/services/{{ service.slug }}" class="service-page-link">{{ service.name }}</a></h3>{% else %}<h3>{{ service.name }}</h3>{% endif %}
                             <div class="divider absolute bottom-0"></div>
                           </div>
                         </div>
@@ -252,7 +252,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         {%- for service in services | published | where("serviceCategory", cat.slug) %}
                         <div role="listitem" class="_4-col w-dyn-item">
                           <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct t_padding-1 m_padding-1-25 gap-1">
-                            <h3>{{ service.name }}</h3>
+                            {%- if service.hasPage and not service.hidden %}<h3><a href="/services/{{ service.slug }}" class="service-page-link">{{ service.name }}</a></h3>{% else %}<h3>{{ service.name }}</h3>{% endif %}
                             <div class="divider absolute bottom-0"></div>
                           </div>
                         </div>
@@ -303,7 +303,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         {%- for service in services | published | where("serviceCategory", cat.slug) %}
                         <div role="listitem" class="_4-col w-dyn-item">
                           <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct t_padding-1 m_padding-1-25 gap-1">
-                            <h3>{{ service.name }}</h3>
+                            {%- if service.hasPage and not service.hidden %}<h3><a href="/services/{{ service.slug }}" class="service-page-link">{{ service.name }}</a></h3>{% else %}<h3>{{ service.name }}</h3>{% endif %}
                             <div class="divider absolute bottom-0"></div>
                           </div>
                         </div>
