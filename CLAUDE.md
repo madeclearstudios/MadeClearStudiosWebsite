@@ -30,6 +30,9 @@ npm run build    # production build into _site/
 | Webflow's site-wide custom CSS embed | `src/_includes/global-styles.njk` |
 | Styles | `src/css/made-clear-wip.webflow.css` (Webflow export), `src/css/site.css` (our additions) |
 | Images and fonts | `src/images/`, `src/fonts/` |
+| Google Analytics (GA4, `G-F6SX5N28QT`), loaded only after cookie consent | `src/_includes/analytics.njk`, included in every page's `<head>` |
+| Cookie consent banner and the footer's "Cookie settings" link | `src/js/consent.js`, styles at the end of `src/css/site.css`; described in clause 5 of the privacy policy |
+| Organization structured data (Home, About, Contact) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
 
 ## CMS content (edited in Pages CMS)
 
@@ -93,7 +96,18 @@ Recent work on a service page lists the micro case studies and full case studies
 ## Contact form
 
 The enquiry form uses **Netlify Forms** (form name `contact`). Submissions appear in the Netlify dashboard under *Forms*.
-Set up email notifications there. `src/js/contact-form.js` sends the form and shows the thank-you message.
+Set up email notifications there. `src/js/contact-form.js` sends the form, shows the thank-you message and sends the GA4 event `generate_lead` (with `form_name` and `form_location`) when the visitor has accepted cookies. Mark `generate_lead` as a key event in GA to count enquiries as conversions.
+
+## Images
+
+Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.config.js`). Every `<img>` pointing at a local file gets WebP copies at 480, 960 and 1600px in `_site/img/`, with `srcset`, `sizes`, `width` and `height` added. Upload images at full quality; there is no need to resize them first. SVGs are left alone. Add `eleventy:ignore` to an `<img>` to skip it (for example when a script changes its `src`). Images set in CSS (`background-image`) are not resized, so save those as WebP at a sensible size.
+
+## Structured data
+
+- Organization: `src/_includes/schema/organization.njk` on Home, About and Contact, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
+- FAQPage: About (from the FAQs collection) and each service page (from its `faqs`), built with the `faqSchema` filter.
+- Service and BreadcrumbList: service pages; CreativeWork: micro case studies.
+- Page titles end in `| Made Clear` and every indexed page has its own meta description (about 155 characters at most). Case study, insight and micro case study descriptions come from their overview or summary, trimmed by the `metaDescription` filter.
 
 ## Notes from the Webflow move
 
