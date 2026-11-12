@@ -692,6 +692,13 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
    hidden, lets position: sticky work. Below tablet width the columns stack and nothing sticks. */
 .page-wrapper.micro-page { overflow: clip; }
 .micro-intro_title { margin: 0; }
+/* A tighter highlighter on the micro case study title: less overhang either side and a slimmer stroke */
+.micro-intro_title .services-highlight.is-multiline {
+  padding: 0 0.06em;
+  margin: 0 -0.06em;
+  background-size: 100% 78%;
+  background-position: 0 62%;
+}
 @media screen and (min-width: 992px) {
   .micro-intro_aside { align-self: stretch; }
   .micro-intro_sticky { position: sticky; top: 2rem; padding-right: 2rem; }
