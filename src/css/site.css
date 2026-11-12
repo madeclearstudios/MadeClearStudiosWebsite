@@ -402,17 +402,14 @@
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
+  margin-right: -0.5rem;
   padding: 0;
-  border: 1px solid currentColor;
-  border-radius: 50%;
+  border: 0;
   background: transparent;
   color: inherit;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
-.service-toggle:hover,
-.service-toggle:focus-visible { background-color: var(--main--marker-yellow, yellow); }
-.service-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.service-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 2px; }
 .service-chevron { transition: transform 0.25s ease; }
 .service-toggle[aria-expanded="true"] .service-chevron { transform: rotate(180deg); }
 .service-expandable.is-open { grid-column: 1 / -1; }
