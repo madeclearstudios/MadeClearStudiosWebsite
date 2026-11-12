@@ -457,3 +457,16 @@
    reserve their space. Keep their proportions when CSS changes the width; :where() has no specificity,
    so any class that sets a height still wins. */
 :where(img[width][height]) { height: auto; }
+
+/* Yellow brushstroke highlight that wraps over several lines (e.g. the Home heading):
+   each line gets its own stroke instead of one stroke split across the lines */
+.services-highlight.is-multiline {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: url('../images/highlight-stretch.svg'); /* Vector-2.svg, allowed to stretch to each line's width */
+  background-size: 100% 100%;
+  padding: 0 0.15em;
+  /* the base style's backdrop blur covers the whole heading's box once the text wraps */
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
