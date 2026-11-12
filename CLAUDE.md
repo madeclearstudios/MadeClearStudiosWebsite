@@ -32,6 +32,7 @@ npm run build    # production build into _site/
 | Images and fonts | `src/images/`, `src/fonts/` |
 | Google Analytics (GA4, `G-F6SX5N28QT`), loaded only after cookie consent | `src/_includes/analytics.njk`, included in every page's `<head>` |
 | Cookie consent banner and the footer's "Cookie settings" link | `src/js/consent.js`, styles at the end of `src/css/site.css`; described in clause 5 of the privacy policy |
+| Night mode (switch in the nav; choice remembered in `localStorage` as `mc-theme`) | Set before paint by `src/_includes/theme.njk` (in every page's `<head>`), switch markup `src/_includes/night-toggle.njk` (in `nav.njk`), behaviour `src/js/night-mode.js`, colours in the "Night mode" block at the end of `src/css/site.css`. It swaps the colour variables (`--dark`, `--light`, greys, cream); anything with a fixed colour needs its own `html.night-mode` rule there. Text on solid yellow stays black; highlighter strokes and the yellow nav-link underlines are removed |
 | Organization structured data (Home, About, Contact) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
 
 ## CMS content (edited in Pages CMS)

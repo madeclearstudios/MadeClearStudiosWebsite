@@ -1,0 +1,5 @@
+{#- Night mode: runs before the page paints, so a visitor who switched it on doesn't see a white flash.
+    The switch is in the nav (_includes/night-toggle.njk), behaviour in js/night-mode.js, colours at the end of css/site.css.
+    The choice is kept in localStorage ("mc-theme": "night" or "day"). -#}
+  <script>try{if(localStorage.getItem('mc-theme')==='night')document.documentElement.classList.add('night-mode')}catch(e){}</script>
+  <script src="/js/night-mode.js" defer></script>

@@ -87,10 +87,16 @@
                 <div class="flex align-center justify-center">
                   <a href="/contact"{{ current("/contact") }} class="navlink{{ currentClass("/contact") }}">Contact</a>
                 </div>
+                <div class="flex align-center justify-center night-toggle-slot t_none">
+                  {%- set extraClass = "" %}{% include "night-toggle.njk" %}
+                </div>
               </div>
             </div>
           </div>
         </nav>
+        <div class="none t_block night-toggle-mobile">
+          {%- set extraClass = "" %}{% include "night-toggle.njk" %}
+        </div>
         <div class="menu-btn w-nav-button">
           <div class="nav-burger_line first"></div>
           <div class="nav-burger_line second"></div>
