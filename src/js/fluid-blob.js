@@ -206,11 +206,15 @@
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
       gl.uniform1i(u.uText, 0);
-      // The page colour behind the copy (the first ancestor with a solid background)
+    }
+    // The page colour behind the copy (the first ancestor with a solid background). Read on every redraw,
+    // because night mode (html.night-mode) changes it while the page is open.
+    function readPageColor() {
       for (var el = canvas.parentElement; el; el = el.parentElement) {
         var bg = getComputedStyle(el).backgroundColor;
-        if (bg && bg !== "transparent" && !/rgba\(.*,\s*0\)$/.test(bg)) { pageColor = bg; break; }
+        if (bg && bg !== "transparent" && !/rgba\(.*,\s*0\)$/.test(bg)) return bg;
       }
+      return "#fff";
     }
 
     function roundRect(ctx, x, y, w, h, r) {
@@ -234,6 +238,7 @@
       textCanvas.width = W;
       textCanvas.height = H;
       var ctx = textCtx;
+      pageColor = readPageColor();
       ctx.fillStyle = pageColor;
       ctx.fillRect(0, 0, W, H);
 
@@ -281,6 +286,10 @@
     if (lens) {
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { copyDirty = true; });
       window.addEventListener("resize", function () { copyDirty = true; });
+      // Redraw the copy when night mode is switched on or off, so the drop picks up the new colours
+      if (window.MutationObserver) {
+        new MutationObserver(function () { copyDirty = true; }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+      }
     }
 
     // --- Sizing: render below full device resolution, and lower it further if frames are slow
