@@ -40,34 +40,6 @@
         </div>
       </section>
 
-      {#- What we capture: same list style as the Services page -#}
-      {%- if svc.deliverables and svc.deliverables.length %}
-      <section class="section padding-5">
-        <div class="container">
-          <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
-            <div class="_5-col">
-              <div class="relative">
-                <h2 class="h3 padding-top padding-2">What we capture</h2>
-                <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
-              </div>
-            </div>
-            <div class="_8-col">
-              <ul role="list" class="grid _8-col col-gap-5 row-gap-1-25 t_col-gap-3 m_flex m_vertical m_gap-0 service-list">
-                {%- for item in svc.deliverables %}
-                <li class="_4-col">
-                  <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative height-100-pct t_padding-1 m_padding-1-25 gap-1">
-                    <h3>{{ item }}</h3>
-                    <div class="divider absolute bottom-0"></div>
-                  </div>
-                </li>
-                {%- endfor %}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      {%- endif %}
-
       {#- How it works on the day -#}
       {%- if svc.process and svc.process.length %}
       <section class="section padding-5">

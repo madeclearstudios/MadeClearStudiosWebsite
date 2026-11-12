@@ -306,7 +306,7 @@ content:
           - { name: outcomesSecondDescription, label: Outcome 2 text, type: text }
           - { name: outcomesThirdTitle, label: Outcome 3 title, type: string }
           - { name: outcomesThirdDescription, label: Outcome 3 text, type: text }
-          - { name: deliverables, label: What we capture, type: string, list: true }
+          - { name: deliverables, label: What we capture, description: "No longer shown on service pages; kept in case it comes back.", type: string, list: true, hidden: true }
           - name: process
             label: How it works
             type: object
