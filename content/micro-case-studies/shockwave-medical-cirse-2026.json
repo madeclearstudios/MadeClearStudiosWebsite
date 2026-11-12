@@ -15,5 +15,19 @@
     "film-and-video-content",
     "congress-and-event-creative"
   ],
-  "body": "<p></p>"
+  "summary": "KOL filming and VR deployment at CIRSE Copenhagen 2026 for the Shockwave Medical Peripheral Team. ",
+  "body": "<p>At CIRSE 2026 we worked with Johnson &amp; Johnson’s Shockwave Medical team on filming and VR support across three days of the congress.</p><p>In Shockwave’s Experience Centre we recorded physicians talking about the clinical evidence behind IVL. That included multiple interviews with physicians. We also captured two clinical case recordings, each with a single physician. Each recording used a lit, three-camera set-up.</p><p>Alongside the filming, our team helped Shockwave run their VR programme, handling VR delivery and hardware across 10 sessions over the congress.</p><p>CIRSE is part of our long-standing work with Shockwave Medical, now part of Johnson &amp; Johnson, across European and US congresses.</p>",
+  "captured": [
+    "Clinical study interviews with physicians",
+    "Single-physician interviews and two-physician discussions",
+    "Clinical case recordings",
+    "Multi-camera interview set-ups",
+    "VR delivery and hardware support"
+  ],
+  "coverPhoto": "/images/uploads/CIRSE 2026 VR Deployment.webp",
+  "gallery": [
+    "/images/uploads/Shockwave Peripheral Team.webp",
+    "/images/uploads/CIRSE 2026 VR Deployment-1.webp",
+    "/images/uploads/Shockwave KOLs Cirse.webp"
+  ]
 }
