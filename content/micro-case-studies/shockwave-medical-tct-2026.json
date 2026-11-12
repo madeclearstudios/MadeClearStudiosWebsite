@@ -27,5 +27,11 @@
     "/images/uploads/Full Team Photo-1.webp",
     "/images/uploads/Nick West Osmo Social Media.webp",
     "/images/uploads/Shockwave C2 bike.webp"
+  ],
+  "videos": [
+    {
+      "title": "Shockwave @ TCT 2026 - Welcome Sizzle",
+      "link": "https://youtube.com/shorts/ATaVvhjC4Tg?feature=share"
+    }
   ]
 }
