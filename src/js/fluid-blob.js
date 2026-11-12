@@ -22,6 +22,11 @@
   var VIEW = 1.07;
   // How much the lens version magnifies the copy behind it
   var MAGNIFY = 1.2;
+  // On phones the drop is small, so the lens is gentler: less magnification and less bending towards the rim,
+  // which keeps more of the copy readable (desktop is unchanged). Read once, when the shader is built.
+  var SMALL = !!(window.matchMedia && window.matchMedia("(max-width: 767px)").matches);
+  if (SMALL) MAGNIFY = 1.1;
+  var BEND_BASE = SMALL ? 0.008 : 0.02, BEND_EDGE = SMALL ? 0.035 : 0.1;
 
   var vertexSource = "attribute vec2 aPos; void main() { gl_Position = vec4(aPos, 0.0, 1.0); }";
 
@@ -32,6 +37,8 @@
       "#define SCALE " + SCALE.toFixed(2),
       "#define VIEW " + VIEW.toFixed(2),
       "#define MAGNIFY " + MAGNIFY.toFixed(2),
+      "#define BEND_BASE " + BEND_BASE.toFixed(3),
+      "#define BEND_EDGE " + BEND_EDGE.toFixed(3),
       "uniform vec2 uRes;",
       "uniform float uTime;",
       "uniform float uEnergy;",
@@ -129,7 +136,7 @@
       "  vec2 suv = gl_FragCoord.xy / uRes;",
       "  vec2 cuv = 0.5 + uOffset.xy / (VIEW * SCALE) * 0.5 * asp;",
       "  vec2 look = cuv + (suv - cuv) / MAGNIFY;",
-      "  vec2 bend = -n.xy * asp * (0.02 + 0.1 * edge * edge);",
+      "  vec2 bend = -n.xy * asp * (BEND_BASE + BEND_EDGE * edge * edge);",
       "  vec3 behind = vec3(texture2D(uText, look + bend).r, texture2D(uText, look + bend * 1.04).g, texture2D(uText, look + bend * 1.08).b);",
       "  vec3 col3 = behind * mix(1.0, 0.82, smoothstep(0.6, 1.0, edge));",
       "  col3 = mix(col3, vec3(env(refl)), fres * 0.6);",

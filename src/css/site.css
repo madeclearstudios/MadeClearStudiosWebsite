@@ -681,8 +681,10 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .night-toggle-mobile { margin-left: auto; margin-right: 1rem; }
 /* Desktop: the right-hand group of links keeps room at its end for the switch, so KOL Hub, Insights and Contact
    stay evenly spread and nothing runs past the page edge */
-.w-nav-menu .flex.justify-space-between.width-100-pct:has(> .night-toggle-slot) { position: relative; padding-right: 4.25rem; }
-.night-toggle-slot { position: absolute; top: 50%; right: 0; transform: translateY(-50%); }
+@media screen and (min-width: 992px) {
+  .w-nav-menu .flex.justify-space-between.width-100-pct:has(> .night-toggle-slot) { position: relative; padding-right: 4.25rem; }
+  .night-toggle-slot { position: absolute; top: 50%; right: 0; transform: translateY(-50%); }
+}
 @media (prefers-reduced-motion: reduce) {
   .night-toggle_thumb, .night-toggle_track { transition: none; }
 }
@@ -702,4 +704,21 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 @media screen and (min-width: 992px) {
   .micro-intro_aside { align-self: stretch; }
   .micro-intro_sticky { position: sticky; top: 2rem; padding-right: 2rem; }
+}
+
+/* Phones and tablets */
+@media screen and (max-width: 991px) {
+  /* The menu button's Webflow margin (-18px) ran 2px past the screen edge, which let the page scroll sideways */
+  .w-nav .menu-btn { margin-right: -16px; }
+}
+@media screen and (max-width: 767px) {
+  /* Nothing may make the page wider than the screen (the hero drop's canvas is drawn wider than its box) */
+  html, body { overflow-x: clip; }
+  /* Home hero drop: a little larger, with narrower copy, so the text sits in the drop's clear centre rather
+     than at its rim. The drop's size follows the stage height. js/fluid-blob.js also makes the lens gentler
+     on phones (less magnification and bending), so the copy stays readable. */
+  .blob-lens-stage { width: 100%; height: min(92vw, 23rem); }
+  .blob-lens-copy .max-width-360 { max-width: min(12rem, 52vw); }
+  .blob-lens-copy .text-size-normal { font-size: 0.9375rem; }
+  .blob-lens-copy .button { white-space: nowrap; }
 }
