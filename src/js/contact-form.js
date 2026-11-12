@@ -22,6 +22,13 @@
           if (!res.ok) throw new Error(res.status);
           form.style.display = "none";
           done.style.display = "block";
+          // Count the enquiry in Google Analytics (GA4 "generate_lead" event). Only sent if the visitor accepted cookies.
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", {
+              form_name: form.getAttribute("name") || "contact",
+              form_location: location.pathname,
+            });
+          }
         })
         .catch(function () {
           fail.style.display = "block";
