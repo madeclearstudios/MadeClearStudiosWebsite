@@ -158,20 +158,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <div class="absolute width-5 w-embed"><svg viewbox="0 0 1600 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M800 40C380.8 40 40 380.8 40 800C40 1219.2 380.8 1560 800 1560C1219.2 1560 1560 1219.2 1560 800C1560 380.8 1219.2 40 800 40ZM1044.8 838.4L686.4 1076.8C655.999 1097.6 614.4 1075.2 614.4 1038.4V561.599C614.4 524.796 655.999 502.401 686.4 523.197L1044.8 761.597C1072 779.196 1072 820.8 1044.8 838.4Z" fill="currentColor"></path>
                 </svg></div>
-              <script type="application/json" class="w-json">{
-  "items": [
-    {
-      "url": "https://vimeo.com/849216749/881923456d?share=copy&fl=sv&fe=ci",
-      "originalUrl": "https://vimeo.com/849216749/881923456d?share=copy&fl=sv&fe=ci",
-      "width": 940,
-      "height": 529,
-      "thumbnailUrl": "https://i.vimeocdn.com/video/1971980677-2c6d89314954ea1368cbd1f803a244c458eba887ab21b93bf9b2e4264a243993-d_1280?region=us",
-      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F849216749%3Fh%3D881923456d%26app_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F849216749%2F881923456d&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1971980677-2c6d89314954ea1368cbd1f803a244c458eba887ab21b93bf9b2e4264a243993-d_1280%3Fregion%3Dus&type=text%2Fhtml&schema=vimeo\" width=\"940\" height=\"529\" scrolling=\"no\" title=\"Vimeo embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
-      "type": "video"
-    }
-  ],
-  "group": ""
-}</script>
+              {#- Showreel: a YouTube link (played via the lightboxJson filter in eleventy.config.js); the cover photo stays as it is -#}
+              <script type="application/json" class="w-json">{{ "https://youtu.be/-ST3BlL5ITc" | lightboxJson | safe }}</script>
             </a>
           </div>
         </div>
