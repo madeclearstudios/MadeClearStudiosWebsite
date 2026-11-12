@@ -1,0 +1,19 @@
+{
+  "title": "Shockwave Medical AT CIRSE 2026",
+  "slug": "shockwave-medical-cirse-2026",
+  "hidden": false,
+  "draft": false,
+  "archived": false,
+  "order": 2,
+  "client": "shockwave-medical",
+  "clientLabel": "Shockwave Medical, part of Johnson & Johnson",
+  "event": "CIRSE 2026",
+  "year": 2026,
+  "services": [
+    "vr-experiences",
+    "on-site-congress-and-event-production",
+    "film-and-video-content",
+    "congress-and-event-creative"
+  ],
+  "body": "<p></p>"
+}
