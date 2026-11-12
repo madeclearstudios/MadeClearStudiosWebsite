@@ -22,7 +22,7 @@ npm run build    # production build into _site/
 | KOL card | `src/_includes/expert-card.njk` |
 | Case study page design (`/case-study/...`) | `src/case-study.njk` |
 | Insight page design (`/insights/...`) | `src/insight.njk` |
-| Pages | `src/index.njk`, `about.njk`, `services.njk`, `case-studies.njk`, `kol.njk`, `kol-hub.njk`, `insights.njk`, `contact.njk`, `sectors.njk`, `terms-conditions.njk`, `privacy-policy.njk`, `womenasone.njk`, `404.njk` |
+| Pages | `src/index.njk`, `about.njk`, `services.njk`, `case-studies.njk`, `kol-hub.njk` (the KOL Hub; `kol.njk` is hidden and `/kol` redirects to `/kol-hub`), `insights.njk`, `contact.njk`, `sectors.njk`, `terms-conditions.njk`, `privacy-policy.njk`, `womenasone.njk`, `404.njk` |
 | Terms & Conditions and Privacy Policy text (clause numbers are written out, so update cross-references by hand if clauses move) | `src/_includes/legal/terms.njk`, `src/_includes/legal/privacy.njk` |
 | Homepage hero blob: a WebGL water drop over the hero copy that magnifies it (`data-blob-mode="lens"`). The script also supports an "under" mode, where the copy sits on top and drifts with the blob | `src/js/fluid-blob.js`, sizing in `src/css/site.css` |
 | The hero blob packaged as a standalone Webflow embed (rebuild with `node webflow-export/blob-lens/build.mjs`) | `webflow-export/blob-lens/` |
