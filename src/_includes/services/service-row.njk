@@ -1,7 +1,7 @@
 {#- One service in a category list on the Services page. Expects `service`.
     A service with its own published page ("hasPage": true, "hidden": false) gets:
     - its name as a link to the page, with the yellow highlighter on hover/focus
-    - a chevron that opens a short summary (shortDescription) and a "Read more" button
+    - a chevron that opens a short summary (shortDescription) and a "Read more" button, within its own column
     Other services are just their name. Behaviour in js/service-expand.js, styles in css/site.css. -#}
                         {%- if service.hasPage and not service.hidden %}
                         <div role="listitem" class="_4-col w-dyn-item service-expandable">
