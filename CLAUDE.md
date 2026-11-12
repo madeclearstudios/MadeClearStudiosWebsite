@@ -1,7 +1,7 @@
 # Made Clear Studios website: notes for Claude
 
 The Made Clear Studios site, moved from Webflow to Netlify.
-It is built with [Eleventy](https://www.11ty.dev/). Every push to `main` deploys automatically once the repo is connected to Netlify.
+It is built with [Eleventy](https://www.11ty.dev/). Every merge to `main` deploys automatically; pull requests get a Netlify deploy preview (see *Team workflow* below).
 
 ## Working on it
 
@@ -108,4 +108,15 @@ Set up email notifications there. `src/js/contact-form.js` sends the form and sh
 - The page scripts rely on class names and IDs in the markup (`#testimonial-slider`, `.c_client-item`, `.case-study-wrapper`, `.lightbox-video`, `#images-slider`, `.video-gallery`, ...). Keep them when editing lists.
 - Empty CMS fields get the `w-dyn-bind-empty` class (hidden), as in Webflow.
 - Run `npm run build` before committing, and make sure it passes.
-- Commit to `main` with a clear message. Netlify deploys it within about a minute.
+
+## Team workflow: branches, pull requests and deploy previews
+
+The repo lives in the `madeclearstudios` GitHub organisation. `main` is the live site: every push to it deploys to madeclearstudios.com.
+
+- **Never commit or push straight to `main`.** Start a branch from the latest `main` (e.g. `fix/kol-nav-links`, `content/new-case-study`).
+- Commit there with clear messages, push the branch and open a **pull request** into `main`. Say what changed and why, and which pages to check.
+- Netlify builds a **deploy preview** for every pull request and posts its link on the PR. Check the change on that preview, on desktop and phone, before asking for review.
+- **Only reviewed changes reach `main`.** A teammate other than the author approves the PR, the Netlify check is green, and then it is merged (squash merge). Nobody merges their own unreviewed PR.
+- Keep PRs small and about one thing, so they are quick to review.
+- Pages CMS edits are the exception: editors save content straight to `main`, as described above.
+- Claude follows the same rules: work on a branch, open a PR, and leave the review and merge to a person.
