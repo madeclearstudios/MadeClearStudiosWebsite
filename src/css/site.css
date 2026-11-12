@@ -470,3 +470,6 @@
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+
+/* Keeps a phrase on one line, e.g. "award-winning" in the Home heading (no break after the hyphen) */
+.no-wrap { white-space: nowrap; }
