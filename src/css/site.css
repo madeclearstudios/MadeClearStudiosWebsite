@@ -479,3 +479,8 @@
 
 /* Keeps a phrase on one line, e.g. "award-winning" in the Home heading (no break after the hyphen) */
 .no-wrap { white-space: nowrap; }
+
+/* Home "In safe hands" KOL slider: the Webflow card rule gives each card a 20px top margin on top of
+   height: 100%, so it ran 20px past the slider track (overflow: hidden) and lost its bottom border.
+   Room at the bottom of the track keeps the whole card, border included, visible. */
+#experts-slider .splide__track { padding-bottom: 22px; }
