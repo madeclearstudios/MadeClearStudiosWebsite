@@ -56,7 +56,8 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - References to other items use the other item's `slug`, e.g. a case study's `"client": "ivascular"`. Pages CMS shows these as dropdowns.
 - `order` sets the position in lists. `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
 - Rich text fields are HTML.
-- A case study's `videos` list holds up to 8 Vimeo videos: the first two show under the intro, the rest in the gallery lower down (a slider with 3 or more). When a video has no thumbnail, it is fetched from Vimeo.
+- Videos are **YouTube** links (any form: `youtu.be/…`, `youtube.com/watch?v=…`, `/embed/…`, `/shorts/…`). They play in YouTube's privacy-enhanced mode (`youtube-nocookie.com`), Shorts in a portrait player. With no uploaded thumbnail, YouTube's own is used. A few older Vimeo links still play until they're replaced; any other link is left out, with a warning in the build log (`playableVideos` filter in `eleventy.config.js`).
+- A case study's `videos` list holds up to 8 videos: the first two show under the intro, the rest in the gallery lower down (a slider with 3 or more).
 - If you add a field to the content, add it to `.pages.yml` too, so it shows in the editor.
 
 ### Setting up Pages CMS
@@ -85,7 +86,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - `process`: the "How it works" steps (`title`, `text`)
 - `faqs`: questions and HTML answers. They also go into the page's FAQPage structured data.
 - `relatedServices`: slugs of services to link at the bottom
-- `gallery`: image URLs (or `{ "src": …, "alt": … }`); `videos`: `{ "link": "<Vimeo link>", "thumbnail": …, "title": … }`
+- `gallery`: image URLs (or `{ "src": …, "alt": … }`); `videos`: `{ "link": "<YouTube link>", "thumbnail": …, "title": … }`
 - `hidden`: `true` while the page is being reviewed (see below)
 
 Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug.
