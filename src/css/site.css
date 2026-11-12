@@ -566,17 +566,35 @@ html.night-mode .padding-1-5.border-1.radius-0-25.m_padding-1-25.height-100-pct.
 html.night-mode [class*="bg-white"] { background-color: #1a1a1a; }
 html.night-mode .border-1 { border-color: var(--main--grey-4); }
 
-/* Text on yellow stays black: buttons, yellow sections, highlighter strokes */
+/* Text on solid yellow stays black: buttons, the yellow FAQ section, case study rows on hover */
 html.night-mode .button.primary,
 html.night-mode .button.primary *,
 html.night-mode .bg-brand,
 html.night-mode .bg-brand *:not(.button):not(.button *),
+html.night-mode .cookie-banner_button.is-accept,
+html.night-mode .list-full-width-link:hover h3,
+html.night-mode .list-full-width-link:hover .h4 { color: #000; }
+html.night-mode .list-full-width-link:hover p,
+html.night-mode .list-full-width-link:hover .text-color-grey-4 { color: #2b2b2b; }
+
+/* No highlighters or yellow underlines at night: brush strokes behind text (CSS backgrounds and images) and the
+   yellow brush under nav links on hover / current page are all removed, so text sits plainly on the dark page */
 html.night-mode .services-highlight,
-html.night-mode .services-highlight *,
-html.night-mode .service-name-link:hover .service-name-highlight,
-html.night-mode .service-name-link:focus-visible .service-name-highlight,
-html.night-mode .service-expandable.is-open .service-name-highlight,
-html.night-mode .cookie-banner_button.is-accept { color: #000; }
+html.night-mode .services-highlight.is-multiline,
+html.night-mode .service-name-highlight,
+html.night-mode .h2.our-services-highlight,
+html.night-mode .h2.testimonials-highlight,
+html.night-mode .navlink:hover,
+html.night-mode .navlink:active,
+html.night-mode .navlink.w--current,
+html.night-mode .navlink.service-link:hover,
+html.night-mode .navlink.service-link:active { background-image: none; }
+html.night-mode img.vector-bg,
+html.night-mode .services-main-title-bg,
+html.night-mode .case-study-main-title-bg,
+html.night-mode .c_service-category-bg,
+html.night-mode .services-hero-line,
+html.night-mode .footer-text-highlight { display: none; }
 
 /* Black logos and marks turn white (the photos are left alone) */
 html.night-mode .nav-logo-link img,
@@ -591,10 +609,6 @@ html.night-mode .c_logo-slider img { filter: invert(1); }
 html.night-mode #partners-slider-first img,
 html.night-mode #partners-slider-second img,
 html.night-mode .testimonial-img { filter: grayscale(1) invert(0.93); }
-
-/* Yellow brush strokes drawn as images behind headings and paragraphs only partly cover the text, so the
-   text stays light and the stroke is turned down; full highlights (.services-highlight, buttons) stay bright */
-html.night-mode img.vector-bg { opacity: 0.38; }
 
 /* Slider edge fades were white */
 html.night-mode .c_slider-blur.is--first { background-image: linear-gradient(90deg, var(--light), rgba(18, 18, 18, 0)); }
