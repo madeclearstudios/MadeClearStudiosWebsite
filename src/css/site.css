@@ -503,7 +503,13 @@
   color: var(--dark, #000);
 }
 .cookie-banner_button:focus-visible { outline: 2px solid var(--main--marker-yellow, yellow); outline-offset: 2px; }
-.cookie-settings-link { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; text-align: left; }
+/* Footer "Cookie settings" is a button styled like the Privacy Policy and Terms links beside it: size and
+   weight come from its text-size-xsmall / font-600 classes, so only reset the button defaults here */
+.cookie-settings-link {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: left;
+  font-family: inherit; color: inherit;
+  letter-spacing: 0.1rem; line-height: 1.6; /* as on the links (1.6px, 19.2px at 12px) */
+}
 @media screen and (max-width: 600px) {
   .cookie-banner { flex-direction: column; align-items: stretch; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; }
   .cookie-banner_buttons .cookie-banner_button { flex: 1; }
@@ -529,3 +535,8 @@
 
 /* Keeps a phrase on one line, e.g. "award-winning" in the Home heading (no break after the hyphen) */
 .no-wrap { white-space: nowrap; }
+
+/* Home "In safe hands" KOL slider: the Webflow card rule gives each card a 20px top margin on top of
+   height: 100%, so it ran 20px past the slider track (overflow: hidden) and lost its bottom border.
+   Room at the bottom of the track keeps the whole card, border included, visible. */
+#experts-slider .splide__track { padding-bottom: 22px; }
