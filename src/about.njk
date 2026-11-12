@@ -53,6 +53,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     transition: margin-top 0.5s ease;
   }
 </style>
+  {% include "schema/organization.njk" %}
+  {%- set aboutFaqs = faqs | published | sortByOrder %}
+  {%- if aboutFaqs.length %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": siteUrl + "/about#faq",
+    "about": { "@id": siteUrl + "/#organization" },
+    "mainEntity": aboutFaqs | faqSchema
+  } | dump | replace("<", "\\u003c") | safe }}</script>
+  {%- endif %}
 </head>
 <body>
   <div class="page-wrapper">

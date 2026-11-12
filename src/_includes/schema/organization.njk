@@ -1,0 +1,37 @@
+{#- Organization structured data (schema.org). Included on Home, About and Contact.
+    Other structured data (service pages) points at it by its "@id". Keep the details in step with the footer. -#}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": siteUrl + "/#organization",
+  "name": "Made Clear Studios",
+  "alternateName": "Made Clear",
+  "legalName": "Made Clear Studios Ltd",
+  "url": siteUrl + "/",
+  "logo": { "@type": "ImageObject", "url": siteUrl + "/images/webclip.png", "width": 256, "height": 256 },
+  "image": siteUrl + "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png",
+  "description": "Award-winning strategic content agency for cardiology and MedTech. Made Clear plans, creates, films and distributes content that helps clinicians understand and remember what matters.",
+  "email": "hello@madeclearstudios.com",
+  "telephone": "+44 1865 965389",
+  "founder": { "@type": "Person", "name": "Mike Clear" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "62 St. Bernards Road",
+    "addressLocality": "Oxford",
+    "postalCode": "OX2 6EJ",
+    "addressCountry": "GB"
+  },
+  "identifier": { "@type": "PropertyValue", "propertyID": "Companies House company number", "value": "07323563" },
+  "areaServed": ["Europe", "United States"],
+  "knowsAbout": ["Cardiology content", "MedTech marketing", "Medical video production", "Key opinion leader (KOL) content", "Medical education", "Virtual reality for healthcare"],
+  "award": "The Rx Club award winner",
+  "sameAs": ["https://www.linkedin.com/company/made-clear-studios/"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hello@madeclearstudios.com",
+    "telephone": "+44 1865 965389",
+    "url": siteUrl + "/contact",
+    "availableLanguage": ["English"]
+  }
+} | dump | replace("<", "\\u003c") | safe }}</script>
