@@ -5,26 +5,36 @@
 {%- if m.hidden %}
       <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in microCaseStudies.json to publish it.</div>
 {%- endif %}
-      <section class="section padding-5">
+      {#- Two columns: the intro (eyebrow, title, summary, details) stays in place on the left while the write-up
+          scrolls up past it on the right; the gallery and videos follow at full width once the write-up ends.
+          The sticky column needs .micro-page (overflow: clip on the page wrapper); styles in css/site.css. -#}
+      <section class="section padding-5 micro-intro">
         <div class="container">
           <div class="grid _12-col gap-1 t_flex t_vertical">
-            <div class="_4-col flex vertical gap-2 align-start t_gap-1">
-              <div class="flex vertical gap-0-5">
-                <p class="text-size-xsmall font-600 text-color-grey-4">Client</p>
-                <p>{{ m.clientLabel or (mClient.name if mClient) }}</p>
+            <div class="_4-col micro-intro_aside">
+              <div class="micro-intro_sticky flex vertical gap-2 align-start t_gap-1">
+                <div class="flex vertical gap-0-75 align-start">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">{{ m.event }} · Project</p>
+                  <h1 class="h2 micro-intro_title"><span class="services-highlight is-multiline">{{ m.title }}</span></h1>
+                  <p>{{ m.summary }}</p>
+                </div>
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Client</p>
+                  <p>{{ m.clientLabel or (mClient.name if mClient) }}</p>
+                </div>
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Event</p>
+                  <p>{{ m.event }}</p>
+                </div>
+                {%- if mServices.length %}
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Service</p>
+                  {%- for s in mServices %}
+                  <p>{% if s.hasPage and not s.hidden %}<a href="/services/{{ s.slug }}" class="link-dark">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</p>
+                  {%- endfor %}
+                </div>
+                {%- endif %}
               </div>
-              <div class="flex vertical gap-0-5">
-                <p class="text-size-xsmall font-600 text-color-grey-4">Event</p>
-                <p>{{ m.event }}</p>
-              </div>
-              {%- if mServices.length %}
-              <div class="flex vertical gap-0-5">
-                <p class="text-size-xsmall font-600 text-color-grey-4">Service</p>
-                {%- for s in mServices %}
-                <p>{% if s.hasPage and not s.hidden %}<a href="/services/{{ s.slug }}" class="link-dark">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</p>
-                {%- endfor %}
-              </div>
-              {%- endif %}
             </div>
             <div class="_8-col">
               <div class="height-1-5 none t_block"></div>

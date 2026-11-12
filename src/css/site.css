@@ -686,3 +686,13 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 @media (prefers-reduced-motion: reduce) {
   .night-toggle_thumb, .night-toggle_track { transition: none; }
 }
+
+/* Micro case study (/work/...): the intro column stays in place while the write-up scrolls past it
+   (_includes/service/micro.njk). overflow: clip on the page wrapper looks the same as hidden but, unlike
+   hidden, lets position: sticky work. Below tablet width the columns stack and nothing sticks. */
+.page-wrapper.micro-page { overflow: clip; }
+.micro-intro_title { margin: 0; }
+@media screen and (min-width: 992px) {
+  .micro-intro_aside { align-self: stretch; }
+  .micro-intro_sticky { position: sticky; top: 2rem; padding-right: 2rem; }
+}

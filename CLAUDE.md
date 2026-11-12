@@ -91,7 +91,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 
 Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug.
 
-**Micro case studies** are short project pages for smaller jobs, at `/work/<slug>`, built by `src/micro-case-study.njk` from `src/_data/microCaseStudies.json`. Fields: `title`, `slug`, `client` (a client slug), `clientLabel`, `event`, `year`, `services` (service slugs), `summary`, `body` (HTML), `captured` (list), `coverPhoto`, `gallery`, `videos`, `order`, `hidden`.
+**Micro case studies** are short project pages for smaller jobs, at `/work/<slug>`, built by `src/micro-case-study.njk` from `src/_data/microCaseStudies.json`. On desktop the intro (event, title, summary, client, event, service) stays in place in the left column while the write-up scrolls up past it; the gallery and videos follow at full width (`src/_includes/service/micro.njk`; the page wrapper uses `overflow: clip` via `.micro-page` so `position: sticky` works). Fields: `title`, `slug`, `client` (a client slug), `clientLabel`, `event`, `year`, `services` (service slugs), `summary`, `body` (HTML), `captured` (list), `coverPhoto`, `gallery`, `videos`, `order`, `hidden`.
 
 **On the Services page**, a published service page gets an expandable row (`src/_includes/services/service-row.njk`, `src/js/service-expand.js`): the name links to the page and gets the yellow highlighter on hover, and a chevron opens its `shortDescription` with a "Read more" button. Services without a page are just their name.
 
