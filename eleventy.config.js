@@ -1,9 +1,25 @@
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+
 export default function (eleventyConfig) {
   // Static assets exported from Webflow, copied as-is
   for (const dir of ["css", "js", "images", "fonts"]) {
     eleventyConfig.addPassthroughCopy(`src/${dir}`);
   }
   eleventyConfig.addPassthroughCopy("src/_redirects");
+
+  // Resize images on build: every <img> pointing at a local image gets smaller copies (in _site/img/)
+  // and a srcset, so phones download a phone-sized file. The original file stays as passthrough.
+  // SVGs are left alone. Add eleventy:ignore to an <img> to skip it.
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp"],
+    widths: [480, 960, 1600],
+    svgShortCircuit: true,
+    failOnError: false,
+    cacheOptions: { duration: "1y" },
+    htmlOptions: {
+      imgAttributes: { loading: "lazy", decoding: "async", sizes: "(max-width: 767px) 100vw, 60vw" },
+    },
+  });
   // CMS content (one JSON file per item, edited in Pages CMS) lives in content/; rebuild the preview when it changes
   eleventyConfig.addWatchTarget("content/");
 
