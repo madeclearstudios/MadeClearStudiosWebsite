@@ -132,8 +132,8 @@ The repo lives in the `madeclearstudios` GitHub organisation. `main` is the live
 
 - **Never commit or push straight to `main`.** Start a branch from the latest `main` (e.g. `fix/kol-nav-links`, `content/new-case-study`).
 - Commit there with clear messages, push the branch and open a **pull request** into `main`. Say what changed and why, and which pages to check.
-- Netlify builds a **deploy preview** for every pull request and posts its link on the PR. Check the change on that preview, on desktop and phone, before asking for review.
-- **Only reviewed changes reach `main`.** A teammate other than the author approves the PR, the Netlify check is green, and then it is merged (squash merge). Nobody merges their own unreviewed PR.
-- Keep PRs small and about one thing, so they are quick to review.
+- Netlify builds a **deploy preview** for every pull request and posts its link on the PR. Check the change on that preview, on desktop and phone.
+- **The site owner (GitHub `olly-mcs`) is the only person who decides what goes live.** A pull request is merged (squash merge) only when they say so and the Netlify checks are green. No second reviewer is needed.
+- Keep PRs small and about one thing, so they are quick to check.
 - Pages CMS edits are the exception: editors save content straight to `main`, as described above.
-- Claude follows the same rules: work on a branch, open a PR, and leave the review and merge to a person.
+- Claude follows the same rules: work on a branch, open a PR with a deploy preview, and merge only when the site owner explicitly asks for it (e.g. "merge and push live"), after the Netlify checks pass.
