@@ -82,7 +82,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - `shortDescription`: the line under the title
 - `whyThisMatters` (HTML): the explainer under the hero. Start it with a one-sentence definition; search engines and AI assistants quote that line.
 - `outcomesMainTitle`, `outcomesDescription`, `outcomesFirst…Third` `Title`/`Description`: the three outcomes
-- `deliverables`: the "What we capture" list
+- `deliverables`: the "What we capture" list. No longer shown on the page (removed to keep service pages short) and hidden in Pages CMS; the data is kept
 - `process`: the "How it works" steps (`title`, `text`)
 - `faqs`: questions and HTML answers. They also go into the page's FAQPage structured data.
 - `relatedServices`: slugs of services to link at the bottom
