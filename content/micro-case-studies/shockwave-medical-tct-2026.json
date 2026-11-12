@@ -22,5 +22,10 @@
     "B-roll of the stand",
     "Team photography"
   ],
-  "coverPhoto": "/images/uploads/JNJ Shockwave TCT 2026.webp"
+  "coverPhoto": "/images/uploads/JNJ Shockwave TCT 2026.webp",
+  "gallery": [
+    "/images/uploads/Full Team Photo-1.webp",
+    "/images/uploads/Nick West Osmo Social Media.webp",
+    "/images/uploads/Shockwave C2 bike.webp"
+  ]
 }
