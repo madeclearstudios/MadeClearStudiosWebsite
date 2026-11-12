@@ -10,12 +10,12 @@ const eleventyExcludeFromCollections = true;
 <head>
   <meta charset="utf-8">
   <title>{{ svc.metaTitle or (svc.name + " | Made Clear") }}</title>
-  <meta content="{{ svc.metaDescription or svc.shortDescription }}" name="description">
+  <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="description">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" property="og:title">
-  <meta content="{{ svc.metaDescription or svc.shortDescription }}" property="og:description">
+  <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" property="og:description">
   <meta content="{{ svc.image or "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png" }}" property="og:image">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" name="twitter:title">
-  <meta content="{{ svc.metaDescription or svc.shortDescription }}" name="twitter:description">
+  <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">

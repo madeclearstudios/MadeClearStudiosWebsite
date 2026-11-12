@@ -8,13 +8,13 @@ const eleventyExcludeFromCollections = true;
 <html data-wf-page="69ebb58dc9c36defb61a0a81" data-wf-site="69d7a9d5d387ff8d4be61f60" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ insight.title }}</title>
-  <meta content="{{ insight.overview }}" name="description">
-  <meta content="{{ insight.title }}" property="og:title">
-  <meta content="{{ insight.overview }}" property="og:description">
+  <title>{{ insight.title }} | Made Clear</title>
+  <meta content="{{ insight.overview | metaDescription }}" name="description">
+  <meta content="{{ insight.title }} | Made Clear" property="og:title">
+  <meta content="{{ insight.overview | metaDescription }}" property="og:description">
   <meta content="{{ insight.coverPhoto }}" property="og:image">
-  <meta content="{{ insight.title }}" name="twitter:title">
-  <meta content="{{ insight.overview }}" name="twitter:description">
+  <meta content="{{ insight.title }} | Made Clear" name="twitter:title">
+  <meta content="{{ insight.overview | metaDescription }}" name="twitter:description">
   <meta content="{{ insight.coverPhoto }}" name="twitter:image">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">

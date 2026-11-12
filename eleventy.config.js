@@ -45,6 +45,12 @@ export default function (eleventyConfig) {
       acceptedAnswer: { "@type": "Answer", text: String(f.answer).replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim() },
     }))
   );
+  // Meta descriptions: plain text, at most ~155 characters, cut at a word boundary
+  eleventyConfig.addFilter("metaDescription", (text = "", max = 155) => {
+    const plain = String(text || "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    if (plain.length <= max) return plain;
+    return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
+  });
   eleventyConfig.addFilter("findBy", (items = [], key, value) => items.find((i) => i[key] === value));
   eleventyConfig.addFilter("except", (items = [], item) => items.filter((i) => i !== item));
   eleventyConfig.addFilter("sortBy", (items = [], key) =>
