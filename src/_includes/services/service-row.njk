@@ -1,0 +1,32 @@
+{#- One service in a category list on the Services page. Expects `service`.
+    A service with its own published page ("hasPage": true, "hidden": false) gets:
+    - its name as a link to the page, with the yellow highlighter on hover/focus
+    - a chevron that opens a short summary (shortDescription) and a "Read more" button
+    Other services are just their name. Behaviour in js/service-expand.js, styles in css/site.css. -#}
+                        {%- if service.hasPage and not service.hidden %}
+                        <div role="listitem" class="_4-col w-dyn-item service-expandable">
+                          <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link t_padding-1 m_padding-1-25 gap-1">
+                            <h3><a href="/services/{{ service.slug }}" class="service-name-link"><span class="service-name-highlight">{{ service.name }}</span></a></h3>
+                            <button type="button" class="service-toggle" aria-expanded="false" aria-controls="service-panel-{{ service.slug }}">
+                              <span class="visually-hidden">Show a summary of {{ service.name }}</span>
+                              <svg class="service-chevron" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div class="divider absolute bottom-0"></div>
+                          </div>
+                          <div class="service-panel" id="service-panel-{{ service.slug }}" hidden>
+                            <p class="service-panel-text">{{ service.shortDescription }}</p>
+                            <a href="/services/{{ service.slug }}" class="button primary w-inline-block">
+                              <div>Read more<span class="visually-hidden"> about {{ service.name }}</span></div>
+                              <div class="hover-button-blur"></div>
+                            </a>
+                            <div class="divider absolute bottom-0"></div>
+                          </div>
+                        </div>
+                        {%- else %}
+                        <div role="listitem" class="_4-col w-dyn-item">
+                          <div class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct t_padding-1 m_padding-1-25 gap-1">
+                            <h3>{{ service.name }}</h3>
+                            <div class="divider absolute bottom-0"></div>
+                          </div>
+                        </div>
+                        {%- endif %}

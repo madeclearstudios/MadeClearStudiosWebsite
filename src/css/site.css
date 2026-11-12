@@ -371,15 +371,71 @@
   }
 }
 
-.service-page-link {
+/* Services page: services with their own page (_includes/services/service-row.njk, js/service-expand.js).
+   The name links to the page and gets the yellow highlighter on hover/focus (the same brushstroke as the
+   Home heading); the chevron opens a short summary with a "Read more" button. */
+.service-name-link {
   color: inherit;
   text-decoration: none;
 }
-
-.service-page-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+.service-name-highlight {
+  background-image: url('../images/highlight-stretch.svg');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.1em 0.2em;
+  margin: 0 -0.2em;
+  transition: background-size 0.35s ease;
+}
+.service-name-link:hover .service-name-highlight,
+.service-name-link:focus-visible .service-name-highlight,
+.service-expandable.is-open .service-name-highlight {
+  background-size: 100% 100%;
+}
+.service-name-link:focus-visible { outline: none; }
+.service-toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-right: -0.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.service-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 2px; }
+.service-chevron { transition: transform 0.25s ease; }
+.service-toggle[aria-expanded="true"] .service-chevron { transform: rotate(180deg); }
+.service-expandable.is-open { grid-column: 1 / -1; }
+.service-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0 1.75rem;
+}
+.service-panel[hidden] { display: none; }
+.service-panel-text { margin: 0; max-width: 40rem; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-name-highlight, .service-chevron { transition: none; }
 }
 
 /* Award mentions (The Rx Club): small badge under the homepage intro, and in the footer */
