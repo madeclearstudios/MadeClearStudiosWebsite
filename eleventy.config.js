@@ -11,7 +11,7 @@ export default function (eleventyConfig) {
   // and a srcset, so phones download a phone-sized file. The original file stays as passthrough.
   // SVGs are left alone. Add eleventy:ignore to an <img> to skip it.
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-    formats: ["webp"],
+    formats: ["webp", "svg"], // "svg" + svgShortCircuit keeps SVGs as they are; everything else becomes WebP
     widths: [480, 960, 1600],
     svgShortCircuit: true,
     failOnError: false,
