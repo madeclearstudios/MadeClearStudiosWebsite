@@ -1,9 +1,25 @@
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+
 export default function (eleventyConfig) {
   // Static assets exported from Webflow, copied as-is
   for (const dir of ["css", "js", "images", "fonts"]) {
     eleventyConfig.addPassthroughCopy(`src/${dir}`);
   }
   eleventyConfig.addPassthroughCopy("src/_redirects");
+
+  // Resize images on build: every <img> pointing at a local image gets smaller copies (in _site/img/)
+  // and a srcset, so phones download a phone-sized file. The original file stays as passthrough.
+  // SVGs are left alone. Add eleventy:ignore to an <img> to skip it.
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp"],
+    widths: [480, 960, 1600],
+    svgShortCircuit: true,
+    failOnError: false,
+    cacheOptions: { duration: "1y" },
+    htmlOptions: {
+      imgAttributes: { loading: "lazy", decoding: "async", sizes: "(max-width: 767px) 100vw, 60vw" },
+    },
+  });
   // CMS content (one JSON file per item, edited in Pages CMS) lives in content/; rebuild the preview when it changes
   eleventyConfig.addWatchTarget("content/");
 
@@ -45,6 +61,12 @@ export default function (eleventyConfig) {
       acceptedAnswer: { "@type": "Answer", text: String(f.answer).replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim() },
     }))
   );
+  // Meta descriptions: plain text, at most ~155 characters, cut at a word boundary
+  eleventyConfig.addFilter("metaDescription", (text = "", max = 155) => {
+    const plain = String(text || "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    if (plain.length <= max) return plain;
+    return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
+  });
   eleventyConfig.addFilter("findBy", (items = [], key, value) => items.find((i) => i[key] === value));
   eleventyConfig.addFilter("except", (items = [], item) => items.filter((i) => i !== item));
   eleventyConfig.addFilter("sortBy", (items = [], key) =>

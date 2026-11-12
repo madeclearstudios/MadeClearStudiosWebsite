@@ -1,0 +1,12 @@
+{#- Google Analytics 4 behind cookie consent. Included in every page's <head>.
+    Nothing loads from Google until the visitor clicks "Accept" in the cookie banner (js/consent.js),
+    so no analytics cookies are set without consent. The choice is remembered for 6 months. -#}
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.MC_GA_ID = 'G-F6SX5N28QT';
+  gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+  gtag('js', new Date());
+  gtag('config', window.MC_GA_ID);
+  </script>
+  <script src="/js/consent.js" defer></script>

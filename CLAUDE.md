@@ -1,7 +1,7 @@
 # Made Clear Studios website: notes for Claude
 
 The Made Clear Studios site, moved from Webflow to Netlify.
-It is built with [Eleventy](https://www.11ty.dev/). Every push to `main` deploys automatically once the repo is connected to Netlify.
+It is built with [Eleventy](https://www.11ty.dev/). Every merge to `main` deploys automatically; pull requests get a Netlify deploy preview (see *Team workflow* below).
 
 ## Working on it
 
@@ -30,6 +30,9 @@ npm run build    # production build into _site/
 | Webflow's site-wide custom CSS embed | `src/_includes/global-styles.njk` |
 | Styles | `src/css/made-clear-wip.webflow.css` (Webflow export), `src/css/site.css` (our additions) |
 | Images and fonts | `src/images/`, `src/fonts/` |
+| Google Analytics (GA4, `G-F6SX5N28QT`), loaded only after cookie consent | `src/_includes/analytics.njk`, included in every page's `<head>` |
+| Cookie consent banner and the footer's "Cookie settings" link | `src/js/consent.js`, styles at the end of `src/css/site.css`; described in clause 5 of the privacy policy |
+| Organization structured data (Home, About, Contact) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
 
 ## CMS content (edited in Pages CMS)
 
@@ -93,7 +96,18 @@ Recent work on a service page lists the micro case studies and full case studies
 ## Contact form
 
 The enquiry form uses **Netlify Forms** (form name `contact`). Submissions appear in the Netlify dashboard under *Forms*.
-Set up email notifications there. `src/js/contact-form.js` sends the form and shows the thank-you message.
+Set up email notifications there. `src/js/contact-form.js` sends the form, shows the thank-you message and sends the GA4 event `generate_lead` (with `form_name` and `form_location`) when the visitor has accepted cookies. Mark `generate_lead` as a key event in GA to count enquiries as conversions.
+
+## Images
+
+Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.config.js`). Every `<img>` pointing at a local file gets WebP copies at 480, 960 and 1600px in `_site/img/`, with `srcset`, `sizes`, `width` and `height` added. Upload images at full quality; there is no need to resize them first. SVGs are left alone. Add `eleventy:ignore` to an `<img>` to skip it (for example when a script changes its `src`). Images set in CSS (`background-image`) are not resized, so save those as WebP at a sensible size.
+
+## Structured data
+
+- Organization: `src/_includes/schema/organization.njk` on Home, About and Contact, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
+- FAQPage: About (from the FAQs collection) and each service page (from its `faqs`), built with the `faqSchema` filter.
+- Service and BreadcrumbList: service pages; CreativeWork: micro case studies.
+- Page titles end in `| Made Clear` and every indexed page has its own meta description (about 155 characters at most). Case study, insight and micro case study descriptions come from their overview or summary, trimmed by the `metaDescription` filter.
 
 ## Notes from the Webflow move
 
@@ -108,4 +122,15 @@ Set up email notifications there. `src/js/contact-form.js` sends the form and sh
 - The page scripts rely on class names and IDs in the markup (`#testimonial-slider`, `.c_client-item`, `.case-study-wrapper`, `.lightbox-video`, `#images-slider`, `.video-gallery`, ...). Keep them when editing lists.
 - Empty CMS fields get the `w-dyn-bind-empty` class (hidden), as in Webflow.
 - Run `npm run build` before committing, and make sure it passes.
-- Commit to `main` with a clear message. Netlify deploys it within about a minute.
+
+## Team workflow: branches, pull requests and deploy previews
+
+The repo lives in the `madeclearstudios` GitHub organisation. `main` is the live site: every push to it deploys to madeclearstudios.com.
+
+- **Never commit or push straight to `main`.** Start a branch from the latest `main` (e.g. `fix/kol-nav-links`, `content/new-case-study`).
+- Commit there with clear messages, push the branch and open a **pull request** into `main`. Say what changed and why, and which pages to check.
+- Netlify builds a **deploy preview** for every pull request and posts its link on the PR. Check the change on that preview, on desktop and phone, before asking for review.
+- **Only reviewed changes reach `main`.** A teammate other than the author approves the PR, the Netlify check is green, and then it is merged (squash merge). Nobody merges their own unreviewed PR.
+- Keep PRs small and about one thing, so they are quick to review.
+- Pages CMS edits are the exception: editors save content straight to `main`, as described above.
+- Claude follows the same rules: work on a branch, open a PR, and leave the review and merge to a person.

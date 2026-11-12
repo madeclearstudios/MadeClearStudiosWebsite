@@ -1794,7 +1794,7 @@ figcaption {
 }
 
 .section.padding-5.overflow-hidden.c_cta-section {
-  background-image: url('../images/gradient-bg.png');
+  background-image: url('../images/gradient-bg.webp');
   background-position: 50%;
   background-size: cover;
 }
