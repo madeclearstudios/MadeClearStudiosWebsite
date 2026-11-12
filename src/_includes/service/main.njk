@@ -165,7 +165,7 @@
       {%- endif %}
 
       {%- set gallery = svc.gallery or [] %}
-      {%- set videos = svc.videos or [] %}
+      {%- set videos = svc.videos | playableVideos %}
       {%- include "service/media.njk" %}
 
       {#- FAQs: the questions people (and answer engines) ask; also published as FAQPage structured data -#}

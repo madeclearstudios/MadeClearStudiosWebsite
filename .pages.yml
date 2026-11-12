@@ -66,13 +66,13 @@ content:
           - { name: authorRoleLine2, label: Author role (line 2), type: string }
           - name: videos
             label: Videos
-            description: "Vimeo videos. The first two sit under the intro; the rest go in the gallery lower down (a slider from three)."
+            description: "YouTube videos. The first two sit under the intro; the rest go in the gallery lower down (a slider from three)."
             type: object
             list: { max: 8, collapsible: { collapsed: true, summary: "{fields.title}" } }
             fields:
               - { name: title, label: Title, type: string }
-              - { name: link, label: Vimeo link, type: string, required: true }
-              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+              - { name: link, label: YouTube link, description: "Paste the YouTube link (e.g. https://youtu.be/… or https://www.youtube.com/watch?v=…; Shorts work too). Only YouTube links are shown on the site.", type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from YouTube.", type: image }
           - { name: overlay, label: Overlay, type: string, hidden: true }
 
       - name: micro-case-studies
@@ -121,8 +121,8 @@ content:
             list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
             fields:
               - { name: title, label: Title, type: string }
-              - { name: link, label: Vimeo link, type: string, required: true }
-              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+              - { name: link, label: YouTube link, description: "Paste the YouTube link (e.g. https://youtu.be/… or https://www.youtube.com/watch?v=…; Shorts work too). Only YouTube links are shown on the site.", type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from YouTube.", type: image }
 
       - name: insights
         label: Insights
@@ -333,8 +333,8 @@ content:
             list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
             fields:
               - { name: title, label: Title, type: string }
-              - { name: link, label: Vimeo link, type: string, required: true }
-              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from Vimeo.", type: image }
+              - { name: link, label: YouTube link, description: "Paste the YouTube link (e.g. https://youtu.be/… or https://www.youtube.com/watch?v=…; Shorts work too). Only YouTube links are shown on the site.", type: string, required: true }
+              - { name: thumbnail, label: Thumbnail, description: "Leave empty to use the one from YouTube.", type: image }
           - { name: extraDescription, label: Extra description, type: rich-text, hidden: true, options: { format: html } }
           - { name: publishedOn, label: Published on, type: date, hidden: true }
 

@@ -45,7 +45,7 @@
       </section>
 
       {%- set gallery = m.gallery or [] %}
-      {%- set videos = m.videos or [] %}
+      {%- set videos = m.videos | playableVideos %}
       {%- set svc = null %}
       {%- include "service/media.njk" %}
 

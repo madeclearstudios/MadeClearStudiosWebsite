@@ -80,13 +80,49 @@ export default function (eleventyConfig) {
     String(e.name || "").replace(/^(dr|prof|sir|mr|mrs|ms|miss)\.?\s+/i, "").trim().split(/\s+/)[0] || "");
   eleventyConfig.addFilter("sortByOrder", (items = []) => [...items].sort((a, b) => (a.order ?? 99) - (b.order ?? 99)));
 
-  // Webflow lightbox data for a Vimeo link, e.g. https://vimeo.com/882463366/148615107a?share=copy
+  // Videos are YouTube links (any form: youtu.be/ID, youtube.com/watch?v=ID, /embed/ID, /shorts/ID, /live/ID).
+  // Older Vimeo links still play until they're replaced; any other link is left out (see the "videos" filter).
+  const youtubeId = (url) => {
+    const m = String(url || "").match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/))([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : null;
+  };
+  const vimeoMatch = (url) => String(url || "").match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([0-9a-f]+))?/);
+  eleventyConfig.addFilter("youtubeId", youtubeId);
+
+  // Keeps the videos the site can play, and warns at build time about any other link
+  eleventyConfig.addFilter("playableVideos", function (videos = []) {
+    return (videos || []).filter((v) => {
+      if (!v || !v.link) return true; // empty slots keep their place in the layout
+      if (youtubeId(v.link) || vimeoMatch(v.link)) return true;
+      console.warn(`[videos] Not a YouTube link, left out of ${this.page && this.page.inputPath}: ${v.link}`);
+      return false;
+    });
+  });
+
+  // Thumbnail: the uploaded one, else YouTube's own (maxres, falling back to hq in the template)
+  eleventyConfig.addFilter("videoThumbnail", (video = {}) => {
+    if (video.thumbnail) return video.thumbnail;
+    const id = youtubeId(video.link);
+    return id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "";
+  });
+
+  // Webflow lightbox data for a video link
   eleventyConfig.addFilter("lightboxJson", (url) => {
-    const m = String(url).match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([0-9a-f]+))?/);
-    const player = m ? `https://player.vimeo.com/video/${m[1]}${m[2] ? `?h=${m[2]}` : ""}` : url;
-    const html = `<iframe class="embedly-embed" src="${player}" width="940" height="529" scrolling="no" title="Vimeo embed" frameborder="0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
+    let player = url, width = 940, height = 529, title = "Video";
+    const id = youtubeId(url);
+    const vm = vimeoMatch(url);
+    if (id) {
+      // youtube-nocookie: YouTube sets no cookies until the visitor plays the video
+      player = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+      title = "YouTube video player";
+      if (/youtube\.com\/shorts\//.test(url)) { width = 405; height = 720; } // Shorts are portrait
+    } else if (vm) {
+      player = `https://player.vimeo.com/video/${vm[1]}${vm[2] ? `?h=${vm[2]}` : ""}`;
+      title = "Vimeo video player";
+    }
+    const html = `<iframe class="embedly-embed" src="${player}" width="${width}" height="${height}" scrolling="no" title="${title}" frameborder="0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>`;
     // Escape "<" so the JSON can sit inside a <script> tag
-    return JSON.stringify({ items: [{ url, originalUrl: url, width: 940, height: 529, html, type: "video" }], group: "" }, null, 2).replace(/</g, "\\u003c");
+    return JSON.stringify({ items: [{ url, originalUrl: url, width, height, html, type: "video" }], group: "" }, null, 2).replace(/</g, "\\u003c");
   });
 
   return {
