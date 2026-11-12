@@ -1,6 +1,10 @@
 {
   "title": "Shockwave Medical at TCT 2026",
   "slug": "shockwave-medical-tct-2026",
+  "hidden": true,
+  "draft": false,
+  "archived": false,
+  "order": 1,
   "client": "shockwave-medical",
   "clientLabel": "Shockwave Medical, part of Johnson & Johnson",
   "event": "TCT 2026",
@@ -18,11 +22,5 @@
     "B-roll of the stand",
     "Team photography"
   ],
-  "coverPhoto": "",
-  "gallery": [],
-  "videos": [],
-  "order": 1,
-  "hidden": true,
-  "draft": false,
-  "archived": false
+  "coverPhoto": "/images/uploads/JNJ Shockwave TCT 2026.webp"
 }
