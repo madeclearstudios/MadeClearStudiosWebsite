@@ -124,41 +124,36 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       {%- set titleParts = cs.title.split(" | ") if cs.title else [] %}
       {%- set clientLine = cs.clientName or (titleParts[0] if titleParts.length > 1 else (csClient.name if csClient else "")) %}
       {%- set projectLine = cs.projectTitle or (titleParts.slice(1).join(" | ") if titleParts.length > 1 else cs.title) %}
-      {#- Previous / next case study, like a slideshow: arrows either side of the header on desktop, a row above
-          the breadcrumb on tablet and phone. The left and right arrow keys work too. Wraps round at the ends.
+      {#- Previous / next case study, like a slideshow: arrows on the right of the top bar (under the breadcrumb on
+          phones). The left and right arrow keys work too. Wraps round at the ends.
           Behaviour in js/case-study-nav.js, styles in css/site.css. -#}
       {%- set allCases = caseStudies | published | sortByOrder %}
       {%- set csIndex = allCases.indexOf(cs) %}
-      <section class="section padding-5 case-hero">
-      {%- if allCases.length > 1 %}
-      {%- set prevCase = allCases[(csIndex - 1 + allCases.length) % allCases.length] %}
-      {%- set nextCase = allCases[(csIndex + 1) % allCases.length] %}
-      <nav class="case-pager" aria-label="More case studies">
-        <a href="/case-study/{{ prevCase.slug }}" class="case-pager_link is-prev" rel="prev" data-case-nav="prev">
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="case-pager_label"><span class="case-pager_dir">Previous</span><span class="case-pager_name">{{ prevCase.projectTitle or prevCase.title }}</span></span>
-        </a>
-        <a href="/case-study/{{ nextCase.slug }}" class="case-pager_link is-next" rel="next" data-case-nav="next">
-          <span class="case-pager_label"><span class="case-pager_dir">Next</span><span class="case-pager_name">{{ nextCase.projectTitle or nextCase.title }}</span></span>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </nav>
-      {%- endif %}
-        <div class="container-medium">
-          <div class="flex vertical align-center text-align-center gap-1-25">
+      {#- Top bar: the breadcrumb on the left, the previous / next arrows on the right. The client, title and
+          overview sit at the top of the left column below. -#}
+      <section class="section case-hero">
+        <div class="container">
+          <div class="case-topbar">
             <nav aria-label="Breadcrumb" class="service-breadcrumb case-breadcrumb"><a href="/case-studies">Case Studies</a><span><span aria-hidden="true" class="case-breadcrumb_sep">/</span><span aria-current="page">{{ projectLine }}</span></span></nav>
-            <h1 class="h2 case-hero_title">
-              {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span>{% endif -%}
-              <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
-            </h1>
-            <div class="max-w-498">
-              <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
-            </div>
+            {%- if allCases.length > 1 %}
+            {%- set prevCase = allCases[(csIndex - 1 + allCases.length) % allCases.length] %}
+            {%- set nextCase = allCases[(csIndex + 1) % allCases.length] %}
+            <nav class="case-pager" aria-label="More case studies">
+              <a href="/case-study/{{ prevCase.slug }}" class="case-pager_link is-prev" rel="prev" data-case-nav="prev">
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="case-pager_label"><span class="case-pager_dir">Previous</span><span class="case-pager_name">{{ prevCase.projectTitle or prevCase.title }}</span></span>
+              </a>
+              <a href="/case-study/{{ nextCase.slug }}" class="case-pager_link is-next" rel="next" data-case-nav="next">
+                <span class="case-pager_label"><span class="case-pager_dir">Next</span><span class="case-pager_name">{{ nextCase.projectTitle or nextCase.title }}</span></span>
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </nav>
+            {%- endif %}
           </div>
         </div>
       </section>
 
-      {#- Two columns: the cover photo and services stay in place on the left while the featured videos and the
+      {#- Two columns: the client, title, overview, cover photo and services stay in place on the left while the featured videos and the
           story scroll past on the right; the rest of the page follows at full width. Needs .case-page
           (overflow: clip on the page wrapper) for position: sticky; styles in css/site.css. -#}
       {%- set vids = cs.videos | playableVideos %}
@@ -167,6 +162,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           <div class="grid _12-col gap-1 t_flex t_vertical">
             <div class="_4-col case-body_aside">
               <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
+                <div class="flex vertical gap-0-75 align-start">
+                  <h1 class="h2 case-hero_title">
+                    {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span>{% endif -%}
+                    <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
+                  </h1>
+                  <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
+                </div>
                 {%- if cs.coverPhoto %}
                 <div class="relative radius-0-25 overflow-hidden"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 radius-0-25 case-body_cover">
                   <div class="overlay-wrapper"></div>
