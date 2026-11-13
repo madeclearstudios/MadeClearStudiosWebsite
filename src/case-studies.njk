@@ -153,9 +153,9 @@ permalink: case-studies.html
               {%- set mClient = clients | findBy("slug", m.client) %}
               <a href="/work/{{ m.slug }}" class="work-card bg-grey-1 border-1 radius-1-px w-inline-block">
                 {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="_16x9 width-100-pct radius-0-25">
-                {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.event }}</div>{% endif %}
+                {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.title }}</div>{% endif %}
                 <div class="flex vertical gap-0-5">
-                  <p class="text-size-xsmall font-600 text-color-grey-4">{{ [m.month, m.event, (mClient.name if mClient else m.clientLabel)] | select | join(" · ") }}</p>
+                  <p class="text-size-xsmall font-600 text-color-grey-4">{{ [m.month, (mClient.name if mClient else m.clientLabel)] | select | join(" · ") }}</p>
                   <h3>{{ m.title }}</h3>
                   <p>{{ m.summary }}</p>
                 </div>

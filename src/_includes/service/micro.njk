@@ -14,7 +14,8 @@
             <div class="_4-col micro-intro_aside">
               <div class="micro-intro_sticky flex vertical gap-2 align-start t_gap-1">
                 <div class="flex vertical gap-0-75 align-start">
-                  <p class="text-size-xsmall font-600 text-color-grey-4">{{ m.event }}</p>
+                  {%- set mDate = [m.month, m.year] | select | join(" ") %}
+                  {%- if mDate %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ mDate }}</p>{% endif %}
                   <h1 class="h2 micro-intro_title"><span class="services-highlight is-multiline">{{ m.title }}</span></h1>
                   <p>{{ m.summary }}</p>
                 </div>
@@ -22,10 +23,12 @@
                   <p class="text-size-xsmall font-600 text-color-grey-4">Client</p>
                   <p>{{ m.clientLabel or (mClient.name if mClient) }}</p>
                 </div>
+                {%- if mDate %}
                 <div class="flex vertical gap-0-5">
-                  <p class="text-size-xsmall font-600 text-color-grey-4">Event</p>
-                  <p>{{ m.event }}</p>
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Date</p>
+                  <p>{{ mDate }}</p>
                 </div>
+                {%- endif %}
                 {%- if mServices.length %}
                 <div class="flex vertical gap-0-5">
                   <p class="text-size-xsmall font-600 text-color-grey-4">Service</p>
