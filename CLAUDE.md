@@ -15,7 +15,7 @@ npm run build    # production build into _site/
 
 | What | File |
 | --- | --- |
-| Navigation: a yellow MENU pill (left), the logo (centre) and the night mode switch (right). MENU drops down a black full-screen panel with its own Close pill in the same place: the pages on the left in the page-title style, white, with the yellow highlighter on hover (Services lists the Service Categories under it), and our address, email, phone, a Contact us button and LinkedIn on the right. Escape or a link closes it | `src/_includes/nav.njk`, behaviour `src/js/site-menu.js`, styles in the "Menu" block of `src/css/site.css` |
+| Navigation: a yellow MENU pill (left), the logo (centre) and the night mode switch (right). MENU drops down a black full-screen panel with its own Close pill in the same place: the pages on the left in the page-title style, white, with the yellow highlighter on hover (Services lists the Service Categories under it; an indented tree on phones and tablets), and our address, email, phone, a Contact us button and LinkedIn on the right. Escape or a link closes it | `src/_includes/nav.njk`, behaviour `src/js/site-menu.js`, styles in the "Menu" block of `src/css/site.css` |
 | Footer (email, phone, LinkedIn, company details) | `src/_includes/footer.njk` |
 | "Make it clear" enquiry form above the footer | `src/_includes/enquiry-form.njk` |
 | Client testimonials slider | `src/_includes/testimonials.njk`, `testimonial-single.njk` (KOL Hub) |

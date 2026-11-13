@@ -1042,3 +1042,10 @@ html.night-mode .site-menu_highlight { background-image: url('../images/highligh
 @media (prefers-reduced-motion: reduce) {
   .site-menu, .menu-open .site-menu { transition: none; }
 }
+/* Phones and tablets: the service categories sit under Services as an indented tree */
+@media screen and (max-width: 991px) {
+  .site-menu_sub { flex-direction: column; flex-wrap: nowrap; gap: 0; margin: -0.4rem 0 1rem 0.35rem; padding-left: 1rem; border-left: 1px solid rgba(255, 255, 255, 0.35); }
+  .site-menu_sub li { position: relative; }
+  .site-menu_sub li::before { content: ""; position: absolute; left: -1rem; top: 50%; width: 0.65rem; border-top: 1px solid rgba(255, 255, 255, 0.35); }
+  .site-menu_sublink { display: inline-block; padding: 0.45rem 0; font-size: var(--_typography---text--small); }
+}
