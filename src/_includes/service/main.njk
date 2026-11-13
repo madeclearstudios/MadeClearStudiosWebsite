@@ -7,58 +7,59 @@
       <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in services.json to publish it.</div>
 {%- endif %}
 
-      {#- Opening explainer: starts with the one-sentence definition answer engines quote -#}
-      <section class="section padding-5">
+      {#- Two columns on desktop: the title, intro and outcomes stay in place on the left (1/3) while the
+          explainer and How it works scroll past on the right (2/3). Sticky needs .service-page
+          (overflow: clip on the page wrapper); styles in css/site.css. -#}
+      <section class="section padding-3 service-intro">
         <div class="container">
-          <div class="flex vertical align-center text-align-center gap-1">
-            <div class="max-w-670">
-              <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | safe }}</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {#- Outcomes -#}
-      <section class="section padding-5">
-        <div class="container">
-          <div class="flex vertical gap-4 t_gap-3 m_gap-2">
-            <div class="flex vertical gap-0-5">
-              <h2 class="relative">{{ svc.outcomesMainTitle }}</h2>
-              <p>{{ svc.outcomesDescription }}</p>
-            </div>
-            <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
-              {%- for n in ["First", "Second", "Third"] %}
-              <div class="_4-col">
-                <div class="flex vertical gap-0-75 service-outcome">
-                  <h3>{{ svc["outcomes" + n + "Title"] }}</h3>
-                  <p>{{ svc["outcomes" + n + "Description"] }}</p>
+          <div class="grid _12-col gap-1 t_flex t_vertical">
+            <div class="_4-col service-intro_aside">
+              <div class="service-intro_sticky flex vertical gap-2 align-start t_gap-1-5">
+                <div class="flex vertical gap-0-75 align-start">
+                  <h1 class="h2 service-intro_title"><span class="services-highlight is-multiline highlight-tight">{{ svc.name }}</span></h1>
+                  <p>{{ svc.shortDescription }}</p>
                 </div>
+                {%- if svc.outcomesMainTitle %}
+                <div class="flex vertical gap-1 service-outcomes">
+                  <div class="flex vertical gap-0-25">
+                    <h2 class="h4">{{ svc.outcomesMainTitle }}</h2>
+                    {%- if svc.outcomesDescription %}<p class="text-size-small">{{ svc.outcomesDescription }}</p>{% endif %}
+                  </div>
+                  <ul role="list" class="service-list">
+                    {%- for n in ["First", "Second", "Third"] %}{% if svc["outcomes" + n + "Title"] %}
+                    <li class="relative padding-vertical padding-1 service-outcome">
+                      <h3 class="service-outcome_title">{{ svc["outcomes" + n + "Title"] }}</h3>
+                      <p class="text-size-small">{{ svc["outcomes" + n + "Description"] }}</p>
+                      <div class="divider absolute bottom-0"></div>
+                    </li>
+                    {%- endif %}{% endfor %}
+                  </ul>
+                </div>
+                {%- endif %}
               </div>
-              {%- endfor %}
+            </div>
+            <div class="_8-col">
+              {#- Opening explainer: starts with the one-sentence definition answer engines quote -#}
+              <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | safe }}</div>
+              {%- if svc.process and svc.process.length %}
+              <div class="height-3 t_height-2"></div>
+              <h2 class="relative">How it works</h2>
+              <div class="height-1-5"></div>
+              <ol role="list" class="service-steps">
+                {%- for step in svc.process %}
+                <li class="border-1 radius-0-25 padding-1-5 m_padding-1-25">
+                  <div class="service-step-num">{{ ("0" + loop.index) if loop.index < 10 else loop.index }}</div>
+                  <h3 class="h4">{{ step.title }}</h3>
+                  <div class="height-0-75"></div>
+                  <p>{{ step.text }}</p>
+                </li>
+                {%- endfor %}
+              </ol>
+              {%- endif %}
             </div>
           </div>
         </div>
       </section>
-
-      {#- How it works on the day -#}
-      {%- if svc.process and svc.process.length %}
-      <section class="section padding-5">
-        <div class="container">
-          <h2 class="relative">How it works</h2>
-          <div class="height-2"></div>
-          <ol role="list" class="grid _12-col gap-1-25 t_flex t_vertical service-steps">
-            {%- for step in svc.process %}
-            <li class="_3-col border-1 radius-0-25 padding-1-5 m_padding-1-25">
-              <div class="service-step-num">{{ ("0" + loop.index) if loop.index < 10 else loop.index }}</div>
-              <h3 class="h4">{{ step.title }}</h3>
-              <div class="height-0-75"></div>
-              <p>{{ step.text }}</p>
-            </li>
-            {%- endfor %}
-          </ol>
-        </div>
-      </section>
-      {%- endif %}
 
       {#- Recent work: micro case studies first, then any full case studies using this service -#}
       {%- if micros.length or bigCases.length or svc.hidden %}
@@ -69,63 +70,32 @@
             <p>The latest congresses and events we have filmed.</p>
           </div>
           <div class="height-2"></div>
-          {#- Compact cards, three to a row, styled like Further Case Studies on case study pages -#}
+          {#- Compact cards, three to a row: photo, date, title, summary, and a link that gets the yellow highlighter on hover -#}
           <div role="list" class="grid _12-col gap-1-25 t_flex t_vertical">
             {%- for m in micros %}
-            {%- set mClient = clients | findBy("slug", m.client) %}
+            {%- set mDate = [m.month, m.year] | select | join(" ") %}
             <div role="listitem" class="_4-col">
-              <a href="/work/{{ m.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct text-align-center c_secondary-btn-hover m_padding-1-25 height-100-pct flex vertical justify-space-between w-inline-block">
-                <div>
-                  <div class="height-1-5 t_none"></div>
-                  <h3 class="min-height-4-5">{{ m.title }}</h3>
-                  <div class="height-0-75"></div>
-                  <p>{{ [(m.clientLabel or (mClient.name if mClient)), ([m.month, m.year] | select | join(" "))] | select | join(" · ") }}</p>
-                  <div class="height-3 t_height-1-25"></div>
-                  {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">
-                  {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
-                  <div class="height-3 t_height-1-25"></div>
-                  <p class="text-size-xsmall">{{ m.summary }}</p>
-                  <div class="height-1-5"></div>
+              <a href="/work/{{ m.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
+                {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">
+                {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
+                <div class="flex vertical gap-0-5">
+                  {%- if mDate %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ mDate }}</p>{% endif %}
+                  <h3 class="h4">{{ m.title }}</h3>
+                  <p class="text-size-small">{{ m.summary }}</p>
                 </div>
-                <div>
-                  <div class="width-100-pct flex justify-center">
-                    <div class="button-secondary">
-                      <div class="text-size-xsmall font-600 relative">
-                        <div class="text-breaking-no-wrap">Read the project</div>
-                        <div class="button-secondary-bg"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="height-1-5 t_none"></div>
-                </div>
+                <div class="work-tile_link"><span class="service-name-highlight">Read the project</span></div>
               </a>
             </div>
             {%- endfor %}
             {%- for cs in bigCases %}
-            {%- set csClient = clients | findBy("slug", cs.client) %}
             <div role="listitem" class="_4-col">
-              <a href="/case-study/{{ cs.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct text-align-center c_secondary-btn-hover m_padding-1-25 height-100-pct flex vertical justify-space-between w-inline-block">
-                <div>
-                  <div class="height-1-5 t_none"></div>
-                  <h3 class="min-height-4-5">{{ cs.title }}</h3>
-                  <div class="height-0-75"></div>
-                  <p{{ ' class="w-dyn-bind-empty"' | safe if not csClient }}>{{ csClient.name if csClient }}</p>
-                  <div class="height-3 t_height-1-25"></div>{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
-                  <div class="height-3 t_height-1-25"></div>
-                  <p class="text-size-xsmall">{{ cs.overview }}</p>
-                  <div class="height-1-5"></div>
+              <a href="/case-study/{{ cs.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
+                {%- if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
+                <div class="flex vertical gap-0-5">
+                  <h3 class="h4">{{ cs.title }}</h3>
+                  <p class="text-size-small">{{ cs.overview }}</p>
                 </div>
-                <div>
-                  <div class="width-100-pct flex justify-center">
-                    <div class="button-secondary">
-                      <div class="text-size-xsmall font-600 relative">
-                        <div class="text-breaking-no-wrap">View the case study</div>
-                        <div class="button-secondary-bg"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="height-1-5 t_none"></div>
-                </div>
+                <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
               </a>
             </div>
             {%- endfor %}
@@ -140,24 +110,15 @@
 
       {#- FAQs: the questions people (and answer engines) ask; also published as FAQPage structured data -#}
       {%- if svc.faqs and svc.faqs.length %}
-      <section class="section padding-5">
-        <div class="container">
-          <div class="grid _12-col gap-1">
-            <div class="_3-col flex justify-start">
-              <div class="relative flex justify-center">
-                <h2 class="relative">FAQ</h2><img loading="lazy" src="/images/Vector-2_1.svg" alt="" class="vector-bg">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <div class="section padding-3 bg-brand height-transition">
         <div class="container-medium">
-          <div class="faq-list">
+          <h2 class="relative service-faq-heading">FAQ</h2>
+          <div class="height-1"></div>
+          <div class="faq-list service-faq">
             {%- for faq in svc.faqs %}
             <button class="faq-item" type="button">
               <div class="faq-title">
-                <h3 class="h2 text-capitalize-none">{{ faq.question }}</h3>
+                <h3 class="h4 text-capitalize-none">{{ faq.question }}</h3>
               </div>
               <div class="padding-horizontal padding-1 faq-bottom">
                 <div class="faq-content">

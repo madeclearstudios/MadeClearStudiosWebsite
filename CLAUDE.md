@@ -78,7 +78,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 
 ## Service pages and micro case studies
 
-**Service pages** live at `/services/<slug>`, built by `src/service.njk` (body in `src/_includes/service/`). A service gets a page when its entry in `src/_data/services.json` has `"hasPage": true`. The page fields:
+**Service pages** live at `/services/<slug>`, built by `src/service.njk` (body in `src/_includes/service/`). Layout: a breadcrumb, then on desktop the title, `shortDescription` and the three outcomes stay in place in the left third while `whyThisMatters` and How it works (a 2×2 grid) scroll past in the right two thirds (`.service-page` gives the page wrapper `overflow: clip` so sticky works); then Recent work, the FAQ (heading inside the yellow box) and Related services. A service gets a page when its entry in `src/_data/services.json` has `"hasPage": true`. The page fields:
 
 - `metaTitle`, `metaDescription`: the search result title and description
 - `shortDescription`: the line under the title
@@ -91,7 +91,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - `gallery`: image URLs (or `{ "src": …, "alt": … }`); `videos`: `{ "link": "<YouTube link>", "thumbnail": …, "title": … }`
 - `hidden`: `true` while the page is being reviewed (see below)
 
-Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug, as compact cards three to a row (the same design as Further Case Studies on case study pages).
+Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug, as compact cards three to a row: photo, date, title, summary, and a "Read the project" link that gets the yellow highlighter on hover (as service names do on the Services page). The client name is left out, as the title already says it.
 
 **Micro case studies** are short project pages for smaller jobs, at `/work/<slug>`, built by `src/micro-case-study.njk` from `src/_data/microCaseStudies.json`. On desktop the intro (date, title, summary, client, date, service) stays in place in the left column; the right column has the photo gallery (no heading) then the write-up, scrolling past it; the videos follow at full width (the shared `service/media.njk` skips its gallery here via `skipGallery`) (`src/_includes/service/micro.njk`; the page wrapper uses `overflow: clip` via `.micro-page` so `position: sticky` works). Fields: `title`, `slug`, `client` (a client slug), `clientLabel`, `month`, `year` (shown as the date; there is no event field, as not every project is at an event), `services` (service slugs), `summary`, `body` (HTML), `captured` (list), `coverPhoto`, `gallery`, `videos`, `order`, `hidden`.
 

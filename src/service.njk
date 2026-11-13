@@ -66,7 +66,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   } | dump | replace("<", "\\u003c") | safe }}</script>
 </head>
 <body>
-  <div class="page-wrapper overflow-hidden">
+  <div class="page-wrapper overflow-hidden service-page">
     {% include "global-styles.njk" %}
     <div class="page-embed w-embed">
       <style>
@@ -112,24 +112,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </div>
     {% include "nav.njk" %}
     {%- set svcCat = serviceCategories | findBy("slug", svc.serviceCategory) %}
-    <section class="section padding-3 overflow-hidden flex vertical align-center">
-      <div class="container-medium">
-        <div class="height-1"></div>
-        <nav aria-label="Breadcrumb" class="service-breadcrumb"><a href="/services">Services</a><span aria-hidden="true">/</span><a href="/services#{{ svcCat.slug if svcCat }}">{{ svcCat.name if svcCat }}</a></nav>
-        <div class="height-1"></div>
-        <div class="flex vertical align-center text-align-center gap-0-75">
-          <div class="max-w-450">
-            <div class="relative padding-horizontal padding-0-75"><img src="/images/Vector-2.svg" loading="lazy" alt="" class="services-main-title-bg">
-              <h1 class="relative">{{ svc.name }}</h1>
-            </div>
-          </div>
-          <div class="max-w-498">
-            <p>{{ svc.shortDescription }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="height-0-75"></div>
-    </section>
+    {#- The title, intro and outcomes sit in the sticky left column of service/main.njk -#}
+    <div class="section service-crumb-wrap"><div class="container">
+      <nav aria-label="Breadcrumb" class="service-breadcrumb"><a href="/services">Services</a><span aria-hidden="true">/</span><a href="/services#{{ svcCat.slug if svcCat }}">{{ svcCat.name if svcCat }}</a></nav>
+    </div></div>
     <main class="main">
       {% include "service/main.njk" %}
       <div class="border-1 bg-cream">
