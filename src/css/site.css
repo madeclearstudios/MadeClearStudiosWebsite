@@ -743,6 +743,11 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
    the Services page. Same grey, bordered panel as the work cards on service pages; 2 x 2 from tablet up. */
 .home-service-panels { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
 @media screen and (min-width: 768px) { .home-service-panels { grid-template-columns: repeat(2, 1fr); } }
+/* Desktop: the four panels side by side in one row */
+@media screen and (min-width: 992px) {
+  .home-service-panels { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .home-service-panel { padding: 1.75rem 1.5rem; }
+}
 .home-service-panel {
   display: flex;
   flex-direction: column;
