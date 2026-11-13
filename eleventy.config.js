@@ -67,6 +67,22 @@ export default function (eleventyConfig) {
     if (plain.length <= max) return plain;
     return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
   });
+  // Body of work timeline (Case Studies page): published, non-hidden micro case studies grouped by year, newest
+  // first, then by month (the "Month" dropdown in Pages CMS) within each year
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  eleventyConfig.addFilter("workTimeline", (items = []) => {
+    const monthNo = (m) => MONTHS.indexOf(m) + 1; // 0 when not set
+    const sorted = published(items)
+      .filter((m) => !m.hidden)
+      .sort((a, b) => (b.year || 0) - (a.year || 0) || monthNo(b.month) - monthNo(a.month));
+    const years = [];
+    for (const m of sorted) {
+      const y = m.year || "";
+      if (!years.length || years[years.length - 1].year !== y) years.push({ year: y, items: [] });
+      years[years.length - 1].items.push(m);
+    }
+    return years;
+  });
   eleventyConfig.addFilter("findBy", (items = [], key, value) => items.find((i) => i[key] === value));
   eleventyConfig.addFilter("except", (items = [], item) => items.filter((i) => i !== item));
   eleventyConfig.addFilter("sortBy", (items = [], key) =>

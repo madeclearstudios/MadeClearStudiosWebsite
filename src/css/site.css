@@ -760,3 +760,31 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .home-service-panel p { margin: 0; }
 .home-service-panel_button { align-self: flex-start; }
 @media screen and (max-width: 767px) { .home-service-panel { padding: 1.75rem 1.5rem; } }
+
+/* Body of work timeline (Case Studies page): "Featured work" is the hero case studies; below, the micro case
+   studies grouped by year. On desktop each year stays in place on the left while its projects scroll past. */
+.work-section-head h2 { margin: 0; }
+.work-section-head p { margin: 0; max-width: 40rem; }
+.work-year { padding-top: 2rem; border-top: 1px solid var(--main--grey-4); }
+.work-year + .work-year { margin-top: 3rem; }
+.work-year_label { margin: 0; }
+/* .work-year .work-year_items beats the _9-col grid class (which loads later and sets 9 columns) */
+.work-year .work-year_items { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-content: start; }
+@media screen and (min-width: 768px) { .work-year .work-year_items { grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 992px) {
+  .work-year_aside { align-self: stretch; }
+  .work-year_label { position: sticky; top: 2rem; }
+}
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+.work-card:hover,
+.work-card:focus-visible { border-color: var(--dark); }
+.work-card h3,
+.work-card p { margin: 0; }
