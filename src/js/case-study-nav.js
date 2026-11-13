@@ -36,7 +36,7 @@
     ".case-body_sticky > *",
     ".case-gallery .media-grid-item",
     ".case-body_main > .flex > .flex:not(:has(> .w-dyn-bind-empty + .w-dyn-bind-empty))",
-    ".case-page blockquote", ".video-gallery .grid > div",
+    "#images-slider", ".case-page blockquote", ".video-gallery .grid > div",
     ".case-page [role=listitem]"
   ];
   var items = document.querySelectorAll(groups.join(","));

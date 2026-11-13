@@ -113,7 +113,7 @@ content:
           - { name: body3, label: Section 3 text, type: rich-text, options: { format: html } }
           - { name: title4, label: Section 4 title, type: string }
           - { name: body4, label: Section 4 text, type: rich-text, options: { format: html } }
-          - { name: imageSlider, label: Gallery, description: "Photos shown at the top of the right-hand column, above the story. Click to enlarge.", type: image, options: { multiple: true } }
+          - { name: imageSlider, label: Gallery, description: "The first three photos sit in a row at the top of the right-hand column; all of them scroll in a strip below the story.", type: image, options: { multiple: true } }
           - { name: testimonial, label: Testimonial, type: text }
           - { name: authorName, label: Testimonial author, type: string }
           - { name: authorRoleLine1, label: Author role (line 1), type: string }
@@ -384,7 +384,7 @@ content:
             label: Related services
             type: reference
             options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
-          - { name: gallery, label: Gallery, description: "Photos shown at the top of the right-hand column, above the explainer. Click to enlarge.", type: image, options: { multiple: true } }
+          - { name: gallery, label: Gallery, description: "Leave empty to fill it automatically: up to three photos from the projects in Recent work (their hero images first, then their other photos). Add photos here to use your own instead. Shown at the top of the right-hand column.", type: image, options: { multiple: true } }
           - name: videos
             label: Videos
             type: object

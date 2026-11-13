@@ -85,6 +85,18 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("findBy", (items = [], key, value) => items.find((i) => i[key] === value));
   eleventyConfig.addFilter("except", (items = [], item) => items.filter((i) => i !== item));
+  // Service page gallery, filled automatically from the projects tagged with the service: the hero (cover)
+  // image of each micro case study and case study first, then, if that gives fewer than `max`, their other
+  // photos (micro case study gallery, case study gallery/imageSlider). No duplicates; hidden projects are skipped.
+  eleventyConfig.addFilter("workGallery", (projects = [], max = 3) => {
+    const live = projects.filter((p) => p && !p.hidden);
+    const src = (img) => (img && typeof img === "object" ? img.src : img);
+    const out = [];
+    const add = (img) => { const s = src(img); if (s && !out.includes(s) && out.length < max) out.push(s); };
+    live.forEach((p) => add(p.coverPhoto));
+    live.forEach((p) => (p.gallery || p.imageSlider || []).forEach(add));
+    return out;
+  });
   eleventyConfig.addFilter("sortBy", (items = [], key) =>
     [...items].sort((a, b) => String(a[key] ?? "").localeCompare(String(b[key] ?? ""), "en", { sensitivity: "base" }))
   );
