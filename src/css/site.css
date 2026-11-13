@@ -957,3 +957,8 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
 .service-lead p:first-child { letter-spacing: .1rem; line-height: 1.6; }
 /* Footer links and contact details use the same small style as other small text */
 .link-dark, .cookie-settings-link { letter-spacing: .11rem; line-height: 1.6; }
+
+/* FAQ questions (About and service pages) are solid black on the yellow box, not faded until hovered.
+   Text on solid yellow stays black in night mode too. */
+.faq-item { opacity: 1; }
+.bg-brand .faq-item, .bg-brand .faq-item .faq-title h3, .bg-brand .faq-item .text-rich-text { color: #000; }
