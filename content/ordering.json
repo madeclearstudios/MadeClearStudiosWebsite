@@ -1,0 +1,99 @@
+{
+  "caseStudies": [
+    "the-curious-case-of-coronary-calcium",
+    "clean-those-leads",
+    "htn-rdn",
+    "the-calcium-masterclass",
+    "the-radiation-problem",
+    "big-discrepancies-big-solutions",
+    "orsif-is-not-here",
+    "philips-ice-in-the-heart"
+  ],
+  "microCaseStudies": [
+    "shockwave-medical-tct-2026",
+    "shockwave-medical-cirse-2026"
+  ],
+  "insights": [
+    "why-vr-works-in-the-cath-lab-and-at-the-booth",
+    "why-cardiology-stories-stick",
+    "why-virtual-production-is-changing-cardiology-content"
+  ],
+  "clients": [
+    "medtronic",
+    "abbott",
+    "egg-medical",
+    "orsif",
+    "shockwave-medical",
+    "radcare-medical-services",
+    "ivascular",
+    "philips"
+  ],
+  "clientLogos": [
+    "boston-scientific",
+    "egg-medical",
+    "jenavalve",
+    "hca",
+    "abbott",
+    "shockwave",
+    "medtronic",
+    "optima",
+    "orsif",
+    "philips",
+    "oxford-university-press",
+    "johnson-and-johnson",
+    "women-as-one",
+    "rampart-ic",
+    "recor-medical"
+  ],
+  "serviceCategories": [
+    "strategy",
+    "creative",
+    "production",
+    "distribution"
+  ],
+  "services": [
+    "campaign-strategy",
+    "narrative-development",
+    "brand-strategy",
+    "naming-strategy",
+    "brand-architecture",
+    "audience-insight-and-segmentation",
+    "messaging-frameworks",
+    "content-planning",
+    "channel-strategy",
+    "marketing-strategy",
+    "team-workshop-sessions",
+    "campaign-creative-and-concepts",
+    "film-and-video-content",
+    "vr-and-immersive-experiences",
+    "design-and-visual-systems",
+    "congress-and-event-creative",
+    "video-production-documentary-testimonial-explainer-training",
+    "live-webinars",
+    "vr-experiences",
+    "animation",
+    "brand-identity-design",
+    "medical-illustration-and-infographics",
+    "web-and-interactive-content",
+    "on-site-congress-and-event-production",
+    "ai-assisted-production-projects",
+    "distribution-strategy-and-channel-planning",
+    "platform-distribution-including-socials-and-influencer",
+    "performance-tracking-and-optimisation"
+  ],
+  "faqs": [
+    "we-already-work-with-an-agency-or-medical-education-partner-how-do-you-fit-in-",
+    "can-you-work-across-multiple-languages-and-markets",
+    "youre-known-for-vr-is-that-all-you-do",
+    "how-do-you-work-with-kols",
+    "how-do-you-handle-compliance-and-medical-review-m1yt2",
+    "how-are-you-different-from-a-medical-education-company",
+    "how-do-we-make-the-case-for-agency-investment-internally",
+    "how-do-you-make-sure-the-science-is-right-without-killing-the-creativity"
+  ],
+  "sectors": [
+    "cardiology",
+    "medtech",
+    "healthcare"
+  ]
+}
