@@ -26,7 +26,16 @@
     "shockwave-medical",
     "radcare-medical-services",
     "ivascular",
-    "philips"
+    "philips",
+    "boston-scientific",
+    "hca-healthcare-uk",
+    "jenavalve",
+    "johnson-and-johnson",
+    "optima",
+    "oxford-university-press",
+    "rampart-ic",
+    "recor-medical",
+    "women-as-one"
   ],
   "clientLogos": [
     "boston-scientific",
@@ -79,7 +88,9 @@
     "ai-assisted-production-projects",
     "distribution-strategy-and-channel-planning",
     "platform-distribution-including-socials-and-influencer",
-    "performance-tracking-and-optimisation"
+    "performance-tracking-and-optimisation",
+    "3d-model-development",
+    "live-cases"
   ],
   "faqs": [
     "we-already-work-with-an-agency-or-medical-education-partner-how-do-you-fit-in-",
