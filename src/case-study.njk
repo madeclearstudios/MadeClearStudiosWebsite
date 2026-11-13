@@ -295,7 +295,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <h3>{{ other.title }}</h3>
                     <p class="{{ 'w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
                   </div>
-                  <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
+                  <div class="work-tile_link"><span class="service-name-highlight">Find out more<span class="visually-hidden"> about {{ other.title }}</span></span></div>
                 </a>
               </div>
               {%- endfor %}
