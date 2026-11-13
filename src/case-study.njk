@@ -189,9 +189,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               </div>
             </div>
             <div class="_8-col case-body_main">
-              {#- Gallery: at the top of the right column, above the story, as on micro case studies. Opens in the lightbox.
-                  (The CMS field is still called imageSlider.) -#}
-              {%- set csGallery = cs.imageSlider or [] %}
+              {#- One row of up to three photos at the top of the right column, above the story (the first three from
+                  the Gallery field, which is still called imageSlider). Opens in the lightbox. The full gallery
+                  scrolls as a strip further down. -#}
+              {%- set csGallery = (cs.imageSlider or []).slice(0, 3) %}
               {%- if csGallery.length %}
               <div class="media-grid case-gallery">
                 {%- for img in csGallery %}
@@ -226,6 +227,20 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </div>
         </div>
       </section>
+      {#- The full gallery as a scrolling strip, below the story -#}
+      {%- if cs.imageSlider.length %}
+      <section class="section padding-5 overflow-hidden">
+        <div id="images-slider" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {%- for img in cs.imageSlider %}
+              <li class="splide__slide c_image-slider-item"><img src="{{ img }}" loading="lazy" alt="" class="c_image-slider"></li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+      {%- endif %}
       {%- if cs.testimonial %}
       <section class="section padding-5">
         <div class="container-medium">
@@ -584,6 +599,36 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/j
         console.log('Vimeo thumbnail error:', error);
       }
     });
+    /* Images Slider START */
+    const imagesSliderEl = document.querySelector('#images-slider');
+    if (imagesSliderEl) {
+      const imagesSlider = new Splide('#images-slider', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+         height   : '16.875rem',
+        arrows: false,
+        pagination: false,
+        gap: '0.875rem',
+        autoWidth: true,
+        perPage: 3,
+        autoScroll: {
+          speed: 0.5,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+        },
+        breakpoints: {
+          992: {
+            perPage: 2,
+          },
+          767: {
+            perPage: 1,
+          },
+        },
+      });
+      imagesSlider.mount(window.splide.Extensions);
+    }
+    /* Images Slider END */
   });
 </script>
 </body>

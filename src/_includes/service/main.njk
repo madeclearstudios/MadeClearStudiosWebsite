@@ -40,8 +40,10 @@
             </div>
             <div class="_8-col">
               <div class="height-1-5 none t_block"></div>
-              {#- Gallery: at the top of the right column, above the explainer. Opens in the lightbox. -#}
-              {%- set svcGallery = svc.gallery or [] %}
+              {#- Gallery: at the top of the right column, above the explainer. Opens in the lightbox. Filled
+                  automatically with up to three photos from the projects in Recent work (their hero images first,
+                  then their other photos); the Gallery field in Pages CMS replaces them when it has photos. -#}
+              {%- set svcGallery = svc.gallery if (svc.gallery and svc.gallery.length) else (micros.concat(bigCases) | workGallery(3)) %}
               {%- if svcGallery.length or svc.hidden %}
               <div class="media-grid service-gallery">
                 {%- for img in svcGallery %}
@@ -52,7 +54,7 @@
                 </a>
                 {%- endfor %}
                 {%- if not svcGallery.length %}
-                {%- for i in range(0, 6) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
+                {%- for i in range(0, 3) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
                 {%- endif %}
               </div>
               <div class="height-2"></div>
