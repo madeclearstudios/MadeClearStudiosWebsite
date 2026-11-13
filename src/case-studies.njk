@@ -114,7 +114,7 @@ permalink: case-studies.html
                       <h3 class="h4">{{ cs.title }}</h3>
                       <p fs-list-field="category" class="filter-hide{{ ' w-dyn-bind-empty' if not cat }}">{{ cat.name if cat }}</p>
                     </div>
-                    <div class="_4-col m_order-last relative">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9">{% endif %}
+                    <div class="_4-col m_order-last relative radius-0-25 overflow-hidden">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 radius-0-25">{% endif %}
                       <div class="overlay-wrapper"></div>
                     </div>
                     <div class="_5-col">
