@@ -35,6 +35,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
   <!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-smartlightbox=""></script>
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Case Studies", "item": siteUrl + "/case-studies" },
+      { "@type": "ListItem", "position": 2, "name": cs.title, "item": siteUrl + "/case-study/" + cs.slug }
+    ]
+  } | dump | replace("<", "\\u003c") | safe }}</script>
 </head>
 <body>
   <div class="page-wrapper case-page">
@@ -115,6 +123,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       <section class="section padding-5 case-hero">
         <div class="container-medium">
           <div class="flex vertical align-center text-align-center gap-1-25">
+            <nav aria-label="Breadcrumb" class="service-breadcrumb case-breadcrumb"><a href="/case-studies">Case Studies</a><span><span aria-hidden="true" class="case-breadcrumb_sep">/</span><span aria-current="page">{{ projectLine }}</span></span></nav>
             <h1 class="h2 case-hero_title">
               {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span>{% endif -%}
               <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
@@ -136,7 +145,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="_5-col case-body_aside">
               <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
                 {%- if cs.coverPhoto %}
-                <div class="relative"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 case-body_cover">
+                <div class="relative radius-0-25 overflow-hidden"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 radius-0-25 case-body_cover">
                   <div class="overlay-wrapper"></div>
                 </div>
                 {%- endif %}

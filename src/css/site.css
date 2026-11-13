@@ -729,6 +729,9 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
    their own lines; below it the cover photo and services stay in place on the left (desktop) while the
    featured videos and the story scroll past on the right. */
 .case-hero_title { margin: 0; }
+.case-breadcrumb { flex-wrap: wrap; text-align: center; }
+.case-breadcrumb a { text-decoration: underline; text-underline-offset: 0.2em; }
+.case-breadcrumb_sep { margin-right: 0.5rem; } /* kept with the project name, so a wrap moves both */
 .section.padding-5.case-hero { padding-bottom: 1rem; }
 .case-hero_client,
 .case-hero_project { display: block; }
