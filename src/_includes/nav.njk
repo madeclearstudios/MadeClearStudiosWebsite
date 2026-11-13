@@ -1,6 +1,6 @@
 {#- Top navigation: a yellow MENU button on the left, the logo in the middle and the night mode switch on the right.
-    The button drops down a black full-screen panel (#site-menu): the pages on the left, in the page-title style with
-    the yellow highlighter on hover, and our contact details on the right. Behaviour in js/site-menu.js, styles in the
+    The button drops down a black full-screen panel (#site-menu): the pages on the left, in the page-title style, white,
+    turning yellow on hover, and our contact details on the right. Behaviour in js/site-menu.js, styles in the
     "Menu" block of css/site.css. The Services link jumps to /services; the categories are listed under it. -#}
 {%- macro current(url) %}{% if page.url | replace(".html", "") == url %} aria-current="page"{% endif %}{% endmacro -%}
     <div class="section bg-transparent site-nav" data-w-id="49f5e56c-8521-8763-403a-7fb5a593df04" role="banner">
@@ -44,11 +44,11 @@
               { url: "/contact", label: "Contact" }
             ] %}
             <li class="site-menu_item">
-              <a href="{{ item.url }}"{{ current(item.url) }} class="site-menu_link"><span class="site-menu_highlight">{{ item.label }}</span></a>
+              <a href="{{ item.url }}"{{ current(item.url) }} class="site-menu_link">{{ item.label }}</a>
               {%- if item.url == "/services" %}
               <ul role="list" class="site-menu_sub">
                 {%- for cat in serviceCategories | published %}
-                <li><a href="/services#{{ cat.slug }}" class="site-menu_sublink"><span class="site-menu_highlight">{{ cat.name }}</span></a></li>
+                <li><a href="/services#{{ cat.slug }}" class="site-menu_sublink">{{ cat.name }}</a></li>
                 {%- endfor %}
               </ul>
               {%- endif %}
