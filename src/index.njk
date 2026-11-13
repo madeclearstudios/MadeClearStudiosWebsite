@@ -165,7 +165,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <p>{{ cat.teaser or (cat.description | metaDescription(140)) }}</p>
               </div>
               <span class="button primary w-inline-block home-service-panel_button">
-                <span>Explore {{ cat.name | lower }}</span>
+                <span>Explore<span class="visually-hidden"> {{ cat.name | lower }}</span></span>
                 <span class="hover-button-blur"></span>
               </span>
             </a>
