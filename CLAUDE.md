@@ -108,6 +108,8 @@ Set up email notifications there. `src/js/contact-form.js` sends the form, shows
 
 Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.config.js`). Every `<img>` pointing at a local file gets WebP copies at 480, 960 and 1600px in `_site/img/`, with `srcset`, `sizes`, `width` and `height` added. Upload images at full quality; there is no need to resize them first. SVGs are left alone. Add `eleventy:ignore` to an `<img>` to skip it (for example when a script changes its `src`). Images set in CSS (`background-image`) are not resized, so save those as WebP at a sensible size.
 
+**Smart cropping:** the top galleries on case studies, micro case studies and service pages crop each photo to 4:3. The build checks every photo for faces and points of interest (`lib/focal-point.js`, using sharp's attention detection) and sets where the crop sits (`object-position`), keeping the subject in the middle and leaving headroom; on tall photos it never goes below the top third, so heads stay in. Results are in `src/_data/imageFocus.js`, cached in `.cache/`, so only new photos are checked. To set a crop by hand, give the photo as `{ "src": "/images/…", "focus": "50% 20%" }` in the content JSON.
+
 ## Structured data
 
 - Organization: `src/_includes/schema/organization.njk` on Home, About and Contact, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
