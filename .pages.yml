@@ -8,6 +8,59 @@ media:
   categories: [image]
 
 content:
+  - name: ordering
+    label: Ordering
+    description: "Drag items up and down to set the order they appear in on the site. A newly added item goes to the end until you drag it into place."
+    type: file
+    path: content/ordering.json
+    format: json
+    fields:
+      - name: caseStudies
+        label: Case studies
+        type: reference
+        list: true
+        options: { collection: case-studies, search: title, value: "{fields.slug}", label: "{fields.title}" }
+      - name: microCaseStudies
+        label: Micro case studies
+        type: reference
+        list: true
+        options: { collection: micro-case-studies, search: title, value: "{fields.slug}", label: "{fields.title}" }
+      - name: insights
+        label: Insights
+        type: reference
+        list: true
+        options: { collection: insights, search: title, value: "{fields.slug}", label: "{fields.title}" }
+      - name: clients
+        label: Clients (testimonial sliders)
+        type: reference
+        list: true
+        options: { collection: clients, search: name, value: "{fields.slug}", label: "{fields.name}" }
+      - name: clientLogos
+        label: Client logos (each logo stays on its own row)
+        type: reference
+        list: true
+        options: { collection: client-logos, search: name, value: "{fields.slug}", label: "{fields.name}" }
+      - name: serviceCategories
+        label: Service categories
+        type: reference
+        list: true
+        options: { collection: service-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
+      - name: services
+        label: Services (order within each category)
+        type: reference
+        list: true
+        options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}" }
+      - name: faqs
+        label: FAQs
+        type: reference
+        list: true
+        options: { collection: faqs, search: question, value: "{fields.slug}", label: "{fields.question}" }
+      - name: sectors
+        label: Sectors
+        type: reference
+        list: true
+        options: { collection: sectors, search: name, value: "{fields.slug}", label: "{fields.name}" }
+
   - name: work
     label: Work
     type: group
@@ -20,10 +73,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [title, client, order, draft]
+          fields: [title, client, draft]
           primary: title
-          sort: [order, title]
-          default: { sort: order, order: asc }
+          sort: [title]
+          default: { sort: title, order: asc }
         fields:
           - { name: title, label: Title, type: string, required: true }
           - name: slug
@@ -34,7 +87,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: draft, label: Draft, description: "Drafts are kept here but not shown on the site.", type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
-          - { name: order, label: Order, description: "Position in lists (1 comes first).", type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: overview, label: Overview, description: "The intro under the title, also used on cards and in search results.", type: text }
           - { name: coverPhoto, label: Cover photo, type: image }
           - name: client
@@ -83,10 +136,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [title, event, hidden, order]
+          fields: [title, event, hidden]
           primary: title
-          sort: [order, title]
-          default: { sort: order, order: asc }
+          sort: [title]
+          default: { sort: title, order: asc }
         fields:
           - { name: title, label: Title, type: string, required: true }
           - name: slug
@@ -98,7 +151,7 @@ content:
           - { name: hidden, label: Hidden for review, description: "Live at its address but not linked, not in search and not in the sitemap. Untick to publish.", type: boolean, default: true }
           - { name: draft, label: Draft, description: "Not built at all.", type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
-          - { name: order, label: Order, description: "Position in lists (1 comes first).", type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - name: client
             label: Client
             type: reference
@@ -132,10 +185,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [title, order, draft]
+          fields: [title, draft]
           primary: title
-          sort: [order, title]
-          default: { sort: order, order: asc }
+          sort: [title]
+          default: { sort: title, order: asc }
         fields:
           - { name: title, label: Title, type: string, required: true }
           - name: slug
@@ -146,7 +199,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
-          - { name: order, label: Order, type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: overview, label: Overview, description: "The intro under the title, also used in search results.", type: text }
           - { name: coverPhoto, label: Cover photo, type: image }
           - { name: author, label: Author, type: string }
@@ -209,10 +262,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [name, order, draft]
+          fields: [name, draft]
           primary: name
-          sort: [order, name]
-          default: { sort: order, order: asc }
+          sort: [name]
+          default: { sort: name, order: asc }
         fields:
           - { name: name, label: Name, type: string, required: true }
           - name: slug
@@ -222,7 +275,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
-          - { name: order, label: Order, description: "Position in the testimonial sliders.", type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: logo, label: Logo, type: image }
           - { name: testimonial, label: Testimonial, description: "Leave empty to keep this client out of the testimonial sliders.", type: text }
           - { name: authorRoleLine1, label: Testimonial author, type: string }
@@ -242,10 +295,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [name, secondLine, order]
+          fields: [name, secondLine]
           primary: name
-          sort: [order, name]
-          default: { sort: order, order: asc }
+          sort: [name]
+          default: { sort: name, order: asc }
         fields:
           - { name: name, label: Name, type: string, required: true }
           - name: slug
@@ -255,7 +308,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: logotype, label: Logo, type: image }
           - { name: secondLine, label: Show on the second row, type: boolean, default: false }
-          - { name: order, label: Order, type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
           - { name: publishedOn, label: Published on, type: date, hidden: true }
@@ -274,8 +327,8 @@ content:
         view:
           fields: [name, serviceCategory, hasPage, hidden]
           primary: name
-          sort: [order, name]
-          default: { sort: order, order: asc }
+          sort: [name]
+          default: { sort: name, order: asc }
         fields:
           - { name: name, label: Name, type: string, required: true }
           - name: slug
@@ -288,7 +341,7 @@ content:
             label: Category
             type: reference
             options: { collection: service-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
-          - { name: order, label: Order, description: "Position within its category.", type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
           - { name: hasPage, label: Has its own page, type: boolean, default: false }
@@ -346,10 +399,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [name, order]
+          fields: [name]
           primary: name
-          sort: [order, name]
-          default: { sort: order, order: asc }
+          sort: [name]
+          default: { sort: name, order: asc }
         fields:
           - { name: name, label: Name, type: string, required: true }
           - name: slug
@@ -358,7 +411,7 @@ content:
             type: string
             required: true
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
-          - { name: order, label: Order, type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: description, label: Description, type: rich-text, options: { format: html } }
           - { name: teaser, label: Home page panel text, description: "One or two short sentences for this service's panel on the Home page.", type: text }
           - { name: draft, label: Draft, type: boolean, default: false }
@@ -376,10 +429,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [question, order, draft]
+          fields: [question, draft]
           primary: question
-          sort: [order, question]
-          default: { sort: order, order: asc }
+          sort: [question]
+          default: { sort: question, order: asc }
         fields:
           - { name: question, label: Question, type: string, required: true }
           - name: slug
@@ -388,7 +441,7 @@ content:
             required: true
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: answer, label: Answer, type: rich-text, options: { format: html } }
-          - { name: order, label: Order, type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
           - { name: publishedOn, label: Published on, type: date, hidden: true }
@@ -401,10 +454,10 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [name, order]
+          fields: [name]
           primary: name
-          sort: [order, name]
-          default: { sort: order, order: asc }
+          sort: [name]
+          default: { sort: name, order: asc }
         fields:
           - { name: name, label: Name, type: string, required: true }
           - name: slug
@@ -412,7 +465,7 @@ content:
             type: string
             required: true
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
-          - { name: order, label: Order, type: number }
+          - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: description, label: Description, type: rich-text, options: { format: html } }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }

@@ -37,7 +37,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-smartlightbox=""></script>
 </head>
 <body>
-  <div class="page-wrapper">
+  <div class="page-wrapper case-page">
     {% include "global-styles.njk" %}
     <div class="page-embed w-embed">
       <style>
@@ -105,67 +105,69 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </style>
     </div>
     {% include "nav.njk" %}
-    <section class="section">
-      <div class="section-padding-negative relative">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 max-height-70-vh">{% endif %}
-        <div class="overlay-wrapper"></div>
-      </div>
-    </section>
     <main class="main">
-      <section class="section padding-5">
-        <div class="container">
-          <div class="height-2 t_none"></div>
-          <div class="relative">
-            <div class="height-1-5 none t_block"></div>
-          </div>
-          <div class="grid _12-col gap-1 t_flex align-start">
-            <div class="_4-col t_none"></div>
-            <div class="_5-col">
-              <div class="flex vertical gap-1-5 align-start">
-                <div class="relative padding-horizontal">
-                  <div class="relative flex justify-center z-1">
-                    <h1 class="relative{{ ' w-dyn-bind-empty' if not cs.title }}">{{ cs.title }}</h1><img loading="lazy" src="/images/Vector-7.svg" alt="" class="vector-bg full-height">
-                  </div>
-                </div>
-                <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
-              </div>
+      {#- Header: client, then the project name (highlighted), then the summary, centred. Titles are written
+          "Client | Project" in the CMS; without a " | " the client comes from the client reference. -#}
+      {%- set csClient = clients | findBy("slug", cs.client) %}
+      {%- set titleParts = cs.title.split(" | ") if cs.title else [] %}
+      {%- if titleParts.length > 1 %}{% set clientLine = titleParts[0] %}{% set projectLine = titleParts.slice(1).join(" | ") %}
+      {%- else %}{% set clientLine = csClient.name if csClient else "" %}{% set projectLine = cs.title %}{% endif %}
+      <section class="section padding-5 case-hero">
+        <div class="container-medium">
+          <div class="flex vertical align-center text-align-center gap-1-25">
+            <h1 class="h2 case-hero_title">
+              {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span>{% endif -%}
+              <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
+            </h1>
+            <div class="max-w-498">
+              <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
             </div>
           </div>
         </div>
       </section>
+
+      {#- Two columns: the cover photo and services stay in place on the left while the featured videos and the
+          story scroll past on the right; the rest of the page follows at full width. Needs .case-page
+          (overflow: clip on the page wrapper) for position: sticky; styles in css/site.css. -#}
       {%- set vids = cs.videos | playableVideos %}
-      {%- if vids.length %}
-      <section class="section padding-5 highlighted-videos">
-        <div class="container">
-          <div class="grid _12-col gap-1-25 t_flex t_vertical">
-            {%- for n in [0, 1] %}
-            <div class="_6-col">
-              {%- set video = vids[n] or {} %}
-              {% include "video-lightbox.njk" %}
-            </div>
-            {%- endfor %}
-          </div>
-        </div>
-      </section>
-      {%- endif %}
-      <section class="section padding-5">
+      <section class="section padding-5 case-body">
         <div class="container relative">
           <div class="grid _12-col gap-1 t_flex t_vertical">
-            <div class="_4-col flex vertical gap-2 align-start t_gap-1">
-              <div class="relative padding-horizontal">
-                <h3 class="h4 relative">Services</h3>
+            <div class="_5-col case-body_aside">
+              <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
+                {%- if cs.coverPhoto %}
+                <div class="relative"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 case-body_cover">
+                  <div class="overlay-wrapper"></div>
+                </div>
+                {%- endif %}
+                <div class="flex vertical gap-1 align-start">
+                  <h3 class="h4 relative">Services</h3>
+                  <div class="w-dyn-list">
+                    <div role="list" class="w-dyn-items">
+                      {%- for service in services | published | whereIn("slug", cs.services) %}
+                      <div role="listitem" class="w-dyn-item">
+                        <p class="text-size-xsmall font-600 text-color-grey-4">{{ service.name }}</p>
+                      </div>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="w-dyn-list">
-                <div role="list" class="w-dyn-items">
-                  {%- for service in services | published | whereIn("slug", cs.services) %}
-                  <div role="listitem" class="w-dyn-item">
-                    <p class="text-size-xsmall font-600 text-color-grey-4">{{ service.name }}</p>
+            </div>
+            <div class="_7-col case-body_main">
+              {%- if vids.length %}
+              <div class="highlighted-videos case-body_videos">
+                <div class="grid _12-col gap-1-25 t_flex t_vertical">
+                  {%- for n in [0, 1] %}
+                  <div class="_6-col">
+                    {%- set video = vids[n] or {} %}
+                    {% include "video-lightbox.njk" %}
                   </div>
                   {%- endfor %}
                 </div>
               </div>
-            </div>
-            <div class="_5-col">
-              <div class="height-1-5 none t_block"></div>
+              <div class="height-4 t_height-3"></div>
+              {%- endif %}
               <div class="flex vertical gap-5 t_gap-4 m_gap-3">
                 <div class="flex vertical gap-1">
                   <h2 class="relative{{ ' w-dyn-bind-empty' if not cs.title1 }}">{{ cs.title1 }}</h2>
@@ -323,6 +325,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             item.className = 'splide__slide';
           });
           const testimonialsSlider = new Splide('#testimonial-slider', {
+            type: 'loop', // endless: after the last testimonial comes the first again
             arrowPath:
             'M33.5488 18.7969C34.3537 19.3967 34.3537 20.6033 33.5488 21.2031L15.6465 34.5391C14.6571 35.2761 13.2502 34.5706 13.25 33.3369L13.25 6.66309C13.2502 5.42944 14.6571 4.72389 15.6465 5.46094L33.5488 18.7969Z',
             classes: {

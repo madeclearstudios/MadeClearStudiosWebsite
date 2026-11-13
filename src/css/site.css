@@ -692,10 +692,12 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 /* Micro case study (/work/...): the intro column stays in place while the write-up scrolls past it
    (_includes/service/micro.njk). overflow: clip on the page wrapper looks the same as hidden but, unlike
    hidden, lets position: sticky work. Below tablet width the columns stack and nothing sticks. */
-.page-wrapper.micro-page { overflow: clip; }
+.page-wrapper.micro-page,
+.page-wrapper.case-page { overflow: clip; }
 .micro-intro_title { margin: 0; }
-/* A tighter highlighter on the micro case study title: less overhang either side and a slimmer stroke */
-.micro-intro_title .services-highlight.is-multiline {
+/* A tighter highlighter (micro case study and case study titles): less overhang either side and a slimmer stroke */
+.micro-intro_title .services-highlight.is-multiline,
+.services-highlight.is-multiline.highlight-tight {
   padding: 0 0.06em;
   margin: 0 -0.06em;
   background-size: 100% 78%;
@@ -721,6 +723,20 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
   .blob-lens-copy .max-width-360 { max-width: min(12rem, 52vw); }
   .blob-lens-copy .text-size-normal { font-size: 0.9375rem; }
   .blob-lens-copy .button { white-space: nowrap; }
+}
+
+/* Case study page (case-study.njk): centred header with the client, then the highlighted project name, on
+   their own lines; below it the cover photo and services stay in place on the left (desktop) while the
+   featured videos and the story scroll past on the right. */
+.case-hero_title { margin: 0; }
+.section.padding-5.case-hero { padding-bottom: 1rem; }
+.case-hero_client,
+.case-hero_project { display: block; }
+.case-hero_client { margin-bottom: 0.4em; }
+@media screen and (min-width: 992px) {
+  .case-body > .container > .grid { column-gap: 4rem; }
+  .case-body_aside { align-self: stretch; }
+  .case-body_sticky { position: sticky; top: 2rem; }
 }
 
 /* Home service panels (index.njk, under "Our services"): one per service category, linking to its section of

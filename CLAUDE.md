@@ -20,7 +20,7 @@ npm run build    # production build into _site/
 | "Make it clear" enquiry form above the footer | `src/_includes/enquiry-form.njk` |
 | Client testimonials slider | `src/_includes/testimonials.njk`, `testimonial-single.njk` (KOL Hub) |
 | KOL card | `src/_includes/expert-card.njk` |
-| Case study page design (`/case-study/...`) | `src/case-study.njk` |
+| Case study page design (`/case-study/...`): a centred header (client, then the highlighted project name, split from the title at " \| "), then on desktop the cover photo and services stay in place on the left while the featured videos and story scroll past on the right (`.case-page` gives the page wrapper `overflow: clip` so sticky works) | `src/case-study.njk`, styles in `src/css/site.css` |
 | Insight page design (`/insights/...`) | `src/insight.njk` |
 | Pages | `src/index.njk`, `about.njk`, `services.njk`, `case-studies.njk`, `kol-hub.njk` (the KOL Hub; `kol.njk` is hidden and `/kol` redirects to `/kol-hub`), `insights.njk`, `contact.njk`, `sectors.njk`, `terms-conditions.njk`, `privacy-policy.njk`, `womenasone.njk`, `404.njk` |
 | Terms & Conditions and Privacy Policy text (clause numbers are written out, so update cross-references by hand if clauses move) | `src/_includes/legal/terms.njk`, `src/_includes/legal/privacy.njk` |
@@ -54,7 +54,8 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 
 - `src/_data/<name>.js` reads each folder (via `lib/content.js`), so templates still see `caseStudies`, `experts` and so on as lists, sorted by `order`.
 - References to other items use the other item's `slug`, e.g. a case study's `"client": "ivascular"`. Pages CMS shows these as dropdowns.
-- `order` sets the position in lists. `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
+- **Order** is set by dragging in **Ordering** in Pages CMS (`content/ordering.json`: one list of slugs per collection). `lib/content.js` sorts each collection by its list; items not in the list yet (e.g. just added) come last, by their old `order` number, then file name. The `order` fields are hidden in the CMS and only used as that fallback. The `sortByOrder` template filter keeps the collection's order.
+- `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
 - Rich text fields are HTML.
 - Videos are **YouTube** links (any form: `youtu.be/…`, `youtube.com/watch?v=…`, `/embed/…`, `/shorts/…`). They play in YouTube's privacy-enhanced mode (`youtube-nocookie.com`), Shorts in a portrait player. With no uploaded thumbnail, YouTube's own is used. A few older Vimeo links still play until they're replaced; any other link is left out, with a warning in the build log (`playableVideos` filter in `eleventy.config.js`).
 - A case study's `videos` list holds up to 8 videos: the first two show under the intro, the rest in the gallery lower down (a slider with 3 or more).
