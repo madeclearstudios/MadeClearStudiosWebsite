@@ -48,7 +48,7 @@
                 {%- for img in microGallery %}
                 {%- set src = img.src or img %}
                 <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
-                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}" style="object-position: {{ img.focus or imageFocus[src] or '50% 50%' }}">
                   <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
                 </a>
                 {%- endfor %}
