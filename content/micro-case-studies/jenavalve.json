@@ -1,0 +1,23 @@
+{
+  "title": "JenaValve",
+  "slug": "jenavalve",
+  "hidden": true,
+  "draft": true,
+  "archived": false,
+  "order": 99,
+  "client": "",
+  "clientLabel": "JenaValve",
+  "event": "",
+  "year": null,
+  "month": "",
+  "services": [
+    "on-site-congress-and-event-production",
+    "congress-and-event-creative"
+  ],
+  "summary": "",
+  "body": "",
+  "captured": [],
+  "coverPhoto": "",
+  "gallery": [],
+  "videos": []
+}

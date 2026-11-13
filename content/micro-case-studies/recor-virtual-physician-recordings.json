@@ -1,0 +1,24 @@
+{
+  "title": "Recor Virtual Physician Recordings",
+  "slug": "recor-virtual-physician-recordings",
+  "hidden": true,
+  "draft": true,
+  "archived": false,
+  "order": 99,
+  "client": "",
+  "clientLabel": "Recor Medical",
+  "event": "",
+  "year": null,
+  "month": "",
+  "services": [
+    "video-production-documentary-testimonial-explainer-training",
+    "web-and-interactive-content",
+    "live-webinars"
+  ],
+  "summary": "",
+  "body": "",
+  "captured": [],
+  "coverPhoto": "",
+  "gallery": [],
+  "videos": []
+}
