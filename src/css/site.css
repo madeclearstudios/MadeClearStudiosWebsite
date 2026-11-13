@@ -738,3 +738,25 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
   .case-body_aside { align-self: stretch; }
   .case-body_sticky { position: sticky; top: 2rem; }
 }
+
+/* Home service panels (index.njk, under "Our services"): one per service category, linking to its section of
+   the Services page. Same grey, bordered panel as the work cards on service pages; 2 x 2 from tablet up. */
+.home-service-panels { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media screen and (min-width: 768px) { .home-service-panels { grid-template-columns: repeat(2, 1fr); } }
+.home-service-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.25rem 2rem;
+  color: inherit;
+  text-decoration: none;
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+.home-service-panel:hover,
+.home-service-panel:focus-visible { border-color: var(--dark); }
+.home-service-panel h3 { margin: 0; }
+.home-service-panel p { margin: 0; }
+.home-service-panel_button { align-self: flex-start; }
+@media screen and (max-width: 767px) { .home-service-panel { padding: 1.75rem 1.5rem; } }

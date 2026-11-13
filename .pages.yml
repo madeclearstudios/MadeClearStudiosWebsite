@@ -413,6 +413,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: description, label: Description, type: rich-text, options: { format: html } }
+          - { name: teaser, label: Home page panel text, description: "One or two short sentences for this service's panel on the Home page.", type: text }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
           - { name: publishedOn, label: Published on, type: date, hidden: true }
