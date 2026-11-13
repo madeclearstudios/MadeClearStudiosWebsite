@@ -98,28 +98,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="service-item active">
           <section class="section padding-2 flex vertical align-center">
             <div class="container">
-              <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
-                {%- set cat = (serviceCategories | published | sortByOrder)[0] %}
-<div class="_5-col w-dyn-list">
-                  <div role="list" class="w-dyn-items">
-                    {%- if cat %}
-                    <div role="listitem" id="{{ cat.slug }}" class="flex vertical gap-1 w-dyn-item">
-                      <div class="relative">
-                        <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
-                        <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
-                      </div>
-                    </div>
-                    {%- endif %}
-                  </div>
-                </div>
-              </div>
               <div class="service-content">
                 <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
                   {%- set cat = (serviceCategories | published | sortByOrder)[0] %}
 <div class="_5-col w-dyn-list">
                     <div role="list" class="w-dyn-items">
                       {%- if cat %}
-                      <div role="listitem" class="w-dyn-item">
+                      <div role="listitem" id="{{ cat.slug }}" class="w-dyn-item">
+                        <div class="relative">
+                          <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
+                          <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
+                        </div>
                         <div class="height-1-25"></div>
                         <div class="text-rich-text w-richtext">{{ cat.description | safe }}</div>
                       </div>
@@ -146,26 +135,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="service-item">
           <section class="section padding-2 flex vertical align-center">
             <div class="container">
-              {%- set cat = (serviceCategories | published | sortByOrder)[1] %}
-<div class="_5-col w-dyn-list">
-                  <div role="list" class="w-dyn-items">
-                    {%- if cat %}
-                    <div role="listitem" id="{{ cat.slug }}" class="flex vertical gap-1 w-dyn-item">
-                      <div class="relative">
-                        <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
-                        <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
-                      </div>
-                    </div>
-                    {%- endif %}
-                  </div>
-                </div>
               <div class="service-content">
                 <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
                   {%- set cat = (serviceCategories | published | sortByOrder)[1] %}
 <div class="_5-col w-dyn-list">
                     <div role="list" class="w-dyn-items">
                       {%- if cat %}
-                      <div role="listitem" class="w-dyn-item">
+                      <div role="listitem" id="{{ cat.slug }}" class="w-dyn-item">
+                        <div class="relative">
+                          <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
+                          <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
+                        </div>
                         <div class="height-1-25"></div>
                         <div class="text-rich-text w-richtext">{{ cat.description | safe }}</div>
                       </div>
@@ -192,26 +172,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="service-item">
           <section class="section padding-2 flex vertical align-center">
             <div class="container">
-              {%- set cat = (serviceCategories | published | sortByOrder)[2] %}
-<div class="_5-col w-dyn-list">
-                  <div role="list" class="w-dyn-items">
-                    {%- if cat %}
-                    <div role="listitem" id="{{ cat.slug }}" class="flex vertical gap-1 w-dyn-item">
-                      <div class="relative">
-                        <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
-                        <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
-                      </div>
-                    </div>
-                    {%- endif %}
-                  </div>
-                </div>
               <div class="service-content">
                 <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
                   {%- set cat = (serviceCategories | published | sortByOrder)[2] %}
 <div class="_5-col w-dyn-list">
                     <div role="list" class="w-dyn-items">
                       {%- if cat %}
-                      <div role="listitem" class="w-dyn-item">
+                      <div role="listitem" id="{{ cat.slug }}" class="w-dyn-item">
+                        <div class="relative">
+                          <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
+                          <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
+                        </div>
                         <div class="height-1-25"></div>
                         <div class="text-rich-text w-richtext">{{ cat.description | safe }}</div>
                       </div>
@@ -238,26 +209,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="service-item">
           <section class="section padding-2 flex vertical align-center">
             <div class="container">
-              {%- set cat = (serviceCategories | published | sortByOrder)[3] %}
-<div class="_5-col w-dyn-list">
-                  <div role="list" class="w-dyn-items">
-                    {%- if cat %}
-                    <div role="listitem" id="{{ cat.slug }}" class="flex vertical gap-1 w-dyn-item">
-                      <div class="relative">
-                        <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
-                        <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
-                      </div>
-                    </div>
-                    {%- endif %}
-                  </div>
-                </div>
               <div class="service-content">
                 <div class="grid _13-col gap-5 t_flex t_vertical t_gap-2">
                   {%- set cat = (serviceCategories | published | sortByOrder)[3] %}
 <div class="_5-col w-dyn-list">
                     <div role="list" class="w-dyn-items">
                       {%- if cat %}
-                      <div role="listitem" class="w-dyn-item">
+                      <div role="listitem" id="{{ cat.slug }}" class="w-dyn-item">
+                        <div class="relative">
+                          <h2 class="h3 padding-top padding-2">{{ cat.name }}</h2>
+                          <div class="c_service-category-bg"><img loading="lazy" src="/images/Vector-3.svg" alt=""></div>
+                        </div>
                         <div class="height-1-25"></div>
                         <div class="text-rich-text w-richtext">{{ cat.description | safe }}</div>
                       </div>
