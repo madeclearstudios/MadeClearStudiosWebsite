@@ -130,6 +130,15 @@ Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.co
 - The page scripts rely on class names and IDs in the markup (`#testimonial-slider`, `.c_client-item`, `.case-study-wrapper`, `.lightbox-video`, `#images-slider`, `.video-gallery`, ...). Keep them when editing lists.
 - Empty CMS fields get the `w-dyn-bind-empty` class (hidden), as in Webflow.
 - Run `npm run build` before committing, and make sure it passes.
+- **Type scale:** use the existing heading levels rather than new sizes, so text stays consistent across pages (the full list is in the "Type scale" block at the end of `src/css/site.css`):
+  1. Page title: `h1`, 20px bold capitals. Service, case study and micro case study titles use it too.
+  2. Section heading: `h2`, 18px bold capitals.
+  3. Item title: `h3`, 16px bold. Used for card, step, outcome and FAQ titles.
+  4. Small heading: `h4` / `.h4`, 14px bold.
+  5. Lead: 18px regular, for the opening paragraph only.
+  6. Body: `p`, 14px regular.
+  7. Small: `.text-size-xsmall font-600 text-color-grey-4`, 12px, for dates, numbers and eyebrows.
+  Buttons and the navigation keep their own styles.
 
 ## Team workflow: branches, pull requests and deploy previews
 
