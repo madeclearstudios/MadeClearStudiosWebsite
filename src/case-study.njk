@@ -292,8 +292,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <a href="/case-study/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
                   {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
                   <div class="flex vertical gap-0-5">
-                    <h3 class="h4">{{ other.title }}</h3>
-                    <p class="text-size-small{{ ' w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
+                    <h3>{{ other.title }}</h3>
+                    <p class="{{ 'w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
                   </div>
                   <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
                 </a>

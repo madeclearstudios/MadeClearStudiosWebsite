@@ -22,14 +22,14 @@
                 {%- if svc.outcomesMainTitle %}
                 <div class="flex vertical gap-1 service-outcomes">
                   <div class="flex vertical gap-0-25">
-                    <h2 class="h4">{{ svc.outcomesMainTitle }}</h2>
-                    {%- if svc.outcomesDescription %}<p class="text-size-small">{{ svc.outcomesDescription }}</p>{% endif %}
+                    <h2>{{ svc.outcomesMainTitle }}</h2>
+                    {%- if svc.outcomesDescription %}<p>{{ svc.outcomesDescription }}</p>{% endif %}
                   </div>
                   <ul role="list" class="service-list">
                     {%- for n in ["First", "Second", "Third"] %}{% if svc["outcomes" + n + "Title"] %}
                     <li class="relative padding-vertical padding-1 service-outcome">
-                      <h3 class="service-outcome_title">{{ svc["outcomes" + n + "Title"] }}</h3>
-                      <p class="text-size-small">{{ svc["outcomes" + n + "Description"] }}</p>
+                      <h3>{{ svc["outcomes" + n + "Title"] }}</h3>
+                      <p>{{ svc["outcomes" + n + "Description"] }}</p>
                       <div class="divider absolute bottom-0"></div>
                     </li>
                     {%- endif %}{% endfor %}
@@ -68,8 +68,8 @@
               <ol role="list" class="service-steps">
                 {%- for step in svc.process %}
                 <li class="border-1 radius-0-25 padding-1-5 m_padding-1-25">
-                  <div class="service-step-num">{{ ("0" + loop.index) if loop.index < 10 else loop.index }}</div>
-                  <h3 class="h4">{{ step.title }}</h3>
+                  <p class="text-size-xsmall font-600 text-color-grey-4 service-step-num">{{ ("0" + loop.index) if loop.index < 10 else loop.index }}</p>
+                  <h3>{{ step.title }}</h3>
                   <div class="height-0-75"></div>
                   <p>{{ step.text }}</p>
                 </li>
@@ -100,8 +100,8 @@
                 {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
                 <div class="flex vertical gap-0-5">
                   {%- if mDate %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ mDate }}</p>{% endif %}
-                  <h3 class="h4">{{ m.title }}</h3>
-                  <p class="text-size-small">{{ m.summary }}</p>
+                  <h3>{{ m.title }}</h3>
+                  <p>{{ m.summary }}</p>
                 </div>
                 <div class="work-tile_link"><span class="service-name-highlight">Read the project</span></div>
               </a>
@@ -112,8 +112,8 @@
               <a href="/case-study/{{ cs.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
                 {%- if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
                 <div class="flex vertical gap-0-5">
-                  <h3 class="h4">{{ cs.title }}</h3>
-                  <p class="text-size-small">{{ cs.overview }}</p>
+                  <h3>{{ cs.title }}</h3>
+                  <p>{{ cs.overview }}</p>
                 </div>
                 <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
               </a>
@@ -139,7 +139,7 @@
             {%- for faq in svc.faqs %}
             <button class="faq-item" type="button">
               <div class="faq-title">
-                <h3 class="h4 text-capitalize-none">{{ faq.question }}</h3>
+                <h3 class="text-capitalize-none">{{ faq.question }}</h3>
               </div>
               <div class="padding-horizontal padding-1 faq-bottom">
                 <div class="faq-content">
