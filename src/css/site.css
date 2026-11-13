@@ -799,3 +799,6 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
   .service-content > .grid > ._5-col { align-self: stretch; }
   .service-content > .grid > ._5-col > .w-dyn-items { position: sticky; top: 2rem; }
 }
+
+/* Micro case studies: the What we captured list uses the body copy's spacing (the list style set none) */
+.micro-list li { letter-spacing: 0.1em; line-height: 1.6; }
