@@ -114,12 +114,12 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </div>
     {% include "nav.njk" %}
     <main class="main">
-      {#- Header: client, then the project name (highlighted), then the summary, centred. Titles are written
-          "Client | Project" in the CMS; without a " | " the client comes from the client reference. -#}
+      {#- Header: client, then the project name (highlighted), then the summary, centred. From the case study's
+          "Client name" and "Project title" in Pages CMS (older items: split from the title at " | "). -#}
       {%- set csClient = clients | findBy("slug", cs.client) %}
       {%- set titleParts = cs.title.split(" | ") if cs.title else [] %}
-      {%- if titleParts.length > 1 %}{% set clientLine = titleParts[0] %}{% set projectLine = titleParts.slice(1).join(" | ") %}
-      {%- else %}{% set clientLine = csClient.name if csClient else "" %}{% set projectLine = cs.title %}{% endif %}
+      {%- set clientLine = cs.clientName or (titleParts[0] if titleParts.length > 1 else (csClient.name if csClient else "")) %}
+      {%- set projectLine = cs.projectTitle or (titleParts.slice(1).join(" | ") if titleParts.length > 1 else cs.title) %}
       <section class="section padding-5 case-hero">
         <div class="container-medium">
           <div class="flex vertical align-center text-align-center gap-1-25">

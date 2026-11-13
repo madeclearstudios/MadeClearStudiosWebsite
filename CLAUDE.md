@@ -20,7 +20,7 @@ npm run build    # production build into _site/
 | "Make it clear" enquiry form above the footer | `src/_includes/enquiry-form.njk` |
 | Client testimonials slider | `src/_includes/testimonials.njk`, `testimonial-single.njk` (KOL Hub) |
 | KOL card | `src/_includes/expert-card.njk` |
-| Case study page design (`/case-study/...`): a centred header (client, then the highlighted project name, split from the title at " \| "), then on desktop the cover photo and services stay in place on the left while the featured videos and story scroll past on the right (`.case-page` gives the page wrapper `overflow: clip` so sticky works) | `src/case-study.njk`, styles in `src/css/site.css` |
+| Case study page design (`/case-study/...`): a breadcrumb back to Case Studies, then a centred header (the "Client name", then the highlighted "Project title", both fields in Pages CMS; the full "Client \| Project" title is built from them in `src/_data/caseStudies.js`), then on desktop the cover photo and services stay in place on the left while the featured videos and story scroll past on the right (`.case-page` gives the page wrapper `overflow: clip` so sticky works) | `src/case-study.njk`, styles in `src/css/site.css` |
 | Insight page design (`/insights/...`) | `src/insight.njk` |
 | Pages | `src/index.njk`, `about.njk`, `services.njk`, `case-studies.njk`, `kol-hub.njk` (the KOL Hub; `kol.njk` is hidden and `/kol` redirects to `/kol-hub`), `insights.njk`, `contact.njk`, `sectors.njk`, `terms-conditions.njk`, `privacy-policy.njk`, `womenasone.njk`, `404.njk` |
 | Terms & Conditions and Privacy Policy text (clause numbers are written out, so update cross-references by hand if clauses move) | `src/_includes/legal/terms.njk`, `src/_includes/legal/privacy.njk` |
