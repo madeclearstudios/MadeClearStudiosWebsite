@@ -1,5 +1,5 @@
 {
-  "clientName": "Rampart",
+  "clientName": "Rampart IC",
   "projectTitle": "Radiation Solutions",
   "slug": "rampart-radiation-solutions",
   "archived": false,
@@ -17,7 +17,7 @@
     "distribution-strategy-and-channel-planning",
     "3d-model-development"
   ],
-  "client": "",
+  "client": "rampart-ic",
   "featuredOnKolPage": false,
   "imageSlider": [],
   "testimonial": "",

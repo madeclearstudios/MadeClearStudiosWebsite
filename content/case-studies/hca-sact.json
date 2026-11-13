@@ -1,5 +1,5 @@
 {
-  "clientName": "HCA",
+  "clientName": "HCA Healthcare UK",
   "projectTitle": "SACT (project title to be confirmed)",
   "slug": "hca-sact",
   "archived": false,
@@ -17,7 +17,7 @@
     "animation",
     "video-production-documentary-testimonial-explainer-training"
   ],
-  "client": "",
+  "client": "hca-healthcare-uk",
   "featuredOnKolPage": false,
   "imageSlider": [],
   "testimonial": "",
