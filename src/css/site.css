@@ -693,7 +693,8 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
    (_includes/service/micro.njk). overflow: clip on the page wrapper looks the same as hidden but, unlike
    hidden, lets position: sticky work. Below tablet width the columns stack and nothing sticks. */
 .page-wrapper.micro-page,
-.page-wrapper.case-page { overflow: clip; }
+.page-wrapper.case-page,
+.page-wrapper.services-page { overflow: clip; }
 .micro-intro_title { margin: 0; }
 /* A tighter highlighter (micro case study and case study titles): less overhang either side and a slimmer stroke */
 .micro-intro_title .services-highlight.is-multiline,
@@ -791,3 +792,10 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .work-card:focus-visible { border-color: var(--dark); }
 .work-card h3,
 .work-card p { margin: 0; }
+
+/* Services page: on desktop each category's explainer (left) stays in place while its list of services
+   scrolls up past it on the right, then moves on with its section. */
+@media screen and (min-width: 992px) {
+  .service-content > .grid > ._5-col { align-self: stretch; }
+  .service-content > .grid > ._5-col > .w-dyn-items { position: sticky; top: 2rem; }
+}
