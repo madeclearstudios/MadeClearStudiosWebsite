@@ -1,8 +1,9 @@
 {#- Photo and video galleries for a service or micro case study. Expects `gallery` (image URLs or
     { src, alt } objects), `videos` ({ link, thumbnail, title }) and `svc` or `m` with `hidden` for placeholders.
-    Empty galleries are left out, except on hidden review pages, where placeholders show what goes there. -#}
+    Empty galleries are left out, except on hidden review pages, where placeholders show what goes there.
+    Set `skipGallery` to leave the gallery out (micro case studies show theirs in the right column instead). -#}
 {%- set reviewing = (svc and svc.hidden) or (m and m.hidden) %}
-      {%- if gallery.length or reviewing %}
+      {%- if (gallery.length or reviewing) and not skipGallery %}
       <section class="section padding-5">
         <div class="container">
           <h2 class="relative">Gallery</h2>

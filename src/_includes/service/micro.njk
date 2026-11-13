@@ -38,6 +38,23 @@
             </div>
             <div class="_8-col">
               <div class="height-1-5 none t_block"></div>
+              {#- Gallery: at the top of the right column, above the write-up (no heading). Opens in the lightbox. -#}
+              {%- set microGallery = m.gallery or [] %}
+              {%- if microGallery.length or m.hidden %}
+              <div class="media-grid micro-gallery">
+                {%- for img in microGallery %}
+                {%- set src = img.src or img %}
+                <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}">
+                  <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
+                </a>
+                {%- endfor %}
+                {%- if not microGallery.length %}
+                {%- for i in range(0, 6) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
+                {%- endif %}
+              </div>
+              <div class="height-2"></div>
+              {%- endif %}
               <div class="text-rich-text w-richtext">{{ m.body | safe }}</div>
               {%- if m.captured and m.captured.length %}
               <div class="height-2"></div>
@@ -55,6 +72,7 @@
       </section>
 
       {%- set gallery = m.gallery or [] %}
+      {%- set skipGallery = true %}
       {%- set videos = m.videos | playableVideos %}
       {%- set svc = null %}
       {%- include "service/media.njk" %}

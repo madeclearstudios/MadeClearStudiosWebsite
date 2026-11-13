@@ -791,3 +791,6 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .work-card:focus-visible { border-color: var(--dark); }
 .work-card h3,
 .work-card p { margin: 0; }
+
+/* Micro case studies: the What we captured list uses the body copy's spacing (the list style set none) */
+.micro-list li { letter-spacing: 0.1em; line-height: 1.6; }
