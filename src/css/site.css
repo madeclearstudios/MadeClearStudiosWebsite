@@ -691,7 +691,8 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .page-wrapper.micro-page,
 .page-wrapper.case-page,
 .page-wrapper.services-page,
-.page-wrapper.service-page { overflow: clip; }
+.page-wrapper.service-page,
+.page-wrapper.about-page { overflow: clip; }
 .micro-intro_title { margin: 0; }
 /* A tighter highlighter (micro case study and case study titles): less overhang either side and a slimmer stroke */
 .micro-intro_title .services-highlight.is-multiline,
@@ -1045,4 +1046,10 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
   .site-menu_sub li { position: relative; }
   .site-menu_sub li::before { content: ""; position: absolute; left: -1rem; top: 50%; width: 0.65rem; border-top: 1px solid rgba(255, 255, 255, 0.35); }
   .site-menu_sublink { display: inline-block; padding: 0.45rem 0; font-size: var(--_typography---text--small); }
+}
+
+/* About page: the "About" and "Our philosophy" titles stay in place on desktop while their copy scrolls past
+   (.about-page gives the page wrapper overflow: clip so sticky works) */
+@media screen and (min-width: 992px) {
+  .about-title { position: sticky; top: 2rem; align-self: start; }
 }
