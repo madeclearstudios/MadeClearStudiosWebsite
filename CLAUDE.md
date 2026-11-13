@@ -15,7 +15,7 @@ npm run build    # production build into _site/
 
 | What | File |
 | --- | --- |
-| Navigation (the Services dropdown lists the Service Categories) | `src/_includes/nav.njk` |
+| Navigation: a yellow MENU pill (left), the logo (centre) and the night mode switch (right). MENU drops down a black full-screen panel with its own Close pill in the same place: the pages on the left in the page-title style, white, with the yellow highlighter on hover (Services lists the Service Categories under it), and our address, email, phone, a Contact us button and LinkedIn on the right. Escape or a link closes it | `src/_includes/nav.njk`, behaviour `src/js/site-menu.js`, styles in the "Menu" block of `src/css/site.css` |
 | Footer (email, phone, LinkedIn, company details) | `src/_includes/footer.njk` |
 | "Make it clear" enquiry form above the footer | `src/_includes/enquiry-form.njk` |
 | Client testimonials slider | `src/_includes/testimonials.njk`, `testimonial-single.njk` (KOL Hub) |
@@ -32,7 +32,7 @@ npm run build    # production build into _site/
 | Images and fonts | `src/images/`, `src/fonts/` |
 | Google Analytics (GA4, `G-F6SX5N28QT`), loaded only after cookie consent | `src/_includes/analytics.njk`, included in every page's `<head>` |
 | Cookie consent banner and the footer's "Cookie settings" link | `src/js/consent.js`, styles at the end of `src/css/site.css`; described in clause 5 of the privacy policy |
-| Night mode (switch in the nav; choice remembered in `localStorage` as `mc-theme`) | Set before paint by `src/_includes/theme.njk` (in every page's `<head>`), switch markup `src/_includes/night-toggle.njk` (in `nav.njk`), behaviour `src/js/night-mode.js`, colours in the "Night mode" block at the end of `src/css/site.css`. It swaps the colour variables (`--dark`, `--light`, greys, cream); anything with a fixed colour needs its own `html.night-mode` rule there. Text on solid yellow stays black; highlighter strokes and the yellow nav-link underlines are removed |
+| Night mode (switch in the nav; choice remembered in `localStorage` as `mc-theme`) | Set before paint by `src/_includes/theme.njk` (in every page's `<head>`), switch markup `src/_includes/night-toggle.njk` (on the right of the nav bar), behaviour `src/js/night-mode.js`, colours in the "Night mode" block at the end of `src/css/site.css`. It swaps the colour variables (`--dark`, `--light`, greys, cream); anything with a fixed colour needs its own `html.night-mode` rule there. Text on solid yellow stays black; highlighter strokes and the yellow nav-link underlines are removed |
 | Organization structured data (Home, About, Contact) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
 
 ## CMS content (edited in Pages CMS)

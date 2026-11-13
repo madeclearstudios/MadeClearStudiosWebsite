@@ -1,106 +1,19 @@
-{#- Top navigation. The Services dropdown lists the Service Categories (src/_data/serviceCategories.json).
-    Clicking one jumps to that section of /services (see the "Navlink Services Click" script on each page). -#}
+{#- Top navigation: a yellow MENU button on the left, the logo in the middle and the night mode switch on the right.
+    The button drops down a black full-screen panel (#site-menu): the pages on the left, in the page-title style with
+    the yellow highlighter on hover, and our contact details on the right. Behaviour in js/site-menu.js, styles in the
+    "Menu" block of css/site.css. The Services link jumps to /services; the categories are listed under it. -#}
 {%- macro current(url) %}{% if page.url | replace(".html", "") == url %} aria-current="page"{% endif %}{% endmacro -%}
-{%- macro currentClass(url) %}{% if page.url | replace(".html", "") == url %} w--current{% endif %}{% endmacro -%}
-    <div data-animation="default" class="section bg-transparent t_flex t_align-center w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="49f5e56c-8521-8763-403a-7fb5a593df04" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
-      <div class="container t_flex t_align-center t_justify-space-between">
-        <div class="none t_block">
-          <a href="/"{{ current("/") }} class="width-7-875 padding-0 w-nav-brand{{ currentClass("/") }}"><img loading="eager" src="/images/MClogo.avif" alt="" class="width-100-pct"></a>
+    <div class="section bg-transparent site-nav" data-w-id="49f5e56c-8521-8763-403a-7fb5a593df04" role="banner">
+      <div class="container site-nav_bar">
+        <div class="site-nav_left">
+          <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span>Menu</span>
+          </button>
         </div>
-        <nav role="navigation" class="padding-vertical width-100-pct padding-1-25 c_mob-menu w-nav-menu">
-          <div class="width-100-pct flex vertical">
-            <div class="none">
-              <div class="grid _7-col width-100-pct justify-center align-center t_flex t_vertical">
-                <div class="flex align-center justify-center">
-                  <a href="/about"{{ current("/about") }} class="navlink{{ currentClass("/about") }}">About</a>
-                </div>
-                <div class="flex align-center justify-center t_vertical">
-                  <div data-hover="true" data-delay="0" class="t_flex t_vertical t_align-center w-dropdown">
-                    <div class="padding-0 w-dropdown-toggle">
-                      <a href="/services" class="navlink service-main">Services</a>
-                      <div class="navlink services-mobile">Services</div>
-                    </div>
-                    <nav class="dropdown-nav w-dropdown-list">
-                      <div class="w-dyn-list">
-                        <div role="list" class="w-dyn-items">
-                          {%- for cat in serviceCategories | published %}
-                          <div role="listitem" class="w-dyn-item">
-                            <a href="/services" class="navlink service-link w-dropdown-link">{{ cat.name }}</a>
-                          </div>
-                          {%- endfor %}
-                        </div>
-                      </div>
-                    </nav>
-                  </div>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/case-studies"{{ current("/case-studies") }} class="navlink{{ currentClass("/case-studies") }}">Case Studies</a>
-                </div>
-                <div class="padding-0"></div>
-                <div class="flex align-center justify-center">
-                  <a href="/kol-hub"{{ current("/kol-hub") }} class="navlink{{ currentClass("/kol-hub") }}">KOL Hub</a>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/insights"{{ current("/insights") }} class="navlink{{ currentClass("/insights") }}">Insights</a>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/contact"{{ current("/contact") }} class="navlink{{ currentClass("/contact") }}">Contact</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex justify-space-between t_vertical align-center">
-              <div class="flex justify-space-between width-100-pct t_vertical">
-                <div class="flex align-center justify-center">
-                  <a href="/about"{{ current("/about") }} class="navlink{{ currentClass("/about") }}">About</a>
-                </div>
-                <div class="flex align-center justify-center t_vertical">
-                  <div data-hover="true" data-delay="0" class="t_flex t_vertical t_align-center w-dropdown">
-                    <div class="padding-0 w-dropdown-toggle">
-                      <a href="/services" class="navlink service-main">Services</a>
-                      <div class="navlink services-mobile">Services</div>
-                    </div>
-                    <nav class="dropdown-nav w-dropdown-list">
-                      <div class="w-dyn-list">
-                        <div role="list" class="w-dyn-items">
-                          {%- for cat in serviceCategories | published %}
-                          <div role="listitem" class="w-dyn-item">
-                            <a href="/services" class="navlink service-link w-dropdown-link">{{ cat.name }}</a>
-                          </div>
-                          {%- endfor %}
-                        </div>
-                      </div>
-                    </nav>
-                  </div>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/case-studies"{{ current("/case-studies") }} class="navlink{{ currentClass("/case-studies") }}">Case Studies</a>
-                </div>
-              </div>
-              <a href="/"{{ current("/") }} class="nav-logo-link t_none w-nav-brand{{ currentClass("/") }}"><img loading="eager" src="/images/MClogo.avif" alt="" class="width-100-pct"></a>
-              <div class="flex justify-space-between width-100-pct t_vertical">
-                <div class="flex align-center justify-center">
-                  <a href="/kol-hub"{{ current("/kol-hub") }} class="navlink{{ currentClass("/kol-hub") }}">KOL Hub</a>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/insights"{{ current("/insights") }} class="navlink{{ currentClass("/insights") }}">Insights</a>
-                </div>
-                <div class="flex align-center justify-center">
-                  <a href="/contact"{{ current("/contact") }} class="navlink{{ currentClass("/contact") }}">Contact</a>
-                </div>
-                <div class="flex align-center justify-center night-toggle-slot t_none">
-                  {%- set extraClass = "" %}{% include "night-toggle.njk" %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div class="none t_block night-toggle-mobile">
+        <a href="/"{{ current("/") }} class="site-nav_logo"><img loading="eager" src="/images/MClogo.avif" alt="Made Clear Studios home" class="width-100-pct"></a>
+        <div class="site-nav_right">
           {%- set extraClass = "" %}{% include "night-toggle.njk" %}
-        </div>
-        <div class="menu-btn w-nav-button">
-          <div class="nav-burger_line first"></div>
-          <div class="nav-burger_line second"></div>
-          <div class="nav-burger_line third"></div>
         </div>
       </div>
       <div class="divider absolute bottom-0 left-0"></div>
@@ -108,3 +21,49 @@
       <div class="divider-dark absolute bottom-0 left-0"></div>
       {%- endif %}
     </div>
+    <div class="site-menu section" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" data-site-menu>
+      <div class="container site-nav_bar site-menu_bar">
+        <div class="site-nav_left">
+          <button type="button" class="menu-toggle" data-menu-close>
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span>Close</span>
+          </button>
+        </div>
+        <a href="/" class="site-nav_logo"><img src="/images/MClogo.avif" alt="Made Clear Studios home" class="width-100-pct site-menu_logo" loading="lazy"></a>
+        <div></div>
+      </div>
+      <div class="container site-menu_inner">
+        <nav class="site-menu_nav" aria-label="Main">
+          <ul role="list" class="site-menu_list">
+            {%- for item in [
+              { url: "/about", label: "About" },
+              { url: "/services", label: "Services" },
+              { url: "/case-studies", label: "Case Studies" },
+              { url: "/kol-hub", label: "KOL Hub" },
+              { url: "/insights", label: "Insights" },
+              { url: "/contact", label: "Contact" }
+            ] %}
+            <li class="site-menu_item">
+              <a href="{{ item.url }}"{{ current(item.url) }} class="site-menu_link"><span class="site-menu_highlight">{{ item.label }}</span></a>
+              {%- if item.url == "/services" %}
+              <ul role="list" class="site-menu_sub">
+                {%- for cat in serviceCategories | published %}
+                <li><a href="/services#{{ cat.slug }}" class="site-menu_sublink"><span class="site-menu_highlight">{{ cat.name }}</span></a></li>
+                {%- endfor %}
+              </ul>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+        </nav>
+        <div class="site-menu_contact">
+          <p class="site-menu_label">Get in touch</p>
+          <p>62 St. Bernards Road, Oxford, OX2 6EJ<br><a href="mailto:hello@madeclearstudios.com">hello@madeclearstudios.com</a><br><a href="tel:+441865965389">+44 (0) 1865 965389</a></p>
+          <div class="site-menu_actions">
+            <a href="/contact" class="button primary w-inline-block"><div>Contact us</div><div class="hover-button-blur"></div></a>
+            <a href="https://www.linkedin.com/company/made-clear-studios/" target="_blank" rel="noopener" class="site-menu_social">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/site-menu.js" defer></script>

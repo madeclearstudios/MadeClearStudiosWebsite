@@ -593,6 +593,7 @@ html.night-mode .footer-text-highlight { display: none; }
 
 /* Black logos and marks turn white (the photos are left alone) */
 html.night-mode .nav-logo-link img,
+html.night-mode .site-nav_logo img,
 html.night-mode .w-nav-brand img,
 html.night-mode .award-badge-logo,
 html.night-mode .award-footer-logo,
@@ -962,3 +963,82 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
    Text on solid yellow stays black in night mode too. */
 .faq-item { opacity: 1; }
 .bg-brand .faq-item, .bg-brand .faq-item .faq-title h3, .bg-brand .faq-item .text-rich-text { color: #000; }
+
+/* Menu (_includes/nav.njk, js/site-menu.js): the nav bar holds a yellow MENU pill (left), the logo (centre) and the
+   night mode switch (right). The button drops down a black panel: pages on the left in the page-title style, white,
+   with the yellow highlighter on hover; contact details on the right. */
+.site-nav_bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-top: 1rem; padding-bottom: 1rem; }
+.site-nav_left { display: flex; justify-content: flex-start; }
+.site-nav_right { display: flex; justify-content: flex-end; align-items: center; }
+.site-nav_logo { display: block; width: 7.875rem; }
+.menu-toggle {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 1.1rem 0.55rem 0.9rem;
+  border: 1px solid #000; border-radius: 999px;
+  background: #ff0; color: #000;
+  font-family: var(--_typography---font--headings-primary);
+  font-size: var(--_typography---text--small); font-weight: 700; letter-spacing: 0.14rem; text-transform: uppercase; line-height: 1;
+  cursor: pointer; transition: transform 0.2s ease;
+}
+.menu-toggle:hover { transform: translateY(-1px); }
+.menu-toggle:focus-visible { outline: 2px solid #ff0; outline-offset: 3px; }
+.menu-open, .menu-open body { overflow: hidden; }
+
+.site-menu {
+  position: fixed; inset: 0; z-index: 1000;
+  overflow-y: auto;
+  background: #000; color: #fff;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s linear 0.5s;
+}
+.menu-open .site-menu { transform: none; visibility: visible; transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s; }
+.site-menu_inner {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem;
+  min-height: calc(100% - 5rem); padding-top: 2rem; padding-bottom: 4rem; align-items: center;
+}
+.site-menu_list, .site-menu_sub { list-style: none; margin: 0; padding: 0; }
+.site-menu_item { border-top: 1px solid rgba(255, 255, 255, 0.35); }
+.site-menu_item:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.35); }
+.site-menu_item { margin: 0; }
+.site-menu_link {
+  display: block; padding: 1.15rem 0;
+  color: #fff; text-decoration: none;
+  font-family: var(--_typography---font--headings-primary);
+  font-size: var(--_typography---titles--h1); font-weight: 700; letter-spacing: .1875rem; text-transform: uppercase; line-height: 1.6;
+}
+.site-menu_sub { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: -0.5rem 0 1.1rem; }
+.site-menu_sublink { color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--_typography---text--xsmall); font-weight: 600; letter-spacing: .11rem; }
+.site-menu_highlight {
+  background-image: url('../images/highlight-stretch.svg'); background-repeat: no-repeat; background-position: 0 50%; background-size: 0% 100%;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  padding: 0.1em 0.2em; margin: 0 -0.2em;
+  transition: background-size 0.4s ease, color 0.2s ease;
+}
+.site-menu_link:hover .site-menu_highlight, .site-menu_link:focus-visible .site-menu_highlight,
+.site-menu_sublink:hover .site-menu_highlight, .site-menu_sublink:focus-visible .site-menu_highlight,
+.site-menu_link[aria-current="page"] .site-menu_highlight { background-size: 100% 100%; color: #000; }
+.site-menu_link:focus-visible, .site-menu_sublink:focus-visible { outline: none; }
+.site-menu_contact { justify-self: center; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+.site-menu_contact p { color: #fff; font-size: var(--_typography---text--small); line-height: 1.9; }
+.site-menu_contact a:not(.button) { color: #fff; text-decoration: none; }
+.site-menu_contact a:not(.button):hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.site-menu_logo { filter: invert(1); }
+.site-menu_bar { position: sticky; top: 0; background: #000; z-index: 1; padding-left: 0; padding-right: 0; }
+.site-menu_label { font-size: var(--_typography---text--xsmall) !important; font-weight: 600; letter-spacing: .11rem; color: rgba(255,255,255,0.65) !important; text-transform: uppercase; }
+.site-menu_actions { display: flex; align-items: center; gap: 1.5rem; }
+.site-menu_social { font-size: var(--_typography---text--xsmall); font-weight: 600; letter-spacing: .11rem; }
+/* Night mode removes highlighters elsewhere; the menu keeps its own, and the panel stays black */
+html.night-mode .site-menu_highlight { background-image: url('../images/highlight-stretch.svg'); }
+@media screen and (max-width: 991px) {
+  .site-menu_inner { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; padding-top: 1.5rem; }
+  .site-menu_contact { justify-self: start; }
+}
+@media screen and (max-width: 767px) {
+  .menu-toggle { padding: 0.5rem 0.9rem 0.5rem 0.75rem; }
+  .site-nav_logo { width: 6.5rem; }
+  .site-menu_link { padding: 0.9rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-menu, .menu-open .site-menu { transition: none; }
+}
