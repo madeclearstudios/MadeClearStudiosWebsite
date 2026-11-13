@@ -99,6 +99,10 @@ permalink: case-studies.html
               <div>Oops! Something went wrong while submitting the form.</div>
             </div>
           </div>
+          <div class="flex vertical gap-0-5 work-section-head">
+            <h2 class="h2">Featured work</h2>
+          </div>
+          <div class="height-2 m_height-1-5"></div>
           <div class="w-dyn-list">
             <div fs-list-showquery="true" fs-list-element="list" role="list" class="w-dyn-items">
               {%- for cs in caseStudies | published | sortByOrder %}
@@ -127,6 +131,42 @@ permalink: case-studies.html
           </div>
         </div>
       </section>
+      {#- Body of work: every published micro case study as a timeline, grouped by year (newest first) and ordered
+          by month within each year (workTimeline filter, eleventy.config.js). On desktop the year stays in place
+          on the left while its projects scroll past. Styles: "Body of work timeline" in css/site.css. -#}
+      {%- set timeline = microCaseStudies | workTimeline %}
+      {%- if timeline.length %}
+      <section class="section padding-5 work-timeline">
+        <div class="container">
+          <div class="flex vertical gap-0-5 work-section-head">
+            <h2 class="h2">Body of work</h2>
+            <p>The congresses, events and projects we've filmed and made, newest first.</p>
+          </div>
+          <div class="height-3 m_height-2"></div>
+          {%- for group in timeline %}
+          <div class="grid _12-col gap-1 t_flex t_vertical work-year">
+            <div class="_3-col work-year_aside">
+              <p class="h2 work-year_label">{{ group.year }}</p>
+            </div>
+            <div class="_9-col work-year_items">
+              {%- for m in group.items %}
+              {%- set mClient = clients | findBy("slug", m.client) %}
+              <a href="/work/{{ m.slug }}" class="work-card bg-grey-1 border-1 radius-1-px w-inline-block">
+                {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="_16x9 width-100-pct radius-0-25">
+                {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.event }}</div>{% endif %}
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">{{ [m.month, m.event, (mClient.name if mClient else m.clientLabel)] | select | join(" · ") }}</p>
+                  <h3>{{ m.title }}</h3>
+                  <p>{{ m.summary }}</p>
+                </div>
+              </a>
+              {%- endfor %}
+            </div>
+          </div>
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
     </main>
     <footer class="footer border-1 bg-cream">
       <div class="form-wrapper">

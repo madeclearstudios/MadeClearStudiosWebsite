@@ -41,8 +41,8 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 
 | Collection | Folder | Used on |
 | --- | --- | --- |
-| Case studies | `content/case-studies/` | Case Studies list, a page each at `/case-study/<slug>`, KOL Hub, "Further case studies" |
-| Micro case studies | `content/micro-case-studies/` | Short project pages at `/work/<slug>`, and Recent work on service pages |
+| Case studies | `content/case-studies/` | "Featured work" on the Case Studies page, a page each at `/case-study/<slug>`, KOL Hub, "Further case studies" |
+| Micro case studies | `content/micro-case-studies/` | Short project pages at `/work/<slug>`, Recent work on service pages, and the "Body of work" timeline on the Case Studies page (grouped by `year`, newest first, then by the `month` dropdown; `workTimeline` filter in `eleventy.config.js`) |
 | Insights | `content/insights/` | Insights list, a page each at `/insights/<slug>` |
 | KOLs | `content/experts/` | Home page slider, KOL Hub |
 | Clients | `content/clients/` | Testimonial sliders, KOL page client list |

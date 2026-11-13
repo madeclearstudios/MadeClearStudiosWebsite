@@ -137,7 +137,7 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [title, event, hidden]
+          fields: [title, event, month, year, hidden]
           primary: title
           sort: [title]
           default: { sort: title, order: asc }
@@ -160,6 +160,11 @@ content:
           - { name: clientLabel, label: Client name as shown, description: "e.g. Shockwave Medical, part of Johnson & Johnson. Leave empty to use the client's name.", type: string }
           - { name: event, label: Event, description: "e.g. TCT 2026", type: string }
           - { name: year, label: Year, type: number }
+          - name: month
+            label: Month
+            description: "With the year, sets where the project sits in the Body of work timeline on the Case Studies page (newest first)."
+            type: select
+            options: { values: [January, February, March, April, May, June, July, August, September, October, November, December] }
           - name: services
             label: Services
             type: reference
