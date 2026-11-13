@@ -298,12 +298,7 @@
   margin-bottom: 0;
 }
 
-.service-step-num {
-  font-weight: 700;
-  font-size: var(--_typography---text--small);
-  letter-spacing: 0.0875rem;
-  margin-bottom: 1.25rem;
-}
+.service-step-num { margin-bottom: 1rem; }
 
 .service-link-row {
   color: inherit;
@@ -872,14 +867,6 @@ html.cs-anim .cs-reveal.is-in { opacity: 1; transform: none; }
 .service-intro_title { margin: 0; }
 .service-outcomes { width: 100%; }
 .service-outcome { display: flex; flex-direction: column; gap: 0.25rem; }
-.service-outcome_title {
-  font-family: inherit;
-  font-size: var(--_typography---text--normal);
-  font-weight: 600;
-  letter-spacing: inherit;
-  text-transform: none;
-  line-height: 1.4;
-}
 .service-steps {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -951,3 +938,22 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
   .case-pager.is-floating .case-pager_link.is-prev { left: 1rem; }
   .case-pager.is-floating .case-pager_link.is-next { right: 1rem; }
 }
+
+/* Type scale: one style per role, used across the site (sizes are the Webflow tokens, so they shrink on phones as before).
+   1 Page title (h1)       20px bold, capitals      the H1 of every page (About, Services, a service, a case study, a project)
+   2 Section heading (h2)  18px bold, capitals      "How it works", "Recent work", "What you leave the congress with", "FAQ"
+   3 Item title (h3)       16px bold                card, step, outcome and FAQ titles, related services
+   4 Small heading (h4)    14px bold                KOL names, video titles, small labels such as "Services"
+   5 Lead                  18px regular             the opening paragraph of a page (service explainer, home intro)
+   6 Body                  14px regular             all other paragraphs
+   7 Small                 12px semibold, grey      dates, step numbers, eyebrows, footer links
+   Buttons and the navigation keep their own styles. */
+.service-intro_title,
+.case-hero_title,
+.micro-intro_title {
+  font-size: var(--_typography---titles--h1);
+  letter-spacing: .1875rem;
+}
+.service-lead p:first-child { letter-spacing: .1rem; line-height: 1.6; }
+/* Footer links and contact details use the same small style as other small text */
+.link-dark, .cookie-settings-link { letter-spacing: .11rem; line-height: 1.6; }
