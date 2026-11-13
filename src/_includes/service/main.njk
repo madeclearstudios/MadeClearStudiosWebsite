@@ -103,7 +103,7 @@
                   <h3>{{ m.title }}</h3>
                   <p>{{ m.summary }}</p>
                 </div>
-                <div class="work-tile_link"><span class="service-name-highlight">Read the project</span></div>
+                <div class="work-tile_link"><span class="service-name-highlight">Find out more<span class="visually-hidden"> about {{ m.title }}</span></span></div>
               </a>
             </div>
             {%- endfor %}
@@ -115,7 +115,7 @@
                   <h3>{{ cs.title }}</h3>
                   <p>{{ cs.overview }}</p>
                 </div>
-                <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
+                <div class="work-tile_link"><span class="service-name-highlight">Find out more<span class="visually-hidden"> about {{ cs.title }}</span></span></div>
               </a>
             </div>
             {%- endfor %}
