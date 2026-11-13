@@ -283,31 +283,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           <div class="height-2 m_height-1-5"></div>
           <div class="w-dyn-list">
             <div role="list" class="grid _12-col gap-1-25 t_flex t_vertical w-dyn-items">
+              {#- Same compact cards as Recent work on service pages: photo, title, overview, and a link that gets the
+                  yellow highlighter on hover (.work-tile in css/site.css). The title already names the client. -#}
               {%- for other in (caseStudies | published | sortByOrder | except(cs)).slice(0, 3) %}
-              {%- set otherClient = clients | findBy("slug", other.client) %}
               <div role="listitem" class="_4-col w-dyn-item">
-                <a href="/case-study/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct text-align-center c_secondary-btn-hover m_padding-1-25 height-100-pct flex vertical justify-space-between w-inline-block">
-                  <div>
-                    <div class="height-1-5 t_none"></div>
-                    <h3 class="min-height-4-5">{{ other.title }}</h3>
-                    <div class="height-0-75"></div>
-                    <p{{ ' class="w-dyn-bind-empty"' | safe if not otherClient }}>{{ otherClient.name if otherClient }}</p>
-                    <div class="height-3 t_height-1-25"></div>{% if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
-                    <div class="height-3 t_height-1-25"></div>
-                    <p class="text-size-xsmall">{{ other.overview }}</p>
-                    <div class="height-1-5"></div>
+                <a href="/case-study/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
+                  {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
+                  <div class="flex vertical gap-0-5">
+                    <h3 class="h4">{{ other.title }}</h3>
+                    <p class="text-size-small{{ ' w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
                   </div>
-                  <div>
-                    <div class="width-100-pct flex justify-center">
-                      <div class="button-secondary">
-                        <div class="text-size-xsmall font-600 relative">
-                          <div class="text-breaking-no-wrap">View the case study</div>
-                          <div class="button-secondary-bg"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="height-1-5 t_none"></div>
-                  </div>
+                  <div class="work-tile_link"><span class="service-name-highlight">View the case study</span></div>
                 </a>
               </div>
               {%- endfor %}
