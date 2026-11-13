@@ -793,8 +793,8 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .work-card h3,
 .work-card p { margin: 0; }
 
-/* Services page: on desktop each category's explainer (left) stays in place while its list of services
-   scrolls up past it on the right, then moves on with its section. */
+/* Services page: on desktop each category's title and explainer (left) stay in place while its list of services
+   scrolls up past it on the right, then move on with their section. */
 @media screen and (min-width: 992px) {
   .service-content > .grid > ._5-col { align-self: stretch; }
   .service-content > .grid > ._5-col > .w-dyn-items { position: sticky; top: 2rem; }
