@@ -54,7 +54,8 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 
 - `src/_data/<name>.js` reads each folder (via `lib/content.js`), so templates still see `caseStudies`, `experts` and so on as lists, sorted by `order`.
 - References to other items use the other item's `slug`, e.g. a case study's `"client": "ivascular"`. Pages CMS shows these as dropdowns.
-- `order` sets the position in lists. `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
+- **Order** is set by dragging in **Ordering** in Pages CMS (`content/ordering.json`: one list of slugs per collection). `lib/content.js` sorts each collection by its list; items not in the list yet (e.g. just added) come last, by their old `order` number, then file name. The `order` fields are hidden in the CMS and only used as that fallback. The `sortByOrder` template filter keeps the collection's order.
+- `draft: true` or `archived: true` keeps an item off the site; `hidden: true` (service pages, micro case studies) keeps a page live for review but out of search.
 - Rich text fields are HTML.
 - Videos are **YouTube** links (any form: `youtu.be/…`, `youtube.com/watch?v=…`, `/embed/…`, `/shorts/…`). They play in YouTube's privacy-enhanced mode (`youtube-nocookie.com`), Shorts in a portrait player. With no uploaded thumbnail, YouTube's own is used. A few older Vimeo links still play until they're replaced; any other link is left out, with a warning in the build log (`playableVideos` filter in `eleventy.config.js`).
 - A case study's `videos` list holds up to 8 videos: the first two show under the intro, the rest in the gallery lower down (a slider with 3 or more).

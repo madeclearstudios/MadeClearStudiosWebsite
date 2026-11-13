@@ -78,7 +78,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("surnameInitial", (e) => surname(e).charAt(0).toUpperCase());
   eleventyConfig.addFilter("firstName", (e = {}) =>
     String(e.name || "").replace(/^(dr|prof|sir|mr|mrs|ms|miss)\.?\s+/i, "").trim().split(/\s+/)[0] || "");
-  eleventyConfig.addFilter("sortByOrder", (items = []) => [...items].sort((a, b) => (a.order ?? 99) - (b.order ?? 99)));
+  // Collections already arrive in the order set in Pages CMS ("Ordering", content/ordering.json; see lib/content.js),
+  // and filtering keeps that order, so this keeps the list as it is. Kept so templates read clearly.
+  eleventyConfig.addFilter("sortByOrder", (items = []) => [...items]);
 
   // Videos are YouTube links (any form: youtu.be/ID, youtube.com/watch?v=ID, /embed/ID, /shorts/ID, /live/ID).
   // Older Vimeo links still play until they're replaced; any other link is left out (see the "videos" filter).
