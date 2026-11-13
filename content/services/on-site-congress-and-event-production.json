@@ -81,7 +81,14 @@
     "vr-experiences",
     "live-webinars"
   ],
-  "gallery": [],
+  "gallery": [
+    "/images/uploads/JNJ Shockwave TCT 2026.webp",
+    "/images/uploads/CIRSE 2026 VR Deployment.webp",
+    "/images/uploads/Full Team Photo-1.webp",
+    "/images/uploads/Shockwave KOLs Cirse.webp",
+    "/images/uploads/Nick West Osmo Social Media.webp",
+    "/images/uploads/Shockwave C2 bike.webp"
+  ],
   "videos": [],
   "order": 24
 }

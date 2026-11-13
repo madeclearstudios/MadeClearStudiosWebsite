@@ -165,7 +165,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       <section class="section padding-5 case-body">
         <div class="container relative">
           <div class="grid _12-col gap-1 t_flex t_vertical">
-            <div class="_5-col case-body_aside">
+            <div class="_4-col case-body_aside">
               <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
                 {%- if cs.coverPhoto %}
                 <div class="relative radius-0-25 overflow-hidden"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 radius-0-25 case-body_cover">
@@ -186,17 +186,19 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 </div>
               </div>
             </div>
-            <div class="_7-col case-body_main">
-              {%- if vids.length %}
-              <div class="highlighted-videos case-body_videos">
-                <div class="grid _12-col gap-1-25 t_flex t_vertical">
-                  {%- for n in [0, 1] %}
-                  <div class="_6-col">
-                    {%- set video = vids[n] or {} %}
-                    {% include "video-lightbox.njk" %}
-                  </div>
-                  {%- endfor %}
-                </div>
+            <div class="_8-col case-body_main">
+              {#- Gallery: at the top of the right column, above the story, as on micro case studies. Opens in the lightbox.
+                  (The CMS field is still called imageSlider.) -#}
+              {%- set csGallery = cs.imageSlider or [] %}
+              {%- if csGallery.length %}
+              <div class="media-grid case-gallery">
+                {%- for img in csGallery %}
+                {%- set src = img.src or img %}
+                <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}">
+                  <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
+                </a>
+                {%- endfor %}
               </div>
               <div class="height-4 t_height-3"></div>
               {%- endif %}
@@ -222,19 +224,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </div>
         </div>
       </section>
-      {%- if cs.imageSlider.length %}
-      <section class="section padding-5 overflow-hidden">
-        <div id="images-slider" class="splide">
-          <div class="splide__track">
-            <ul class="splide__list">
-              {%- for img in cs.imageSlider %}
-              <li class="splide__slide c_image-slider-item"><img src="{{ img }}" loading="lazy" alt="" class="c_image-slider"></li>
-              {%- endfor %}
-            </ul>
-          </div>
-        </div>
-      </section>
-      {%- endif %}
       {%- if cs.testimonial %}
       <section class="section padding-5">
         <div class="container-medium">
@@ -253,21 +242,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
       </section>
       {%- endif %}
-      {%- if vids.length > 2 %}
-      <section class="section padding-5 overflow-hidden">
+      {#- All the videos, two to a row (one video runs full width) -#}
+      {%- if vids.length %}
+      <section class="section padding-5">
         <div class="container">
           <div class="video-gallery">
-            <div>
-              <div>
-                <div class="grid _12-col gap-5 row-gap-3 t_flex t_vertical">
-                  {%- for n in range(2, 8) %}
-                  <div class="_6-col">
-                    {%- set video = vids[n] or {} %}
-                    {% include "video-lightbox.njk" %}
-                  </div>
-                  {%- endfor %}
-                </div>
+            <div class="grid _12-col gap-5 row-gap-3 t_flex t_vertical">
+              {%- for video in vids %}
+              <div class="{{ '_12-col' if vids.length == 1 else '_6-col' }}">
+                {% include "video-lightbox.njk" %}
               </div>
+              {%- endfor %}
             </div>
           </div>
         </div>
@@ -611,108 +596,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/j
         console.log('Vimeo thumbnail error:', error);
       }
     });
-    document.querySelectorAll('.highlighted-videos').forEach(function (section) {
-      const hasEmptyVideo = section.querySelector('.lightbox-video.w-dyn-bind-empty');
-      if (hasEmptyVideo) {
-        section.querySelectorAll('.lightbox-video:not(.w-dyn-bind-empty)').forEach(function (video) {
-          const parentCol = video.closest('._6-col');
-          if (parentCol) {
-            parentCol.classList.remove('_6-col');
-            parentCol.classList.add('_12-col');
-          }
-        });
-      }
-    });
-    /* Images Slider START */
-    const imagesSliderEl = document.querySelector('#images-slider');
-    if (imagesSliderEl) {
-      const imagesSlider = new Splide('#images-slider', {
-        type: 'loop',
-        drag: 'free',
-        focus: 'center',
-         height   : '16.875rem',
-        arrows: false,
-        pagination: false,
-        gap: '0.875rem',
-        autoWidth: true,
-        perPage: 3,
-        autoScroll: {
-          speed: 0.5,
-          pauseOnFocus: false,
-          pauseOnHover: false,
-        },
-        breakpoints: {
-          992: {
-            perPage: 2,
-          },
-          767: {
-            perPage: 1,
-          },
-        },
-      });
-      imagesSlider.mount(window.splide.Extensions);
-    }
-    /* Images Slider END */
-    /* Videos Second Section START */
-    const videoGallery = document.querySelector('.video-gallery');
-    if (!videoGallery) return;
-    const allVideos = Array.from(videoGallery.querySelectorAll('.lightbox-video'));
-    const activeVideos = allVideos.filter(function (video) {
-      return !video.classList.contains('w-dyn-bind-empty');
-    });
-    if (activeVideos.length === 1) {
-      const parentCol = activeVideos[0].closest('._6-col');
-      if (parentCol) {
-        parentCol.classList.remove('_6-col');
-        parentCol.classList.add('_12-col');
-      }
-      return;
-    }
-    if (activeVideos.length === 2) {
-      return;
-    }
-    if (activeVideos.length >= 3) {
-      videoGallery.querySelectorAll('.lightbox-video.w-dyn-bind-empty').forEach(function (emptyVideo) {
-        const emptyCol = emptyVideo.closest('._6-col');
-        if (emptyCol) emptyCol.remove();
-      });
-      activeVideos.forEach(function (video) {
-        const slide = video.closest('._6-col');
-        if (slide) {
-          slide.className = '';
-          slide.classList.add('splide__slide');
-        }
-      });
-      const firstSlide = videoGallery.querySelector('.splide__slide');
-      if (!firstSlide) return;
-      const list = firstSlide.parentElement;
-      const track = list.parentElement;
-      const slider = track.parentElement;
-      list.className = 'splide__list';
-      track.className = 'splide__track';
-      slider.className = 'splide';
-      slider.id = 'video-slider';
-      const videoSlider = new Splide('#video-slider', {
-        arrowPath: 'M33.5488 18.7969C34.3537 19.3967 34.3537 20.6033 33.5488 21.2031L15.6465 34.5391C14.6571 35.2761 13.2502 34.5706 13.25 33.3369L13.25 6.66309C13.2502 5.42944 14.6571 4.72389 15.6465 5.46094L33.5488 18.7969Z',
-        classes: {
-          arrows: 'splide__arrows c_slider-arrows',
-          arrow: 'splide__arrow c_slider-arrow',
-        },
-        pagination: false,
-        gap: '5rem',
-        perPage: 2,
-        breakpoints: {
-          1200: {
-            gap: '3rem',
-          },
-          992: {
-            perPage: 1,
-          },
-        },
-      });
-      videoSlider.mount();
-    }
-    /* Videos Second Section END */
   });
 </script>
 </body>

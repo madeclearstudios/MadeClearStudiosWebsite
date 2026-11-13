@@ -113,14 +113,14 @@ content:
           - { name: body3, label: Section 3 text, type: rich-text, options: { format: html } }
           - { name: title4, label: Section 4 title, type: string }
           - { name: body4, label: Section 4 text, type: rich-text, options: { format: html } }
-          - { name: imageSlider, label: Image slider, description: "Photos for the scrolling strip.", type: image, options: { multiple: true } }
+          - { name: imageSlider, label: Gallery, description: "Photos shown at the top of the right-hand column, above the story. Click to enlarge.", type: image, options: { multiple: true } }
           - { name: testimonial, label: Testimonial, type: text }
           - { name: authorName, label: Testimonial author, type: string }
           - { name: authorRoleLine1, label: Author role (line 1), type: string }
           - { name: authorRoleLine2, label: Author role (line 2), type: string }
           - name: videos
             label: Videos
-            description: "YouTube videos. The first two sit under the intro; the rest go in the gallery lower down (a slider from three)."
+            description: "YouTube videos, shown two to a row below the story."
             type: object
             list: { max: 8, collapsible: { collapsed: true, summary: "{fields.title}" } }
             fields:
@@ -384,7 +384,7 @@ content:
             label: Related services
             type: reference
             options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}", multiple: true }
-          - { name: gallery, label: Gallery, type: image, options: { multiple: true } }
+          - { name: gallery, label: Gallery, description: "Photos shown at the top of the right-hand column, above the explainer. Click to enlarge.", type: image, options: { multiple: true } }
           - name: videos
             label: Videos
             type: object

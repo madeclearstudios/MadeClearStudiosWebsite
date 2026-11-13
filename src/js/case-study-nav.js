@@ -34,9 +34,9 @@
   var groups = [
     ".case-hero_title", ".case-hero .max-w-498",
     ".case-body_sticky > *",
-    ".case-body_videos ._6-col",
+    ".case-gallery .media-grid-item",
     ".case-body_main > .flex > .flex:not(:has(> .w-dyn-bind-empty + .w-dyn-bind-empty))",
-    "#images-slider", ".case-page blockquote", ".video-gallery ._6-col",
+    ".case-page blockquote", ".video-gallery .grid > div",
     ".case-page [role=listitem]"
   ];
   var items = document.querySelectorAll(groups.join(","));
