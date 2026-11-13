@@ -137,7 +137,7 @@ content:
         format: json
         filename: "{fields.slug}.json"
         view:
-          fields: [title, event, month, year, hidden]
+          fields: [title, month, year, hidden]
           primary: title
           sort: [title]
           default: { sort: title, order: asc }
@@ -158,7 +158,6 @@ content:
             type: reference
             options: { collection: clients, search: name, value: "{fields.slug}", label: "{fields.name}" }
           - { name: clientLabel, label: Client name as shown, description: "e.g. Shockwave Medical, part of Johnson & Johnson. Leave empty to use the client's name.", type: string }
-          - { name: event, label: Event, description: "e.g. TCT 2026", type: string }
           - { name: year, label: Year, type: number }
           - name: month
             label: Month

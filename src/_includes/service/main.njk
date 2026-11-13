@@ -78,12 +78,12 @@
                   <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
                     <div class="_4-col relative">
                       {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="_16x9 width-100-pct radius-0-25">
-                      {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.event }}</div>{% endif %}
+                      {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.title }}</div>{% endif %}
                     </div>
                     <div class="_8-col">
                       <div class="flex vertical gap-2 height-100-pct justify-space-between t_gap-1-5">
                         <div class="flex vertical gap-0-5">
-                          <p class="text-size-xsmall font-600 text-color-grey-4">{{ m.event }} · {{ m.clientLabel or (mClient.name if mClient) }}</p>
+                          <p class="text-size-xsmall font-600 text-color-grey-4">{{ [([m.month, m.year] | select | join(" ")), (m.clientLabel or (mClient.name if mClient))] | select | join(" · ") }}</p>
                           <h3>{{ m.title }}</h3>
                           <p>{{ m.summary }}</p>
                         </div>
