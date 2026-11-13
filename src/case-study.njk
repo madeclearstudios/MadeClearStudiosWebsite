@@ -29,6 +29,10 @@ const eleventyExcludeFromCollections = true;
   <link href="/images/favicon-dark.png" rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)">
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
+  {#- Slide between case studies: a cross-page view transition (browsers without it just load the page).
+      The direction (next/prev) is passed in sessionStorage by js/case-study-nav.js. -#}
+  <style>@view-transition { navigation: auto; }</style>
+  <script>try{var d=sessionStorage.getItem("cs-dir");if(d){document.documentElement.setAttribute("data-cs-dir",d);sessionStorage.removeItem("cs-dir");}}catch(e){}document.documentElement.classList.add("cs-anim");</script>
   {% include "analytics.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
@@ -120,7 +124,26 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       {%- set titleParts = cs.title.split(" | ") if cs.title else [] %}
       {%- set clientLine = cs.clientName or (titleParts[0] if titleParts.length > 1 else (csClient.name if csClient else "")) %}
       {%- set projectLine = cs.projectTitle or (titleParts.slice(1).join(" | ") if titleParts.length > 1 else cs.title) %}
+      {#- Previous / next case study, like a slideshow: arrows either side of the header on desktop, a row above
+          the breadcrumb on tablet and phone. The left and right arrow keys work too. Wraps round at the ends.
+          Behaviour in js/case-study-nav.js, styles in css/site.css. -#}
+      {%- set allCases = caseStudies | published | sortByOrder %}
+      {%- set csIndex = allCases.indexOf(cs) %}
       <section class="section padding-5 case-hero">
+      {%- if allCases.length > 1 %}
+      {%- set prevCase = allCases[(csIndex - 1 + allCases.length) % allCases.length] %}
+      {%- set nextCase = allCases[(csIndex + 1) % allCases.length] %}
+      <nav class="case-pager" aria-label="More case studies">
+        <a href="/case-study/{{ prevCase.slug }}" class="case-pager_link is-prev" rel="prev" data-case-nav="prev">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="case-pager_label"><span class="case-pager_dir">Previous</span><span class="case-pager_name">{{ prevCase.projectTitle or prevCase.title }}</span></span>
+        </a>
+        <a href="/case-study/{{ nextCase.slug }}" class="case-pager_link is-next" rel="next" data-case-nav="next">
+          <span class="case-pager_label"><span class="case-pager_dir">Next</span><span class="case-pager_name">{{ nextCase.projectTitle or nextCase.title }}</span></span>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+      {%- endif %}
         <div class="container-medium">
           <div class="flex vertical align-center text-align-center gap-1-25">
             <nav aria-label="Breadcrumb" class="service-breadcrumb case-breadcrumb"><a href="/case-studies">Case Studies</a><span><span aria-hidden="true" class="case-breadcrumb_sep">/</span><span aria-current="page">{{ projectLine }}</span></span></nav>
@@ -304,6 +327,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   <script src="/js/jquery-3.5.1.min.js" type="text/javascript"></script>
   <script src="/js/webflow.js" type="text/javascript"></script>
   <script src="/js/contact-form.js" type="text/javascript"></script>
+  <script src="/js/case-study-nav.js" type="text/javascript"></script>
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     /* Navlink Services Click START */

@@ -804,6 +804,69 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 /* Micro case studies: the What we captured list uses the body copy's spacing (the list style set none) */
 .micro-list li { letter-spacing: 0.1em; line-height: 1.6; }
 
+/* Case study pages: previous / next arrows (js/case-study-nav.js). Either side of the header on desktop, with the
+   project name sliding out on hover; a row above the breadcrumb on tablet and phone */
+.case-pager_link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--dark);
+  text-decoration: none;
+}
+.case-pager_link svg { flex-shrink: 0; }
+.case-pager_label { display: flex; flex-direction: column; line-height: 1.3; }
+.case-pager_dir { font-size: var(--_typography---text--xsmall, 0.75rem); font-weight: 600; letter-spacing: 0.0875rem; text-transform: uppercase; color: var(--main--grey-4, inherit); }
+.case-pager_name { font-size: var(--_typography---text--small); font-weight: 600; letter-spacing: 0.0875rem; }
+.case-pager_link.is-next { text-align: right; }
+@media screen and (min-width: 992px) {
+  .section.case-hero { position: relative; }
+  .case-pager_link {
+    position: absolute;
+    top: 50%;
+    z-index: 50;
+    transform: translateY(-50%);
+    height: 3rem;
+    min-width: 3rem;
+    padding: 0 0.8rem;
+    border: 1px solid var(--dark);
+    border-radius: 999px;
+    background: var(--light);
+    overflow: hidden;
+    transition: background-color 0.25s, color 0.25s;
+  }
+  .case-pager_link.is-prev { left: max(3rem, calc((100% - 85rem) / 2)); }
+  .case-pager_link.is-next { right: max(3rem, calc((100% - 85rem) / 2)); }
+  .case-pager_label { max-width: 0; opacity: 0; white-space: nowrap; overflow: hidden; transition: max-width 0.4s ease, opacity 0.3s ease; }
+  .case-pager_link:hover .case-pager_label,
+  .case-pager_link:focus-visible .case-pager_label { max-width: 18rem; opacity: 1; }
+  .case-pager_link:hover,
+  .case-pager_link:focus-visible { background: #ff0; color: #000; border-color: #000; }
+  .case-pager_link:hover .case-pager_dir,
+  .case-pager_link:focus-visible .case-pager_dir { color: #000; }
+}
+@media screen and (max-width: 991px) {
+  .case-pager { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25rem 1rem 0; }
+  .case-pager_link { max-width: 48%; }
+  .case-pager_name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+}
+
+/* Slide between case studies (cross-page view transition; the direction comes from the arrow or key used) */
+@keyframes cs-out-left { to { transform: translateX(-6%); opacity: 0; } }
+@keyframes cs-in-right { from { transform: translateX(6%); opacity: 0; } }
+@keyframes cs-out-right { to { transform: translateX(6%); opacity: 0; } }
+@keyframes cs-in-left { from { transform: translateX(-6%); opacity: 0; } }
+html[data-cs-dir="next"]::view-transition-old(root) { animation: cs-out-left 0.35s ease both; }
+html[data-cs-dir="next"]::view-transition-new(root) { animation: cs-in-right 0.45s ease both; }
+html[data-cs-dir="prev"]::view-transition-old(root) { animation: cs-out-right 0.35s ease both; }
+html[data-cs-dir="prev"]::view-transition-new(root) { animation: cs-in-left 0.45s ease both; }
+
+/* Load-in animation: photos, videos and copy fade and rise into place as they come into view */
+html.cs-anim .cs-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+html.cs-anim .cs-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.cs-anim .cs-reveal { opacity: 1; transform: none; transition: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
 /* Service pages (/services/...): breadcrumb, then on desktop the title, intro and outcomes stay in place
    in the left third while the explainer and How it works scroll past in the right two thirds */
 .service-crumb-wrap { padding-top: 2rem; }
