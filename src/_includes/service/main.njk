@@ -69,66 +69,64 @@
             <p>The latest congresses and events we have filmed.</p>
           </div>
           <div class="height-2"></div>
-          <div class="flex vertical gap-1-5">
+          {#- Compact cards, three to a row, styled like Further Case Studies on case study pages -#}
+          <div role="list" class="grid _12-col gap-1-25 t_flex t_vertical">
             {%- for m in micros %}
             {%- set mClient = clients | findBy("slug", m.client) %}
-            <div class="bg-grey-1 border-1 radius-1-px">
-              <div class="padding-vertical padding-4 t_padding-2 m_padding-1-5">
-                <div class="padding-horizontal padding-5 t_padding-2 m_padding-1-5">
-                  <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
-                    <div class="_4-col relative">
-                      {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="_16x9 width-100-pct radius-0-25">
-                      {%- else %}<div class="_16x9 width-100-pct radius-0-25 media-placeholder">{{ m.title }}</div>{% endif %}
-                    </div>
-                    <div class="_8-col">
-                      <div class="flex vertical gap-2 height-100-pct justify-space-between t_gap-1-5">
-                        <div class="flex vertical gap-0-5">
-                          <p class="text-size-xsmall font-600 text-color-grey-4">{{ [([m.month, m.year] | select | join(" ")), (m.clientLabel or (mClient.name if mClient))] | select | join(" · ") }}</p>
-                          <h3>{{ m.title }}</h3>
-                          <p>{{ m.summary }}</p>
-                        </div>
-                        <div class="flex align-center gap-3 m_vertical m_align-stretch m_text-align-center m_gap-1-5">
-                          <a href="/work/{{ m.slug }}" class="button primary w-inline-block">
-                            <div>Read the project</div>
-                            <div class="hover-button-blur"></div>
-                          </a>
-                        </div>
+            <div role="listitem" class="_4-col">
+              <a href="/work/{{ m.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct text-align-center c_secondary-btn-hover m_padding-1-25 height-100-pct flex vertical justify-space-between w-inline-block">
+                <div>
+                  <div class="height-1-5 t_none"></div>
+                  <h3 class="min-height-4-5">{{ m.title }}</h3>
+                  <div class="height-0-75"></div>
+                  <p>{{ [(m.clientLabel or (mClient.name if mClient)), ([m.month, m.year] | select | join(" "))] | select | join(" · ") }}</p>
+                  <div class="height-3 t_height-1-25"></div>
+                  {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">
+                  {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
+                  <div class="height-3 t_height-1-25"></div>
+                  <p class="text-size-xsmall">{{ m.summary }}</p>
+                  <div class="height-1-5"></div>
+                </div>
+                <div>
+                  <div class="width-100-pct flex justify-center">
+                    <div class="button-secondary">
+                      <div class="text-size-xsmall font-600 relative">
+                        <div class="text-breaking-no-wrap">Read the project</div>
+                        <div class="button-secondary-bg"></div>
                       </div>
                     </div>
                   </div>
+                  <div class="height-1-5 t_none"></div>
                 </div>
-              </div>
+              </a>
             </div>
             {%- endfor %}
             {%- for cs in bigCases %}
-            <div class="bg-grey-1 border-1 radius-1-px">
-              <div class="padding-vertical padding-4 t_padding-2 m_padding-1-5">
-                <div class="padding-horizontal padding-5 t_padding-2 m_padding-1-5">
-                  <div class="grid _12-col gap-5 t_flex t_vertical t_gap-2">
-                    <div class="_4-col relative">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="_16x9 width-100-pct radius-0-25">{% endif %}</div>
-                    <div class="_8-col">
-                      <div class="flex vertical gap-2 height-100-pct justify-space-between t_gap-1-5">
-                        <div class="flex vertical gap-0-5">
-                          <h3>{{ cs.title }}</h3>
-                          <p>{{ cs.overview }}</p>
-                        </div>
-                        <div class="flex align-center gap-3 m_vertical m_align-stretch m_text-align-center m_gap-1-5">
-                          <a href="/case-study/{{ cs.slug }}" class="button primary w-inline-block">
-                            <div>Read Case Study</div>
-                            <div class="hover-button-blur"></div>
-                          </a>
-                          <a href="/case-studies" class="button-secondary w-inline-block">
-                            <div class="text-size-xsmall font-600 relative">
-                              <div class="text-breaking-no-wrap">Further Case Studies</div>
-                              <div class="button-secondary-bg"></div>
-                            </div>
-                          </a>
-                        </div>
+            {%- set csClient = clients | findBy("slug", cs.client) %}
+            <div role="listitem" class="_4-col">
+              <a href="/case-study/{{ cs.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct text-align-center c_secondary-btn-hover m_padding-1-25 height-100-pct flex vertical justify-space-between w-inline-block">
+                <div>
+                  <div class="height-1-5 t_none"></div>
+                  <h3 class="min-height-4-5">{{ cs.title }}</h3>
+                  <div class="height-0-75"></div>
+                  <p{{ ' class="w-dyn-bind-empty"' | safe if not csClient }}>{{ csClient.name if csClient }}</p>
+                  <div class="height-3 t_height-1-25"></div>{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
+                  <div class="height-3 t_height-1-25"></div>
+                  <p class="text-size-xsmall">{{ cs.overview }}</p>
+                  <div class="height-1-5"></div>
+                </div>
+                <div>
+                  <div class="width-100-pct flex justify-center">
+                    <div class="button-secondary">
+                      <div class="text-size-xsmall font-600 relative">
+                        <div class="text-breaking-no-wrap">View the case study</div>
+                        <div class="button-secondary-bg"></div>
                       </div>
                     </div>
                   </div>
+                  <div class="height-1-5 t_none"></div>
                 </div>
-              </div>
+              </a>
             </div>
             {%- endfor %}
           </div>
