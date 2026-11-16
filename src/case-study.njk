@@ -8,13 +8,21 @@ const eleventyExcludeFromCollections = true;
 <html data-wf-page="69eb9f99d631c64645ec1963" data-wf-site="69d7a9d5d387ff8d4be61f60" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ cs.title }} | Made Clear</title>
-  <meta content="{{ cs.overview | metaDescription }}" name="description">
-  <meta content="{{ cs.title }} | Made Clear" property="og:title">
-  <meta content="{{ cs.overview | metaDescription }}" property="og:description">
+  {#- Search title and description, built so they carry the words people search with: the project, the client and
+      the kind of work (projectType filter, from the services). Short overviews get a sentence added in the
+      description only; the page text is unchanged. -#}
+  {%- set csClientName = cs.clientName or ((clients | findBy("slug", cs.client)) or {}).name or (cs.title.split(" | ")[0] if " | " in cs.title else "") %}
+  {%- set csProject = (cs.projectTitle or (cs.title.split(" | ").slice(1).join(" | ") if " | " in cs.title else cs.title)) | replace(r/[.\s]+$/, "") %}
+  {%- set csType = cs.services | projectType %}
+  {%- set csSeoTitle = csProject + ": " + ((csClientName + " ") if csClientName else "") + csType + " | Made Clear" %}
+  {%- set csSeoDesc = cs.overview | seoDescription(csType, csClientName) %}
+  <title>{{ csSeoTitle }}</title>
+  <meta content="{{ csSeoDesc }}" name="description">
+  <meta content="{{ csSeoTitle }}" property="og:title">
+  <meta content="{{ csSeoDesc }}" property="og:description">
   <meta content="{{ ogImages[cs.coverPhoto] or cs.coverPhoto }}" property="og:image">
-  <meta content="{{ cs.title }} | Made Clear" name="twitter:title">
-  <meta content="{{ cs.overview | metaDescription }}" name="twitter:description">
+  <meta content="{{ csSeoTitle }}" name="twitter:title">
+  <meta content="{{ csSeoDesc }}" name="twitter:description">
   <meta content="{{ ogImages[cs.coverPhoto] or cs.coverPhoto }}" name="twitter:image">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
@@ -39,6 +47,26 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
   <!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-smartlightbox=""></script>
+  {#- What the project is (CreativeWork), made by us for the client, with its services as keywords and its videos -#}
+  {%- set csServiceNames = [] %}
+  {%- for sv in services | published | whereIn("slug", cs.services or []) %}{% set csServiceNames = (csServiceNames.push(sv.name), csServiceNames) %}{% endfor %}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": siteUrl + "/case-study/" + cs.slug + "#work",
+    "name": csProject,
+    "headline": csSeoTitle | replace(" | Made Clear", ""),
+    "description": csSeoDesc,
+    "url": siteUrl + "/case-study/" + cs.slug,
+    "image": siteUrl + ((ogImages[cs.coverPhoto] or cs.coverPhoto) | urlencode | replace("%2F", "/")) if cs.coverPhoto else undefined,
+    "genre": csType,
+    "keywords": (csServiceNames | join(", ")) + ", cardiology, MedTech",
+    "inLanguage": "en-GB",
+    "creator": { "@id": siteUrl + "/#organization" },
+    "publisher": { "@id": siteUrl + "/#organization" },
+    "sponsor": { "@type": "Organization", "name": csClientName } if csClientName else undefined,
+    "video": (cs.videos | playableVideos | videoSchema(csProject, csSeoDesc)) or undefined
+  } | dump | replace("<", "\\u003c") | safe }}</script>
   <script type="application/ld+json">{{ {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -170,7 +198,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                   <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
                 </div>
                 {%- if cs.coverPhoto %}
-                <div class="relative radius-0-25 overflow-hidden"><img src="{{ cs.coverPhoto }}" loading="eager" alt="" class="width-100-pct _16x9 radius-0-25 case-body_cover">
+                <div class="relative radius-0-25 overflow-hidden"><img src="{{ cs.coverPhoto }}" loading="eager" alt="{{ csProject }}: {{ csType }} for {{ csClientName }}" class="width-100-pct _16x9 radius-0-25 case-body_cover">
                   <div class="overlay-wrapper"></div>
                 </div>
                 {%- endif %}
@@ -199,7 +227,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 {%- for img in csGallery %}
                 {%- set src = img.src or img %}
                 <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
-                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or '' }}" style="object-position: {{ img.focus or imageFocus[src] or '50% 50%' }}">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or (csProject + ' for ' + csClientName + ', photo ' + loop.index) }}" style="object-position: {{ img.focus or imageFocus[src] or '50% 50%' }}">
                   <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
                 </a>
                 {%- endfor %}
@@ -235,7 +263,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           <div class="splide__track">
             <ul class="splide__list">
               {%- for img in cs.imageSlider %}
-              <li class="splide__slide c_image-slider-item"><img src="{{ img }}" loading="lazy" alt="" class="c_image-slider"></li>
+              <li class="splide__slide c_image-slider-item"><img src="{{ img.src or img }}" loading="lazy" alt="{{ img.alt or (csProject + ' for ' + csClientName + ', photo ' + loop.index) }}" class="c_image-slider"></li>
               {%- endfor %}
             </ul>
           </div>
@@ -291,7 +319,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               {%- for other in (caseStudies | published | sortByOrder | except(cs)).slice(0, 3) %}
               <div role="listitem" class="_4-col w-dyn-item">
                 <a href="/case-study/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
-                  {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
+                  {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="{{ other.title }}" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
                   <div class="flex vertical gap-0-5">
                     <h3>{{ other.title }}</h3>
                     <p class="{{ 'w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
