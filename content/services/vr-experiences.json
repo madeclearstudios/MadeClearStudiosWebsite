@@ -6,16 +6,71 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Immersive VR medical education for medical device companies. Put a physician inside the artery, at the booth or in the hospital, and show them what a slide deck never could.",
+  "whyThisMatters": "<p><strong>A VR medical experience</strong> is an immersive film or simulation, viewed in a headset, that takes a physician inside the anatomy and the procedure, so they see how your device works in three dimensions rather than on a flat screen.</p><p>Interventional cardiology is spatial. Coronary arteries, aortic roots and renal vessels are three-dimensional and dynamic, yet most device education is still a slide, a brochure or a KOL on a laptop. VR closes that gap. A few minutes in a headset can show what physicians miss on an angiogram, and why your therapy matters, in a way they remember long after the congress.</p><p>We build VR around the clinical story first: a real case, presented by the KOLs your audience trusts, made to work on a busy congress stand and as a portable tool for your field team. We handle the headsets and the sessions too, so your people can focus on the conversations VR starts.</p>",
+  "outcomesMainTitle": "What VR gives your team",
+  "outcomesDescription": "One experience, used at the booth, in the field and in training.",
+  "outcomesFirstTitle": "Attention at the booth",
+  "outcomesFirstDescription": "A reason for physicians to stop, put on a headset and spend real time with your story, not thirty seconds with a leaflet.",
+  "outcomesSecondTitle": "A field tool your reps can carry",
+  "outcomesSecondDescription": "The same experience travels to hospital visits, so a sales meeting becomes a demonstration rather than another PowerPoint.",
+  "outcomesThirdTitle": "Understanding that sticks",
+  "outcomesThirdDescription": "Seeing a mechanism of action in three dimensions builds understanding and recall that flat content rarely matches.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "VR medical education and VR experiences for MedTech | Made Clear",
+  "metaDescription": "VR experiences for medical device and cardiology companies: immersive medical education for congress booths and sales teams, scripted with leading KOLs.",
+  "process": [
+    {
+      "title": "Find the clinical story",
+      "text": "We start with the behaviour you need to change and the case that shows it best, working with your medical and marketing teams."
+    },
+    {
+      "title": "Script with your KOLs",
+      "text": "Leading interventional cardiologists present the case. We write and storyboard with them, and build in medical, legal and regulatory review from the start."
+    },
+    {
+      "title": "Build the experience",
+      "text": "Live action, CGI and anatomy combined into an immersive experience that is clinically accurate and works for a few minutes on a stand or a longer session."
+    },
+    {
+      "title": "Deploy and run it",
+      "text": "Headsets, hardware and session delivery at congresses, plus versions your field teams can take on hospital visits."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is a VR medical experience?",
+      "answer": "<p>It is an immersive film or simulation viewed in a headset that puts a physician inside the anatomy and the procedure. For medical device companies it is used to explain a mechanism of action, show a real patient case, or demonstrate what a therapy does inside the vessel, in three dimensions.</p>"
+    },
+    {
+      "question": "Why use VR for medical device education?",
+      "answer": "<p>Interventional cardiology is spatial, and most device content is flat. VR lets physicians see the anatomy and the device in three dimensions, which builds understanding and recall. It also earns attention: at a congress, a headset gives physicians a reason to stop and spend real time with your story.</p>"
+    },
+    {
+      "question": "Can a VR experience be used at congresses and by sales teams?",
+      "answer": "<p>Yes. We design experiences to work in both settings. <em>The Curious Case of Coronary Calcium</em>, a 25-minute VR experience we made for Shockwave Medical, has been deployed at major international congresses and used as a field sales tool by their commercial teams.</p>"
+    },
+    {
+      "question": "Do you run the VR sessions at the congress?",
+      "answer": "<p>Yes. We can handle VR delivery and hardware on your stand. At CIRSE 2026 our team ran VR delivery and hardware for Shockwave Medical across 10 sessions, alongside filming physician interviews.</p>"
+    },
+    {
+      "question": "Who presents the content, and how do you keep it accurate?",
+      "answer": "<p>The experience is presented by the key opinion leaders your audience trusts. We script and storyboard with them and plan for medical, legal and regulatory review from the start, so the science is right and the content can be approved.</p>"
+    },
+    {
+      "question": "Which areas of cardiology do you make VR for?",
+      "answer": "<p>We work across interventional and structural cardiology, from coronary calcium and intravascular lithotripsy to imaging and procedural training. If the anatomy is three-dimensional and the story is hard to tell on a slide, VR is worth considering.</p>"
+    }
+  ],
+  "recentWorkIntro": "VR experiences we have built for medical device companies, and the congresses where we run them.",
+  "relatedServices": [
+    "vr-and-immersive-experiences",
+    "animation",
+    "3d-model-development",
+    "on-site-congress-and-event-production"
+  ],
   "order": 19
 }
