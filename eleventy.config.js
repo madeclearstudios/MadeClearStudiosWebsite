@@ -87,6 +87,11 @@ export default function (eleventyConfig) {
     if (plain.length <= max) return plain;
     return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
   });
+  // "2026-05-15" -> "15 May 2026"
+  eleventyConfig.addFilter("readableDate", (d) => {
+    const dt = new Date(d);
+    return isNaN(dt) ? "" : dt.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  });
   // What kind of project this is, in the words people search with, from its services (case study titles, meta
   // descriptions and structured data). First match wins.
   eleventyConfig.addFilter("projectType", (services = []) => {

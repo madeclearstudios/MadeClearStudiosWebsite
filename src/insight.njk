@@ -16,7 +16,23 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ insight.title }} | Made Clear" name="twitter:title">
   <meta content="{{ insight.overview | metaDescription }}" name="twitter:description">
   <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" name="twitter:image">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+  {#- Article structured data: answer engines weight dated, authored articles -#}
+  <script type="application/ld+json">{{ {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": siteUrl + "/insights/" + insight.slug + "#article",
+    "headline": insight.title,
+    "description": insight.overview | metaDescription,
+    "url": siteUrl + "/insights/" + insight.slug,
+    "mainEntityOfPage": siteUrl + "/insights/" + insight.slug,
+    "image": (siteUrl + ((ogImages[insight.coverPhoto] or insight.coverPhoto) | urlencode | replace("%2F", "/"))) if insight.coverPhoto else undefined,
+    "datePublished": insight.publishedOn or undefined,
+    "dateModified": ("content/insights/" + insight.slug + ".json") | lastModified,
+    "inLanguage": "en-GB",
+    "author": ({ "@type": "Person", "name": insight.author } if (insight.author and insight.author != "Made Clear") else { "@id": siteUrl + "/#organization" }),
+    "publisher": { "@id": siteUrl + "/#organization" }
+  } | dump | replace("<", "\\u003c") | safe }}</script>
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
@@ -75,7 +91,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </div>
     {% include "nav.njk" %}
     <section class="section">
-      <div class="section-padding-negative relative radius-0-25 overflow-hidden">{% if insight.coverPhoto %}<img src="{{ insight.coverPhoto }}" loading="lazy" alt="" class="width-100-pct _16x9 radius-0-25">{% endif %}
+      <div class="section-padding-negative relative radius-0-25 overflow-hidden">{% if insight.coverPhoto %}<img src="{{ insight.coverPhoto }}" loading="eager" alt="{{ insight.title }}" class="width-100-pct _16x9 radius-0-25">{% endif %}
         <div class="overlay-wrapper _16x9"></div>
       </div>
     </section>
@@ -87,6 +103,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="height-1-5 none t_block"></div>
             <div class="flex justify-space-between align-end t_vertical t_align-start">
               <div class="flex vertical gap-1">
+                {%- if insight.publishedOn or insight.author %}
+                <p class="text-size-xsmall font-600 text-color-grey-4">{% if insight.publishedOn %}<time datetime="{{ insight.publishedOn }}">{{ insight.publishedOn | readableDate }}</time>{% endif %}{% if insight.publishedOn and insight.author %} · {% endif %}{{ insight.author }}</p>
+                {%- endif %}
                 <div class="max-w-450">
                   <div class="relative">
                     <div class="c_our-experts-p-wrapper">
@@ -123,6 +142,31 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       </section>
       {%- else %}
       <div id="images-slider" class="splide" style="display: none"><div class="splide__track"><ul class="splide__list"></ul></div></div>
+      {%- endif %}
+      {#- More insights: links to the other articles, so each is reachable from every article, not just the list -#}
+      {%- set moreInsights = (insights | published | sortByOrder | except(insight)).slice(0, 3) %}
+      {%- if moreInsights.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">More insights</h2>
+          <div class="height-2"></div>
+          <div role="list" class="grid _12-col gap-1-25 t_flex t_vertical">
+            {%- for other in moreInsights %}
+            <div role="listitem" class="_4-col">
+              <a href="/insights/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
+                {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="{{ other.title }}" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
+                <div class="flex vertical gap-0-5">
+                  {%- if other.publishedOn %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ other.publishedOn | readableDate }}</p>{% endif %}
+                  <h3>{{ other.title }}</h3>
+                  <p>{{ other.overview }}</p>
+                </div>
+                <div class="work-tile_link"><span class="service-name-highlight">Find out more<span class="visually-hidden"> about {{ other.title }}</span></span></div>
+              </a>
+            </div>
+            {%- endfor %}
+          </div>
+        </div>
+      </section>
       {%- endif %}
       <div class="border-1 bg-cream">
         <div class="form-wrapper">
