@@ -20,14 +20,13 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ csSeoDesc }}" name="description">
   <meta content="{{ csSeoTitle }}" property="og:title">
   <meta content="{{ csSeoDesc }}" property="og:description">
-  <meta content="{{ cs.coverPhoto }}" property="og:image">
+  <meta content="{{ ogImages[cs.coverPhoto] or cs.coverPhoto }}" property="og:image">
   <meta content="{{ csSeoTitle }}" name="twitter:title">
   <meta content="{{ csSeoDesc }}" name="twitter:description">
-  <meta content="{{ cs.coverPhoto }}" name="twitter:image">
+  <meta content="{{ ogImages[cs.coverPhoto] or cs.coverPhoto }}" name="twitter:image">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/made-clear-wip.webflow.css" rel="stylesheet" type="text/css">
@@ -42,6 +41,7 @@ const eleventyExcludeFromCollections = true;
   <style>@view-transition { navigation: auto; }</style>
   <script>try{var d=sessionStorage.getItem("cs-dir");if(d){document.documentElement.setAttribute("data-cs-dir",d);sessionStorage.removeItem("cs-dir");}}catch(e){}document.documentElement.classList.add("cs-anim");</script>
   {% include "analytics.njk" %}
+  {% include "schema/site.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
@@ -192,7 +192,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
                 <div class="flex vertical gap-0-75 align-start">
                   <h1 class="h2 case-hero_title">
-                    {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span>{% endif -%}
+                    {%- if clientLine %}<span class="case-hero_client">{{ clientLine }}</span><span class="visually-hidden">: </span>{% endif -%}
                     <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
                   </h1>
                   <p class="{{ ' w-dyn-bind-empty' if not cs.overview }}">{{ cs.overview }}</p>
