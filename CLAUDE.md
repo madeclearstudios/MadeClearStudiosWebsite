@@ -132,6 +132,8 @@ Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.co
 - Left out: the style guide (`design-system`), `womenasoneold`, the password page (`401`), and the empty Webflow detail pages for collections without their own pages. No service has page content yet, so services don't get their own pages.
 - Images that were on Webflow's CDN are moved into `src/images/uploads/webflow/` by the one-off \"Move Webflow images into the site\" GitHub Action (`scripts/migrate-webflow-images.mjs`). Run it before cancelling Webflow.
 - jQuery is now hosted with the site (`src/js/jquery-3.5.1.min.js`), the same file Webflow used. Splide, three.js, GSAP and Finsweet Attributes still load from public CDNs, as they did on Webflow.
+- three.js (about 600KB) only loads on pages with water-bubble canvases (KOL Hub, the hidden KOL page, Women As One). The home page drop (`js/fluid-blob.js`) is plain WebGL and doesn't need it; Home loads three.js only for the `?blob=classic` test version. If you add bubbles to a page, add the three.js script tag there too.
+- The cookie banner (`js/consent.js`, loaded without `defer` from `analytics.njk`) is added as soon as `<body>` exists, so it appears with the first frame instead of becoming a late Largest Contentful Paint. The hero placeholder image on Home loads eagerly with high priority, as it is the largest element on phones.
 
 ## Rules for changes
 

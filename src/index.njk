@@ -74,7 +74,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           {#- Hero: a liquid drop that sits over the copy and magnifies it (js/fluid-blob.js, lens mode) -#}
           <div class="c_hero-height">
             <div class="flex justify-center align-center m_width-100-pct relative">
-              <div class="water-bubble-placeholder blob-lens-stage"><img src="/images/hi-res-blob-p-1080.avif" loading="lazy" alt="" class="cover water-bubble-img"><canvas class="water-bubble fluid-blob fluid-blob-lens" data-blob-mode="lens" aria-hidden="true"></canvas></div>
+              <div class="water-bubble-placeholder blob-lens-stage"><img src="/images/hi-res-blob-p-1080.avif" loading="eager" fetchpriority="high" alt="" class="cover water-bubble-img"><canvas class="water-bubble fluid-blob fluid-blob-lens" data-blob-mode="lens" aria-hidden="true"></canvas></div>
               <div class="absolute z-1 blob-lens-copy">
                 <div class="max-width-360">
                   <div class="flex vertical align-center text-align-center gap-1-25">
@@ -500,11 +500,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     /* Do not add anything below this code */
   });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  {#- three.js only powers the optional ?blob=classic version of the hero; the default drop (js/fluid-blob.js) doesn't need it -#}
+  <script>if (/[?&]blob=classic\b/.test(location.search)) document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');</script>
   <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js
 "></script>
