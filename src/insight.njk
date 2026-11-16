@@ -12,14 +12,13 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ insight.overview | metaDescription }}" name="description">
   <meta content="{{ insight.title }} | Made Clear" property="og:title">
   <meta content="{{ insight.overview | metaDescription }}" property="og:description">
-  <meta content="{{ insight.coverPhoto }}" property="og:image">
+  <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" property="og:image">
   <meta content="{{ insight.title }} | Made Clear" name="twitter:title">
   <meta content="{{ insight.overview | metaDescription }}" name="twitter:description">
-  <meta content="{{ insight.coverPhoto }}" name="twitter:image">
+  <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" name="twitter:image">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/made-clear-wip.webflow.css" rel="stylesheet" type="text/css">
@@ -30,6 +29,7 @@ const eleventyExcludeFromCollections = true;
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
   {% include "analytics.njk" %}
+  {% include "schema/site.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">

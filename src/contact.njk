@@ -14,7 +14,6 @@ navDivider: true
   <meta content="Contact Made Clear | Start a Cardiology Content Project" name="twitter:title">
   <meta content="Tell us about your brief. Made Clear plans, creates and distributes content for cardiology and MedTech teams. Send an enquiry, email or call us." name="twitter:description">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/made-clear-wip.webflow.css" rel="stylesheet" type="text/css">
@@ -25,7 +24,7 @@ navDivider: true
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
   {% include "analytics.njk" %}
-  {% include "schema/organization.njk" %}
+  {% include "schema/site.njk" %}
 </head>
 <body class="bg-cream">
   <div class="page-wrapper">
@@ -97,6 +96,7 @@ navDivider: true
     {% include "nav.njk" %}
     <div class="contact-form">
       <div class="form-wrapper">
+        {%- set formHeadingTag = "h1" %}
         {% include "enquiry-form.njk" %}
         <div class="divider-dark"></div>
       </div>

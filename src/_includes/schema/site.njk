@@ -1,0 +1,12 @@
+{#- Structured data on every page (included next to analytics.njk in each page's <head>): who we are (Organization)
+    and the site itself (WebSite). Page-specific blocks (Service, FAQPage, CreativeWork, Article...) point at the
+    organization by its "@id". -#}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": siteUrl + "/#website",
+  "name": "Made Clear Studios",
+  "url": siteUrl + "/",
+  "inLanguage": "en-GB",
+  "publisher": { "@id": siteUrl + "/#organization" }
+} | dump | replace("<", "\\u003c") | safe }}</script>
