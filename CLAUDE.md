@@ -93,9 +93,12 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - `deliverables`: the "What we capture" list. No longer shown on the page (removed to keep service pages short) and hidden in Pages CMS; the data is kept
 - `process`: the "How it works" steps (`title`, `text`)
 - `faqs`: questions and HTML answers. They also go into the page's FAQPage structured data.
+- `recentWorkIntro`: the line under the Recent work heading (default "Projects we have delivered with this service.")
 - `relatedServices`: slugs of services to link at the bottom
 - `gallery`: image URLs (or `{ "src": …, "alt": … }`). Leave empty and the page fills it automatically with up to three photos from the projects in Recent work: each one's hero (cover) image first, then their other photos if there are fewer than three projects (`workGallery` filter in `eleventy.config.js`); `videos`: `{ "link": "<YouTube link>", "thumbnail": …, "title": … }`
 - `hidden`: `true` while the page is being reviewed (see below)
+
+Service pages so far: On-site congress and event production (published), VR experiences and Animation & Illustration (drafted Nov 2026 from our case studies, `hidden: true` for review).
 
 Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug, as compact cards three to a row: photo, date, title, summary, and a "Find out more" link that gets the yellow highlighter on hover (as service names do on the Services page). The client name is left out, as the title already says it. Further Case Studies at the bottom of case study pages use the same cards (`.work-tile`).
 

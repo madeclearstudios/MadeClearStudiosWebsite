@@ -380,6 +380,7 @@ content:
             fields:
               - { name: question, label: Question, type: string }
               - { name: answer, label: Answer, type: rich-text, options: { format: html } }
+          - { name: recentWorkIntro, label: Recent work intro, description: "The line under the Recent work heading, e.g. \"The latest congresses and events we have filmed.\"", type: string }
           - name: relatedServices
             label: Related services
             type: reference
