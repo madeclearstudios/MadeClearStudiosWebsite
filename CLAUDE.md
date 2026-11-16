@@ -120,8 +120,11 @@ Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.co
 
 - Organization and WebSite: `src/_includes/schema/site.njk` on every page, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
 - FAQPage: About (from the FAQs collection) and each service page (from its `faqs`), built with the `faqSchema` filter.
-- Service and BreadcrumbList: service pages; CreativeWork: micro case studies.
+- Service and BreadcrumbList: service pages; CreativeWork: micro case studies and case studies.
 - Page titles end in `| Made Clear` and every indexed page has its own meta description (about 155 characters at most). Case study, insight and micro case study descriptions come from their overview or summary, trimmed by the `metaDescription` filter.
+- Case study search titles are built as "<Project title>: <Client> <kind of work> | Made Clear" (e.g. "HTN:RDN: Medtronic medical film and animation"); the kind of work comes from the case study's services (`projectType` filter in `eleventy.config.js`). Their descriptions are the overview, plus a short generated sentence when the overview is under 110 characters (`seoDescription` filter); the page text is unchanged.
+- CreativeWork on case studies: the project, the kind of work, its services as keywords, the client as sponsor, made by us, with a VideoObject for each YouTube video (`videoSchema` filter).
+- Photos on case studies, micro case studies and service pages get alt text automatically when the content has none: "<project> for <client>, photo 3" in galleries, the project title on cards.
 
 ## Notes from the Webflow move
 

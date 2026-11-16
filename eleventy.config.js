@@ -87,6 +87,38 @@ export default function (eleventyConfig) {
     if (plain.length <= max) return plain;
     return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
   });
+  // What kind of project this is, in the words people search with, from its services (case study titles, meta
+  // descriptions and structured data). First match wins.
+  eleventyConfig.addFilter("projectType", (services = []) => {
+    const has = (...slugs) => slugs.some((x) => (services || []).includes(x));
+    if (has("vr-experiences", "vr-and-immersive-experiences")) return "VR medical education";
+    if (has("campaign-strategy", "campaign-creative-and-concepts")) return "medical awareness campaign";
+    if (has("live-cases")) return "live case production";
+    if (has("on-site-congress-and-event-production")) return "congress filming";
+    const film = has("film-and-video-content", "video-production-documentary-testimonial-explainer-training");
+    const anim = has("animation", "3d-model-development", "medical-illustration-and-infographics");
+    if (film && anim) return "medical film and animation";
+    if (anim) return "medical animation";
+    if (film) return "medical film";
+    return "cardiology content";
+  });
+  // Search description for a case study: its overview, plus (if that is short) the longest of a few sentences about
+  // the kind of work and the client that still fits in 155 characters
+  eleventyConfig.addFilter("seoDescription", function (overview = "", type = "", client = "") {
+    const md = eleventyConfig.getFilter("metaDescription");
+    const base = md(overview, 400);
+    if (base.length >= 110) return md(base);
+    const T = type.charAt(0).toUpperCase() + type.slice(1);
+    const who = client || "a cardiology client";
+    const options = [
+      `${T} for ${who} by Made Clear, the award-winning cardiology content agency.`,
+      `${T} for ${who} by Made Clear, cardiology content agency.`,
+      `${T} for ${who} by Made Clear.`,
+      `${T} for ${who}.`,
+    ];
+    for (const o of options) { const t = (base ? base + " " : "") + o; if (t.length <= 155) return t; }
+    return md(base);
+  });
   // Body of work timeline (Case Studies page): published, non-hidden micro case studies grouped by year, newest
   // first, then by month (the "Month" dropdown in Pages CMS) within each year
   const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -155,6 +187,22 @@ export default function (eleventyConfig) {
     const id = youtubeId(video.link);
     return id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "";
   });
+
+  // VideoObject structured data for a list of videos (YouTube only), for case study and project pages
+  eleventyConfig.addFilter("videoSchema", (videos = [], fallbackName = "", description = "") =>
+    (videos || []).filter((v) => v && youtubeId(v.link)).map((v) => {
+      const id = youtubeId(v.link);
+      const thumb = v.thumbnail ? (v.thumbnail.startsWith("http") ? v.thumbnail : siteUrl + encodeURI(v.thumbnail)) : `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+      return {
+        "@type": "VideoObject",
+        name: v.title || fallbackName,
+        description: description || v.title || fallbackName,
+        thumbnailUrl: thumb,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${id}`,
+        contentUrl: `https://www.youtube.com/watch?v=${id}`,
+      };
+    })
+  );
 
   // Webflow lightbox data for a video link
   eleventyConfig.addFilter("lightboxJson", (url) => {
