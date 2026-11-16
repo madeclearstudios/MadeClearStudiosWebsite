@@ -12,10 +12,10 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ insight.overview | metaDescription }}" name="description">
   <meta content="{{ insight.title }} | Made Clear" property="og:title">
   <meta content="{{ insight.overview | metaDescription }}" property="og:description">
-  <meta content="{{ insight.coverPhoto }}" property="og:image">
+  <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" property="og:image">
   <meta content="{{ insight.title }} | Made Clear" name="twitter:title">
   <meta content="{{ insight.overview | metaDescription }}" name="twitter:description">
-  <meta content="{{ insight.coverPhoto }}" name="twitter:image">
+  <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" name="twitter:image">
   <meta property="og:type" content="article">
   {#- Article structured data: answer engines weight dated, authored articles -#}
   <script type="application/ld+json">{{ {
@@ -26,16 +26,15 @@ const eleventyExcludeFromCollections = true;
     "description": insight.overview | metaDescription,
     "url": siteUrl + "/insights/" + insight.slug,
     "mainEntityOfPage": siteUrl + "/insights/" + insight.slug,
-    "image": (siteUrl + (insight.coverPhoto | urlencode | replace("%2F", "/"))) if insight.coverPhoto else undefined,
+    "image": (siteUrl + ((ogImages[insight.coverPhoto] or insight.coverPhoto) | urlencode | replace("%2F", "/"))) if insight.coverPhoto else undefined,
     "datePublished": insight.publishedOn or undefined,
-    "dateModified": insight.publishedOn or undefined,
+    "dateModified": ("content/insights/" + insight.slug + ".json") | lastModified,
     "inLanguage": "en-GB",
     "author": ({ "@type": "Person", "name": insight.author } if (insight.author and insight.author != "Made Clear") else { "@id": siteUrl + "/#organization" }),
     "publisher": { "@id": siteUrl + "/#organization" }
   } | dump | replace("<", "\\u003c") | safe }}</script>
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/made-clear-wip.webflow.css" rel="stylesheet" type="text/css">
@@ -46,6 +45,7 @@ const eleventyExcludeFromCollections = true;
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
   {% include "analytics.njk" %}
+  {% include "schema/site.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
@@ -430,7 +430,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     /* Do not add anything below this code */
   });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>

@@ -1,0 +1,39 @@
+---
+permalink: llms.txt
+eleventyExcludeFromCollections: true
+---
+{#- /llms.txt: a plain-text summary of the site for AI assistants and answer engines (https://llmstxt.org).
+    Built from the same CMS data as the pages, so it stays up to date. -#}
+# Made Clear Studios
+
+> Made Clear Studios is an award-winning cardiology and MedTech content agency based in Oxford, UK, working across Europe and the United States. It plans, creates, films and distributes content for medical device and cardiology companies: KOL video interviews, on-site congress filming, medical documentaries, mechanism of action animation, VR medical education and live case broadcasts. Its work has been recognised by The Rx Club awards. Clients include Abbott, Philips, Medtronic, Shockwave Medical (Johnson & Johnson), iVascular and Egg Medical.
+
+Contact: hello@madeclearstudios.com, +44 (0) 1865 965389, {{ siteUrl }}/contact
+
+## Services
+{%- for cat in serviceCategories | published | sortByOrder %}
+- {{ cat.name }}: {{ (cat.teaser or cat.description) | striptags | replace("\n", " ") | trim }}
+{%- for svc in services | published | where("serviceCategory", cat.slug) %}
+  - {% if svc.hasPage and not svc.hidden %}[{{ svc.name }}]({{ siteUrl }}/services/{{ svc.slug }}){% if svc.shortDescription %}: {{ svc.shortDescription }}{% endif %}{% else %}{{ svc.name }}{% endif %}
+{%- endfor %}
+{%- endfor %}
+
+## Case studies
+{%- for cs in caseStudies | published | sortByOrder %}
+- [{{ cs.title }}]({{ siteUrl }}/case-study/{{ cs.slug }}){% if cs.overview %}: {{ cs.overview | striptags | replace("\n", " ") | trim }}{% endif %}
+{%- endfor %}
+{%- for m in microCaseStudies | published | sortByOrder %}{% if not m.hidden %}
+- [{{ m.title }}]({{ siteUrl }}/work/{{ m.slug }}){% if m.summary %}: {{ m.summary }}{% endif %}
+{%- endif %}{% endfor %}
+
+## Insights
+{%- for insight in insights | published | sortByOrder %}
+- [{{ insight.title }}]({{ siteUrl }}/insights/{{ insight.slug }}){% if insight.overview %}: {{ insight.overview | striptags | replace("\n", " ") | trim }}{% endif %}
+{%- endfor %}
+
+## Key pages
+- [About]({{ siteUrl }}/about): who we are, our philosophy and FAQs
+- [Services]({{ siteUrl }}/services): all services by category
+- [Case studies]({{ siteUrl }}/case-studies): featured work and the full body of work
+- [KOL Hub]({{ siteUrl }}/kol-hub): the cardiologists and key opinion leaders we have worked with
+- [Contact]({{ siteUrl }}/contact)

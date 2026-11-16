@@ -34,7 +34,7 @@ npm run build    # production build into _site/
 | Google Analytics (GA4, `G-F6SX5N28QT`), loaded only after cookie consent | `src/_includes/analytics.njk`, included in every page's `<head>` |
 | Cookie consent banner and the footer's "Cookie settings" link | `src/js/consent.js`, styles at the end of `src/css/site.css`; described in clause 5 of the privacy policy |
 | Night mode (switch in the nav; choice remembered in `localStorage` as `mc-theme`) | Set before paint by `src/_includes/theme.njk` (in every page's `<head>`), switch markup `src/_includes/night-toggle.njk` (on the right of the nav bar), behaviour `src/js/night-mode.js`, colours in the "Night mode" block at the end of `src/css/site.css`. It swaps the colour variables (`--dark`, `--light`, greys, cream); anything with a fixed colour needs its own `html.night-mode` rule there. Text on solid yellow stays black; highlighter strokes and the yellow nav-link underlines are removed |
-| Organization structured data (Home, About, Contact) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
+| Organization structured data (every page, via `schema/site.njk`) | `src/_includes/schema/organization.njk`; keep it in step with the footer's contact details |
 
 ## CMS content (edited in Pages CMS)
 
@@ -76,6 +76,11 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - To keep a page out of search and the sitemap, add `noindex: true` to its front matter and a `<meta name="robots" content="noindex">` tag to its head. The Sectors page is hidden like this until its copy is written.
 - Every page gets a canonical tag pointing at its `https://madeclearstudios.com` address, added at build time by the `canonical` transform in `eleventy.config.js` (skipped on the 404 page and noindex pages). The main address is the bare domain; `www` redirects to it.
 - Redirects live in `src/_redirects` (Netlify format). Add one whenever a page or CMS slug is renamed.
+- Each sitemap entry has a `<lastmod>`: the date of the last commit that changed the page's file (`lastModified` filter in `eleventy.config.js`). Pages with no address (`permalink: false`) and the 404 page are left out.
+- `/llms.txt` (`src/llms.njk`) is a plain-text summary of the site for AI assistants and answer engines: who we are, every service (linked where it has a page), case studies, projects, insights and key pages, built from the CMS data.
+- Structured data on every page: `src/_includes/schema/site.njk` (Organization from `schema/organization.njk`, plus WebSite), included next to `analytics.njk` in each page's `<head>`. Keep the Organization `knowsAbout` list in step with the search terms we target.
+- Share images: case studies, micro case studies, insights and service pages get a 1200×630 JPEG made from their cover photo, cropped around its point of interest (`src/_data/ogImages.js`, written to `_site/og/`), because LinkedIn and Facebook don't show AVIF or WebP. A service page uses its first gallery photo, or the cover of its first project.
+- Headings: each page has one `h1`. The "Make it clear" enquiry form's title is styled like a heading but is plain text, except on Contact, where it is the page's `h1` (`formHeadingTag`).
 
 ## Service pages and micro case studies
 
@@ -115,7 +120,7 @@ Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.co
 
 ## Structured data
 
-- Organization: `src/_includes/schema/organization.njk` on Home, About and Contact, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
+- Organization and WebSite: `src/_includes/schema/site.njk` on every page, with the id `https://madeclearstudios.com/#organization`. Other blocks point at that id.
 - FAQPage: About (from the FAQs collection) and each service page (from its `faqs`), built with the `faqSchema` filter.
 - Service and BreadcrumbList: service pages; CreativeWork: micro case studies.
 - Page titles end in `| Made Clear` and every indexed page has its own meta description (about 155 characters at most). Case study, insight and micro case study descriptions come from their overview or summary, trimmed by the `metaDescription` filter.
@@ -126,6 +131,8 @@ Images are resized at build time by `@11ty/eleventy-img` (set up in `eleventy.co
 - Left out: the style guide (`design-system`), `womenasoneold`, the password page (`401`), and the empty Webflow detail pages for collections without their own pages. No service has page content yet, so services don't get their own pages.
 - Images that were on Webflow's CDN are moved into `src/images/uploads/webflow/` by the one-off \"Move Webflow images into the site\" GitHub Action (`scripts/migrate-webflow-images.mjs`). Run it before cancelling Webflow.
 - jQuery is now hosted with the site (`src/js/jquery-3.5.1.min.js`), the same file Webflow used. Splide, three.js, GSAP and Finsweet Attributes still load from public CDNs, as they did on Webflow.
+- three.js (about 600KB) only loads on pages with water-bubble canvases (KOL Hub, the hidden KOL page, Women As One). The home page drop (`js/fluid-blob.js`) is plain WebGL and doesn't need it; Home loads three.js only for the `?blob=classic` test version. If you add bubbles to a page, add the three.js script tag there too.
+- The cookie banner (`js/consent.js`, loaded without `defer` from `analytics.njk`) is added as soon as `<body>` exists, so it appears with the first frame instead of becoming a late Largest Contentful Paint. The hero placeholder image on Home loads eagerly with high priority, as it is the largest element on phones.
 
 ## Rules for changes
 

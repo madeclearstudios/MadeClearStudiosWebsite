@@ -13,13 +13,13 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="description">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" property="og:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" property="og:description">
-  <meta content="{{ svc.image or "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png" }}" property="og:image">
+  {%- set svcShareSrc = svc.image or (svc.gallery[0] if (svc.gallery and svc.gallery.length) else ((microCaseStudies | published | whereIncludes("services", svc.slug) | first) or {}).coverPhoto) %}
+  <meta content="{{ ogImages[svcShareSrc] or svcShareSrc or "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png" }}" property="og:image">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" name="twitter:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   {%- if svc.hidden %}
   <meta name="robots" content="noindex">
   {%- endif %}
@@ -33,6 +33,7 @@ const eleventyExcludeFromCollections = true;
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
   {% include "analytics.njk" %}
+  {% include "schema/site.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
@@ -383,7 +384,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     /* Do not add anything below this code */
   });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>
