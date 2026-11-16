@@ -67,6 +67,11 @@ export default function (eleventyConfig) {
     if (plain.length <= max) return plain;
     return plain.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:.\s]+$/, "") + "…";
   });
+  // "2026-05-15" -> "15 May 2026"
+  eleventyConfig.addFilter("readableDate", (d) => {
+    const dt = new Date(d);
+    return isNaN(dt) ? "" : dt.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  });
   // Body of work timeline (Case Studies page): published, non-hidden micro case studies grouped by year, newest
   // first, then by month (the "Month" dropdown in Pages CMS) within each year
   const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
