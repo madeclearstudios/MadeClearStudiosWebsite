@@ -88,7 +88,12 @@
   var choice = read();
   if (choice === "granted") loadAnalytics();
   else if (choice === null) {
+    // Add the banner as soon as <body> exists, so it is drawn with the first frame rather than after every other
+    // script has loaded (a late, large banner counts as the page's Largest Contentful Paint and slows its score)
     if (document.body) build();
-    else document.addEventListener("DOMContentLoaded", build);
+    else {
+      var mo = new MutationObserver(function () { if (document.body) { mo.disconnect(); build(); } });
+      mo.observe(document.documentElement, { childList: true });
+    }
   }
 })();

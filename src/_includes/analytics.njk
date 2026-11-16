@@ -9,4 +9,9 @@
   gtag('js', new Date());
   gtag('config', window.MC_GA_ID);
   </script>
-  <script src="/js/consent.js" defer></script>
+  {#- Not deferred: it is small, and the banner needs to be on screen with the first frame (see consent.js) -#}
+  <script src="/js/consent.js"></script>
+  {#- Connect early to the CDNs the page scripts load from -#}
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
