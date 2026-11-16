@@ -15,7 +15,6 @@ permalink: about.html
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/made-clear-wip.webflow.css" rel="stylesheet" type="text/css">
@@ -26,6 +25,7 @@ permalink: about.html
   <link href="/images/webclip.png" rel="apple-touch-icon">
   {% include "theme.njk" %}
   {% include "analytics.njk" %}
+  {% include "schema/site.njk" %}
   <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
@@ -48,7 +48,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     transition: margin-top 0.5s ease;
   }
 </style>
-  {% include "schema/organization.njk" %}
   {%- set aboutFaqs = faqs | published | sortByOrder %}
   {%- if aboutFaqs.length %}
   <script type="application/ld+json">{{ {

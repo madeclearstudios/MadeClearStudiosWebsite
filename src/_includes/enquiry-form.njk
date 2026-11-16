@@ -1,11 +1,12 @@
-{#- "Make it clear" enquiry form, shown above the footer. Sent with Netlify Forms (form name "contact"), see js/contact-form.js. -#}
+{#- "Make it clear" enquiry form, shown above the footer. Its title is styled as a heading but is plain text, so every
+    page's own headings carry its topic; the Contact page sets formHeadingTag = "h1", as it is that page's title. Sent with Netlify Forms (form name "contact"), see js/contact-form.js. -#}
 <section class="section">
           <div class="container">
             <div class="grid _12-col t_flex t_vertical">
               <div class="_3-col flex vertical justify-end relative padding-vertical t_padding-1-5 align-start m_padding-1-25">
                 <div class="relative">
                   <div class="footer-text-highlight"><img loading="lazy" src="/images/Vector-5.svg" alt="" class="vector-bg"></div>
-                  <h2 class="relative">Make it clear</h2>
+                  {%- set fh = formHeadingTag or "p" %}<{{ fh }} class="h2 relative">Make it clear</{{ fh }}>
                 </div>
                 <div class="max-w-210">
                   <p class="text-size-xsmall">Describe your cardiology challenge. We&#x27;ll respond with how we&#x27;d approach it.</p>
