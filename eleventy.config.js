@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function (eleventyConfig) {
@@ -26,6 +27,19 @@ export default function (eleventyConfig) {
   // Used by the footer copyright line and the sitemap
   eleventyConfig.addGlobalData("year", () => new Date().getFullYear());
   const siteUrl = "https://madeclearstudios.com";
+
+  // Sitemap lastmod: the date of the last commit that changed a file (falls back to today if git has no history
+  // for it, e.g. a file that isn't committed yet).
+  const lastModCache = {};
+  eleventyConfig.addFilter("lastModified", (file) => {
+    if (!file) return new Date().toISOString().slice(0, 10);
+    if (!(file in lastModCache)) {
+      let d = "";
+      try { d = execSync(`git log -1 --format=%cs -- "${file.replace(/^\.\//, "")}"`, { stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+      lastModCache[file] = d || new Date().toISOString().slice(0, 10);
+    }
+    return lastModCache[file];
+  });
   eleventyConfig.addGlobalData("siteUrl", siteUrl);
 
   // Canonical tag on every page: tells search engines the real address is the clean madeclearstudios.com
@@ -35,6 +49,12 @@ export default function (eleventyConfig) {
     if (!out || !out.endsWith(".html") || this.page.url === "/404.html" || /name="robots" content="noindex"/.test(content)) return content;
     const path = this.page.url === "/" ? "/" : this.page.url.replace(/\.html$/, "");
     return content.replace("</head>", `  <link rel="canonical" href="${siteUrl}${path}">\n</head>`);
+  });
+
+  // /llms.txt is plain text: undo the HTML escaping templates apply (&amp; &#39; ...)
+  eleventyConfig.addTransform("llms-plain-text", function (content) {
+    if (!(this.page.outputPath || "").endsWith("llms.txt")) return content;
+    return content.replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">");
   });
 
   // Share images (og:image / twitter:image) must be full addresses; turn site-relative ones into absolute ones
