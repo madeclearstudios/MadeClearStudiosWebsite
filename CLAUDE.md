@@ -114,7 +114,7 @@ Recent work on a service page lists the micro case studies and full case studies
 
 The services listed on case studies and micro case studies link to the service page, or to their category's section of `/services` when the service has no page yet.
 
-**On the Services page**, each main service is an expandable row (`src/_includes/services/service-row.njk`, `src/js/service-expand.js`): a chevron opens its `shortDescription`. Once its page is published, the name also links to the page (yellow highlighter on hover) and the summary gets a "Read more" button.
+**On the Services page**, each main service is an expandable row (`src/_includes/services/service-row.njk`, `src/js/service-expand.js`): a chevron opens its `shortDescription`, and every name gets the yellow highlighter on hover and while its summary is open. Once its page is published, the name also links to the page and the summary gets a "Read more" button.
 
 **Publishing:** `"hidden": true` keeps a page live at its address for review but out of search (noindex), out of the sitemap and unlinked, with a yellow review banner and placeholders for empty galleries. Set `"hidden": false` to publish it: the banner and placeholders go, it joins the sitemap, gets a canonical tag, and the Services page links to it.
 
