@@ -144,6 +144,10 @@ export default function (eleventyConfig) {
   // Body of work timeline (Case Studies page): published, non-hidden micro case studies grouped by year, newest
   // first, then by month (the "Month" dropdown in Pages CMS) within each year
   const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // Micro case studies newest first (year, then the Month dropdown), for the horizontal work rails
+  eleventyConfig.addFilter("newestFirst", (items = []) =>
+    [...items].sort((a, b) => (b.year || 0) - (a.year || 0) || (MONTHS.indexOf(b.month) + 1) - (MONTHS.indexOf(a.month) + 1))
+  );
   eleventyConfig.addFilter("workTimeline", (items = []) => {
     const monthNo = (m) => MONTHS.indexOf(m) + 1; // 0 when not set
     const sorted = published(items)
