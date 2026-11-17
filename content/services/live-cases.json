@@ -7,7 +7,7 @@
   "serviceCategory": "production",
   "image": "",
   "shortDescription": "Live case production for interventional cardiology: filming and broadcasting live and recorded procedures from the cath lab, with multi-camera set-ups, imaging feeds and faculty commentary.",
-  "whyThisMatters": "<p><strong>Live case production</strong> is the filming of real procedures, in the cath lab or operating theatre, so physicians, reps and trainees can see a device used step by step by an experienced operator.</p><p>Nothing builds procedural confidence like watching a real case. But access is limited: new devices have few experienced centres, reps rarely get into theatre, and live cases at congresses are over in an hour. Recorded and broadcast cases give that access to everyone who needs it, whenever they need it.</p><p>We film procedures with the minimum footprint in the room: a small crew, careful briefing and consent, and a radio mic on the operating physician. In post we add what makes a case teach: chapters by procedure stage, callouts for device names and positioning, subtitles and transcripts. We also film in 360°, so viewers can stand in the theatre beside the operator.</p>",
+  "whyThisMatters": "<p><strong>Live case production</strong> is the filming of real procedures, in the cath lab or operating theatre, so physicians, reps and trainees can see a device used step by step by an experienced operator.</p><p>Nothing builds procedural confidence like watching a real case. But access is limited: new devices have few experienced centres, reps rarely get into theatre, and live cases at congresses are over in an hour. Recorded and broadcast cases give that access to everyone who needs it, whenever they need it.</p><p>We film procedures with the minimum footprint in the room: a small crew, careful briefing and consent, and a radio mic on the operating physician. In post we add what makes a case teach: chapters by procedure stage, callouts for device names and positioning, subtitles and transcripts.</p>",
   "outcomesMainTitle": "What live case films give you",
   "outcomesDescription": "Access to real procedures, for everyone who needs it.",
   "outcomesFirstTitle": "Real procedures, step by step",
@@ -20,7 +20,7 @@
   "hasPage": true,
   "hidden": true,
   "metaTitle": "Live case recording and broadcast for interventional procedures | Made Clear",
-  "metaDescription": "Live case production for medical device companies: recording and broadcasting procedures from the cath lab and operating theatre, including 360° live case films.",
+  "metaDescription": "Live case production for medical device companies: recording and broadcasting procedures from the cath lab and operating theatre.",
   "process": [
     {
       "title": "Plan the cases",
@@ -32,21 +32,17 @@
     },
     {
       "title": "Film the procedures",
-      "text": "A compact crew, 360° or multi-camera set-ups, and a radio mic on the operator, across a single operating day if needed."
+      "text": "A compact crew, multi-camera set-ups and a radio mic on the operator, planned around the clinical schedule."
     },
     {
       "title": "Edit to teach",
-      "text": "Stitching and clean-up, chapters by procedure stage, callouts, branding, subtitles and transcripts."
+      "text": "Clean-up, chapters by procedure stage, callouts, branding, subtitles and transcripts."
     }
   ],
   "faqs": [
     {
       "question": "What is a live case recording?",
       "answer": "<p>It is a film of a real procedure performed by an experienced operator, recorded in the cath lab or operating theatre and edited for teaching, so physicians, reps and trainees can see each step of the technique.</p>"
-    },
-    {
-      "question": "Can you film procedures in 360°?",
-      "answer": "<p>Yes. We have filmed three procedures in 360° in a single operating day for a device new to Europe, then edited each case to around 15 minutes with chapters by procedure stage, subtitles and on-screen callouts that stay legible in 360°.</p>"
     },
     {
       "question": "How do you keep the crew's impact on the procedure to a minimum?",
