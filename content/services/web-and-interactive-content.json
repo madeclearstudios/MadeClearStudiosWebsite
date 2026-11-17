@@ -7,15 +7,62 @@
   "serviceCategory": "production",
   "image": "",
   "shortDescription": "Web and interactive content for cardiology campaigns: microsites, interactive experiences and digital tools, plus AI-assisted production projects that get more from every shoot.",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "whyThisMatters": "<p><strong>Web and interactive content</strong> gives your audience something to explore: campaign microsites, interactive sales tools and 3D product experiences that physicians, reps and buyers can use for themselves.</p><p>A film tells a story once. An interactive tool lets a rep tailor the conversation to the physician in front of them, lets a buyer explore the evidence at their own pace, and keeps a campaign alive long after launch. In MedTech, where every conversation is different, that flexibility matters.</p><p>We build interactive content around the clinical story: microsites that are the long-term home for a campaign, and touchscreen sales tools with 3D cath lab scenes, product explorers with rotate, zoom and hotspots, procedure modules and evidence libraries, plus a presentation mode for the booth.</p>",
+  "outcomesMainTitle": "What interactive content gives you",
+  "outcomesDescription": "Tools your teams and your audience will use again and again.",
+  "outcomesFirstTitle": "Conversations, tailored",
+  "outcomesFirstDescription": "Reps choose the procedure, product and evidence that matter to the physician in front of them.",
+  "outcomesSecondTitle": "Your product in 3D",
+  "outcomesSecondDescription": "Explore devices with 360° rotate, zoom and hotspots, in context in a 3D cath lab.",
+  "outcomesThirdTitle": "A home for the campaign",
+  "outcomesThirdDescription": "Microsites that hold the films, the evidence and the calls to action for each audience.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Interactive sales tools, microsites and apps for MedTech | Made Clear",
+  "metaDescription": "Web and interactive content for medical device companies: campaign microsites, interactive sales tools and 3D product apps for reps, booths and touchscreens.",
+  "process": [
+    {
+      "title": "Define the use",
+      "text": "Who will use it, where (sales meeting, booth, online) and what they need to do."
+    },
+    {
+      "title": "Design the experience",
+      "text": "Structure, interactions and visual design, built around the clinical story and evidence."
+    },
+    {
+      "title": "Build and test",
+      "text": "Development in milestones, with test builds on the devices and screens it will run on."
+    },
+    {
+      "title": "Launch and update",
+      "text": "Delivery for web, desktop or touchscreen, with a CMS so your team can keep content current."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What kinds of interactive content do you make?",
+      "answer": "<p>Campaign microsites, interactive sales tools for desktop and touchscreen, 3D product explorers, procedure modules and evidence libraries. For RCS, the Clean Those Leads microsite became the long-term home for the campaign's films, evidence and calls to action; for ORSIF, the is-not-here.com site commemorates healthcare workers affected by radiation.</p>"
+    },
+    {
+      "question": "What is an interactive sales tool?",
+      "answer": "<p>It is an app reps use with physicians and buyers, on a laptop, tablet or touchscreen. Ours can include a 3D cath lab scene, a product explorer with 360° rotate, zoom and hotspots, procedure-by-procedure modules, a clinical evidence library and a presentation mode for booths and large screens.</p>"
+    },
+    {
+      "question": "Can our team update the content?",
+      "answer": "<p>Yes. We can build in a content management system so your team can update products, procedures and evidence without a new build.</p>"
+    },
+    {
+      "question": "Do you use AI in production?",
+      "answer": "<p>Where it helps and where it is appropriate for medical content, we use AI-assisted tools to speed up production tasks, always with human review of anything clinical.</p>"
+    }
+  ],
+  "recentWorkIntro": "Microsites and interactive projects we have built.",
+  "relatedServices": [
+    "animation",
+    "vr-experiences",
+    "campaign-creative-and-concepts",
+    "platform-distribution-and-performance"
+  ],
   "order": 23
 }

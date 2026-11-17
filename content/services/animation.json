@@ -63,6 +63,14 @@
     {
       "question": "Can the animation be versioned for different markets?",
       "answer": "<p>Yes. We plan for cut-downs, formats and languages from the start, so one animation can serve congress booths, sales teams, training and social channels in each market you sell in.</p>"
+    },
+    {
+      "question": "Can you build 3D models of our device and anatomy?",
+      "answer": "<p>Yes. We build anatomically accurate 3D models from device CAD and clinical references, including real-time 3D for VR and interactive tools, with device deployment animated step by step and checked against the clinical case.</p>"
+    },
+    {
+      "question": "Can animation be combined with live action?",
+      "answer": "<p>Yes. We composite animation, imaging and data visualisations into filmed scenes, tracked to camera, and use kinetic typography and motion graphics to bring evidence on screen.</p>"
     }
   ],
   "recentWorkIntro": "Campaigns where animation shows physicians, cath lab teams and buyers how a device works.",
