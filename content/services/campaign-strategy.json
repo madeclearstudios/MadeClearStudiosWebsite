@@ -6,16 +6,63 @@
   "publishedOn": "2026-05-14",
   "serviceCategory": "strategy",
   "image": "/images/uploads/webflow/69eba084bc2235662b137656_5-1.avif",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Campaign strategy for medical device launches and adoption programmes: narrative development, messaging frameworks and team workshop sessions that turn clinical evidence into a story physicians believe and act on.",
+  "whyThisMatters": "<p><strong>Campaign strategy</strong> decides who a medical device campaign must move, what they need to feel and believe, and how the story, messages and channels will get them there.</p><p>In cardiology the people who use a device, the people who feel the problem and the people who sign the budget are rarely the same. Strategy finds the lever that moves each of them. For RCS, that meant talking to the cath lab nurses and rad techs who wear shared lead aprons, not the directors who buy the cleaning service, so they would create the internal pressure no advertising could.</p><p>We ask the harder questions first, then build the narrative, messaging framework and plan that everything else follows, often in team workshop sessions with your marketing, medical and sales leads.</p>",
+  "outcomesMainTitle": "What strategy gives you",
+  "outcomesDescription": "A clear plan for who to move, and how.",
+  "outcomesFirstTitle": "The right audience, the right lever",
+  "outcomesFirstDescription": "Audience insight that shows who feels the problem, who decides, and what will move each of them.",
+  "outcomesSecondTitle": "A story worth telling",
+  "outcomesSecondDescription": "Narrative development and a messaging framework that turn clinical evidence into a story physicians believe.",
+  "outcomesThirdTitle": "A plan your teams can run",
+  "outcomesThirdDescription": "Phases, channels and content mapped out, so marketing, medical and sales pull in the same direction.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Campaign strategy for medical device and MedTech brands | Made Clear",
+  "metaDescription": "Campaign strategy for medical device launches and adoption: audience insight, narrative development and messaging frameworks that move physicians and buyers.",
+  "process": [
+    {
+      "title": "Ask the harder questions",
+      "text": "Who are we actually trying to move, what do we need them to feel, and what will create real commercial pressure?"
+    },
+    {
+      "title": "Workshop with your team",
+      "text": "Team workshop sessions with your marketing, medical and sales leads to test the insight and agree the goal."
+    },
+    {
+      "title": "Build the narrative",
+      "text": "Narrative development and a messaging framework for each audience, grounded in the evidence."
+    },
+    {
+      "title": "Plan the campaign",
+      "text": "Phases, channels, content and measures, ready for creative and production."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does campaign strategy include?",
+      "answer": "<p>Audience insight, the core narrative, a messaging framework for each audience, and a plan of phases, content and channels. It often starts with team workshop sessions with your marketing, medical and sales teams.</p>"
+    },
+    {
+      "question": "How is strategy different for medical device companies?",
+      "answer": "<p>The user, the person who feels the problem and the budget holder are often different people, and every claim must stand up to medical review. Good strategy finds the audience whose action changes the outcome and the message they will believe.</p>"
+    },
+    {
+      "question": "Can you give an example?",
+      "answer": "<p>For RCS's Clean Those Leads campaign we flipped the usual approach: instead of talking to buyers about compliance and cost, we talked to the people who wear shared lead aprons about disgust and self-respect, so they would push the issue upwards. For Medtronic, we planned a two-year programme in four phases to rebuild confidence in renal denervation.</p>"
+    },
+    {
+      "question": "Do you deliver the campaign as well as the strategy?",
+      "answer": "<p>Yes. Strategy, creative, content, digital, distribution and influencer partnerships can all be delivered under one roof, so the thinking carries through to everything we make.</p>"
+    }
+  ],
+  "recentWorkIntro": "Campaigns we have planned for medical device and healthcare companies.",
+  "relatedServices": [
+    "campaign-creative-and-concepts",
+    "content-and-channel-strategy",
+    "distribution-strategy-and-channel-planning",
+    "medical-film-and-documentary"
+  ],
   "order": 1
 }

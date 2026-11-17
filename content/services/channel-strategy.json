@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 9
+  "order": 9,
+  "partOf": "content-and-channel-strategy"
 }

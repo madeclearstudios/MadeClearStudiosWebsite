@@ -13,7 +13,8 @@
   "services": [
     "vr-and-immersive-experiences",
     "vr-experiences",
-    "film-and-video-content"
+    "film-and-video-content",
+    "kol-content"
   ],
   "client": "shockwave-medical",
   "featuredOnKolPage": true,

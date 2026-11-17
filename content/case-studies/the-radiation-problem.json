@@ -12,7 +12,8 @@
   "caseStudyCategory": "",
   "services": [
     "film-and-video-content",
-    "animation"
+    "animation",
+    "kol-content"
   ],
   "client": "egg-medical",
   "featuredOnKolPage": true,

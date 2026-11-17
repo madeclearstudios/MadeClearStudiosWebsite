@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 40
+  "order": 40,
+  "partOf": "animation"
 }

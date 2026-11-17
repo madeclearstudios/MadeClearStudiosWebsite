@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 28
+  "order": 28,
+  "partOf": "platform-distribution-and-performance"
 }

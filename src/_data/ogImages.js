@@ -20,7 +20,8 @@ export default async function () {
   for (const i of live(loadCollection("insights"))) add(i.coverPhoto);
   for (const s of live(loadCollection("services"))) {
     if (!s.hasPage) continue;
-    const first = (s.gallery || [])[0] || (micros.find((m) => !m.hidden && (m.services || []).includes(s.slug)) || {}).coverPhoto;
+    const family = [s.slug, ...live(loadCollection("services")).filter((x) => x.partOf === s.slug).map((x) => x.slug)];
+    const first = (s.gallery || [])[0] || (micros.find((m) => !m.hidden && (m.services || []).some((t) => family.includes(t))) || {}).coverPhoto;
     add(s.image || first);
   }
 

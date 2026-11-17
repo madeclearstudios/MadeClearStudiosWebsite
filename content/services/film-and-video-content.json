@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 13
+  "order": 13,
+  "partOf": "medical-film-and-documentary"
 }

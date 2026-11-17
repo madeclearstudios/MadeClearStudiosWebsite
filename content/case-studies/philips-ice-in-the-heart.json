@@ -13,7 +13,8 @@
   "services": [
     "animation",
     "film-and-video-content",
-    "live-webinars"
+    "live-webinars",
+    "kol-content"
   ],
   "client": "philips",
   "featuredOnKolPage": true,

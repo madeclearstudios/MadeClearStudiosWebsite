@@ -349,6 +349,11 @@ content:
           - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: draft, label: Draft, type: boolean, default: false }
           - { name: archived, label: Archived, type: boolean, default: false }
+          - name: partOf
+            label: Part of
+            description: "Leave empty for a main service. Pick a main service to fold this one into it: it then isn't listed on the Services page, and its projects count towards the main service's page."
+            type: reference
+            options: { collection: services, search: name, value: "{fields.slug}", label: "{fields.name}" }
           - { name: hasPage, label: Has its own page, type: boolean, default: false }
           - { name: hidden, label: Page hidden for review, description: "Live at its address but not linked, not in search and not in the sitemap. Untick to publish.", type: boolean, default: true }
           - { name: metaTitle, label: Search title, description: "The title in search results, e.g. On-site congress production for cardiology | Made Clear", type: string }

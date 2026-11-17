@@ -1,6 +1,6 @@
 {#- Body of a micro case study page (src/micro-case-study.njk). Expects `m` (an item from microCaseStudies.json). -#}
 {%- set mClient = clients | findBy("slug", m.client) %}
-{%- set mServices = services | published | whereIn("slug", m.services or []) %}
+{%- set mServices = m.services | toMainServices(services) %}
 {%- set moreFromClient = caseStudies | published | where("client", m.client) | sortByOrder %}
 {%- if m.hidden %}
       <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in microCaseStudies.json to publish it.</div>

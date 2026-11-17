@@ -119,7 +119,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     {%- set cat = (serviceCategories | published | sortByOrder)[0] %}
 <div class="width-100-pct w-dyn-list">
                       <div role="list" class="grid _8-col col-gap-5 row-gap-1-25 t_col-gap-3 m_flex m_vertical m_gap-0 w-dyn-items">
-                        {%- for service in services | published | where("serviceCategory", cat.slug) %}
+                        {%- for service in services | published | mainServices | where("serviceCategory", cat.slug) %}
                         {% include "services/service-row.njk" %}
                         {%- endfor %}
                       </div>
@@ -156,7 +156,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     {%- set cat = (serviceCategories | published | sortByOrder)[1] %}
 <div class="width-100-pct w-dyn-list">
                       <div role="list" class="grid _8-col col-gap-5 row-gap-1-25 t_col-gap-3 m_flex m_vertical m_gap-0 w-dyn-items">
-                        {%- for service in services | published | where("serviceCategory", cat.slug) %}
+                        {%- for service in services | published | mainServices | where("serviceCategory", cat.slug) %}
                         {% include "services/service-row.njk" %}
                         {%- endfor %}
                       </div>
@@ -193,7 +193,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     {%- set cat = (serviceCategories | published | sortByOrder)[2] %}
 <div class="width-100-pct w-dyn-list">
                       <div role="list" class="grid _8-col col-gap-5 row-gap-1-25 t_col-gap-3 m_flex m_vertical m_gap-0 w-dyn-items">
-                        {%- for service in services | published | where("serviceCategory", cat.slug) %}
+                        {%- for service in services | published | mainServices | where("serviceCategory", cat.slug) %}
                         {% include "services/service-row.njk" %}
                         {%- endfor %}
                       </div>
@@ -230,7 +230,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     {%- set cat = (serviceCategories | published | sortByOrder)[3] %}
 <div class="width-100-pct w-dyn-list">
                       <div role="list" class="grid _8-col col-gap-4 row-gap-1-25 t_col-gap-2 m_flex m_vertical m_gap-0 w-dyn-items">
-                        {%- for service in services | published | where("serviceCategory", cat.slug) %}
+                        {%- for service in services | published | mainServices | where("serviceCategory", cat.slug) %}
                         {% include "services/service-row.njk" %}
                         {%- endfor %}
                       </div>

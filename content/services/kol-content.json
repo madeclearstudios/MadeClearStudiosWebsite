@@ -1,0 +1,70 @@
+{
+  "name": "KOL content",
+  "slug": "kol-content",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-11-17",
+  "serviceCategory": "production",
+  "shortDescription": "KOL content for medical device companies: key opinion leader interviews, peer-to-peer education and physician testimonials, filmed in the cath lab, the studio or on your congress stand.",
+  "whyThisMatters": "<p><strong>KOL content</strong> is film, education and social content presented by key opinion leaders: the physicians whose experience and reputation your audience trusts.</p><p>Physicians believe their peers. A respected interventional cardiologist explaining a case, a technique or a result carries more weight than any brand message. But KOLs are busy, precise and protective of how they are represented, and their reputation is on the line every time they appear on camera.</p><p>We have filmed many of cardiology's leading voices, in cath labs, studios and on congress stands. We know how to brief them, how to make the most of their time and how to make sure the final content reflects well on them and on you. See the cardiologists we have worked with in our <a href=\"/kol-hub\">KOL Hub</a>.</p>",
+  "outcomesMainTitle": "What KOL content gives you",
+  "outcomesDescription": "Your message, in the voices physicians trust.",
+  "outcomesFirstTitle": "Credibility you can't buy",
+  "outcomesFirstDescription": "Peer-to-peer content from the physicians your audience already respects and follows.",
+  "outcomesSecondTitle": "KOL relationships protected",
+  "outcomesSecondDescription": "A team that knows the clinical language, briefs KOLs properly and makes the most of their time.",
+  "outcomesThirdTitle": "Content for every channel",
+  "outcomesThirdDescription": "Interviews, case discussions and education, cut for congresses, sales teams, social and training.",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "KOL content and video interviews for medical devices | Made Clear",
+  "metaDescription": "KOL content for medical device companies: key opinion leader interviews, peer-to-peer education and physician testimonials, filmed by a team that knows cardiology.",
+  "process": [
+    {
+      "title": "Choose the voices",
+      "text": "We help you choose the KOLs and the stories, from case discussions to clinical evidence and technique."
+    },
+    {
+      "title": "Brief them properly",
+      "text": "Clear questions, schedules and preparation, so every KOL knows exactly what we need from them."
+    },
+    {
+      "title": "Film",
+      "text": "In the cath lab, our studio or on your congress stand, with multi-camera set-ups that make the most of their time."
+    },
+    {
+      "title": "Edit and approve",
+      "text": "Edited with care for how each KOL is represented, and prepared for their approval and your medical review."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is KOL content?",
+      "answer": "<p>It is content presented by key opinion leaders: interviews, case discussions, peer-to-peer education and testimonials from respected physicians. For medical device companies it is one of the most credible ways to explain a therapy and its evidence.</p>"
+    },
+    {
+      "question": "Which KOLs have you worked with?",
+      "answer": "<p>Many of cardiology's leading voices, including Prof. James Spratt and Dr Margaret McEntegart, Dr Armando Perez del Prado, Dr Matthew Price and Dr Shephal Doshi. Our <a href=\"/kol-hub\">KOL Hub</a> lists the physicians we have worked with.</p>"
+    },
+    {
+      "question": "How do you work with busy KOLs?",
+      "answer": "<p>Carefully. We brief them properly, keep to their schedule and make sure the final content reflects well on them. At congresses we film KOL interviews on your stand between sessions, so nobody has to leave the booth.</p>"
+    },
+    {
+      "question": "Can you film KOL interviews at a congress?",
+      "answer": "<p>Yes. At TCT and CIRSE 2026 we filmed physician interviews and two-physician discussions on Shockwave Medical's stand and in their Experience Centre, on multi-camera set-ups.</p>"
+    },
+    {
+      "question": "Can KOL content be used for peer-to-peer education?",
+      "answer": "<p>Yes. The Calcium Masterclass for Shockwave brought together Prof. James Spratt and a faculty from Europe and the US for 10 peer-to-peer classes that attracted over 5,500 cardiologists.</p>"
+    }
+  ],
+  "recentWorkIntro": "Projects where leading cardiologists present the story.",
+  "relatedServices": [
+    "on-site-congress-and-event-production",
+    "medical-film-and-documentary",
+    "live-webinars",
+    "vr-experiences"
+  ],
+  "order": 41
+}

@@ -1,21 +1,72 @@
 {
-  "name": "Live webinars",
+  "name": "Live webinars and broadcasts",
   "slug": "live-webinars",
   "archived": false,
   "draft": false,
   "publishedOn": "2026-04-22",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Live webinars and broadcasts for medical education: peer-to-peer masterclasses, studio-produced webinar series and live congress coverage, presented by the KOLs physicians trust.",
+  "whyThisMatters": "<p><strong>A live medical webinar or broadcast</strong> is peer-to-peer education streamed to physicians: a masterclass, case discussion or results announcement presented live by the key opinion leaders your audience trusts.</p><p>Physicians learn most from each other. A well-produced live programme brings a world-class faculty to thousands of cardiologists at once, gives them a reason to spend real time with your therapy, and builds momentum at the moments that matter, such as a launch, an approval or new trial results.</p><p>We produce live education to broadcast standard, from our London studio or on location: faculty, format and content development, multi-camera production, and audience reach. The result is education physicians choose to watch, not a slide deck with a webcam.</p>",
+  "outcomesMainTitle": "What a live programme gives you",
+  "outcomesDescription": "Peer-to-peer education at scale, on your timeline.",
+  "outcomesFirstTitle": "Thousands of physicians, real attention",
+  "outcomesFirstDescription": "Our Calcium Masterclass for Shockwave attracted over 5,500 cardiologists, who spent an average of 28 minutes each with the content.",
+  "outcomesSecondTitle": "A faculty physicians trust",
+  "outcomesSecondDescription": "Leading interventional cardiologists from Europe and the US, presenting peer to peer rather than a company presenting to customers.",
+  "outcomesThirdTitle": "Momentum at the moments that matter",
+  "outcomesThirdDescription": "Launches, approvals and new trial results announced live, then kept working as on-demand education.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Live medical webinars and broadcasts for cardiology | Made Clear",
+  "metaDescription": "Live medical webinars and broadcasts for medical device companies: peer-to-peer masterclasses, studio webinar series and live congress coverage with leading KOLs.",
+  "process": [
+    {
+      "title": "Shape the programme",
+      "text": "We agree the learning goals, the audience and the format: a single broadcast, a series or a full masterclass programme."
+    },
+    {
+      "title": "Build the faculty",
+      "text": "We bring together the KOLs your audience trusts and develop the content and cases with them."
+    },
+    {
+      "title": "Produce it live",
+      "text": "Multi-camera studio or location production, with presentation, case and imaging feeds handled by our team."
+    },
+    {
+      "title": "Reach and replay",
+      "text": "Promotion to the right audience, then on-demand versions and short cuts that keep the programme working."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is a medical masterclass webinar?",
+      "answer": "<p>It is a structured, peer-to-peer education programme for physicians, delivered as a series of live or recorded classes. For Shockwave we produced the Calcium Masterclass: 10 classes covering everything from calcium basics to complex cases, with Professor James Spratt and a cardiovascular faculty from Europe and the US, live from a London studio.</p>"
+    },
+    {
+      "question": "How many physicians can a live programme reach?",
+      "answer": "<p>It depends on the audience and the promotion, but live education can reach thousands. The Calcium Masterclass attracted over 5,500 cardiologists, who spent an average of 28 minutes each learning about the procedure.</p>"
+    },
+    {
+      "question": "Can you broadcast live from a congress?",
+      "answer": "<p>Yes. For Medtronic we provided live coverage of pivotal trial results at the ACC congress as part of a wider programme on renal denervation.</p>"
+    },
+    {
+      "question": "Who presents the webinars?",
+      "answer": "<p>Key opinion leaders your audience trusts. We help you build the faculty and develop the content with them, so the programme is peer to peer rather than promotional.</p>"
+    },
+    {
+      "question": "What happens after the live broadcast?",
+      "answer": "<p>The programme becomes on-demand education, with short cuts for social and sales teams, so it keeps working long after the live date.</p>"
+    }
+  ],
+  "recentWorkIntro": "Live and studio-produced education programmes we have made for medical device companies.",
+  "relatedServices": [
+    "kol-content",
+    "medical-film-and-documentary",
+    "live-cases",
+    "distribution-strategy-and-channel-planning"
+  ],
   "order": 18
 }

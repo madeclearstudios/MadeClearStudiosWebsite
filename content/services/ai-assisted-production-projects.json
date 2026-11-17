@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 25
+  "order": 25,
+  "partOf": "web-and-interactive-content"
 }

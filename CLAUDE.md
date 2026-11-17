@@ -98,7 +98,15 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 - `gallery`: image URLs (or `{ "src": …, "alt": … }`). Leave empty and the page fills it automatically with up to three photos from the projects in Recent work: each one's hero (cover) image first, then their other photos if there are fewer than three projects (`workGallery` filter in `eleventy.config.js`); `videos`: `{ "link": "<YouTube link>", "thumbnail": …, "title": … }`
 - `hidden`: `true` while the page is being reviewed (see below)
 
-Service pages so far: On-site congress and event production (published), VR experiences and Animation & Illustration (drafted Nov 2026 from our case studies, `hidden: true` for review).
+**Service structure (Nov 2026):** 15 main services, each meant to get its own page; the other services are folded into one of them with `partOf` (the "Part of" field in Pages CMS):
+- Strategy: Content and channel strategy (`content-and-channel-strategy`; includes channel strategy, marketing strategy, audience insight), Campaign strategy (narrative development, messaging frameworks, team workshops), Brand strategy and identity (`brand-strategy`; brand architecture, naming, brand identity design, design and visual systems)
+- Creative: Campaign creative and concepts, Congress and event creative (stand and booth design and build; separate from filming)
+- Production: On-site congress and event production, VR experiences (VR and immersive experiences), Animation & Illustration (3D model development, medical illustration and infographics), Medical film and documentary (`medical-film-and-documentary`; film and video content), Live cases, Live webinars and broadcasts (`live-webinars`), KOL content, Web and interactive content (AI-assisted production)
+- Distribution: Distribution strategy and channel planning, Platform distribution and performance (`platform-distribution-and-performance`; performance tracking)
+
+A folded service isn't listed on the Services page or in `/llms.txt` on its own (the main service's entry names it); projects tagged with it count towards the main service's Recent work and gallery (`serviceFamily`, `whereIncludesAny` filters); and lists of a project's services show the main service (`toMainServices`). Every main service's `shortDescription` is the summary behind its chevron on the Services page, written keyword-rich and naming the services folded into it; the name links, and a "Read more" button shows, only once its page is published.
+
+Pages so far: On-site congress and event production (published). Drafted from our case studies, `hidden: true` for review: VR experiences, Animation & Illustration, Medical film and documentary, Live webinars and broadcasts, Campaign strategy, Campaign creative and concepts, KOL content, Distribution strategy and channel planning. Still to write (need source material): Content and channel strategy, Brand strategy and identity, Congress and event creative, Live cases, Web and interactive content, Platform distribution and performance.
 
 Recent work on a service page lists the micro case studies and full case studies whose `services` include that service's slug, as compact cards three to a row: photo, date, title, summary, and a "Find out more" link that gets the yellow highlighter on hover (as service names do on the Services page). The client name is left out, as the title already says it. Further Case Studies at the bottom of case study pages use the same cards (`.work-tile`).
 
@@ -106,7 +114,7 @@ Recent work on a service page lists the micro case studies and full case studies
 
 The services listed on case studies and micro case studies link to the service page, or to their category's section of `/services` when the service has no page yet.
 
-**On the Services page**, a published service page gets an expandable row (`src/_includes/services/service-row.njk`, `src/js/service-expand.js`): the name links to the page and gets the yellow highlighter on hover, and a chevron opens its `shortDescription` with a "Read more" button. Services without a page are just their name.
+**On the Services page**, each main service is an expandable row (`src/_includes/services/service-row.njk`, `src/js/service-expand.js`): a chevron opens its `shortDescription`. Once its page is published, the name also links to the page (yellow highlighter on hover) and the summary gets a "Read more" button.
 
 **Publishing:** `"hidden": true` keeps a page live at its address for review but out of search (noindex), out of the sitemap and unlinked, with a yellow review banner and placeholders for empty galleries. Set `"hidden": false` to publish it: the banner and placeholders go, it joins the sitemap, gets a canonical tag, and the Services page links to it.
 

@@ -6,7 +6,7 @@
   "publishedOn": "2026-05-14",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Medical-grade animation for cardiology and medical device companies. Mechanism of action, procedure walk-throughs and device stories that physicians, cath lab teams and buyers understand at a glance.",
+  "shortDescription": "Medical animation and illustration for cardiology and medical device companies: mechanism of action (MoA) animation, procedure walk-throughs, 3D model development, medical illustration and infographics.",
   "whyThisMatters": "<p><strong>Medical device animation</strong> shows how a device works inside the body, from its mechanism of action to each step of the procedure, in a way live footage and slides cannot.</p><p>Physicians are sceptical, cath lab teams are busy and hospital buyers need the value case in plain terms. A clear animation answers the questions each of them has, and keeps working long after launch: on the stand, in a sales meeting, in training and on social channels.</p><p>We combine medical accuracy with craft. Our animations are built with the KOLs who use the device, checked against the clinical evidence, and made to pass medical, legal and regulatory review. We use 3D, 2D and stop-motion, whichever tells the story best, and pair them with filmed procedures and interviews when the story needs both.</p>",
   "outcomesMainTitle": "What the animation does for you",
   "outcomesDescription": "One clear explanation, made for every audience that needs it.",
@@ -69,7 +69,7 @@
   "relatedServices": [
     "medical-illustration-and-infographics",
     "3d-model-development",
-    "video-production-documentary-testimonial-explainer-training",
+    "medical-film-and-documentary",
     "vr-experiences"
   ],
   "order": 20

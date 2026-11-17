@@ -1,0 +1,72 @@
+{
+  "name": "Medical film and documentary",
+  "slug": "medical-film-and-documentary",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-04-22",
+  "serviceCategory": "production",
+  "image": "",
+  "shortDescription": "Medical film and documentary production for MedTech: documentary series, patient and physician testimonials, explainer and training films, and cath lab filming, from one film to a full content library.",
+  "whyThisMatters": "<p><strong>Medical film and documentary production</strong> is the craft of telling a clinical story on film: documentary series, physician and patient testimonials, explainer and training films, made for audiences who know the science better than anyone.</p><p>Cardiologists have seen every slide deck. What they have not seen is their own world told properly: the case that changed their practice, the colleague affected by radiation, the patient who nearly died. Film is how a medical device company earns attention, builds belief and gives its people something worth sharing.</p><p>We bring documentary craft to medical content. We research the story, find the right voices, film in cath labs, studios and hospitals, and keep the science watertight through medical, legal and regulatory review. One film or a full series, it is made to be used: on the stand, in the field, online and in training.</p>",
+  "outcomesMainTitle": "What film does for your brand",
+  "outcomesDescription": "Stories that clinicians believe, remember and pass on.",
+  "outcomesFirstTitle": "Belief, not just awareness",
+  "outcomesFirstDescription": "Real cases, real physicians and real patients make the case for your therapy in a way data alone cannot.",
+  "outcomesSecondTitle": "A library, not a one-off",
+  "outcomesSecondDescription": "Documentary series, testimonials, explainers and short cuts from the same shoot, ready for congresses, sales teams and social.",
+  "outcomesThirdTitle": "Craft physicians notice",
+  "outcomesThirdDescription": "Broadcast-standard filming and editing that stands apart from the usual corporate video at a congress.",
+  "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Medical film and documentary production for MedTech | Made Clear",
+  "metaDescription": "Medical film and documentary production for medical device and cardiology companies: documentary series, testimonials, explainers and cath lab filming.",
+  "process": [
+    {
+      "title": "Research the story",
+      "text": "We start with the clinical problem and the people closest to it, finding the cases, physicians and patients whose stories make the point."
+    },
+    {
+      "title": "Treatment and script",
+      "text": "We write the treatment and script with your medical team and KOLs, planning for medical, legal and regulatory review from the start."
+    },
+    {
+      "title": "Film",
+      "text": "Multi-camera filming in cath labs, studios, hospitals and on location, with a crew that knows how to work around a busy clinical day."
+    },
+    {
+      "title": "Edit and deliver",
+      "text": "The main film plus cut-downs, teasers, subtitles and language versions for every channel you use."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What kinds of medical films do you make?",
+      "answer": "<p>Documentary series, mini documentaries, physician and patient testimonials, explainer and training films, procedure films shot in the cath lab, and short social cuts. For Medtronic we made a four-part documentary series on renal denervation; for Egg Medical, a mini documentary featuring seven leading interventional cardiologists from the US and UK.</p>"
+    },
+    {
+      "question": "Can you film in the cath lab?",
+      "answer": "<p>Yes. We have filmed procedures in cath labs, including Dr Matthew Price and Dr Shephal Doshi performing LAAO procedures in their California cath labs for Philips, and we know how to work around a clinical schedule.</p>"
+    },
+    {
+      "question": "How do you make sure a film will pass medical review?",
+      "answer": "<p>We plan for medical, legal and regulatory review from the treatment stage, script with your medical team and KOLs, and keep claims tied to the evidence, so the film stays compelling and still gets approved.</p>"
+    },
+    {
+      "question": "Why use documentary for medical device marketing?",
+      "answer": "<p>Because physicians already know the data. Documentary adds what data cannot: real cases, real people and consequences that make an audience feel the problem and act on it. Our film <em>The Radiation Problem</em> set out to move cath lab teams to action with personal stories rather than more statistics.</p>"
+    },
+    {
+      "question": "Can one shoot cover several films?",
+      "answer": "<p>Yes. We plan shoots so one production gives you a main film, testimonials, explainers and short cuts for congresses, sales teams and social channels, often in several languages.</p>"
+    }
+  ],
+  "recentWorkIntro": "Documentaries, testimonials and explainer films we have made for medical device companies.",
+  "relatedServices": [
+    "kol-content",
+    "animation",
+    "live-webinars",
+    "distribution-strategy-and-channel-planning"
+  ],
+  "order": 17
+}

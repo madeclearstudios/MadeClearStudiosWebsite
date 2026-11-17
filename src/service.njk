@@ -13,7 +13,7 @@ const eleventyExcludeFromCollections = true;
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="description">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" property="og:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" property="og:description">
-  {%- set svcShareSrc = svc.image or (svc.gallery[0] if (svc.gallery and svc.gallery.length) else ((microCaseStudies | published | whereIncludes("services", svc.slug) | first) or {}).coverPhoto) %}
+  {%- set svcShareSrc = svc.image or (svc.gallery[0] if (svc.gallery and svc.gallery.length) else ((microCaseStudies | published | whereIncludesAny("services", services | serviceFamily(svc.slug)) | first) or {}).coverPhoto) %}
   <meta content="{{ ogImages[svcShareSrc] or svcShareSrc or "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png" }}" property="og:image">
   <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" name="twitter:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="twitter:description">
