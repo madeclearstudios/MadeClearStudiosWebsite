@@ -1,8 +1,8 @@
 {
   "title": "Shockwave Medical at EuroPCR 2026",
   "slug": "shockwave-medical-europcr-2026",
-  "hidden": true,
-  "draft": true,
+  "hidden": false,
+  "draft": false,
   "archived": false,
   "order": 99,
   "client": "shockwave-medical",
