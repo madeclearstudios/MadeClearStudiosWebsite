@@ -3,17 +3,22 @@
   "slug": "women-as-one-at-esc",
   "hidden": true,
   "draft": true,
+  "archived": false,
   "order": 99,
   "client": "women-as-one",
   "clientLabel": "Women As One",
-  "month": "August",
   "year": 2026,
+  "month": "August",
   "services": [
     "on-site-congress-and-event-production",
-    "platform-distribution-and-performance"
+    "platform-distribution-and-performance",
+    "marketing-strategy",
+    "kol-content",
+    "congress-and-event-creative",
+    "film-and-video-content"
   ],
   "summary": "Photography and film at Women As One's RISE 2026 in Munich, alongside the ESC Congress: a headshot booth, street interviews, a walk-up Q&A and highlight films for social.",
-  "body": "<p>RISE 2026 brought the Women As One community together in Munich on 27 August, alongside the ESC Congress. We covered the whole day in photography and film.</p><p>Two photographers worked in parallel: one roaming the sessions, speakers and networking, and one running a headshot booth with a portable white backdrop, studio lighting and retouching, open throughout the day and timed around the lunch symposia. A director-producer and cinematographer filmed the sessions and candid moments, recorded two to three woman-on-the-street interviews and ran a walk-up Q&A activation.</p><p>We delivered a full event gallery with social-ready crops, a retouched headshot gallery, a one to two minute highlight film and a 30-second social cut, the street interview films, a 9:16 Q&A video for social, and all the footage organised by type. Edited event photos can be turned around within 24 to 48 hours of the event.</p>",
+  "body": "<p>RISE 2026 brought the Women As One community together in Munich on 27 August, alongside the ESC Congress. We covered the whole day in photography and film.</p><p>A director-producer and cinematographer filmed the sessions and candid moments, recorded two to three woman-on-the-street interviews and ran a walk-up Q&amp;A activation. Two photographers worked in parallel: one roaming the sessions, speakers and networking, and one running a headshot booth with a portable white backdrop, studio lighting and retouching, open throughout the day and timed around the lunch symposia. </p><p>We delivered a full event gallery with social-ready crops, a retouched headshot gallery, a one to two minute highlight film and a 30-second social cut, the street interview films, 9:16 Q&amp;A videos for social, and all the footage organised by type. Edited event photos were turned around within 24 hours of the event.</p>",
   "captured": [
     "Roaming event photography",
     "Headshot booth with retouching",
@@ -23,8 +28,9 @@
     "Highlight film and 30-second social cut",
     "9:16 Q&A video for social"
   ],
-  "coverPhoto": "",
-  "gallery": [],
-  "videos": [],
-  "archived": false
+  "coverPhoto": "/images/uploads/Women as One RISE at ESC 1.webp",
+  "gallery": [
+    "/images/uploads/Women as One RISE at ESC 3.webp",
+    "/images/uploads/Women as One RISE at ESC 2.webp"
+  ]
 }
