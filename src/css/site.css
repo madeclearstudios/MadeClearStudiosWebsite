@@ -386,6 +386,8 @@
 }
 .service-name-link:hover .service-name-highlight,
 .service-name-link:focus-visible .service-name-highlight,
+.service-expandable:hover .service-name-highlight,
+.service-expandable:focus-within .service-name-highlight,
 .service-expandable.is-open .service-name-highlight {
   background-size: 100% 100%;
 }

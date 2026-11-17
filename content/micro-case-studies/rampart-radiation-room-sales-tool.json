@@ -1,0 +1,27 @@
+{
+  "title": "Rampart IC Radiation Room interactive sales tool",
+  "slug": "rampart-radiation-room-sales-tool",
+  "hidden": true,
+  "draft": true,
+  "order": 99,
+  "client": "rampart-ic",
+  "clientLabel": "Rampart IC",
+  "services": [
+    "web-and-interactive-content",
+    "animation"
+  ],
+  "summary": "An interactive sales app for Rampart IC: a 3D cath lab, product explorer, procedure modules and evidence library that reps can use on laptops, touchscreens and large displays.",
+  "body": "<p>Rampart IC needed a sales tool that would let its team show, rather than tell, how its radiation protection changes life in the cath lab. We designed and produced an interactive app for Windows and macOS that works with touchscreens and large-format displays.</p><p>The app opens on Rampart's three pillars of protection. A 3D cath lab shows the current state, with a radiation toggle that makes chronic exposure, orthopaedic strain and workflow disruption visible. A product explorer lets users rotate, zoom and open hotspots on each product, and a procedure section walks through eleven procedure types across coronary, structural, peripheral, endovascular, neuro and electrophysiology. A clinical evidence library and a market landscape sit alongside, with a presentation mode and camera presets for booths and big screens.</p><p>Voiceover, music and sound effects bring it to life, and a built-in content management system lets Rampart's team keep products, procedures and evidence up to date. We built it in three milestones, testing each one before moving on.</p>",
+  "captured": [
+    "Interactive app for Windows and macOS",
+    "3D cath lab with radiation toggle",
+    "3D product explorer with hotspots",
+    "Eleven procedure modules",
+    "Clinical evidence library and market landscape",
+    "Presentation mode for booths and large screens",
+    "Content management system"
+  ],
+  "coverPhoto": "",
+  "gallery": [],
+  "videos": []
+}
