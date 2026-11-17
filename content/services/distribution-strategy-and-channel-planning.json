@@ -6,16 +6,63 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "distribution",
   "image": "",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Distribution strategy and channel planning for medical content: getting your films, animations and campaigns in front of physicians through congresses, peer networks, paid social and the channels they trust.",
+  "whyThisMatters": "<p><strong>Distribution strategy</strong> plans how medical content reaches the physicians, cath lab teams and buyers it is made for: which channels, in which order, in which languages, and how success is measured.</p><p>Clinical knowledge travels in its own way: through congresses, through peer networks and through the channels physicians actually trust. The best film in the world changes nothing if the right people never see it. Distribution should be planned with the content, not added at the end.</p><p>We plan distribution from the start. For Medtronic's renal denervation programme that meant a documentary series, live congress coverage, a sustained expert-led programme and local engagement in six languages; the campaign reached 4 million healthcare professionals and drove a fivefold increase in searches for RDN.</p>",
+  "outcomesMainTitle": "What distribution planning gives you",
+  "outcomesDescription": "Content that reaches the people it was made for.",
+  "outcomesFirstTitle": "Reach where it counts",
+  "outcomesFirstDescription": "Congresses, peer networks, paid social and specialist platforms, chosen for the audience you need to move.",
+  "outcomesSecondTitle": "Every market covered",
+  "outcomesSecondDescription": "Localisation and language versions planned in, so content works in each market you sell in.",
+  "outcomesThirdTitle": "Results you can measure",
+  "outcomesThirdDescription": "Clear measures agreed up front, from reach and views to searches and engagement.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Medical content distribution strategy and channel planning | Made Clear",
+  "metaDescription": "Distribution strategy for medical content: getting films, animations and campaigns to physicians through congresses, peer networks, paid social and trusted channels.",
+  "process": [
+    {
+      "title": "Map the audience",
+      "text": "Who needs to see the content, where they spend their time and who they trust."
+    },
+    {
+      "title": "Plan the channels",
+      "text": "Congresses, peer networks, specialist platforms, paid social and influencer partners, sequenced around the moments that matter."
+    },
+    {
+      "title": "Localise",
+      "text": "Language versions and local engagement planned for each market."
+    },
+    {
+      "title": "Measure and adjust",
+      "text": "Agreed measures tracked through the campaign, with changes made while it is running."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is a distribution strategy for medical content?",
+      "answer": "<p>It is the plan for how content reaches its audience: the channels, the sequence, the markets and languages, and how success will be measured. For medical device companies it usually combines congresses, peer networks, specialist platforms and paid social.</p>"
+    },
+    {
+      "question": "Which channels reach cardiologists?",
+      "answer": "<p>Congresses, peer networks and the platforms physicians trust, alongside targeted paid social and influencer partnerships. <em>The Radiation Problem</em> launched live on the Egg Medical channel on Wondr Medical, inviting its network of 68,000 cardiologists to watch at the same time around the world.</p>"
+    },
+    {
+      "question": "Can you plan distribution across several countries?",
+      "answer": "<p>Yes. For Medtronic's renal denervation programme we engaged local healthcare communities in six languages.</p>"
+    },
+    {
+      "question": "How do you measure success?",
+      "answer": "<p>We agree measures before launch, such as reach, views, searches and engagement. Medtronic's programme reached 4 million healthcare professionals, drove 117,000 content views and a fivefold increase in searches for RDN.</p>"
+    }
+  ],
+  "recentWorkIntro": "Campaigns where distribution was planned in from the start.",
+  "relatedServices": [
+    "platform-distribution-and-performance",
+    "content-and-channel-strategy",
+    "campaign-strategy",
+    "medical-film-and-documentary"
+  ],
   "order": 26
 }

@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 5
+  "order": 5,
+  "partOf": "brand-strategy"
 }

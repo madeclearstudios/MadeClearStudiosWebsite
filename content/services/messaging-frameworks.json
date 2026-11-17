@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 7
+  "order": 7,
+  "partOf": "campaign-strategy"
 }

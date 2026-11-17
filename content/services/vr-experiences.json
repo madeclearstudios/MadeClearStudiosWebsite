@@ -6,7 +6,7 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Immersive VR medical education for medical device companies. Put a physician inside the artery, at the booth or in the hospital, and show them what a slide deck never could.",
+  "shortDescription": "VR medical education and immersive experiences for medical device companies. Put a physician inside the artery, at the booth or in the hospital, and show them what a slide deck never could.",
   "whyThisMatters": "<p><strong>A VR medical experience</strong> is an immersive film or simulation, viewed in a headset, that takes a physician inside the anatomy and the procedure, so they see how your device works in three dimensions rather than on a flat screen.</p><p>Interventional cardiology is spatial. Coronary arteries, aortic roots and renal vessels are three-dimensional and dynamic, yet most device education is still a slide, a brochure or a KOL on a laptop. VR closes that gap. A few minutes in a headset can show what physicians miss on an angiogram, and why your therapy matters, in a way they remember long after the congress.</p><p>We build VR around the clinical story first: a real case, presented by the KOLs your audience trusts, made to work on a busy congress stand and as a portable tool for your field team. We handle the headsets and the sessions too, so your people can focus on the conversations VR starts.</p>",
   "outcomesMainTitle": "What VR gives your team",
   "outcomesDescription": "One experience, used at the booth, in the field and in training.",
@@ -63,6 +63,14 @@
     {
       "question": "Which areas of cardiology do you make VR for?",
       "answer": "<p>We work across interventional and structural cardiology, from coronary calcium and intravascular lithotripsy to imaging and procedural training. If the anatomy is three-dimensional and the story is hard to tell on a slide, VR is worth considering.</p>"
+    },
+    {
+      "question": "Can a VR experience also be shown on a flat screen?",
+      "answer": "<p>Yes. We can create a 16:9 version of a VR experience for laptops, booth screens, websites and sales meetings, turning 360° scenes into directed camera views, so the same story works with or without a headset.</p>"
+    },
+    {
+      "question": "Do you manage the VR headsets?",
+      "answer": "<p>Yes. We supply and configure enterprise headsets, manage them as a fleet so new builds can be pushed remotely, and provide cases and networking for congress use, so your headsets are ready wherever your team is.</p>"
     }
   ],
   "recentWorkIntro": "VR experiences we have built for medical device companies, and the congresses where we run them.",

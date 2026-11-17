@@ -6,16 +6,63 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "creative",
   "image": "",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Congress and event creative for medical device companies: stand and booth design, booth styling, stand build and event experiences for cardiology congresses such as TCT, EuroPCR and ESC.",
+  "whyThisMatters": "<p><strong>Congress and event creative</strong> is the design and build of what physicians walk into at a medical congress: the stand, the booth styling, the set and the experiences that give them a reason to stop.</p><p>At TCT, EuroPCR or ESC every major device company is competing for the same few minutes of a cardiologist's time. A booth that looks like every other booth gets walked past. An experiential stand built around one idea, with something to do, see or try, turns footfall into conversations.</p><p>We design stands and experiences as part of the campaign, not as an afterthought: the concept, set design and props, print, VR and screen content, and the logistics of getting it built, briefed and running on the day. For EuroPCR 2026 we built a fully dressed 1940s film-noir detective agency around a VR calcium-training experience, with period props, printed case files and a VR station running throughout the show.</p>",
+  "outcomesMainTitle": "What a better stand gives you",
+  "outcomesDescription": "A reason for physicians to stop, stay and talk.",
+  "outcomesFirstTitle": "Footfall with a purpose",
+  "outcomesFirstDescription": "One clear idea, built into the space, that draws physicians in and starts the right conversation.",
+  "outcomesSecondTitle": "An experience, not a display",
+  "outcomesSecondDescription": "Sets, VR stations and hands-on moments that physicians remember after the congress.",
+  "outcomesThirdTitle": "Built and running on the day",
+  "outcomesThirdDescription": "Design, print, build supervision, headset set-up and team briefing handled for you.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Congress stand design and booth creative for MedTech | Made Clear",
+  "metaDescription": "Congress and event creative for medical device companies: stand and booth design, booth styling, set builds and experiential stands for cardiology congresses.",
+  "process": [
+    {
+      "title": "Concept",
+      "text": "We start from the campaign and the audience and find the idea the stand should be built around."
+    },
+    {
+      "title": "Design and print",
+      "text": "Set design, props, graphics and print, from header cards and pinboards to vinyl and pull-up banners."
+    },
+    {
+      "title": "Build and set up",
+      "text": "Supplier and prop logistics, delivery slots, build supervision and VR or screen content tested on site."
+    },
+    {
+      "title": "Brief and run",
+      "text": "A briefing for your booth team on day one, and support through the show."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does congress and event creative include?",
+      "answer": "<p>Stand and booth design, booth styling, experiential sets and props, graphics and print, and the VR, screen and film content that runs on the stand, plus the logistics of building and running it at the congress.</p>"
+    },
+    {
+      "question": "Can you design an experiential stand around a VR experience?",
+      "answer": "<p>Yes. For EuroPCR 2026 we built a 1940s film-noir detective agency set around a VR calcium-training experience: period furniture and props, printed case files and pinboards, and a VR station with headsets rotating between use and charging throughout the show.</p>"
+    },
+    {
+      "question": "Do you handle the build and logistics?",
+      "answer": "<p>Yes. We manage prop and print suppliers, delivery slots and build supervision, test the headsets and screen content on site, and brief your booth team before the doors open.</p>"
+    },
+    {
+      "question": "Is this different from your congress filming?",
+      "answer": "<p>Yes. Congress and event creative is the stand and the experience; our <a href=\"/services/on-site-congress-and-event-production\">on-site congress production</a> team films KOL interviews and booth content. Many clients use both, so the stand and the content tell the same story.</p>"
+    }
+  ],
+  "recentWorkIntro": "Stands and congress experiences we have created.",
+  "relatedServices": [
+    "on-site-congress-and-event-production",
+    "vr-experiences",
+    "campaign-creative-and-concepts",
+    "kol-content"
+  ],
   "order": 16
 }

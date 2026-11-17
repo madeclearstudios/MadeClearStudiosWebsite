@@ -6,16 +6,63 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "creative",
   "image": "",
-  "shortDescription": "",
-  "whyThisMatters": "",
-  "outcomesMainTitle": "",
-  "outcomesDescription": "",
-  "outcomesFirstTitle": "",
-  "outcomesFirstDescription": "",
-  "outcomesSecondTitle": "",
-  "outcomesSecondDescription": "",
-  "outcomesThirdTitle": "",
-  "outcomesThirdDescription": "",
+  "shortDescription": "Campaign creative and concepts for medical device marketing: big ideas, scripts and campaign concepts that make clinical audiences stop, feel something and remember your device.",
+  "whyThisMatters": "<p><strong>Campaign creative</strong> is the idea at the heart of a medical device campaign: the concept, the scripts and the visual world that make a clinical audience stop, feel something and remember.</p><p>Healthcare B2B communication is often cold. Clinicians are short on time and overloaded with information, and correct but forgettable content changes nothing. The right creative idea makes the invisible visible, gives people a reason to care and makes your message impossible to ignore.</p><p>Our creative is built on the strategy and the science. For Clean Those Leads we swabbed a hospital with an ATP reader, built a real roulette wheel and told the story of a man who nearly died from MRSA, because facts inform, but the right stories make people feel, remember and act.</p>",
+  "outcomesMainTitle": "What creative does for you",
+  "outcomesDescription": "Ideas that clinical audiences feel, remember and act on.",
+  "outcomesFirstTitle": "Attention in a crowded field",
+  "outcomesFirstDescription": "A concept that stands apart from the usual medical device messaging and gives people a reason to stop.",
+  "outcomesSecondTitle": "Emotion with evidence",
+  "outcomesSecondDescription": "Creative that makes people feel the problem, backed by research and frontline voices that make it credible.",
+  "outcomesThirdTitle": "One idea, every format",
+  "outcomesThirdDescription": "Films, microsites, social and booth creative that all tell the same story.",
   "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Campaign creative and concepts for medical device marketing | Made Clear",
+  "metaDescription": "Campaign creative for medical device and healthcare brands: big ideas, scripts and concepts that make clinical audiences feel, remember and act.",
+  "process": [
+    {
+      "title": "Start from the insight",
+      "text": "We take the strategy and the evidence and find the tension that will make people care."
+    },
+    {
+      "title": "Concepts",
+      "text": "We develop campaign concepts and show you how each one would look and feel across films, digital and events."
+    },
+    {
+      "title": "Scripts and design",
+      "text": "We write the scripts, design the visual world and plan for medical, legal and regulatory review."
+    },
+    {
+      "title": "Make it",
+      "text": "Production, digital and distribution, delivered under one roof so the idea survives intact."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is a campaign concept?",
+      "answer": "<p>It is the single creative idea that ties a campaign together: a line, a visual world and a way of telling the story that works across films, digital, social and events.</p>"
+    },
+    {
+      "question": "Can creative be bold and still pass medical review?",
+      "answer": "<p>Yes. We build our ideas on the evidence and plan for review from the start, so bold creative stays accurate. Our clients describe our work as willing to push the boundaries and humanise a cold industry.</p>"
+    },
+    {
+      "question": "What does a medical device campaign look like?",
+      "answer": "<p>For RCS, Clean Those Leads became six short films structured as an escalating story, a dedicated microsite, and paid and influencer distribution to cath lab nurses and rad techs.</p>"
+    },
+    {
+      "question": "Do you work with our existing agencies?",
+      "answer": "<p>Yes. Many of our clients have medical education, PR or advertising partners. We focus on the creative and production work that needs deep cardiology knowledge and storytelling craft.</p>"
+    }
+  ],
+  "recentWorkIntro": "Campaign ideas we have brought to life for healthcare and medical device brands.",
+  "relatedServices": [
+    "campaign-strategy",
+    "medical-film-and-documentary",
+    "web-and-interactive-content",
+    "platform-distribution-and-performance"
+  ],
   "order": 12
 }

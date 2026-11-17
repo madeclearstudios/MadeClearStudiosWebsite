@@ -6,7 +6,7 @@
   "publishedOn": "2026-05-14",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Medical-grade animation for cardiology and medical device companies. Mechanism of action, procedure walk-throughs and device stories that physicians, cath lab teams and buyers understand at a glance.",
+  "shortDescription": "Medical animation and illustration for cardiology and medical device companies: mechanism of action (MoA) animation, procedure walk-throughs, 3D model development, medical illustration and infographics.",
   "whyThisMatters": "<p><strong>Medical device animation</strong> shows how a device works inside the body, from its mechanism of action to each step of the procedure, in a way live footage and slides cannot.</p><p>Physicians are sceptical, cath lab teams are busy and hospital buyers need the value case in plain terms. A clear animation answers the questions each of them has, and keeps working long after launch: on the stand, in a sales meeting, in training and on social channels.</p><p>We combine medical accuracy with craft. Our animations are built with the KOLs who use the device, checked against the clinical evidence, and made to pass medical, legal and regulatory review. We use 3D, 2D and stop-motion, whichever tells the story best, and pair them with filmed procedures and interviews when the story needs both.</p>",
   "outcomesMainTitle": "What the animation does for you",
   "outcomesDescription": "One clear explanation, made for every audience that needs it.",
@@ -63,13 +63,21 @@
     {
       "question": "Can the animation be versioned for different markets?",
       "answer": "<p>Yes. We plan for cut-downs, formats and languages from the start, so one animation can serve congress booths, sales teams, training and social channels in each market you sell in.</p>"
+    },
+    {
+      "question": "Can you build 3D models of our device and anatomy?",
+      "answer": "<p>Yes. We build anatomically accurate 3D models from device CAD and clinical references, including real-time 3D for VR and interactive tools, with device deployment animated step by step and checked against the clinical case.</p>"
+    },
+    {
+      "question": "Can animation be combined with live action?",
+      "answer": "<p>Yes. We composite animation, imaging and data visualisations into filmed scenes, tracked to camera, and use kinetic typography and motion graphics to bring evidence on screen.</p>"
     }
   ],
   "recentWorkIntro": "Campaigns where animation shows physicians, cath lab teams and buyers how a device works.",
   "relatedServices": [
     "medical-illustration-and-infographics",
     "3d-model-development",
-    "video-production-documentary-testimonial-explainer-training",
+    "medical-film-and-documentary",
     "vr-experiences"
   ],
   "order": 20

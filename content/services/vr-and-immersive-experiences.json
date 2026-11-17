@@ -17,5 +17,6 @@
   "outcomesThirdTitle": "",
   "outcomesThirdDescription": "",
   "extraDescription": "",
-  "order": 14
+  "order": 14,
+  "partOf": "vr-experiences"
 }

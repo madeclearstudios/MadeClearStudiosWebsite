@@ -13,7 +13,9 @@
   "services": [
     "film-and-video-content",
     "animation",
-    "distribution-strategy-and-channel-planning"
+    "distribution-strategy-and-channel-planning",
+    "kol-content",
+    "campaign-strategy"
   ],
   "client": "medtronic",
   "featuredOnKolPage": true,

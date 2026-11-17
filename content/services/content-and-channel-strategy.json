@@ -1,0 +1,68 @@
+{
+  "name": "Content and channel strategy",
+  "slug": "content-and-channel-strategy",
+  "archived": false,
+  "draft": false,
+  "publishedOn": "2026-04-22",
+  "serviceCategory": "strategy",
+  "image": "",
+  "shortDescription": "Content strategy and channel planning for cardiology and MedTech brands: audience insight and segmentation, marketing strategy and content plans that put the right message in front of physicians, cath lab teams and buyers, on the channels they actually use.",
+  "whyThisMatters": "<p><strong>Content strategy</strong> decides what content a medical device or healthcare brand should make, for whom and where it will be used, so every production earns its place.</p><p>Most medical content is made one project at a time: a film for a launch, an animation for a congress. A content strategy joins it up. It starts with what your audience actually needs, organises it into pillars and formats, and plans how one shoot becomes a full film, short chapters, social versions and training modules on the channels your audience uses.</p><p>We research before we plan: calls with patients, clinicians and your teams, and a clear view of how physicians, staff and buyers find and use content. For a UK hospital group we turned that research into a patient-education film with thirteen short standalone chapters, and a multi-site content series organised around four content pillars and versioned for each platform.</p>",
+  "outcomesMainTitle": "What a content strategy gives you",
+  "outcomesDescription": "Fewer one-offs, more content that works together.",
+  "outcomesFirstTitle": "Built on real audience needs",
+  "outcomesFirstDescription": "Research with patients, clinicians and staff shows what your audience actually wants to know.",
+  "outcomesSecondTitle": "One shoot, many formats",
+  "outcomesSecondDescription": "Full films, chapters, CME modules, social cuts and stills planned from the same production.",
+  "outcomesThirdTitle": "A plan for every channel",
+  "outcomesThirdDescription": "Content mapped to the channels your audience uses, from YouTube and LinkedIn to congresses and sales teams.",
+  "extraDescription": "",
+  "hasPage": true,
+  "hidden": true,
+  "metaTitle": "Content strategy and channel planning for MedTech | Made Clear",
+  "metaDescription": "Content strategy for medical device and healthcare companies: audience research, content pillars and channel plans that turn one production into a year of content.",
+  "process": [
+    {
+      "title": "Research",
+      "text": "Calls with patients, clinicians, staff and your teams to understand what your audience needs."
+    },
+    {
+      "title": "Pillars and formats",
+      "text": "Content pillars, formats and a shot list that turns each production into a set of assets."
+    },
+    {
+      "title": "Channel plan",
+      "text": "Where each piece will live and how it will be found: playlists, social versions, CME platforms and sales tools."
+    },
+    {
+      "title": "Measure and refine",
+      "text": "What to measure, and how the plan changes as you learn what works."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is a content strategy for a medical device company?",
+      "answer": "<p>It is a plan for what content to make, for which audiences and where it will be used, so films, animations and campaigns work together over time rather than as one-off projects.</p>"
+    },
+    {
+      "question": "How do you research what an audience needs?",
+      "answer": "<p>We talk to them. For patient education that has meant informal calls with patients about what information mattered most to them, then working with clinical staff on the script.</p>"
+    },
+    {
+      "question": "Can one production give us content for several channels?",
+      "answer": "<p>Yes. We plan for it from the start: one full film, standalone chapters, CME modules of around eight minutes, social cuts in 9:16 and 1:1, and stills, all from the same shoot.</p>"
+    },
+    {
+      "question": "Does content strategy include channel planning?",
+      "answer": "<p>Yes. We plan where each piece will live, from YouTube playlists that play chapters in sequence to LinkedIn, congress screens and sales tools, and how it will reach the right people.</p>"
+    }
+  ],
+  "recentWorkIntro": "Programmes where content was planned across audiences and channels.",
+  "relatedServices": [
+    "campaign-strategy",
+    "distribution-strategy-and-channel-planning",
+    "medical-film-and-documentary",
+    "platform-distribution-and-performance"
+  ],
+  "order": 8
+}

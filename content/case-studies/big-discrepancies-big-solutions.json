@@ -13,7 +13,8 @@
   "services": [
     "film-and-video-content",
     "animation",
-    "live-webinars"
+    "live-webinars",
+    "kol-content"
   ],
   "client": "ivascular",
   "featuredOnKolPage": true,

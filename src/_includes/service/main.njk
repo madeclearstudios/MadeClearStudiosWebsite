@@ -1,7 +1,8 @@
 {#- Body of a service page (src/service.njk). Expects `svc` (a service from services.json with hasPage: true). -#}
 {%- set cat = serviceCategories | findBy("slug", svc.serviceCategory) %}
-{%- set micros = microCaseStudies | published | whereIncludes("services", svc.slug) | sortByOrder %}
-{%- set bigCases = caseStudies | published | whereIncludes("services", svc.slug) | sortByOrder %}
+{%- set family = services | serviceFamily(svc.slug) %}
+{%- set micros = microCaseStudies | published | whereIncludesAny("services", family) | sortByOrder %}
+{%- set bigCases = caseStudies | published | whereIncludesAny("services", family) | sortByOrder %}
 {%- set related = services | published | whereIn("slug", svc.relatedServices or []) %}
 {%- if svc.hidden %}
       <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in services.json to publish it.</div>

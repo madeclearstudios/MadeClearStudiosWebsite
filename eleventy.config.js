@@ -73,6 +73,23 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("where", (items = [], key, value) => items.filter((i) => i[key] === value));
   eleventyConfig.addFilter("whereIn", (items = [], key, values = []) => items.filter((i) => values.includes(i[key])));
   eleventyConfig.addFilter("whereIncludes", (items = [], key, value) => items.filter((i) => (i[key] || []).includes(value)));
+  eleventyConfig.addFilter("whereIncludesAny", (items = [], key, values = []) => items.filter((i) => (i[key] || []).some((v) => values.includes(v))));
+
+  // Service families: smaller services are folded into a main service page with "partOf" (e.g. 3D model development
+  // is part of Animation). The Services page lists only main services; a main page's Recent work includes projects
+  // tagged with any service in its family; lists of a project's services show the main services.
+  eleventyConfig.addFilter("mainServices", (items = []) => items.filter((s) => !s.partOf));
+  eleventyConfig.addFilter("serviceFamily", (all = [], slug) => [slug, ...all.filter((s) => s.partOf === slug).map((s) => s.slug)]);
+  eleventyConfig.addFilter("toMainServices", (slugs = [], all = []) => {
+    const out = [];
+    for (const slug of slugs || []) {
+      const s = all.find((x) => x.slug === slug && !x.draft && !x.archived);
+      if (!s) continue;
+      const main = s.partOf ? all.find((x) => x.slug === s.partOf) || s : s;
+      if (!out.includes(main)) out.push(main);
+    }
+    return out;
+  });
   // FAQ structured data (schema.org FAQPage) from [{ question, answer (HTML) }]
   eleventyConfig.addFilter("faqSchema", (faqs = []) =>
     faqs.map((f) => ({
@@ -100,7 +117,7 @@ export default function (eleventyConfig) {
     if (has("campaign-strategy", "campaign-creative-and-concepts")) return "medical awareness campaign";
     if (has("live-cases")) return "live case production";
     if (has("on-site-congress-and-event-production")) return "congress filming";
-    const film = has("film-and-video-content", "video-production-documentary-testimonial-explainer-training");
+    const film = has("film-and-video-content", "medical-film-and-documentary", "kol-content");
     const anim = has("animation", "3d-model-development", "medical-illustration-and-infographics");
     if (film && anim) return "medical film and animation";
     if (anim) return "medical animation";
