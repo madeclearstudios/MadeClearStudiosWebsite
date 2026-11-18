@@ -1026,6 +1026,7 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
 .site-menu_contact p { color: #fff; font-size: var(--_typography---text--small); line-height: 1.9; }
 .site-menu_contact a:not(.button) { color: #fff; text-decoration: none; }
 .site-menu_contact a:not(.button):hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.site-menu_contact .site-menu_email { font-weight: 700; }
 .site-menu_logo { filter: invert(1); }
 .site-menu_bar { position: sticky; top: 0; background: #000; z-index: 1; padding-left: 0; padding-right: 0; }
 .site-menu_label { font-size: var(--_typography---text--xsmall) !important; font-weight: 600; letter-spacing: .11rem; color: rgba(255,255,255,0.65) !important; text-transform: uppercase; }
