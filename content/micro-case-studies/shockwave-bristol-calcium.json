@@ -1,23 +1,18 @@
 {
-  "title": "Shockwave - Bristol Calcium",
-  "slug": "shockwave-bristol-calcium",
-  "hidden": true,
-  "draft": true,
+  "title": "Shockwave Medical - Southwest Calcium",
+  "slug": "shockwave-south-west-calcium",
+  "hidden": false,
+  "draft": false,
   "archived": false,
   "order": 99,
   "client": "shockwave-medical",
   "clientLabel": "Shockwave Medical, part of Johnson & Johnson",
-  "year": null,
-  "month": "",
+  "year": 2025,
+  "month": "June",
   "services": [
     "on-site-congress-and-event-production",
     "vr-experiences",
     "vr-and-immersive-experiences"
   ],
-  "summary": "",
-  "body": "",
-  "captured": [],
-  "coverPhoto": "",
-  "gallery": [],
-  "videos": []
+  "body": "<p></p>"
 }
