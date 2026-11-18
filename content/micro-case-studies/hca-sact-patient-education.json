@@ -1,8 +1,8 @@
 {
   "title": "HCA Healthcare UK SACT patient education films",
   "slug": "hca-sact-patient-education",
-  "hidden": true,
-  "draft": true,
+  "hidden": false,
+  "draft": false,
   "archived": false,
   "order": 99,
   "client": "hca-healthcare-uk",
