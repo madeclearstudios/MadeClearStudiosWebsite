@@ -793,6 +793,7 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .home-service-panel {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* the number, name and text sit in the middle of the box, top to bottom */
   padding: 1.5rem;
   color: inherit;
   text-decoration: none;
