@@ -25,6 +25,12 @@
     "Full kit handover for future meetings",
     "Short case study film of the session"
   ],
+  "coverPhoto": "/images/uploads/shockwave-south-west-calcium-vr-session.webp",
+  "gallery": [
+    "/images/uploads/shockwave-south-west-calcium-vr-session.webp",
+    "/images/uploads/shockwave-south-west-calcium-vr-support.webp",
+    "/images/uploads/shockwave-south-west-calcium-ivl-headsets.webp"
+  ],
   "videos": [
     {
       "title": "Shockwave Medical VR training at South West Calcium 2025",
