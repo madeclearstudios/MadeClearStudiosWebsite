@@ -48,7 +48,7 @@ The content that used to live in the Webflow CMS is in `content/`, one folder pe
 | KOLs | `content/experts/` | Home page slider, KOL Hub |
 | Clients | `content/clients/` | Testimonial sliders, KOL page client list |
 | Client logos | `content/client-logos/` | Home page logo rows (`secondLine` puts a logo on the second row) |
-| Services, service categories | `content/services/`, `content/service-categories/` | Services page, nav dropdown, service pages, case study "Services" list; each category's `teaser` ("Home page panel text") fills its panel under Our services on Home (four columns on desktop, two on tablets, stacked on phones), which links to `/services#<slug>` |
+| Services, service categories | `content/services/`, `content/service-categories/` | Services page, nav dropdown, service pages, case study "Services" list; each category's `teaser` ("Home page panel text") fills its panel under Our services on Home (square bordered boxes that turn yellow on hover, like How it works on service pages; four in a row on desktop, two on tablets, stacked on phones; no button, the whole box links to `/services#<slug>`). The showreel below sits one section gap (`--_spacings---padding--5`) under them |
 | FAQs | `content/faqs/` | About |
 | Sectors | `content/sectors/` | Sectors (hidden from search) |
 | Case study / insight categories | `content/case-study-categories/`, `content/insight-categories/` | Filters (currently hidden) |
