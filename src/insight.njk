@@ -1,6 +1,9 @@
 ---js
-// One page per published insight (src/_data/insights.json), at /insights/<slug>
-const pagination = { data: "insights", size: 1, alias: "insight", before: (items) => items.filter((i) => !i.draft && !i.archived) };
+// One page per published insight (src/_data/insights.json), at /insights/<slug>.
+// On Netlify deploy previews (CONTEXT=deploy-preview) drafts are built too, so they can be read before publishing:
+// they get a "Draft" banner and noindex, and aren't listed anywhere. The live site never builds drafts.
+const showDrafts = process.env.CONTEXT === "deploy-preview";
+const pagination = { data: "insights", size: 1, alias: "insight", before: (items) => items.filter((i) => !i.archived && (!i.draft || showDrafts)) };
 const permalink = (data) => `insights/${data.insight.slug}.html`;
 const eleventyExcludeFromCollections = true;
 ---
@@ -10,6 +13,9 @@ const eleventyExcludeFromCollections = true;
   <meta charset="utf-8">
   <title>{{ insight.title }} | Made Clear</title>
   <meta content="{{ insight.overview | metaDescription }}" name="description">
+  {%- if insight.draft %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
   <meta content="{{ insight.title }} | Made Clear" property="og:title">
   <meta content="{{ insight.overview | metaDescription }}" property="og:description">
   <meta content="{{ ogImages[insight.coverPhoto] or insight.coverPhoto }}" property="og:image">
@@ -98,6 +104,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </style>
     </div>
     {% include "nav.njk" %}
+    {%- if insight.draft %}
+    <div class="review-banner">Draft preview: this article is only visible on deploy previews. Untick Draft in Pages CMS (and set a Published on date) to publish it.</div>
+    {%- endif %}
     <main class="main">
       <article class="section padding-5 insight-header-section">
         <div class="container-small">
