@@ -1,10 +1,8 @@
 {#- Site-wide "your content partner" banner, just above the footer on every page (included from footer.njk).
-    Left: eyebrow, headline, intro, what we do, and the booking button. Right: four stat cards.
+    Left: eyebrow, headline, intro, what we do, and a Contact us button (to /contact). Right: four stat cards.
     Every claim is checkable on the site: the KOL and client counts come from the CMS (KOL Hub, Clients),
     the congresses from our micro case studies and insights.
-    The button goes to Contact until the booking page is live; change bookingUrl below when it is.
     Styles: "Partner banner" in css/site.css. -#}
-{%- set bookingUrl = "/contact" %}
 {%- set kolCount = ((experts | published | length) / 10) | round(0, "floor") * 10 %}
 {%- set clientCount = ((clients | published | length) / 5) | round(0, "floor") * 5 %}
 <section class="partner-banner" aria-labelledby="partner-banner-title">
@@ -23,7 +21,7 @@
           <li><a href="/services/platform-distribution-and-performance">Social media</a> and distribution that reaches clinicians</li>
         </ul>
         <div class="partner-banner_actions">
-          <a href="{{ bookingUrl }}" class="button primary w-inline-block"><div>Book a call</div><div class="hover-button-blur"></div></a>
+          <a href="/contact" class="button primary w-inline-block"><div>Contact us</div><div class="hover-button-blur"></div></a>
           <a href="mailto:hello@madeclearstudios.com" class="partner-banner_email">or email hello@madeclearstudios.com</a>
         </div>
       </div>
