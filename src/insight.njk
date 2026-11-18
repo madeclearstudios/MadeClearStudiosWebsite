@@ -125,7 +125,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       </article>
       <section class="section padding-5">
         <div class="container-small">
-          <div class="text-rich-text w-richtext">{{ insight.body | safe }}</div>
+          <div class="text-rich-text w-richtext">{{ insight.body | tidyHtml | safe }}</div>
         </div>
       </section>
       {%- if insight.imageSlider.length %}
@@ -446,6 +446,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/j
       arrows: false,
       pagination: false,
       gap: '0.875rem',
+      autoWidth: true, /* each slide as wide as its photo, as on case studies, so there are no gaps between them */
       perPage: 3,
       autoScroll: {
         speed: 0.5,

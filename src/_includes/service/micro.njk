@@ -59,7 +59,7 @@
               </div>
               <div class="height-2"></div>
               {%- endif %}
-              <div class="text-rich-text w-richtext">{{ m.body | safe }}</div>
+              <div class="text-rich-text w-richtext">{{ m.body | tidyHtml | safe }}</div>
               {%- if m.captured and m.captured.length %}
               <div class="height-2"></div>
               <h2>What we captured</h2>

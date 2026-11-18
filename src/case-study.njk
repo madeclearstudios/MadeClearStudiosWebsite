@@ -237,19 +237,19 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <div class="flex vertical gap-5 t_gap-4 m_gap-3">
                 <div class="flex vertical gap-1">
                   <h2 class="relative{{ ' w-dyn-bind-empty' if not cs.title1 }}">{{ cs.title1 }}</h2>
-                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body1 }}">{{ cs.body1 | safe }}</div>
+                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body1 }}">{{ cs.body1 | tidyHtml | safe }}</div>
                 </div>
                 <div class="flex vertical gap-1">
                   <h2 class="relative{{ ' w-dyn-bind-empty' if not cs.title2 }}">{{ cs.title2 }}</h2>
-                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body2 }}">{{ cs.body2 | safe }}</div>
+                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body2 }}">{{ cs.body2 | tidyHtml | safe }}</div>
                 </div>
                 <div class="flex vertical gap-1">
                   <h2 class="relative{{ ' w-dyn-bind-empty' if not cs.title3 }}">{{ cs.title3 }}</h2>
-                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body3 }}">{{ cs.body3 | safe }}</div>
+                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body3 }}">{{ cs.body3 | tidyHtml | safe }}</div>
                 </div>
                 <div class="flex vertical gap-1">
                   <h2 class="relative{{ ' w-dyn-bind-empty' if not cs.title4 }}">{{ cs.title4 }}</h2>
-                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body4 }}">{{ cs.body4 | safe }}</div>
+                  <div class="text-rich-text w-richtext{{ ' w-dyn-bind-empty' if not cs.body4 }}">{{ cs.body4 | tidyHtml | safe }}</div>
                 </div>
               </div>
             </div>

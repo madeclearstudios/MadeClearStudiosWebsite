@@ -61,7 +61,7 @@
               <div class="height-2"></div>
               {%- endif %}
               {#- Opening explainer: starts with the one-sentence definition answer engines quote -#}
-              <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | safe }}</div>
+              <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | tidyHtml | safe }}</div>
               {%- if svc.process and svc.process.length %}
               <div class="height-3 t_height-2"></div>
               <h2 class="relative">How it works</h2>
