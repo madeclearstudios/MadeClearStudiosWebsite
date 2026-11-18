@@ -175,7 +175,8 @@ The repo lives in the `madeclearstudios` GitHub organisation. `main` is the live
 - **Never commit or push straight to `main`.** Start a branch from the latest `main` (e.g. `fix/kol-nav-links`, `content/new-case-study`).
 - Commit there with clear messages, push the branch and open a **pull request** into `main`. Say what changed and why, and which pages to check.
 - Netlify builds a **deploy preview** for every pull request and posts its link on the PR. Check the change on that preview, on desktop and phone.
-- **The site owner (GitHub `olly-mcs`) is the only person who decides what goes live.** A pull request is merged (squash merge) only when they say so and the Netlify checks are green. No second reviewer is needed.
+- **The site owner (GitHub `olly-mcs`) decides what goes live**, except for Lizzie's pull requests (below). Other pull requests are merged (squash merge) only when they say so and the Netlify checks are green. No second reviewer is needed.
 - Keep PRs small and about one thing, so they are quick to check.
 - Pages CMS edits are the exception: editors save content straight to `main`, as described above.
+- **Lizzie (GitHub `LizzieMCS`) is the other exception (Olly, Nov 2026):** her pull requests merge themselves without the site owner's review. When Netlify reports her deploy preview as successful, `.github/workflows/auto-merge-lizzie.yml` squash-merges the pull request, which deploys it. It only acts on open pull requests into `main` that she opened from a branch in this repo; a failed preview never merges. To stop it, delete that workflow file (or change `AUTHOR` in it).
 - Claude follows the same rules: work on a branch, open a PR with a deploy preview, and merge only when the site owner explicitly asks for it (e.g. "merge and push live"), after the Netlify checks pass.
