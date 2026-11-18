@@ -6,7 +6,7 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Web and interactive content for cardiology campaigns: microsites, interactive experiences and digital tools, plus AI-assisted production projects that get more from every shoot.",
+  "shortDescription": "Web and interactive content and medical device sales enablement for cardiology campaigns: microsites, interactive experiences and digital tools, plus AI-assisted production projects that get more from every shoot.",
   "whyThisMatters": "<p><strong>Web and interactive content</strong> gives your audience something to explore: campaign microsites, interactive sales tools and 3D product experiences that physicians, reps and buyers can use for themselves.</p><p>A film tells a story once. An interactive tool lets a rep tailor the conversation to the physician in front of them, lets a buyer explore the evidence at their own pace, and keeps a campaign alive long after launch. In MedTech, where every conversation is different, that flexibility matters.</p><p>We build interactive content around the clinical story: microsites that are the long-term home for a campaign, and touchscreen sales tools with 3D cath lab scenes, product explorers with rotate, zoom and hotspots, procedure modules and evidence libraries, plus a presentation mode for the booth.</p>",
   "outcomesMainTitle": "What interactive content gives you",
   "outcomesDescription": "Tools your teams and your audience will use again and again.",
@@ -18,9 +18,9 @@
   "outcomesThirdDescription": "Microsites that hold the films, the evidence and the calls to action for each audience.",
   "extraDescription": "",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "Interactive sales tools, microsites and apps for MedTech | Made Clear",
-  "metaDescription": "Web and interactive content for medical device companies: campaign microsites, interactive sales tools and 3D product apps for reps, booths and touchscreens.",
+  "hidden": false,
+  "metaTitle": "Medical Device Sales Enablement Tools & Microsites | Made Clear",
+  "metaDescription": "Medical device sales enablement: interactive sales tools, campaign microsites and 3D product apps for reps, congress booths and touchscreens.",
   "process": [
     {
       "title": "Define the use",

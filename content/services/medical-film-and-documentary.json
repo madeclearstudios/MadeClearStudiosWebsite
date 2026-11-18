@@ -6,7 +6,7 @@
   "publishedOn": "2026-04-22",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Medical film and documentary production for MedTech: documentary series, patient and physician testimonials, explainer and training films, and cath lab filming, from one film to a full content library.",
+  "shortDescription": "Medical film, documentary and medical device video production for MedTech: documentary series, patient and physician testimonials, explainer and training films, and cath lab filming, from one film to a full content library.",
   "whyThisMatters": "<p><strong>Medical film and documentary production</strong> is the craft of telling a clinical story on film: documentary series, physician and patient testimonials, explainer and training films, made for audiences who know the science better than anyone.</p><p>Cardiologists have seen every slide deck. What they have not seen is their own world told properly: the case that changed their practice, the colleague affected by radiation, the patient who nearly died. Film is how a medical device company earns attention, builds belief and gives its people something worth sharing.</p><p>We bring documentary craft to medical content. We research the story, find the right voices, film in cath labs, studios and hospitals, and keep the science watertight through medical, legal and regulatory review. One film or a full series, it is made to be used: on the stand, in the field, online and in training.</p>",
   "outcomesMainTitle": "What film does for your brand",
   "outcomesDescription": "Stories that clinicians believe, remember and pass on.",
@@ -18,9 +18,9 @@
   "outcomesThirdDescription": "Broadcast-standard filming and editing that stands apart from the usual corporate video at a congress.",
   "extraDescription": "",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "Medical film and documentary production for MedTech | Made Clear",
-  "metaDescription": "Medical film and documentary production for medical device and cardiology companies: documentary series, testimonials, explainers and cath lab filming.",
+  "hidden": false,
+  "metaTitle": "Medical Device Video Production & Medical Film | Made Clear",
+  "metaDescription": "Medical device video production for medtech and healthcare: documentary series, physician and patient testimonial videos, explainers and training films.",
   "process": [
     {
       "title": "Research the story",
