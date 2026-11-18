@@ -846,7 +846,11 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .home-service-panel h3 { margin: 0; }
 .home-service-panel p { margin: 0; }
 /* The gap between the service panels and the showreel matches the section padding at every screen size */
-.home-showreel-gap { height: var(--_spacings---padding--5); }
+/* Our services sits centred between the logo rows and the showreel: no top padding of its own (the logo
+   section's bottom padding and the logo rows' own spacing give the space above), and the same space again
+   between the panels and the showreel */
+.home-services-section { padding-top: 0; }
+.home-showreel-gap { height: calc(var(--_spacings---padding--5) + 2rem); }
 
 /* Body of work timeline (Case Studies page): "Featured work" is the hero case studies; below, the micro case
    studies grouped by year. On desktop each year stays in place on the left while its projects scroll past. */
