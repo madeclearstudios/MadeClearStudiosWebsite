@@ -18,9 +18,9 @@
   "outcomesThirdDescription": "Content mapped to the channels your audience uses, from YouTube and LinkedIn to congresses and sales teams.",
   "extraDescription": "",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "Content strategy and channel planning for MedTech | Made Clear",
-  "metaDescription": "Content strategy for medical device and healthcare companies: audience research, content pillars and channel plans that turn one production into a year of content.",
+  "hidden": false,
+  "metaTitle": "MedTech Content Strategy & Channel Planning | Made Clear",
+  "metaDescription": "MedTech content strategy for medical device and healthcare companies: audience research, HCP engagement strategy, content pillars and channel plans.",
   "process": [
     {
       "title": "Research",

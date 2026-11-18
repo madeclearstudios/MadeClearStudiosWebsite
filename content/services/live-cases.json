@@ -6,7 +6,7 @@
   "publishedOn": "2026-11-13",
   "serviceCategory": "production",
   "image": "",
-  "shortDescription": "Live case production for interventional cardiology: filming and broadcasting live and recorded procedures from the cath lab, with multi-camera set-ups, imaging feeds and faculty commentary.",
+  "shortDescription": "Live case and surgical procedure video production for interventional cardiology: filming and broadcasting live and recorded procedures from the cath lab, with multi-camera set-ups, imaging feeds and faculty commentary.",
   "whyThisMatters": "<p><strong>Live case production</strong> is the filming of real procedures, in the cath lab or operating theatre, so physicians, reps and trainees can see a device used step by step by an experienced operator.</p><p>Nothing builds procedural confidence like watching a real case. But access is limited: new devices have few experienced centres, reps rarely get into theatre, and live cases at congresses are over in an hour. Recorded and broadcast cases give that access to everyone who needs it, whenever they need it.</p><p>We film procedures with the minimum footprint in the room: a small crew, careful briefing and consent, and a radio mic on the operating physician. In post we add what makes a case teach: chapters by procedure stage, callouts for device names and positioning, subtitles and transcripts.</p>",
   "outcomesMainTitle": "What live case films give you",
   "outcomesDescription": "Access to real procedures, for everyone who needs it.",
@@ -18,9 +18,9 @@
   "outcomesThirdDescription": "Chapters, callouts, subtitles and transcripts that turn footage into a training tool.",
   "extraDescription": "",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "Live case recording and broadcast for interventional procedures | Made Clear",
-  "metaDescription": "Live case production for medical device companies: recording and broadcasting procedures from the cath lab and operating theatre.",
+  "hidden": false,
+  "metaTitle": "Surgical Procedure Video Production & Live Cases | Made Clear",
+  "metaDescription": "Surgical procedure video production for medical device companies: recording and broadcasting live cases from the cath lab and operating theatre.",
   "process": [
     {
       "title": "Plan the cases",

@@ -5,7 +5,7 @@
   "draft": false,
   "publishedOn": "2026-11-17",
   "serviceCategory": "production",
-  "shortDescription": "KOL content for medical device companies: key opinion leader interviews, peer-to-peer education and physician testimonials, filmed in the cath lab, the studio or on your congress stand.",
+  "shortDescription": "KOL content and KOL video for medical device companies: key opinion leader interviews, peer-to-peer education and physician testimonials, filmed in the cath lab, the studio or on your congress stand.",
   "whyThisMatters": "<p><strong>KOL content</strong> is film, education and social content presented by key opinion leaders: the physicians whose experience and reputation your audience trusts.</p><p>Physicians believe their peers. A respected interventional cardiologist explaining a case, a technique or a result carries more weight than any brand message. But KOLs are busy, precise and protective of how they are represented, and their reputation is on the line every time they appear on camera.</p><p>We have filmed many of cardiology's leading voices, in cath labs, studios and on congress stands. We know how to brief them, how to make the most of their time and how to make sure the final content reflects well on them and on you. See the cardiologists we have worked with in our <a href=\"/kol-hub\">KOL Hub</a>.</p>",
   "outcomesMainTitle": "What KOL content gives you",
   "outcomesDescription": "Your message, in the voices physicians trust.",
@@ -16,9 +16,9 @@
   "outcomesThirdTitle": "Content for every channel",
   "outcomesThirdDescription": "Interviews, case discussions and education, cut for congresses, sales teams, social and training.",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "KOL content and video interviews for medical devices | Made Clear",
-  "metaDescription": "KOL content for medical device companies: key opinion leader interviews, peer-to-peer education and physician testimonials, filmed by a team that knows cardiology.",
+  "hidden": false,
+  "metaTitle": "KOL Content, KOL Video & Key Opinion Leader Marketing | Made Clear",
+  "metaDescription": "KOL content and KOL video for medical device companies: key opinion leader marketing, peer-to-peer education and physician testimonial videos.",
   "process": [
     {
       "title": "Choose the voices",

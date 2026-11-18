@@ -18,9 +18,9 @@
   "outcomesThirdDescription": "Launches, approvals and new trial results announced live, then kept working as on-demand education.",
   "extraDescription": "",
   "hasPage": true,
-  "hidden": true,
-  "metaTitle": "Live medical webinars and broadcasts for cardiology | Made Clear",
-  "metaDescription": "Live medical webinars and broadcasts for medical device companies: peer-to-peer masterclasses, studio webinar series and live congress coverage with leading KOLs.",
+  "hidden": false,
+  "metaTitle": "Live Medical Webinars, Broadcasts & Symposia | Made Clear",
+  "metaDescription": "Live medical webinars, broadcasts and satellite symposium content: peer-to-peer medical education video and live congress coverage with leading KOLs.",
   "process": [
     {
       "title": "Shape the programme",
