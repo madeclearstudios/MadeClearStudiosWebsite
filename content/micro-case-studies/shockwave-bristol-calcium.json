@@ -14,5 +14,11 @@
     "vr-experiences",
     "vr-and-immersive-experiences"
   ],
-  "body": "<p></p>"
+  "body": "<p></p>",
+  "videos": [
+    {
+      "title": "Shockwave Medical - South West Calcium 2025",
+      "link": "https://youtube.com/shorts/1EkNGs8wXqQ?feature=share"
+    }
+  ]
 }
