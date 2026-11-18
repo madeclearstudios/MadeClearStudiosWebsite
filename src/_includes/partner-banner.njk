@@ -1,7 +1,7 @@
 {#- Site-wide "your content partner" banner, just above the footer on every page (included from footer.njk).
     Left: eyebrow, headline, intro, what we do, and the booking button. Right: four stat cards.
     Every claim is checkable on the site: the KOL and client counts come from the CMS (KOL Hub, Clients),
-    the congresses from our micro case studies and insights, the 4m reach from the HTN:RDN case study.
+    the congresses from our micro case studies and insights.
     The button goes to Contact until the booking page is live; change bookingUrl below when it is.
     Styles: "Partner banner" in css/site.css. -#}
 {%- set bookingUrl = "/contact" %}
@@ -30,7 +30,7 @@
       <ul role="list" class="partner-banner_stats">
         <li class="partner-banner_stat"><span class="partner-banner_value">{{ kolCount }}+</span><p><strong>KOLs filmed and worked with</strong>, from interventional cardiology to structural heart</p></li>
         <li class="partner-banner_stat"><span class="partner-banner_value">6</span><p><strong>Global congresses covered</strong>: TCT, EuroPCR, ESC, ACC, SCAI and CIRSE</p></li>
-        <li class="partner-banner_stat"><span class="partner-banner_value">4m</span><p><strong>Healthcare professionals reached</strong> by a single campaign, <a href="/case-study/htn-rdn">HTN:RDN for Medtronic</a></p></li>
+        <li class="partner-banner_stat"><span class="partner-banner_value is-word">Cardiology</span><p><strong>Deep roots in cardiology</strong>, now trusted by some of the biggest names in healthcare and medtech marketing</p></li>
         <li class="partner-banner_stat"><span class="partner-banner_value">{{ clientCount }}+</span><p><strong>Clients trust Made Clear</strong>, including Abbott, Philips, Medtronic and Johnson &amp; Johnson</p></li>
       </ul>
     </div>
