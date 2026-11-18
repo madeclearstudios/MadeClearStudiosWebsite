@@ -3,6 +3,7 @@
   "slug": "hca-sact-patient-education",
   "hidden": true,
   "draft": true,
+  "archived": false,
   "order": 99,
   "client": "hca-healthcare-uk",
   "clientLabel": "HCA Healthcare UK",
@@ -10,19 +11,28 @@
   "services": [
     "medical-film-and-documentary",
     "content-and-channel-strategy",
-    "animation"
+    "animation",
+    "film-and-video-content",
+    "messaging-frameworks",
+    "design-and-visual-systems"
   ],
   "summary": "A patient-education film for people about to start systemic anti-cancer therapy, with 13 short standalone chapters, researched with patients and made with HCA UK's clinical team.",
-  "body": "<p>HCA Healthcare UK wanted to prepare patients for systemic anti-cancer therapy (SACT) before their first treatment. We started by asking the people who know best: in informal calls, patients told us what information had mattered most to them, and which kinds of educational content had helped them over the course of their treatment.</p><p>We worked closely with the clinical team on the script and shot list, chose the contributors and recced the location. A small crew of producer, camera operator and sound recordist filmed on site with minimal, lightweight kit, so we could work around a busy cancer centre without getting in the way.</p><p>The result is one full-length film of around 20 to 25 minutes and 13 short standalone chapters of around two minutes each, so patients can watch the whole story or go straight to the question on their mind. New illustrations with motion and animation support the explanations, HCA-branded graphics and thumbnails make each chapter clear on YouTube, and every film was mixed by a sound engineer.</p>",
+  "body": "<p>HCA Healthcare UK wanted to prepare patients for systemic anti-cancer therapy (SACT) before their first treatment.</p><p>We worked closely with the clinical team on the script and creative approach.  A small crew of producer, camera operator and sound recordist filmed on site with minimal, lightweight kit, so we could work around a busy cancer centre without getting in the way.</p><p>The result is one full-length film of around 20 to 25 minutes and 13 short standalone chapters of around two minutes each, so patients can watch the whole story or go straight to the question on their mind. New illustrations with motion and animation support the explanations, HCA-branded graphics and thumbnails make each chapter clear on YouTube, and every film was mixed and graded.</p>",
   "captured": [
-    "Patient research calls",
     "Script and shot list with the clinical team",
     "One full-length patient-education film",
     "13 standalone chapter films",
     "Illustration with motion and animation",
-    "Branded graphics and YouTube thumbnails"
+    "Strict HCA UK brand adherence"
   ],
-  "coverPhoto": "",
-  "gallery": [],
-  "videos": []
+  "coverPhoto": "/images/uploads/SACT Image 2 HCA UK.webp",
+  "gallery": [
+    "/images/uploads/SACT Image 1 HCA UK.webp"
+  ],
+  "videos": [
+    {
+      "title": "Example Film - HCA UK What to do if you feel unwell",
+      "link": "https://youtu.be/lLwiJxD8bxk"
+    }
+  ]
 }
