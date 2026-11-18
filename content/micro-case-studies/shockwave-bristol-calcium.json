@@ -1,5 +1,5 @@
 {
-  "title": "Shockwave Medical - Southwest Calcium",
+  "title": "Shockwave Medical VR training at South West Calcium 2025",
   "slug": "shockwave-south-west-calcium",
   "hidden": false,
   "draft": false,
@@ -14,10 +14,24 @@
     "vr-experiences",
     "vr-and-immersive-experiences"
   ],
-  "body": "<p></p>",
+  "summary": "We took Shockwave Medical's coronary calcium VR experience on the road to a regional medical education meeting in Bristol: delivering, setting up and running the headsets, training the local team, and filming the session with the physicians.",
+  "body": "<p>For South West Calcium, a regional medical education meeting in Bristol in June 2025, Shockwave Medical, part of Johnson &amp; Johnson, wanted to bring its immersive VR content to interventional cardiologists in the UK. The experience was <a href=\"/case-study/the-curious-case-of-coronary-calcium\">The Curious Case of Coronary Calcium</a>, which we made to help clinicians see calcified coronary artery disease and how intravascular lithotripsy (IVL) treats it. It had already run at congresses such as EuroPCR. This was its first outing at a smaller regional meeting, on a short turnaround.</p><p>We drove the full set of headsets and cases to Bristol the day before. On the morning we unpacked, tested every headset, and matched each one to its seat, so the physicians could start at once. Before the meeting began we trained Shockwave's local team member to run the kit: setup, launching the experience, and fixing the common problems that come up when a room full of clinicians puts on VR headsets for the first time.</p><p>During the session our team stayed in the room, supporting physicians one to one and helping the local team run it. Afterwards we cleaned and packed every headset and handed the whole kit over, so Shockwave's UK team could run the experience at future meetings themselves, with our support if they needed it.</p><p>Our videographer filmed the session, with the physicians' agreement, for a short case study film. It gives Shockwave a record of how clinicians and KOLs respond to VR medical education, to support wider use of the technology across its medtech education programme.</p>",
+  "captured": [
+    "VR headset logistics, setup and testing",
+    "On-site training for the client's team",
+    "One-to-one support for physicians",
+    "Full kit handover for future meetings",
+    "Short case study film of the session"
+  ],
+  "coverPhoto": "/images/uploads/shockwave-south-west-calcium-vr-session.webp",
+  "gallery": [
+    "/images/uploads/shockwave-south-west-calcium-vr-session.webp",
+    "/images/uploads/shockwave-south-west-calcium-vr-support.webp",
+    "/images/uploads/shockwave-south-west-calcium-ivl-headsets.webp"
+  ],
   "videos": [
     {
-      "title": "Shockwave Medical - South West Calcium 2025",
+      "title": "Shockwave Medical VR training at South West Calcium 2025",
       "link": "https://youtube.com/shorts/1EkNGs8wXqQ?feature=share"
     }
   ]
