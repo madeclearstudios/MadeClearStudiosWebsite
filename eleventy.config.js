@@ -70,6 +70,16 @@ export default function (eleventyConfig) {
   // Items with "draft": true or "archived": true are left off the site, like in Webflow.
   const published = (items = []) => items.filter((i) => !i.draft && !i.archived);
   eleventyConfig.addFilter("published", published);
+  // Rich text from Webflow and Pages CMS: drop empty paragraphs (including ones holding only Webflow's invisible
+  // zero-width joiner, a space or <br>), line breaks at the start or end of a paragraph, and turn runs of <br> into
+  // a paragraph break, so copy keeps the normal paragraph spacing instead of double or triple gaps.
+  eleventyConfig.addFilter("tidyHtml", (html = "") => String(html || "")
+    .replace(/\u200d/g, "")
+    .replace(/<p>(?:\s|&nbsp;|<br\s*\/?>)+/g, "<p>")
+    .replace(/(?:\s|&nbsp;|<br\s*\/?>)+<\/p>/g, "</p>")
+    .replace(/(?:<br\s*\/?>\s*){2,}/g, "</p><p>")
+    .replace(/<p>\s*<\/p>/g, ""));
+
   eleventyConfig.addFilter("where", (items = [], key, value) => items.filter((i) => i[key] === value));
   eleventyConfig.addFilter("whereIn", (items = [], key, values = []) => items.filter((i) => values.includes(i[key])));
   eleventyConfig.addFilter("whereIncludes", (items = [], key, value) => items.filter((i) => (i[key] || []).includes(value)));
