@@ -1100,6 +1100,8 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
 /* about two and a half cards in view, so the cut-off one invites a drag */
 .work-rail_item { flex: 0 0 clamp(16rem, 30vw, 28rem); flex-basis: clamp(16rem, calc((100cqw - 2.5rem) / 2.6), 28rem); scroll-snap-align: start; display: flex; }
 .work-rail_item .work-tile { width: 100%; }
+/* Space after the last card (added by the script when the row spans more than one year) so it can reach the left edge */
+.work-rail_end { flex: 0 0 0; }
 @media screen and (max-width: 767px) {
   .work-rail { flex-direction: column; gap: 0.75rem; }
   .work-rail_year { flex: none; flex-direction: row; align-items: baseline; gap: 0.75rem; }

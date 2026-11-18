@@ -1,6 +1,8 @@
 /* Work rails (_includes/work-rail.njk): one continuous row of project cards that runs off the right edge.
    - Touch: native swipe. Mouse: click and drag the row; a drag doesn't open the card you started on.
-   - The year on the left follows the cards in view: it shows the year of the first card at the left of the row. */
+   - The year on the left follows the cards in view: it shows the year of the first card at the left of the row.
+   - When the row spans more than one year, extra space after the last card lets it be dragged all the way to the
+     left, so the oldest year can come up even when it's at the end of the row. */
 (function () {
   document.querySelectorAll("[data-work-rail]").forEach(function (rail) {
     var track = rail.querySelector("[data-work-rail-track]");
@@ -34,10 +36,31 @@
       requestAnimationFrame(function () { ticking = false; updateYear(); });
     }, { passive: true });
 
+    // End space: with more than one year in the row, pad the end so the last card can reach the left edge
+    var years = {};
+    items.forEach(function (it) { years[it.getAttribute("data-year") || ""] = 1; });
+    var multiYear = Object.keys(years).length > 1;
+    var spacer = null;
+    if (multiYear && items.length) {
+      spacer = document.createElement("div");
+      spacer.className = "work-rail_end";
+      spacer.setAttribute("aria-hidden", "true");
+      track.appendChild(spacer);
+    }
+    function updateEndSpace() {
+      if (!spacer) return;
+      var cs = getComputedStyle(track);
+      var gap = parseFloat(cs.columnGap) || 0;
+      var pad = parseFloat(cs.paddingRight) || 0;
+      var last = items[items.length - 1].getBoundingClientRect().width;
+      spacer.style.flexBasis = Math.max(0, track.clientWidth - last - gap - pad) + "px";
+    }
+
     // Overflow state (shows the drag cue only when there is more to see)
     function updateOverflow() { rail.classList.toggle("has-more", track.scrollWidth > track.clientWidth + 4); }
+    updateEndSpace();
     updateOverflow();
-    window.addEventListener("resize", function () { updateOverflow(); updateYear(); });
+    window.addEventListener("resize", function () { updateEndSpace(); updateOverflow(); updateYear(); });
 
     // Mouse drag to scroll
     var down = false, startX = 0, startScroll = 0, moved = false;
