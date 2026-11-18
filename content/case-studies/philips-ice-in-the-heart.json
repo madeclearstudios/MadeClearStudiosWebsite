@@ -12,9 +12,11 @@
   "caseStudyCategory": "",
   "services": [
     "animation",
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "live-webinars",
-    "kol-content"
+    "kol-content",
+    "live-cases",
+    "campaign-strategy"
   ],
   "client": "philips",
   "featuredOnKolPage": true,

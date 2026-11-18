@@ -148,6 +148,20 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("newestFirst", (items = []) =>
     [...items].sort((a, b) => (b.year || 0) - (a.year || 0) || (MONTHS.indexOf(b.month) + 1) - (MONTHS.indexOf(a.month) + 1))
   );
+  // Work rails: micro case studies and full case studies in one row, newest first by year and month. Each entry is
+  // { kind: "micro" | "case", item }. Undated items go last; undated case studies after undated micro case studies.
+  eleventyConfig.addFilter("workRailMix", (micros = [], cases = []) => {
+    const monthNo = (m) => MONTHS.indexOf(m) + 1; // 0 when not set
+    const all = [
+      ...micros.map((item, i) => ({ kind: "micro", item, i })),
+      ...cases.map((item, i) => ({ kind: "case", item, i: 1000 + i })),
+    ];
+    return all.sort((a, b) =>
+      (b.item.year || 0) - (a.item.year || 0) ||
+      monthNo(b.item.month) - monthNo(a.item.month) ||
+      a.i - b.i
+    );
+  });
   eleventyConfig.addFilter("workTimeline", (items = []) => {
     const monthNo = (m) => MONTHS.indexOf(m) + 1; // 0 when not set
     const sorted = published(items)

@@ -11,9 +11,10 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
-    "kol-content"
+    "kol-content",
+    "distribution-strategy-and-channel-planning"
   ],
   "client": "egg-medical",
   "featuredOnKolPage": true,

@@ -11,11 +11,14 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
     "distribution-strategy-and-channel-planning",
     "kol-content",
-    "campaign-strategy"
+    "campaign-strategy",
+    "on-site-congress-and-event-production",
+    "live-webinars",
+    "content-and-channel-strategy"
   ],
   "client": "medtronic",
   "featuredOnKolPage": true,

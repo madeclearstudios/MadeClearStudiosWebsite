@@ -11,9 +11,10 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
-    "web-and-interactive-content"
+    "web-and-interactive-content",
+    "campaign-creative-and-concepts"
   ],
   "client": "orsif",
   "featuredOnKolPage": true,

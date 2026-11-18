@@ -11,10 +11,11 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
     "live-webinars",
-    "kol-content"
+    "kol-content",
+    "campaign-creative-and-concepts"
   ],
   "client": "ivascular",
   "featuredOnKolPage": true,

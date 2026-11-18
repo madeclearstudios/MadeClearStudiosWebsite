@@ -13,9 +13,9 @@
   "services": [
     "campaign-strategy",
     "platform-distribution-and-performance",
-    "audience-insight-and-segmentation",
+    "content-and-channel-strategy",
     "campaign-creative-and-concepts",
-    "film-and-video-content"
+    "medical-film-and-documentary"
   ],
   "client": "radcare-medical-services",
   "featuredOnKolPage": true,
