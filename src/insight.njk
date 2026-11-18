@@ -98,38 +98,29 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </style>
     </div>
     {% include "nav.njk" %}
-    <section class="section">
-      <div class="section-padding-negative relative radius-0-25 overflow-hidden">{% if insight.coverPhoto %}<img src="{{ insight.coverPhoto }}" loading="eager" alt="{{ insight.title }}" class="width-100-pct _16x9 radius-0-25">{% endif %}
-        <div class="overlay-wrapper _16x9"></div>
-      </div>
-    </section>
     <main class="main">
-      <article class="section padding-5">
+      <article class="section padding-5 insight-header-section">
         <div class="container-small">
-          <div class="height-2 t_none"></div>
-          <div class="relative">
-            <div class="height-1-5 none t_block"></div>
-            <div class="flex justify-space-between align-end t_vertical t_align-start">
-              <div class="flex vertical gap-1">
-                {#- Breadcrumb back to Insights, in the case study style (underlined link, current page after the slash) -#}
-                <nav aria-label="Breadcrumb" class="service-breadcrumb case-breadcrumb insight-breadcrumb"><a href="/insights">Insights</a><span><span aria-hidden="true" class="case-breadcrumb_sep">/</span><span aria-current="page">{{ insight.title }}</span></span></nav>
-                {%- if insight.publishedOn or insight.author %}
-                <p class="text-size-xsmall font-600 text-color-grey-4">{% if insight.publishedOn %}<time datetime="{{ insight.publishedOn }}">{{ insight.publishedOn | readableDate }}</time>{% endif %}{% if insight.publishedOn and insight.author %} · {% endif %}{{ insight.author }}</p>
-                {%- endif %}
-                <div class="max-w-450">
-                  <div class="relative">
-                    <div class="c_our-experts-p-wrapper">
-                      <h1 class="relative{{ ' w-dyn-bind-empty' if not insight.title }}">{{ insight.title }}</h1><img loading="lazy" src="/images/Vector-7.svg" alt="" class="vector-bg full-height">
-                    </div>
-                  </div>
-                </div>
-                <div class="max-w-440">
-                  <p class="{{ ' w-dyn-bind-empty' if not insight.overview }}">{{ insight.overview }}</p>
+          {#- Header: the breadcrumb, then the date, title and overview on the left with the cover photo beside them
+              in the right half (stacked, photo last, on tablets and phones). Styles: "Insight header" in site.css. -#}
+          <nav aria-label="Breadcrumb" class="service-breadcrumb case-breadcrumb insight-breadcrumb"><a href="/insights">Insights</a><span><span aria-hidden="true" class="case-breadcrumb_sep">/</span><span aria-current="page">{{ insight.title }}</span></span></nav>
+          <div class="insight-header">
+            <div class="flex vertical gap-1 insight-header_text">
+              {%- if insight.publishedOn or insight.author %}
+              <p class="text-size-xsmall font-600 text-color-grey-4">{% if insight.publishedOn %}<time datetime="{{ insight.publishedOn }}">{{ insight.publishedOn | readableDate }}</time>{% endif %}{% if insight.publishedOn and insight.author %} · {% endif %}{{ insight.author }}</p>
+              {%- endif %}
+              <div class="relative">
+                <div class="c_our-experts-p-wrapper">
+                  <h1 class="relative{{ ' w-dyn-bind-empty' if not insight.title }}">{{ insight.title }}</h1><img loading="lazy" src="/images/Vector-7.svg" alt="" class="vector-bg full-height">
                 </div>
               </div>
+              <p class="{{ ' w-dyn-bind-empty' if not insight.overview }}">{{ insight.overview }}</p>
             </div>
-            <div class="height-5 t_height-2"></div>
-            <div class="height-2"></div>
+            {%- if insight.coverPhoto %}
+            <div class="relative radius-0-25 overflow-hidden insight-header_photo"><img src="{{ insight.coverPhoto }}" loading="eager" fetchpriority="high" alt="{{ insight.title }}" class="width-100-pct _16x9 fit-cover radius-0-25">
+              <div class="overlay-wrapper _16x9"></div>
+            </div>
+            {%- endif %}
           </div>
         </div>
       </article>
