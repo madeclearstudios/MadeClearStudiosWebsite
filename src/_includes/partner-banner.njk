@@ -1,0 +1,38 @@
+{#- Site-wide "your content partner" banner, just above the footer on every page (included from footer.njk).
+    Left: eyebrow, headline, intro, what we do, and the booking button. Right: four stat cards.
+    Every claim is checkable on the site: the KOL and client counts come from the CMS (KOL Hub, Clients),
+    the congresses from our micro case studies and insights, the 4m reach from the HTN:RDN case study.
+    The button goes to Contact until the booking page is live; change bookingUrl below when it is.
+    Styles: "Partner banner" in css/site.css. -#}
+{%- set bookingUrl = "/contact" %}
+{%- set kolCount = ((experts | published | length) / 10) | round(0, "floor") * 10 %}
+{%- set clientCount = ((clients | published | length) / 5) | round(0, "floor") * 5 %}
+<section class="partner-banner" aria-labelledby="partner-banner-title">
+  <div class="container">
+    <div class="partner-banner_grid">
+      <div class="partner-banner_copy">
+        <p class="partner-banner_eyebrow">Your content partner</p>
+        <h2 id="partner-banner-title" class="partner-banner_title">Work with a studio dedicated to <span class="partner-banner_accent">medtech</span></h2>
+        <p class="partner-banner_intro">We're not a generalist production company learning your field. Made Clear is an award-winning content agency built around medtech and interventional medicine, with strategy, creative, production and distribution under one roof, for the clinicians, buyers and patients you need to reach.</p>
+        <ul role="list" class="partner-banner_list">
+          <li><a href="/services/medical-film-and-documentary">Film and documentary production</a>, from patient stories to KOL interviews</li>
+          <li><a href="/services/vr-experiences">VR specialists</a>: immersive medical education for booths and sales teams</li>
+          <li><a href="/services/on-site-congress-and-event-production">Congress production</a> at TCT, EuroPCR, ESC, ACC, SCAI and CIRSE</li>
+          <li><a href="/services/live-cases">Live cases</a> filmed and broadcast from the cath lab</li>
+          <li><a href="/services/campaign-strategy">Campaign</a> and <a href="/services#strategy">brand strategy</a>, from launch to adoption</li>
+          <li><a href="/services/platform-distribution-and-performance">Social media</a> and distribution that reaches clinicians</li>
+        </ul>
+        <div class="partner-banner_actions">
+          <a href="{{ bookingUrl }}" class="button primary w-inline-block"><div>Book a call</div><div class="hover-button-blur"></div></a>
+          <a href="mailto:hello@madeclearstudios.com" class="partner-banner_email">or email hello@madeclearstudios.com</a>
+        </div>
+      </div>
+      <ul role="list" class="partner-banner_stats">
+        <li class="partner-banner_stat"><span class="partner-banner_value">{{ kolCount }}+</span><p><strong>KOLs filmed and worked with</strong>, from interventional cardiology to structural heart</p></li>
+        <li class="partner-banner_stat"><span class="partner-banner_value">6</span><p><strong>Global congresses covered</strong>: TCT, EuroPCR, ESC, ACC, SCAI and CIRSE</p></li>
+        <li class="partner-banner_stat"><span class="partner-banner_value">4m</span><p><strong>Healthcare professionals reached</strong> by a single campaign, <a href="/case-study/htn-rdn">HTN:RDN for Medtronic</a></p></li>
+        <li class="partner-banner_stat"><span class="partner-banner_value">{{ clientCount }}+</span><p><strong>Clients trust Made Clear</strong>, including Abbott, Philips, Medtronic and Johnson &amp; Johnson</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
