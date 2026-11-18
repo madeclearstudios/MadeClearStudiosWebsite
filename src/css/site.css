@@ -733,6 +733,7 @@ html.night-mode .cookie-banner_button.is-accept { border-color: var(--main--mark
 .case-breadcrumb { flex-wrap: wrap; }
 .case-breadcrumb a { text-decoration: underline; text-underline-offset: 0.2em; }
 .case-breadcrumb_sep { margin-right: 0.5rem; } /* kept with the project name, so a wrap moves both */
+.insight-breadcrumb { justify-content: flex-start; text-align: left; margin-bottom: 1rem; } /* insight pages, under the hero photo */
 .case-hero_client,
 .case-hero_project { display: block; }
 .case-hero_client { margin-bottom: 0.4em; }
