@@ -11,14 +11,12 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "narrative-development",
+    "campaign-strategy",
     "content-and-channel-strategy",
-    "film-and-video-content",
-    "design-and-visual-systems",
     "medical-film-and-documentary",
+    "brand-strategy",
     "animation",
-    "3d-model-development",
-    "ai-assisted-production-projects"
+    "web-and-interactive-content"
   ],
   "client": "shockwave-medical",
   "featuredOnKolPage": false,

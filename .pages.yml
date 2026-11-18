@@ -90,6 +90,12 @@ content:
           - { name: archived, label: Archived, type: boolean, default: false }
           - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
           - { name: overview, label: Overview, description: "The intro under the title, also used on cards and in search results.", type: text }
+          - { name: year, label: Year, description: "When the project was made. Shown on the left of Featured work on the Case Studies page, and on its card in Recent work on service pages.", type: number }
+          - name: month
+            label: Month
+            description: "With the year, sets where the case study sits among the projects in Recent work on service pages (newest first)."
+            type: select
+            options: { values: [January, February, March, April, May, June, July, August, September, October, November, December] }
           - { name: coverPhoto, label: Cover photo, type: image }
           - name: client
             label: Client

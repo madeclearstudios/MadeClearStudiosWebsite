@@ -7,13 +7,16 @@
   "publishedOn": "2026-09-24",
   "order": 5,
   "overview": "Revealing the impact of scatter radiation affecting the cath lab team.",
+  "year": 2023,
+  "month": "January",
   "coverPhoto": "/images/uploads/webflow/69fc7a779a250bbb5e03e524_0S7A9708.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
-    "kol-content"
+    "kol-content",
+    "distribution-strategy-and-channel-planning"
   ],
   "client": "egg-medical",
   "featuredOnKolPage": true,

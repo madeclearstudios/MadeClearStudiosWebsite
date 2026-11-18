@@ -12,10 +12,9 @@
   "caseStudyCategory": "",
   "services": [
     "campaign-creative-and-concepts",
-    "film-and-video-content",
-    "design-and-visual-systems",
-    "animation",
-    "medical-film-and-documentary"
+    "medical-film-and-documentary",
+    "brand-strategy",
+    "animation"
   ],
   "client": "hca-healthcare-uk",
   "featuredOnKolPage": false,

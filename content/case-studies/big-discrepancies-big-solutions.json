@@ -7,14 +7,17 @@
   "publishedOn": "2026-05-15",
   "order": 6,
   "overview": "Demonstrating the efficacy of the Angiolite DES expanding stent. The story of the “Angiolite” stent.",
+  "year": 2024,
+  "month": "August",
   "coverPhoto": "/images/uploads/webflow/6a05c15950957b3d567f7c2b_DSC00772.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
     "live-webinars",
-    "kol-content"
+    "kol-content",
+    "campaign-creative-and-concepts"
   ],
   "client": "ivascular",
   "featuredOnKolPage": true,

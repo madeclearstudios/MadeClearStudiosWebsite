@@ -11,10 +11,8 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
-    "design-and-visual-systems",
-    "vr-and-immersive-experiences",
     "medical-film-and-documentary",
+    "brand-strategy",
     "vr-experiences"
   ],
   "client": "boston-scientific",

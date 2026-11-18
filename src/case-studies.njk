@@ -105,26 +105,42 @@ permalink: case-studies.html
           <div class="height-2 m_height-1-5"></div>
           <div class="w-dyn-list">
             <div fs-list-showquery="true" fs-list-element="list" role="list" class="w-dyn-items">
+              {#- Each row: the year, client logo, title and category on the left; the cover photo; the overview and the
+                  service lines on the right. The title link covers the whole row (.featured-row_link), and the
+                  service links sit above it, linking to each service page (or its section of /services until
+                  the page is published). Styles: "Featured work rows" in css/site.css. -#}
               {%- for cs in caseStudies | published | sortByOrder %}
               {%- set cat = caseStudyCategories | findBy("slug", cs.caseStudyCategory) %}
+              {%- set csClient = clients | findBy("slug", cs.client) %}
               <div role="listitem" class="sticky top-4-25 bg-light flex justify-center w-dyn-item">
-                <a href="/case-study/{{ cs.slug }}" class="list-full-width-link bg-light w-inline-block">
+                <div class="list-full-width-link bg-light featured-row">
                   <div class="width-100-pct grid _12-col gap-4 padding-vertical padding-3 relative t_gap-2 m_flex m_vertical m_padding-2 m_gap-1-25">
-                    <div class="_3-col">
-                      <h3 class="h4">{{ cs.title }}</h3>
+                    <div class="_3-col flex vertical gap-1 align-start featured-row_intro">
+                      {%- if cs.year %}<p class="text-size-xsmall font-600 text-color-grey-4 featured-row_year">{{ cs.year }}</p>{% endif %}
+                      {%- if csClient and csClient.logo %}<img src="{{ csClient.logo }}" loading="lazy" alt="{{ csClient.name }}" class="featured-row_logo">{% endif %}
+                      <h3 class="h4"><a href="/case-study/{{ cs.slug }}" class="featured-row_link">{{ cs.title }}</a></h3>
                       <p fs-list-field="category" class="filter-hide{{ ' w-dyn-bind-empty' if not cat }}">{{ cat.name if cat }}</p>
                     </div>
                     <div class="_4-col m_order-last relative radius-0-25 overflow-hidden">{% if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="{{ cs.title }}" class="width-100-pct _16x9 radius-0-25">{% endif %}
                       <div class="overlay-wrapper"></div>
                     </div>
-                    <div class="_5-col">
+                    <div class="_5-col flex vertical gap-1-5">
                       <p class="text-color-grey-4">{{ cs.overview }}</p>
+                      {%- set csServices = cs.services | toMainServices(services) %}
+                      {%- if csServices.length %}
+                      <ul role="list" class="featured-row_services">
+                        {%- for service in csServices %}
+                        {%- set sCat = serviceCategories | findBy("slug", service.serviceCategory) %}
+                        <li><a href="{{ ('/services/' + service.slug) if (service.hasPage and not service.hidden) else ('/services#' + (sCat.slug if sCat else '')) }}" class="featured-row_service">{{ service.name }}</a></li>
+                        {%- endfor %}
+                      </ul>
+                      {%- endif %}
                     </div>
                     <div class="section-padding-negative absolute width-100-vw top-0">
                       <div class="divider absolute top-0 left-0"></div>
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
               {%- endfor %}
             </div>

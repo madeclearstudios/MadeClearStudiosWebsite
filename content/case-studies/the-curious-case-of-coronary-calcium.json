@@ -7,14 +7,17 @@
   "publishedOn": "2026-09-24",
   "order": 1,
   "overview": "Helping clinicians visualise the invisible; advancing the treatment of calcified coronary artery disease through immersive VR education.",
+  "year": 2025,
+  "month": "March",
   "coverPhoto": "/images/uploads/webflow/6a05c34bf8a7539b8d67651d_5P1A1641.jpg",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "vr-and-immersive-experiences",
     "vr-experiences",
-    "film-and-video-content",
-    "kol-content"
+    "medical-film-and-documentary",
+    "kol-content",
+    "animation",
+    "campaign-creative-and-concepts"
   ],
   "client": "shockwave-medical",
   "featuredOnKolPage": true,

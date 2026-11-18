@@ -7,14 +7,17 @@
   "publishedOn": "2026-09-24",
   "order": 4,
   "overview": "Producing a 10 part TV-series style masterclass to teach physicians how to modify calcium in coronary arteries.",
+  "year": 2023,
+  "month": "January",
   "coverPhoto": "/images/uploads/webflow/69f98dc28505df2aafefc100_MDC005_Case-Study5_Shockwave02_landscape.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
     "live-webinars",
-    "kol-content"
+    "kol-content",
+    "platform-distribution-and-performance"
   ],
   "client": "shockwave-medical",
   "featuredOnKolPage": false,

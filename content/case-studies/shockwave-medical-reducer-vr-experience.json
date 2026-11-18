@@ -11,15 +11,12 @@
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "narrative-development",
-    "vr-and-immersive-experiences",
-    "campaign-creative-and-concepts",
-    "film-and-video-content",
-    "design-and-visual-systems",
-    "medical-film-and-documentary",
+    "campaign-strategy",
     "vr-experiences",
-    "animation",
-    "3d-model-development"
+    "campaign-creative-and-concepts",
+    "medical-film-and-documentary",
+    "brand-strategy",
+    "animation"
   ],
   "client": "shockwave-medical",
   "featuredOnKolPage": false,

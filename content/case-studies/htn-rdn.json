@@ -7,15 +7,20 @@
   "publishedOn": "2026-09-24",
   "order": 3,
   "overview": "Helping explain the benefits of Renal Denervation as an adjunctive therapy for treating Hypertension.",
+  "year": 2024,
+  "month": "November",
   "coverPhoto": "/images/uploads/webflow/69f98d34886eface3091f35e_HTN-RDN-Medtronic-Made-Clear-Studios.avif",
   "overlay": "",
   "caseStudyCategory": "",
   "services": [
-    "film-and-video-content",
+    "medical-film-and-documentary",
     "animation",
     "distribution-strategy-and-channel-planning",
     "kol-content",
-    "campaign-strategy"
+    "campaign-strategy",
+    "on-site-congress-and-event-production",
+    "live-webinars",
+    "content-and-channel-strategy"
   ],
   "client": "medtronic",
   "featuredOnKolPage": true,
