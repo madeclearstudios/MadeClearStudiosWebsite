@@ -949,6 +949,9 @@ html.night-mode .work-tile:hover .work-tile_link { text-decoration: underline; }
   .case-pager.is-floating .case-pager_link.is-next { right: 1rem; }
 }
 
+/* Lists in article text match the body text */
+.text-rich-text li { font-size: var(--_typography---text--small); letter-spacing: .0875rem; line-height: 1.6; }
+
 /* Type scale: one style per role, used across the site (sizes are the Webflow tokens, so they shrink on phones as before).
    1 Page title (h1)       20px bold, capitals      the H1 of every page (About, Services, a service, a case study, a project)
    2 Section heading (h2)  18px bold, capitals      "How it works", "Recent work", "What you leave the congress with", "FAQ"
