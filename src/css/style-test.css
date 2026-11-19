@@ -1,0 +1,133 @@
+/* STYLE TEST ONLY: loaded by src/style-test/service.njk (/style-test/service), nowhere else.
+   A bold look: heavy sentence-case headings over serif body text, 2px black outlines with hard offset black
+   shadows, solid yellow highlight blocks, small yellow label chips, yellow tick boxes, black number badges,
+   a faint grid behind the intro and FAQ cards with yellow +/- boxes. Everything is scoped to .style-test. */
+
+.style-test {
+  --st-ink: #000;
+  --st-yellow: #ff0;
+  --st-paper: #fff;
+  --st-grey: #f1f1f1;
+  --st-line: 2px solid var(--st-ink);
+  --st-shadow: 8px 8px 0 var(--st-ink);
+  --st-shadow-sm: 5px 5px 0 var(--st-ink);
+  --st-head: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --st-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  background: var(--st-paper);
+}
+
+.style-test-banner {
+  background: var(--st-ink); color: var(--st-yellow); text-align: center;
+  font: 700 12px/1 var(--st-head); letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1rem;
+}
+
+/* Type: heavy sans headings in sentence case, serif body */
+.style-test main h1, .style-test main h2, .style-test main h3, .style-test main .h2 {
+  font-family: var(--st-head); text-transform: none; letter-spacing: -0.02em; color: var(--st-ink);
+}
+.style-test main h1, .style-test main .service-intro_title { font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 900; line-height: 1.02; }
+.style-test main h2 { font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 800; line-height: 1.08; }
+.style-test main h3 { font-size: 1.1rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+.style-test main p, .style-test main li, .style-test main .text-rich-text { font-family: var(--st-body); font-size: 1rem; line-height: 1.6; letter-spacing: 0; }
+
+/* Yellow highlight: a solid block behind the words instead of the brush stroke */
+.style-test .services-highlight, .style-test .service-name-highlight {
+  background: var(--st-yellow) !important; background-image: none !important;
+  padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* Label chip above the title, as the design's "FEATURES" tags */
+.style-test .service-intro_title::before {
+  content: "Congress production"; display: table; margin-bottom: 1.25rem;
+  background: var(--st-yellow); color: var(--st-ink); font: 800 11px/1 var(--st-head);
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 0.55rem;
+}
+.style-test .service-breadcrumb { font-family: var(--st-head); font-weight: 600; }
+
+/* Intro sits on a faint grid, like the design's hero */
+.style-test .service-intro {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border-bottom: var(--st-line);
+}
+.style-test .service-intro_aside > .service-intro_sticky > div:first-child > p { font-style: italic; font-size: 1.1rem; }
+
+/* Outcomes: outlined cards with a hard shadow and a yellow tick box */
+.style-test .service-outcomes .service-list { display: flex; flex-direction: column; gap: 1rem; padding: 0; }
+.style-test .service-outcome {
+  background: var(--st-paper); border: var(--st-line); box-shadow: var(--st-shadow-sm);
+  padding: 1rem 1.1rem 1rem 3rem !important; position: relative;
+}
+.style-test .service-outcome .divider { display: none; }
+.style-test .service-outcome::before {
+  content: ""; position: absolute; left: 1rem; top: 1.15rem; width: 1.1rem; height: 1.1rem;
+  border: var(--st-line); background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+
+/* Gallery photos: framed */
+.style-test .service-gallery .media-grid-item { border: var(--st-line); box-shadow: var(--st-shadow-sm); border-radius: 0 !important; overflow: hidden; }
+.style-test .service-gallery img { border-radius: 0 !important; }
+
+/* How it works: outlined boxes with a hard shadow and a black number badge */
+.style-test .service-steps li {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.style-test .service-steps li:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--st-ink); background: var(--st-yellow); }
+.style-test .service-step-num {
+  display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; margin-bottom: 1rem;
+  background: var(--st-ink); color: var(--st-yellow) !important; font: 900 1.5rem/1 var(--st-head) !important; letter-spacing: 0 !important;
+}
+.style-test .service-steps li:hover .service-step-num { color: var(--st-yellow) !important; }
+
+/* Recent work cards */
+.style-test .work-tile {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.style-test .work-tile:hover { transform: translate(-3px, -3px); box-shadow: var(--st-shadow); }
+.style-test .work-tile img, .style-test .work-tile .media-placeholder { border-radius: 0 !important; border: var(--st-line); }
+.style-test .work-rail_year-value { font: 900 2rem/1 var(--st-head); }
+
+/* FAQ: grey band, outlined cards, yellow +/- box */
+.style-test .bg-brand { background: var(--st-grey) !important; border-top: var(--st-line); border-bottom: var(--st-line); }
+.style-test .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
+.style-test .faq-item {
+  background: var(--st-paper) !important; border: var(--st-line) !important; border-radius: 0 !important;
+  box-shadow: var(--st-shadow-sm); position: relative; text-align: left;
+}
+.style-test .faq-title h3 { font-size: 1rem; padding-right: 2.5rem; }
+.style-test .faq-title h3::before { content: none !important; }
+.style-test .faq-item::after {
+  content: "+"; position: absolute; right: 1rem; top: 1rem; width: 1.3rem; height: 1.3rem;
+  display: grid; place-items: center; border: var(--st-line); background: var(--st-yellow);
+  font: 900 1rem/1 var(--st-head); color: var(--st-ink);
+}
+.style-test .faq-item.is-open::after, .style-test .faq-item[aria-expanded="true"]::after { content: "–"; }
+
+/* Related services: outlined rows */
+.style-test .service-link-row { border: var(--st-line); box-shadow: var(--st-shadow-sm); padding: 1rem 1.25rem !important; background: var(--st-paper); }
+.style-test .service-link-row .divider { display: none; }
+.style-test .service-link-row:hover { background: var(--st-yellow); }
+
+/* Buttons on this page: yellow, square, outlined, hard shadow */
+.style-test .button.primary {
+  background: var(--st-yellow) !important; color: var(--st-ink) !important; border: var(--st-line) !important;
+  border-radius: 0 !important; box-shadow: var(--st-shadow-sm); font-family: var(--st-head); font-weight: 800; letter-spacing: 0;
+}
+.style-test .button.primary .hover-button-blur { display: none; }
+.style-test .button.primary:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); }
+
+/* The site-wide content partner banner, in the design's black stats band style */
+.style-test .partner-banner_stat { border-radius: 0; border: 0; border-left: 3px solid var(--st-yellow); background: transparent; }
+.style-test .partner-banner_value { font-family: var(--st-head); font-weight: 900; }
+.style-test .partner-banner_title, .style-test .partner-banner_eyebrow { font-family: var(--st-head); }
+.style-test .partner-banner_title { text-transform: none; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; letter-spacing: -0.02em; }
+.style-test .partner-banner_eyebrow { display: inline-block; background: var(--st-yellow); color: var(--st-ink); padding: 0.4rem 0.55rem; }
+.style-test .partner-banner_accent { background: var(--st-yellow); color: var(--st-ink); padding: 0 0.12em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .style-test .service-steps li, .style-test .work-tile { transition: none; }
+}
