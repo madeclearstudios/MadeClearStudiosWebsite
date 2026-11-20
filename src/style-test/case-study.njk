@@ -196,6 +196,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="_4-col case-body_aside">
               <div class="case-body_sticky flex vertical gap-2 t_gap-1-5">
                 <div class="flex vertical gap-0-75 align-start">
+                  {%- if csClient and csClient.logo %}<img src="{{ csClient.logo }}" alt="{{ csClient.name }}" class="case-hero_logo" loading="eager">{% endif %}
                   <h1 class="h2 case-hero_title">
                     <span class="case-hero_project"><span class="services-highlight is-multiline highlight-tight">{{ projectLine }}</span></span>
                   </h1>

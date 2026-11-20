@@ -258,3 +258,14 @@
 
 /* Home: the Our services intro is the same width as the intro under the main headline (25.5rem) */
 .style-test-home .home-services-section .max-w-272 { max-width: 25.5rem; }
+
+/* Same hover and click feel on every test-page button: lift on hover, press in on click */
+.style-test .button-secondary { transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s; }
+.style-test .button-secondary:hover, .style-test .button-secondary:focus-visible { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); background: var(--st-yellow); }
+.style-test .button-secondary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--st-ink); }
+.style-test .button.primary { transition: transform 0.15s, box-shadow 0.15s; }
+.style-test .button.primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--st-ink); }
+@media (prefers-reduced-motion: reduce) { .style-test .button-secondary, .style-test .button.primary { transition: none; } }
+
+/* Case study test page: the client's logo (from Clients) above the project title, in place of the client name */
+.style-test .case-hero_logo { display: block; max-height: 2.75rem; max-width: 11rem; width: auto; height: auto; object-fit: contain; object-position: left center; margin-bottom: 0.5rem; }
