@@ -169,3 +169,68 @@
 @media (prefers-reduced-motion: reduce) {
   .style-test .service-steps li, .style-test .work-tile { transition: none; }
 }
+
+/* ===== Home, micro case study and case study test pages ===== */
+
+/* Hand-drawn brush strokes behind headings are replaced by the yellow blocks */
+.style-test .vector-bg { display: none !important; }
+
+/* Partner banner headline stays white on its black band, inside or outside <main> */
+.style-test .partner-banner .partner-banner_title { color: #fff; }
+
+/* Home hero: one wider headline instead of short stacked lines */
+.style-test-home .max-w-450 { max-width: 44rem; }
+.style-test-home main h1.h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+.style-test-home .blob-lens-copy p { font-family: var(--st-serif); font-weight: 700; letter-spacing: 0; }
+
+
+/* Home service panels: outlined cards with a hard shadow and a black number badge */
+.style-test .home-service-panel {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.style-test .home-service-panel:hover, .style-test .home-service-panel:focus-visible {
+  transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--st-ink); background: var(--st-yellow);
+}
+.style-test .home-service-panel .text-size-xsmall {
+  display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; background: var(--st-ink);
+  color: var(--st-yellow) !important; font: 700 1.3rem/1 var(--st-head) !important; letter-spacing: 0 !important;
+}
+.style-test .home-service-panels { padding: 0 11px 11px 0; }
+
+/* Videos and case study photos: framed with a hard shadow */
+.style-test .lightbox-video, .style-test .case-body_cover, .style-test .case-gallery .media-grid-item,
+.style-test .micro-gallery .media-grid-item, .style-test .video-gallery a, .style-test .c_image-slider {
+  border: var(--st-line); border-radius: 0 !important; box-shadow: var(--st-shadow-sm);
+}
+.style-test .lightbox-video img, .style-test .video-gallery img { border-radius: 0 !important; }
+.style-test .c_image-slider-item { padding: 0 6px 8px 0; }
+
+/* Testimonials: Clearface quotes */
+.style-test #testimonial-slider blockquote { font-family: var(--st-serif); font-weight: 700; font-style: italic; font-size: 1.2rem; line-height: 1.45; letter-spacing: 0; border-left: 4px solid var(--st-yellow); padding-left: 1.25rem; }
+
+/* KOL cards on Home: outlined with a hard shadow (room left for the shadow inside the slider) */
+.style-test #experts-slider .splide__slide > div { border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper); }
+.style-test #experts-slider .splide__slide img, .style-test #experts-slider .radius-0-25 { border-radius: 0 !important; }
+.style-test #experts-slider .splide__track { padding: 4px 8px 12px 4px; }
+
+/* Secondary link buttons ("Meet the experts", "More about ...") as outlined white buttons */
+.style-test .button-secondary {
+  display: inline-block; padding: 0.75rem 1.25rem; margin: 0; background: var(--st-paper); color: var(--st-ink);
+  border: var(--st-line); box-shadow: var(--st-shadow-sm); text-decoration: none;
+}
+.style-test .button-secondary .button-secondary-bg { display: none; }
+.style-test .button-secondary .text-size-xsmall { font: 700 0.85rem/1 var(--st-head); letter-spacing: 0.04em; }
+.style-test .button-secondary:hover { background: var(--st-yellow); }
+
+/* Micro case study "What we captured": yellow tick list instead of ruled lines */
+.style-test .micro-list li { position: relative; padding: 0.4rem 0 0.4rem 2rem !important; font-family: var(--st-head); font-weight: 700; }
+.style-test .micro-list .divider { display: none; }
+.style-test .micro-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.5rem; width: 1.15rem; height: 1.15rem; box-sizing: border-box;
+  border: var(--st-line); background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+
+/* Case study services list and previous / next arrows */
+.style-test .case-service-link { font-family: var(--st-head); }
+.style-test .case-nav a, .style-test [class*="case-nav"] a { border-radius: 0 !important; }
