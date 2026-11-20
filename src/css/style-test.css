@@ -32,8 +32,10 @@
 .style-test main h1, .style-test main h2, .style-test main h3, .style-test main .h2 {
   font-family: var(--st-head); text-transform: none; letter-spacing: -0.02em; color: var(--st-ink);
 }
-.style-test main h1, .style-test main .service-intro_title { font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.02; }
-.style-test main h2 { font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 700; line-height: 1.08; }
+.style-test main h1, .style-test main .service-intro_title { font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.22; }
+/* Each wrapped line of a highlighted heading gets its own yellow block; the line height above keeps a block
+   from overlapping the line before it, so descenders (g, p, y) aren't covered */
+.style-test main h2 { font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 700; line-height: 1.18; }
 .style-test main h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
 .style-test main p, .style-test main li, .style-test main .text-rich-text { font-family: var(--st-body); font-size: 0.95rem; line-height: 1.65; letter-spacing: 0.02em; }
 /* Clearface for the serif lead lines: the strapline under the title, the explainer's opening paragraph, the
@@ -49,7 +51,7 @@
 /* Yellow highlight: a solid block behind the words instead of the brush stroke */
 .style-test .services-highlight, .style-test .service-name-highlight {
   background: var(--st-yellow) !important; background-image: none !important;
-  padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  padding: 0.02em 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
 /* Label chip above the title, as the design's "FEATURES" tags */
@@ -104,6 +106,9 @@
   transition: transform 0.15s, box-shadow 0.15s;
 }
 .style-test .work-tile:hover { transform: translate(-3px, -3px); box-shadow: var(--st-shadow); }
+/* The rail scrolls sideways, so it clips anything outside its box: leave room for the card lifting up and
+   left on hover and for the shadow underneath, without moving the cards from their usual line */
+.style-test .work-rail_track { padding-top: 6px; padding-left: 6px; margin-left: -6px; padding-bottom: 14px; scroll-padding-left: 6px; }
 .style-test .work-tile img, .style-test .work-tile .media-placeholder { border-radius: 0 !important; border: var(--st-line); }
 .style-test .work-rail_year-value { font: 700 2rem/1 var(--st-head); }
 
@@ -114,14 +119,22 @@
   background: var(--st-paper) !important; border: var(--st-line) !important; border-radius: 0 !important;
   box-shadow: var(--st-shadow-sm); position: relative; text-align: left;
 }
-.style-test .faq-title h3 { font-size: 1rem; padding-right: 2.5rem; }
+.style-test .faq-title h3 { font-size: 1rem; }
 .style-test .faq-title h3::before { content: none !important; }
-.style-test .faq-item::after {
-  content: "+"; position: absolute; right: 1rem; top: 1rem; width: 1.3rem; height: 1.3rem;
-  display: grid; place-items: center; border: var(--st-line); background: var(--st-yellow);
-  font: 700 1rem/1 var(--st-head); color: var(--st-ink);
+/* The +/- box sits in the question row, centred top to bottom. The plus is drawn with two bars rather than a
+   text character, so it is exactly centred in its box at any font size */
+.style-test .faq-title { position: relative; align-items: center; padding-right: 3.25rem; }
+.style-test .faq-title::after {
+  content: ""; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 1.4rem; height: 1.4rem; box-sizing: border-box; border: var(--st-line);
+  background:
+    linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat,
+    linear-gradient(var(--st-ink), var(--st-ink)) center / 2px 0.7rem no-repeat,
+    var(--st-yellow);
 }
-.style-test .faq-item.is-open::after, .style-test .faq-item[aria-expanded="true"]::after { content: "–"; }
+.style-test .faq-item.is-open .faq-title::after, .style-test .faq-item[aria-expanded="true"] .faq-title::after {
+  background: linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat, var(--st-yellow);
+}
 
 /* Related services: outlined rows */
 .style-test .service-link-row { border: var(--st-line); box-shadow: var(--st-shadow-sm); padding: 1rem 1.25rem !important; background: var(--st-paper); }
@@ -140,7 +153,7 @@
 .style-test .partner-banner_stat { border-radius: 0; border: 0; border-left: 3px solid var(--st-yellow); background: transparent; }
 .style-test .partner-banner_value { font-family: var(--st-head); font-weight: 700; }
 .style-test .partner-banner_title, .style-test .partner-banner_eyebrow { font-family: var(--st-head); }
-.style-test .partner-banner_title { text-transform: none; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; }
+.style-test .partner-banner_title { text-transform: none; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
 .style-test .partner-banner_intro { font-family: var(--st-serif); font-weight: 700; letter-spacing: 0; }
 .style-test .partner-banner_eyebrow { display: inline-block; background: var(--st-yellow); color: var(--st-ink); padding: 0.4rem 0.55rem; }
 .style-test .partner-banner_accent { background: var(--st-yellow); color: var(--st-ink); padding: 0 0.12em; }
