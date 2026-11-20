@@ -1,0 +1,131 @@
+/* New look for hero case studies (/case-study/...) and micro case studies (/work/...), rolled out from the
+   style test (Nov 2026). Loaded only by src/case-study.njk and src/micro-case-study.njk, scoped to .case-look on
+   their page wrapper. Brand fonts: Borna for headlines and body, Clearface Std Bold for lead lines (our Clearface
+   web licence covers Bold, Heavy and Black only). Heavy sentence-case headings with solid yellow highlight blocks,
+   2px black outlines with hard offset shadows on photos, videos, cards and buttons, yellow tick boxes, the client
+   logo above the title. The site-wide nav, partner banner and footer keep the current style. */
+@font-face { font-family: "Clearface Std"; src: url("../fonts/ClearfaceStd-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clearface Std"; src: url("../fonts/ClearfaceStd-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+.case-look {
+  --st-ink: #000;
+  --st-yellow: #ff0;
+  --st-paper: #fff;
+  --st-grey: #f1f1f1;
+  --st-line: 2px solid var(--st-ink);
+  --st-shadow: 8px 8px 0 var(--st-ink);
+  --st-shadow-sm: 5px 5px 0 var(--st-ink);
+  --st-head: Borna, "Helvetica Neue", Arial, sans-serif;
+  --st-body: Borna, "Helvetica Neue", Arial, sans-serif;
+  --st-serif: "Clearface Std", Georgia, "Times New Roman", serif;
+  background: var(--st-paper);
+}
+.case-look main h1,
+.case-look main h2,
+.case-look main h3,
+.case-look main .h2 {
+  font-family: var(--st-head); text-transform: none; letter-spacing: -0.02em; color: var(--st-ink);
+}
+.case-look main h1 { font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.22; }
+.case-look main h2 { font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 700; line-height: 1.18; }
+.case-look main h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+.case-look main p,
+.case-look main li,
+.case-look main .text-rich-text { font-family: var(--st-body); font-size: 0.95rem; line-height: 1.65; letter-spacing: 0.02em; }
+.case-look main section > .container > .flex.vertical > p {
+  font-family: var(--st-serif); font-weight: 700; letter-spacing: 0; line-height: 1.45;
+}
+.case-look .services-highlight,
+.case-look .service-name-highlight {
+  background: var(--st-yellow) !important; background-image: none !important;
+  padding: 0.02em 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.case-look .service-breadcrumb { font-family: var(--st-head); font-weight: 600; }
+.case-look .work-tile {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.case-look .work-tile:hover { transform: translate(-3px, -3px); box-shadow: var(--st-shadow); }
+.case-look .work-rail_track { padding-top: 6px; padding-left: 6px; margin-left: -6px; padding-bottom: 14px; scroll-padding-left: 6px; }
+.case-look .work-tile img,
+.case-look .work-tile .media-placeholder { border-radius: 0 !important; border: var(--st-line); }
+.case-look .work-rail_year-value { font: 700 2rem/1 var(--st-head); }
+.case-look .bg-brand { background: var(--st-grey) !important; border-top: var(--st-line); border-bottom: var(--st-line); }
+.case-look .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
+.case-look .faq-item {
+  background: var(--st-paper) !important; border: var(--st-line) !important; border-radius: 0 !important;
+  box-shadow: var(--st-shadow-sm); position: relative; text-align: left;
+}
+.case-look .faq-title h3 { font-size: 1rem; }
+.case-look .faq-title h3::before { content: none !important; }
+.case-look .faq-title { position: relative; align-items: center; padding-right: 3.25rem; }
+.case-look .faq-title::after {
+  content: ""; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 1.4rem; height: 1.4rem; box-sizing: border-box; border: var(--st-line);
+  background:
+    linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat,
+    linear-gradient(var(--st-ink), var(--st-ink)) center / 2px 0.7rem no-repeat,
+    var(--st-yellow);
+}
+.case-look .faq-item.is-open .faq-title::after,
+.case-look .faq-item[aria-expanded="true"] .faq-title::after {
+  background: linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat, var(--st-yellow);
+}
+.case-look .button.primary {
+  background: var(--st-yellow) !important; color: var(--st-ink) !important; border: var(--st-line) !important;
+  border-radius: 0 !important; box-shadow: var(--st-shadow-sm); font-family: var(--st-head); font-weight: 700; letter-spacing: 0.04em;
+}
+.case-look .button.primary .hover-button-blur { display: none; }
+.case-look .button.primary:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); }
+.case-look .vector-bg { display: none !important; }
+.case-look .lightbox-video,
+.case-look .case-body_cover,
+.case-look .case-gallery .media-grid-item,
+.case-look .micro-gallery .media-grid-item,
+.case-look .video-gallery a,
+.case-look .c_image-slider {
+  border: var(--st-line); border-radius: 0 !important; box-shadow: var(--st-shadow-sm);
+}
+.case-look .lightbox-video img,
+.case-look .video-gallery img { border-radius: 0 !important; }
+.case-look .c_image-slider-item { padding: 0 6px 8px 0; }
+.case-look .button-secondary {
+  display: inline-block; padding: 0.75rem 1.25rem; margin: 0; background: var(--st-paper); color: var(--st-ink);
+  border: var(--st-line); box-shadow: var(--st-shadow-sm); text-decoration: none;
+}
+.case-look .button-secondary .button-secondary-bg { display: none; }
+.case-look .button-secondary .text-size-xsmall { font: 700 0.85rem/1 var(--st-head); letter-spacing: 0.04em; }
+.case-look .button-secondary:hover { background: var(--st-yellow); }
+.case-look .micro-list li { position: relative; padding: 0.4rem 0 0.4rem 2rem !important; font-family: var(--st-head); font-weight: 700; }
+.case-look .micro-list .divider { display: none; }
+.case-look .micro-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.5rem; width: 1.15rem; height: 1.15rem; box-sizing: border-box;
+  border: var(--st-line); background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+.case-look .case-service-link { font-family: var(--st-head); }
+.case-look .case-nav a,
+.case-look [class*="case-nav"] a { border-radius: 0 !important; }
+.case-look main .case-hero_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
+.case-look .button-secondary { transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s; }
+.case-look .button-secondary:hover,
+.case-look .button-secondary:focus-visible { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--st-ink); background: var(--st-yellow); }
+.case-look .button-secondary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--st-ink); }
+.case-look .button.primary { transition: transform 0.15s, box-shadow 0.15s; }
+.case-look .button.primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--st-ink); }
+@media (prefers-reduced-motion: reduce) {
+  .case-look .button-secondary, .case-look .button.primary { transition: none;}
+}
+.case-look .case-hero_logo { display: block; max-height: 2.75rem; max-width: 11rem; width: auto; height: auto; object-fit: contain; object-position: left center; margin-bottom: 0.5rem; }
+.case-look main .micro-intro_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
+
+/* Client name: hidden on screen (the logo shows it) but kept in the h1 for search engines and screen readers */
+.case-look .case-hero_client { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Night mode: outlines, shadows and text use night mode's light ink on its dark page; anything on solid yellow
+   (highlight blocks, buttons, tick boxes) keeps black text, as elsewhere on the site */
+html.night-mode .case-look { --st-ink: var(--dark); --st-paper: var(--light); --st-grey: var(--main--grey-1); }
+html.night-mode .case-look .services-highlight,
+html.night-mode .case-look .service-name-highlight { color: #000 !important; }
+html.night-mode .case-look .button.primary { color: #000 !important; }
+html.night-mode .case-look .button-secondary:hover,
+html.night-mode .case-look .button-secondary:focus-visible { color: #000; }
+html.night-mode .case-look .case-hero_logo { filter: invert(1) grayscale(1); }
