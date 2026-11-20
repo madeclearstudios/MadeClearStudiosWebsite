@@ -238,3 +238,21 @@
 /* Case study test page: no client line above the title, and the project title at the section heading size
    (the same as "Diagnosis") */
 .style-test main .case-hero_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
+
+/* MENU (closed) and Close (open) buttons, top left: square yellow buttons with a black outline and hard
+   shadow, like the page's other buttons. On the black menu panel the shadow is white so it still shows. */
+.style-test .menu-toggle {
+  border: var(--st-line); border-radius: 0; box-shadow: 4px 4px 0 var(--st-ink);
+  font-family: var(--st-head); letter-spacing: 0.1em;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.style-test .menu-toggle:hover, .style-test .menu-toggle:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--st-ink); }
+.style-test .menu-toggle:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--st-ink); }
+.style-test .site-menu .menu-toggle { box-shadow: 4px 4px 0 #fff; }
+.style-test .site-menu .menu-toggle:hover, .style-test .site-menu .menu-toggle:focus-visible { box-shadow: 6px 6px 0 #fff; }
+.style-test .site-menu .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
+.style-test .site-menu .menu-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .style-test .menu-toggle { transition: none; } }
+
+/* Home: the Our services intro is the same width as the intro under the main headline (25.5rem) */
+.style-test-home .home-services-section .max-w-272 { max-width: 25.5rem; }
