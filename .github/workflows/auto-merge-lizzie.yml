@@ -1,0 +1,39 @@
+# Lizzie's pull requests go live without the site owner's review (decided by Olly, Nov 2026).
+# When Netlify reports a successful deploy preview for a commit, this finds the open pull request for that
+# commit and, if Lizzie (LizzieMCS) opened it from a branch in this repo, squash-merges it into main,
+# which deploys it. A failed or pending preview never merges. Pull requests from anyone else, and from
+# forks, are left alone. To stop it, delete this file (or change AUTHOR).
+name: Auto-merge Lizzie's pull requests
+
+on:
+  status:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-merge-${{ github.event.sha }}
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: github.event.context == 'netlify/madeclearstudios/deploy-preview' && github.event.state == 'success'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AUTHOR: LizzieMCS
+      SHA: ${{ github.event.sha }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Merge the pull request if Lizzie opened it
+        run: |
+          set -euo pipefail
+          pr=$(gh api "repos/$REPO/commits/$SHA/pulls" \
+            --jq "[.[] | select(.state == \"open\" and .base.ref == \"main\" and .head.repo.full_name == \"$REPO\" and .head.sha == \"$SHA\" and .user.login == \"$AUTHOR\")][0].number // empty")
+          if [ -z "$pr" ]; then
+            echo "No open pull request by $AUTHOR for $SHA; nothing to do."
+            exit 0
+          fi
+          echo "Squash-merging #$pr by $AUTHOR (Netlify preview passed for $SHA)"
+          gh pr merge "$pr" --repo "$REPO" --squash --match-head-commit "$SHA"
