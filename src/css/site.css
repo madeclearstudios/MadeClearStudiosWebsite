@@ -648,6 +648,18 @@ html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
 .partner-banner .button.primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #fff; }
 @media (prefers-reduced-motion: reduce) { .menu-toggle, .partner-banner .button.primary { transition: none; } }
 
+/* Project cards (.work-tile: Body of work on Case Studies, Recent work, Further case studies) in the bold panel
+   style on every page: 2px outline and a hard shadow that lifts on hover. --dark / --light swap in night mode. */
+.work-tile {
+  border: 2px solid var(--dark) !important; border-radius: 0 !important; box-shadow: 5px 5px 0 var(--dark); background: var(--light);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.work-tile:hover, .work-tile:focus-visible { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
+.work-tile img, .work-tile .media-placeholder { border-radius: 0 !important; border: 2px solid var(--dark); }
+/* The rail scrolls sideways and clips its contents: room for the lift and the shadow */
+.work-rail_track { padding-top: 6px; padding-left: 6px; margin-left: -6px; padding-bottom: 14px; scroll-padding-left: 6px; }
+@media (prefers-reduced-motion: reduce) { .work-tile { transition: none; } }
+
 /* ===== Night mode =====
    html.night-mode is set by _includes/theme.njk (before paint) and the nav switch (js/night-mode.js).
    The Webflow styles use --dark for text and --light for backgrounds, so swapping those and the greys does most
