@@ -350,6 +350,7 @@ content:
             pattern: { regex: "^[a-z0-9-]+$", message: "Use lowercase letters, numbers and hyphens only." }
           - name: serviceCategory
             label: Category
+            description: "Also shown as the yellow label above the title on the service page."
             type: reference
             options: { collection: service-categories, search: name, value: "{fields.slug}", label: "{fields.name}" }
           - { name: order, label: Order, description: "Set the order in Ordering instead.", type: number, hidden: true }
@@ -365,16 +366,16 @@ content:
           - { name: metaTitle, label: Search title, description: "The title in search results, e.g. On-site congress production for cardiology | Made Clear", type: string }
           - { name: metaDescription, label: Search description, description: "About 150 characters for search results.", type: text }
           - { name: image, label: Share image, type: image }
-          - { name: shortDescription, label: Line under the title, type: text }
+          - { name: shortDescription, label: Line under the title, description: "Also the summary behind this service's chevron on the Services page.", type: text }
           - { name: whyThisMatters, label: Explainer, description: "Opens the page. Start with a one-sentence definition of the service: search engines and AI assistants quote it.", type: rich-text, options: { format: html } }
-          - { name: outcomesMainTitle, label: Outcomes heading, type: string }
-          - { name: outcomesDescription, label: Outcomes intro, type: string }
-          - { name: outcomesFirstTitle, label: Outcome 1 title, type: string }
-          - { name: outcomesFirstDescription, label: Outcome 1 text, type: text }
-          - { name: outcomesSecondTitle, label: Outcome 2 title, type: string }
-          - { name: outcomesSecondDescription, label: Outcome 2 text, type: text }
-          - { name: outcomesThirdTitle, label: Outcome 3 title, type: string }
-          - { name: outcomesThirdDescription, label: Outcome 3 text, type: text }
+          - { name: outcomesMainTitle, label: Outcomes heading, description: "No longer shown on service pages (folded into How it works); kept in case it comes back.", type: string, hidden: true }
+          - { name: outcomesDescription, label: Outcomes intro, description: "No longer shown on service pages (folded into How it works); kept in case it comes back.", type: string, hidden: true }
+          - { name: outcomesFirstTitle, label: "You leave with: tick 1", description: "The three ticks are listed under the last How it works step, after \"You leave with:\". Keep each short, e.g. A KOL content library.", type: string }
+          - { name: outcomesFirstDescription, label: Outcome 1 text, description: "No longer shown on service pages (folded into How it works); kept in case it comes back.", type: text, hidden: true }
+          - { name: outcomesSecondTitle, label: "You leave with: tick 2", type: string }
+          - { name: outcomesSecondDescription, label: Outcome 2 text, description: "No longer shown on service pages (folded into How it works); kept in case it comes back.", type: text, hidden: true }
+          - { name: outcomesThirdTitle, label: "You leave with: tick 3", type: string }
+          - { name: outcomesThirdDescription, label: Outcome 3 text, description: "No longer shown on service pages (folded into How it works); kept in case it comes back.", type: text, hidden: true }
           - { name: deliverables, label: What we capture, description: "No longer shown on service pages; kept in case it comes back.", type: string, list: true, hidden: true }
           - name: process
             label: How it works
@@ -382,7 +383,7 @@ content:
             list: { collapsible: { collapsed: true, summary: "{fields.title}" } }
             fields:
               - { name: title, label: Step, type: string }
-              - { name: text, label: Description, type: text }
+              - { name: text, label: Description, description: "One or two sentences. The last step also shows the \"You leave with\" ticks.", type: text }
           - name: faqs
             label: FAQs
             description: Also published as FAQ structured data for search engines.
