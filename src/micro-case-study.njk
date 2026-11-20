@@ -9,7 +9,7 @@ const eleventyExcludeFromCollections = true;
 <html data-wf-page="6a872b44c1a6873ee5b7387f" data-wf-site="69d7a9d5d387ff8d4be61f60" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ m.title }} | Made Clear</title>
+  <title>{{ [m.title + " | Made Clear", m.title] | fitTitle }}</title>
   <meta content="{{ m.summary | metaDescription }}" name="description">
   <meta content="{{ m.title }} | Made Clear" property="og:title">
   <meta content="{{ m.summary | metaDescription }}" property="og:description">

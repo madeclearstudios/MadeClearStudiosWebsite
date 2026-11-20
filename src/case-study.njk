@@ -14,7 +14,15 @@ const eleventyExcludeFromCollections = true;
   {%- set csClientName = cs.clientName or ((clients | findBy("slug", cs.client)) or {}).name or (cs.title.split(" | ")[0] if " | " in cs.title else "") %}
   {%- set csProject = (cs.projectTitle or (cs.title.split(" | ").slice(1).join(" | ") if " | " in cs.title else cs.title)) | replace(r/[.\s]+$/, "") %}
   {%- set csType = cs.services | projectType %}
-  {%- set csSeoTitle = csProject + ": " + ((csClientName + " ") if csClientName else "") + csType + " | Made Clear" %}
+  {%- set csWho = (csClientName + " ") if csClientName else "" %}
+  {%- set csSeoTitle = [
+    csProject + ": " + csWho + csType + " | Made Clear",
+    csProject + ": " + csWho + csType,
+    (csProject + " | " + csClientName + " | Made Clear") if csClientName else "",
+    (csProject + " | " + csClientName) if csClientName else "",
+    csProject + " | Made Clear",
+    csProject
+  ] | fitTitle %}
   {%- set csSeoDesc = cs.overview | seoDescription(csType, csClientName) %}
   <title>{{ csSeoTitle }}</title>
   <meta content="{{ csSeoDesc }}" name="description">

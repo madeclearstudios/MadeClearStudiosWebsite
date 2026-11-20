@@ -9,13 +9,13 @@ const eleventyExcludeFromCollections = true;
 <html data-wf-page="6a872b44c1a6873ee5b7387f" data-wf-site="69d7a9d5d387ff8d4be61f60" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ svc.metaTitle or (svc.name + " | Made Clear") }}</title>
+  <title>{{ [svc.metaTitle or (svc.name + " | Made Clear"), (svc.metaTitle or svc.name) | replace(" | Made Clear", "")] | fitTitle }}</title>
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="description">
-  <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" property="og:title">
+  <meta content="{{ [svc.metaTitle or (svc.name + " | Made Clear"), (svc.metaTitle or svc.name) | replace(" | Made Clear", "")] | fitTitle }}" property="og:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" property="og:description">
   {%- set svcShareSrc = svc.image or (svc.gallery[0] if (svc.gallery and svc.gallery.length) else ((microCaseStudies | published | whereIncludesAny("services", services | serviceFamily(svc.slug)) | first) or {}).coverPhoto) %}
   <meta content="{{ ogImages[svcShareSrc] or svcShareSrc or "/images/uploads/webflow/69de682b2ec267211badcd31_open-graph.png" }}" property="og:image">
-  <meta content="{{ svc.metaTitle or (svc.name + " | Made Clear") }}" name="twitter:title">
+  <meta content="{{ [svc.metaTitle or (svc.name + " | Made Clear"), (svc.metaTitle or svc.name) | replace(" | Made Clear", "")] | fitTitle }}" name="twitter:title">
   <meta content="{{ (svc.metaDescription or svc.shortDescription) | metaDescription }}" name="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
