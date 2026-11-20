@@ -14,6 +14,7 @@
             <div class="_4-col micro-intro_aside">
               <div class="micro-intro_sticky flex vertical gap-2 align-start t_gap-1">
                 <div class="flex vertical gap-0-75 align-start">
+                  {%- if mClient and mClient.logo %}<img src="{{ mClient.logo }}" alt="{{ mClient.name }}" class="case-hero_logo" loading="eager">{% endif %}
                   {%- set mDate = [m.month, m.year] | select | join(" ") %}
                   {%- if mDate %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ mDate }}</p>{% endif %}
                   <h1 class="h2 micro-intro_title"><span class="services-highlight is-multiline">{{ m.title }}</span></h1>
