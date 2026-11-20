@@ -660,6 +660,27 @@ html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
 .work-rail_track { padding-top: 6px; padding-left: 6px; margin-left: -6px; padding-bottom: 14px; scroll-padding-left: 6px; }
 @media (prefers-reduced-motion: reduce) { .work-tile { transition: none; } }
 
+/* FAQ (service pages, About, medical device marketing agency page) in the bold panel style: a grey band closed
+   off with lines, each question an outlined card with a hard shadow and a yellow +/- box. --dark / --light swap
+   in night mode; the +/- box stays black on yellow. */
+.bg-brand { background: #f1f1f1 !important; border-top: 2px solid var(--dark); border-bottom: 2px solid var(--dark); }
+.faq-list { display: flex; flex-direction: column; gap: 0.9rem; padding: 0 5px 5px 0; }
+.faq-item {
+  background: var(--light) !important; border: 2px solid var(--dark) !important; border-radius: 0 !important;
+  box-shadow: 5px 5px 0 var(--dark); position: relative; text-align: left;
+}
+.faq-title h3 { font-size: 1rem; }
+.faq-title h3::before { content: none !important; }
+.faq-title { position: relative; align-items: center; padding-right: 3.25rem; }
+.faq-title::after {
+  content: ""; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 1.4rem; height: 1.4rem; box-sizing: border-box; border: 2px solid #000;
+  background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, linear-gradient(#000, #000) center / 2px 0.7rem no-repeat, #ff0;
+}
+.faq-item.is-open .faq-title::after, .faq-item[aria-expanded="true"] .faq-title::after {
+  background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, #ff0;
+}
+
 /* ===== Night mode =====
    html.night-mode is set by _includes/theme.njk (before paint) and the nav switch (js/night-mode.js).
    The Webflow styles use --dark for text and --light for backgrounds, so swapping those and the greys does most
@@ -1273,3 +1294,7 @@ html.night-mode .list-full-width-link:hover .featured-row_service { color: #000;
   .work-rail_track { padding-right: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) { .work-rail_year-value.is-changing { animation: none; } }
+
+/* Night mode: the FAQ band is no longer yellow, so its text goes light on night mode's grey */
+html.night-mode .bg-brand { background: var(--main--grey-1) !important; }
+html.night-mode .bg-brand, html.night-mode .bg-brand *:not(.button):not(.button *) { color: var(--dark) !important; }

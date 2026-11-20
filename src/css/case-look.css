@@ -49,27 +49,6 @@
 .case-look .work-tile img,
 .case-look .work-tile .media-placeholder { border-radius: 0 !important; border: var(--st-line); }
 .case-look .work-rail_year-value { font: 700 2rem/1 var(--st-head); }
-.case-look .bg-brand { background: var(--st-grey) !important; border-top: var(--st-line); border-bottom: var(--st-line); }
-.case-look .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
-.case-look .faq-item {
-  background: var(--st-paper) !important; border: var(--st-line) !important; border-radius: 0 !important;
-  box-shadow: var(--st-shadow-sm); position: relative; text-align: left;
-}
-.case-look .faq-title h3 { font-size: 1rem; }
-.case-look .faq-title h3::before { content: none !important; }
-.case-look .faq-title { position: relative; align-items: center; padding-right: 3.25rem; }
-.case-look .faq-title::after {
-  content: ""; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
-  width: 1.4rem; height: 1.4rem; box-sizing: border-box; border: var(--st-line);
-  background:
-    linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat,
-    linear-gradient(var(--st-ink), var(--st-ink)) center / 2px 0.7rem no-repeat,
-    var(--st-yellow);
-}
-.case-look .faq-item.is-open .faq-title::after,
-.case-look .faq-item[aria-expanded="true"] .faq-title::after {
-  background: linear-gradient(var(--st-ink), var(--st-ink)) center / 0.7rem 2px no-repeat, var(--st-yellow);
-}
 .case-look .button.primary {
   background: var(--st-yellow) !important; color: var(--st-ink) !important; border: var(--st-line) !important;
   border-radius: 0 !important; box-shadow: var(--st-shadow-sm); font-family: var(--st-head); font-weight: 700; letter-spacing: 0.04em;
@@ -177,15 +156,6 @@ html.night-mode .case-look .case-hero_logo { filter: invert(1) grayscale(1); }
 .case-look .service-link-row:hover { background: var(--st-yellow); }
 .case-look .service-link-row:hover, .case-look .service-link-row:hover * { color: #000; }
 @media (prefers-reduced-motion: reduce) { .case-look .service-steps li { transition: none; } }
-/* Night mode: the FAQ block is no longer yellow in this look, so its text goes light; the plus/minus box stays black on yellow */
-html.night-mode .case-look .bg-brand, html.night-mode .case-look .bg-brand h2,
-html.night-mode .case-look .faq-list, html.night-mode .case-look .faq-list * { color: var(--dark) !important; }
-html.night-mode .case-look .faq-title::after {
-  border-color: #000;
-  background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, linear-gradient(#000, #000) center / 2px 0.7rem no-repeat, var(--st-yellow);
-}
-html.night-mode .case-look .faq-item.is-open .faq-title::after,
-html.night-mode .case-look .faq-item[aria-expanded="true"] .faq-title::after { background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, var(--st-yellow); }
 /* What you leave with: the three outcomes as a ticked list under the last How it works step */
 .case-look .service-ticks_label { margin-top: 0.75rem; font-family: var(--st-head) !important; font-weight: 700; }
 .case-look .service-ticks { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
