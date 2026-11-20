@@ -129,3 +129,60 @@ html.night-mode .case-look .button.primary { color: #000 !important; }
 html.night-mode .case-look .button-secondary:hover,
 html.night-mode .case-look .button-secondary:focus-visible { color: #000; }
 html.night-mode .case-look .case-hero_logo { filter: invert(1) grayscale(1); }
+
+/* ===== Service pages (/services/...) ===== */
+.case-look main .service-intro_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
+/* Category chip above the title (Strategy, Creative, Production, Distribution) */
+.case-look .service-intro_title[data-chip]::before {
+  content: attr(data-chip); display: table; margin-bottom: 1.25rem;
+  background: var(--st-yellow); color: #000; font: 700 11px/1 var(--st-head);
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 0.55rem;
+}
+/* Clearface for the lead lines: the strapline under the title, the explainer's first paragraph, the outcomes intro */
+.case-look main .service-intro_sticky > div:first-child > p,
+.case-look main .service-lead p:first-child,
+.case-look main .service-outcomes > div:first-child > p {
+  font-family: var(--st-serif); font-weight: 700; letter-spacing: 0; line-height: 1.45;
+}
+.case-look main .service-lead p:first-child { font-size: 1.25rem; }
+.case-look .service-intro { border-bottom: var(--st-line); }
+/* Outcomes: outlined cards with a hard shadow and a yellow tick box */
+.case-look .service-outcomes .service-list { display: flex; flex-direction: column; gap: 1rem; padding: 0 5px 5px 0; }
+.case-look .service-outcome {
+  background: var(--st-paper); border: var(--st-line); box-shadow: var(--st-shadow-sm);
+  padding: 1rem 1.1rem 1rem 3rem !important; position: relative;
+}
+.case-look .service-outcome .divider { display: none; }
+.case-look .service-outcome::before {
+  content: ""; position: absolute; left: 1rem; top: 1.15rem; width: 1.1rem; height: 1.1rem; box-sizing: border-box;
+  border: 2px solid #000; background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+/* Gallery photos: framed */
+.case-look .service-gallery .media-grid-item { border: var(--st-line); box-shadow: var(--st-shadow-sm); border-radius: 0 !important; overflow: hidden; }
+.case-look .service-gallery img { border-radius: 0 !important; }
+/* How it works: outlined boxes with a hard shadow and a black number badge; yellow on hover */
+.case-look .service-steps li {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.case-look .service-steps li:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--st-ink); background: var(--st-yellow); }
+.case-look .service-steps li:hover, .case-look .service-steps li:hover * { color: #000; }
+.case-look .service-step-num {
+  display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; margin-bottom: 1rem;
+  background: #000; color: var(--st-yellow) !important; font: 700 1.5rem/1 var(--st-head) !important; letter-spacing: 0 !important;
+}
+/* Related services: outlined rows */
+.case-look .service-link-row { border: var(--st-line); box-shadow: var(--st-shadow-sm); padding: 1rem 1.25rem !important; background: var(--st-paper); }
+.case-look .service-link-row .divider { display: none; }
+.case-look .service-link-row:hover { background: var(--st-yellow); }
+.case-look .service-link-row:hover, .case-look .service-link-row:hover * { color: #000; }
+@media (prefers-reduced-motion: reduce) { .case-look .service-steps li { transition: none; } }
+/* Night mode: the FAQ block is no longer yellow in this look, so its text goes light; the plus/minus box stays black on yellow */
+html.night-mode .case-look .bg-brand, html.night-mode .case-look .bg-brand h2,
+html.night-mode .case-look .faq-list, html.night-mode .case-look .faq-list * { color: var(--dark) !important; }
+html.night-mode .case-look .faq-title::after {
+  border-color: #000;
+  background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, linear-gradient(#000, #000) center / 2px 0.7rem no-repeat, var(--st-yellow);
+}
+html.night-mode .case-look .faq-item.is-open .faq-title::after,
+html.night-mode .case-look .faq-item[aria-expanded="true"] .faq-title::after { background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, var(--st-yellow); }

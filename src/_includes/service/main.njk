@@ -17,7 +17,7 @@
             <div class="_4-col service-intro_aside">
               <div class="service-intro_sticky flex vertical gap-2 align-start t_gap-1-5">
                 <div class="flex vertical gap-0-75 align-start">
-                  <h1 class="h2 service-intro_title"><span class="services-highlight is-multiline highlight-tight">{{ svc.name }}</span></h1>
+                  <h1 class="h2 service-intro_title"{% if cat and cat.name %} data-chip="{{ cat.name }}"{% endif %}><span class="services-highlight is-multiline highlight-tight">{{ svc.name }}</span></h1>
                   <p>{{ svc.shortDescription }}</p>
                 </div>
                 {%- if svc.outcomesMainTitle %}
