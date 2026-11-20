@@ -200,3 +200,31 @@ html.night-mode .case-look .faq-item[aria-expanded="true"] .faq-title::after { b
   border: 2px solid #000; background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
 }
 .case-look .service-steps li:hover .service-ticks li::before { background-color: #fff; }
+
+/* ===== Home page (index.njk, wrapper "case-look home-look") ===== */
+/* One wider headline instead of short stacked lines */
+.home-look .max-w-450 { max-width: 44rem; }
+.home-look main h1.h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+/* The Our services intro is the same width as the intro under the main headline */
+.home-look .home-services-section .max-w-272 { max-width: 25.5rem; }
+/* Service panels: outlined cards with a hard shadow and a black number badge, yellow on hover */
+.case-look .home-service-panel {
+  border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow); background: var(--st-paper);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.case-look .home-service-panel:hover, .case-look .home-service-panel:focus-visible {
+  transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--st-ink); background: var(--st-yellow);
+}
+.case-look .home-service-panel:hover *, .case-look .home-service-panel:focus-visible * { color: #000; }
+.case-look .home-service-panel .text-size-xsmall {
+  display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; background: #000;
+  color: var(--st-yellow) !important; font: 700 1.3rem/1 var(--st-head) !important; letter-spacing: 0 !important;
+}
+.case-look .home-service-panels { padding: 0 11px 11px 0; }
+/* Testimonials: Clearface quotes with a yellow rule */
+.case-look #testimonial-slider blockquote { font-family: var(--st-serif); font-weight: 700; font-style: italic; font-size: 1.2rem; line-height: 1.45; letter-spacing: 0; border-left: 4px solid var(--st-yellow); padding-left: 1.25rem; }
+/* KOL cards: outlined with a hard shadow; the track leaves room for the outline and shadow */
+.case-look #experts-slider .splide__slide > div { border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper); }
+.case-look #experts-slider .splide__slide img, .case-look #experts-slider .radius-0-25 { border-radius: 0 !important; }
+.case-look #experts-slider .splide__track { padding: 4px 8px 32px 4px; }
+@media (prefers-reduced-motion: reduce) { .case-look .home-service-panel { transition: none; } }
