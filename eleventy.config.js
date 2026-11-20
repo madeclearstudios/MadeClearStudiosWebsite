@@ -121,6 +121,12 @@ export default function (eleventyConfig) {
   });
   // What kind of project this is, in the words people search with, from its services (case study titles, meta
   // descriptions and structured data). First match wins.
+  // Search titles: the first candidate that fits in about 62 characters (Google cuts longer ones short), else the
+  // last (shortest) one. Pages list their preferred title first, e.g. with " | Made Clear", then shorter versions.
+  eleventyConfig.addFilter("fitTitle", (candidates = [], max = 62) => {
+    const list = (candidates || []).filter(Boolean);
+    return list.find((t) => t.length <= max) || list[list.length - 1] || "";
+  });
   eleventyConfig.addFilter("projectType", (services = []) => {
     const has = (...slugs) => slugs.some((x) => (services || []).includes(x));
     if (has("vr-experiences", "vr-and-immersive-experiences")) return "VR medical education";

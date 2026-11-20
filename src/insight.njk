@@ -11,7 +11,7 @@ const eleventyExcludeFromCollections = true;
 <html data-wf-page="69ebb58dc9c36defb61a0a81" data-wf-site="69d7a9d5d387ff8d4be61f60" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ insight.title }} | Made Clear</title>
+  <title>{{ [insight.title + " | Made Clear", insight.title] | fitTitle }}</title>
   <meta content="{{ insight.overview | metaDescription }}" name="description">
   {%- if insight.draft %}
   <meta name="robots" content="noindex">
