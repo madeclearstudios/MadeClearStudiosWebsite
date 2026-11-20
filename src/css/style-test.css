@@ -272,3 +272,6 @@
 /* Micro case study test page: the title at the section heading size, the same as "What we captured".
    It stays the page's h1, so search engines still read it as the main title. */
 .style-test main .micro-intro_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
+
+/* Service test page: the title at the section heading size too (the same as "How it works"); still the h1 */
+.style-test main .service-intro_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
