@@ -1,0 +1,148 @@
+{#- STYLE TEST ONLY (src/style-test/service.njk): a lighter version of service/main.njk. "What you leave with"
+    is folded into How it works (the outcomes become a ticked list under the last step), the steps are one
+    sentence each, the explainer is two paragraphs, and the left column is just the title, strapline and a
+    Contact us button. The shorter copy is written here for this one page; the real pages are unchanged. -#}
+{%- set stLead = '<p><strong>On-site congress and event production</strong> means bringing a film crew to a medical congress, such as TCT, to capture content on your stand while your key opinion leaders, physicians and leadership team are all in one place.</p><p>A congress is the one week your KOLs are a few steps from your stand. We know the clinical language and how to brief a busy interventional cardiologist between sessions, so we film fast without putting your KOL relationships at risk.</p>' %}
+{%- set stSteps = [
+  { title: "Plan", text: "We agree the interview list, questions and schedule with your team before the congress." },
+  { title: "Set up on the stand", text: "A multi-camera filming booth on your stand, so KOLs never have to leave it." },
+  { title: "Film, always on", text: "We film all congress long, so no free ten minutes or busy session is missed." },
+  { title: "Edit and deliver", text: "We cut it for your website, channels and sales team. You leave with:", ticks: [svc.outcomesFirstTitle, svc.outcomesSecondTitle, svc.outcomesThirdTitle] }
+] %}
+{%- set cat = serviceCategories | findBy("slug", svc.serviceCategory) %}
+{%- set family = services | serviceFamily(svc.slug) %}
+{%- set micros = microCaseStudies | published | whereIncludesAny("services", family) | sortByOrder %}
+{%- set bigCases = caseStudies | published | whereIncludesAny("services", family) | sortByOrder %}
+{%- set related = services | published | whereIn("slug", svc.relatedServices or []) %}
+{%- if svc.hidden %}
+      <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in services.json to publish it.</div>
+{%- endif %}
+
+      {#- Two columns on desktop: the title, intro and outcomes stay in place on the left (1/3) while the
+          explainer and How it works scroll past on the right (2/3). Sticky needs .service-page
+          (overflow: clip on the page wrapper); styles in css/site.css. -#}
+      <section class="section padding-3 service-intro">
+        <div class="container">
+          <div class="grid _12-col gap-1 t_flex t_vertical">
+            <div class="_4-col service-intro_aside">
+              <div class="service-intro_sticky flex vertical gap-2 align-start t_gap-1-5">
+                <div class="flex vertical gap-0-75 align-start">
+                  <h1 class="h2 service-intro_title"><span class="services-highlight is-multiline highlight-tight">{{ svc.name }}</span></h1>
+                  <p>{{ svc.shortDescription }}</p>
+                </div>
+                <a href="/contact" class="button primary w-inline-block"><div>Contact us</div><div class="hover-button-blur"></div></a>
+              </div>
+            </div>
+            <div class="_8-col">
+              <div class="height-1-5 none t_block"></div>
+              {#- Gallery: at the top of the right column, above the explainer. Opens in the lightbox. Filled
+                  automatically with up to three photos from the projects in Recent work (their hero images first,
+                  then their other photos); the Gallery field in Pages CMS replaces them when it has photos. -#}
+              {%- set svcGallery = svc.gallery if (svc.gallery and svc.gallery.length) else (micros.concat(bigCases) | workGallery(3)) %}
+              {%- if svcGallery.length or svc.hidden %}
+              <div class="media-grid service-gallery">
+                {%- for img in svcGallery %}
+                {%- set src = img.src or img %}
+                <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or (svc.name + ': project photo ' + loop.index) }}" style="object-position: {{ img.focus or imageFocus[src] or '50% 50%' }}">
+                  <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
+                </a>
+                {%- endfor %}
+                {%- if not svcGallery.length %}
+                {%- for i in range(0, 3) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
+                {%- endif %}
+              </div>
+              <div class="height-2"></div>
+              {%- endif %}
+              {#- Opening explainer: starts with the one-sentence definition answer engines quote -#}
+              <div class="text-rich-text w-richtext service-lead">{{ stLead | safe }}</div>
+              <div class="height-3 t_height-2"></div>
+              <h2 class="relative">How it works</h2>
+              <div class="height-1-5"></div>
+              <ol role="list" class="service-steps">
+                {%- for step in stSteps %}
+                <li class="border-1 radius-0-25 padding-1-5 m_padding-1-25">
+                  <p class="text-size-xsmall font-600 text-color-grey-4 service-step-num">{{ "0" + loop.index }}</p>
+                  <h3>{{ step.title }}</h3>
+                  <div class="height-0-75"></div>
+                  <p>{{ step.text }}</p>
+                  {%- if step.ticks %}
+                  <ul role="list" class="st-ticks">
+                    {%- for t in step.ticks %}{% if t %}<li>{{ t }}</li>{% endif %}{% endfor %}
+                  </ul>
+                  {%- endif %}
+                </li>
+                {%- endfor %}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {#- Recent work: micro case studies first, then any full case studies using this service -#}
+      {%- if micros.length or bigCases.length or svc.hidden %}
+      <section class="section padding-5" id="recent-work">
+        <div class="container">
+          <div class="flex vertical gap-0-5">
+            <h2 class="relative">Recent work</h2>
+            <p>{{ svc.recentWorkIntro or "Projects we have delivered with this service." }}</p>
+          </div>
+          <div class="height-2"></div>
+        </div>
+        {%- set railMicros = micros | newestFirst %}
+        {%- set railCases = bigCases %}
+        {% include "work-rail.njk" %}
+      </section>
+      {%- endif %}
+
+      {%- set gallery = svc.gallery or [] %}
+      {%- set skipGallery = true %}
+      {%- set videos = svc.videos | playableVideos %}
+      {%- include "service/media.njk" %}
+
+      {#- FAQs: the questions people (and answer engines) ask; also published as FAQPage structured data -#}
+      {%- if svc.faqs and svc.faqs.length %}
+      <div class="section padding-3 bg-brand height-transition">
+        <div class="container-medium">
+          <h2 class="relative service-faq-heading">FAQ</h2>
+          <div class="height-1"></div>
+          <div class="faq-list service-faq">
+            {%- for faq in svc.faqs %}
+            <button class="faq-item" type="button">
+              <div class="faq-title">
+                <h3 class="text-capitalize-none">{{ faq.question }}</h3>
+              </div>
+              <div class="padding-horizontal padding-1 faq-bottom">
+                <div class="faq-content">
+                  <div class="text-rich-text overflow-hidden w-richtext">{{ faq.answer | safe }}</div>
+                  <div class="height-1"></div>
+                </div>
+              </div>
+            </button>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+
+      {#- Related services -#}
+      {%- if related.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <h2 class="relative">Related services</h2>
+          <div class="height-2"></div>
+          <ul role="list" class="grid _12-col col-gap-5 row-gap-1-25 t_flex t_vertical t_gap-0 service-list">
+            {%- for r in related %}
+            {%- set rCat = serviceCategories | findBy("slug", r.serviceCategory) %}
+            <li class="_6-col">
+              <a href="{{ ('/services/' + r.slug) if (r.hasPage and not r.hidden) else ('/services#' + (rCat.slug if rCat else '')) }}" class="flex justify-space-between align-center padding-vertical padding-1-25 relative c_arrow-link height-100-pct gap-1 service-link-row">
+                <h3>{{ r.name }}</h3>
+                <span aria-hidden="true">→</span>
+                <div class="divider absolute bottom-0"></div>
+              </a>
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </section>
+      {%- endif %}

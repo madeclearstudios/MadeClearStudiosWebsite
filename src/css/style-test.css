@@ -78,6 +78,20 @@
   border: var(--st-line); background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
 }
 
+/* Ticked list of what you leave with, under the last How it works step */
+.style-test .st-ticks { list-style: none; margin: 0.75rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.style-test .st-ticks li { position: relative; padding-left: 1.9rem; font-family: var(--st-head); font-weight: 700; font-size: 0.95rem; line-height: 1.35; }
+.style-test .st-ticks li::before {
+  content: ""; position: absolute; left: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; box-sizing: border-box;
+  border: var(--st-line); background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+.style-test .service-steps .st-ticks li,
+.style-test .service-steps li:hover .st-ticks li {
+  border: 0 !important; box-shadow: none; background: none; transform: none; border-radius: 0 !important;
+  padding: 0 0 0 1.9rem !important; margin: 0;
+}
+.style-test .service-steps li:hover .st-ticks li::before { background-color: #fff; }
+
 /* Gallery photos: framed */
 .style-test .service-gallery .media-grid-item { border: var(--st-line); box-shadow: var(--st-shadow-sm); border-radius: 0 !important; overflow: hidden; }
 .style-test .service-gallery img { border-radius: 0 !important; }
