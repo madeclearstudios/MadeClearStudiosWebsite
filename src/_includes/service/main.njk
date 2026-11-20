@@ -20,23 +20,7 @@
                   <h1 class="h2 service-intro_title"{% if cat and cat.name %} data-chip="{{ cat.name }}"{% endif %}><span class="services-highlight is-multiline highlight-tight">{{ svc.name }}</span></h1>
                   <p>{{ svc.shortDescription }}</p>
                 </div>
-                {%- if svc.outcomesMainTitle %}
-                <div class="flex vertical gap-1 service-outcomes">
-                  <div class="flex vertical gap-0-25">
-                    <h2>{{ svc.outcomesMainTitle }}</h2>
-                    {%- if svc.outcomesDescription %}<p>{{ svc.outcomesDescription }}</p>{% endif %}
-                  </div>
-                  <ul role="list" class="service-list">
-                    {%- for n in ["First", "Second", "Third"] %}{% if svc["outcomes" + n + "Title"] %}
-                    <li class="relative padding-vertical padding-1 service-outcome">
-                      <h3>{{ svc["outcomes" + n + "Title"] }}</h3>
-                      <p>{{ svc["outcomes" + n + "Description"] }}</p>
-                      <div class="divider absolute bottom-0"></div>
-                    </li>
-                    {%- endif %}{% endfor %}
-                  </ul>
-                </div>
-                {%- endif %}
+                <a href="/contact" class="button primary w-inline-block"><div>Contact us</div><div class="hover-button-blur"></div></a>
               </div>
             </div>
             <div class="_8-col">
@@ -60,6 +44,7 @@
               </div>
               <div class="height-2"></div>
               {%- endif %}
+              {%- set svcTicks = [] %}{% for n in ["First", "Second", "Third"] %}{% if svc["outcomes" + n + "Title"] %}{% set svcTicks = (svcTicks.push(svc["outcomes" + n + "Title"]), svcTicks) %}{% endif %}{% endfor %}
               {#- Opening explainer: starts with the one-sentence definition answer engines quote -#}
               <div class="text-rich-text w-richtext service-lead">{{ svc.whyThisMatters | tidyHtml | safe }}</div>
               {%- if svc.process and svc.process.length %}
@@ -73,9 +58,22 @@
                   <h3>{{ step.title }}</h3>
                   <div class="height-0-75"></div>
                   <p>{{ step.text }}</p>
+                  {#- What you leave with (the three outcomes) as a ticked list under the last step -#}
+                  {%- if loop.last and svcTicks.length %}
+                  <p class="service-ticks_label">You leave with:</p>
+                  <ul role="list" class="service-ticks">
+                    {%- for t in svcTicks %}<li>{{ t }}</li>{% endfor %}
+                  </ul>
+                  {%- endif %}
                 </li>
                 {%- endfor %}
               </ol>
+              {%- elif svcTicks.length %}
+              <div class="height-2"></div>
+              <p class="service-ticks_label">You leave with:</p>
+              <ul role="list" class="service-ticks">
+                {%- for t in svcTicks %}<li>{{ t }}</li>{% endfor %}
+              </ul>
               {%- endif %}
             </div>
           </div>

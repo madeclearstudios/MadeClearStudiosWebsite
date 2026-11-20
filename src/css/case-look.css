@@ -186,3 +186,17 @@ html.night-mode .case-look .faq-title::after {
 }
 html.night-mode .case-look .faq-item.is-open .faq-title::after,
 html.night-mode .case-look .faq-item[aria-expanded="true"] .faq-title::after { background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, var(--st-yellow); }
+/* What you leave with: the three outcomes as a ticked list under the last How it works step */
+.case-look .service-ticks_label { margin-top: 0.75rem; font-family: var(--st-head) !important; font-weight: 700; }
+.case-look .service-ticks { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.case-look .service-steps .service-ticks li,
+.case-look .service-steps li:hover .service-ticks li {
+  border: 0 !important; box-shadow: none; background: none; transform: none; border-radius: 0 !important;
+  padding: 0 0 0 1.9rem !important; margin: 0;
+}
+.case-look .service-ticks li { position: relative; padding-left: 1.9rem; font-family: var(--st-head) !important; font-weight: 700; font-size: 0.95rem; line-height: 1.35; }
+.case-look .service-ticks li::before {
+  content: ""; position: absolute; left: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; box-sizing: border-box;
+  border: 2px solid #000; background: var(--st-yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='square'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+.case-look .service-steps li:hover .service-ticks li::before { background-color: #fff; }
