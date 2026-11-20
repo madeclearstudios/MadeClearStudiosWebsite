@@ -181,7 +181,6 @@
 /* Home hero: one wider headline instead of short stacked lines */
 .style-test-home .max-w-450 { max-width: 44rem; }
 .style-test-home main h1.h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
-.style-test-home .blob-lens-copy p { font-family: var(--st-serif); font-weight: 700; letter-spacing: 0; }
 
 
 /* Home service panels: outlined cards with a hard shadow and a black number badge */
