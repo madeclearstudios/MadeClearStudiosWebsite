@@ -234,3 +234,7 @@
 /* Case study services list and previous / next arrows */
 .style-test .case-service-link { font-family: var(--st-head); }
 .style-test .case-nav a, .style-test [class*="case-nav"] a { border-radius: 0 !important; }
+
+/* Case study test page: no client line above the title, and the project title at the section heading size
+   (the same as "Diagnosis") */
+.style-test main .case-hero_title { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.18; }
