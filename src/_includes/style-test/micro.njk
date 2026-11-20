@@ -1,0 +1,114 @@
+{#- STYLE TEST ONLY: copy of service/micro.njk for src/style-test/micro-case-study.njk, with the client's logo
+    (from Clients) above the date and title, as on the case study test page. The real pages are unchanged. -#}
+{%- set mClient = clients | findBy("slug", m.client) %}
+{%- set mServices = m.services | toMainServices(services) %}
+{%- set moreFromClient = caseStudies | published | where("client", m.client) | sortByOrder %}
+{%- if m.hidden %}
+      <div class="review-banner">Review only: this page is hidden from visitors and search engines. Set <code>"hidden": false</code> in microCaseStudies.json to publish it.</div>
+{%- endif %}
+      {#- Two columns: the intro (eyebrow, title, summary, details) stays in place on the left while the write-up
+          scrolls up past it on the right; the gallery and videos follow at full width once the write-up ends.
+          The sticky column needs .micro-page (overflow: clip on the page wrapper); styles in css/site.css. -#}
+      <section class="section padding-5 micro-intro">
+        <div class="container">
+          <div class="grid _12-col gap-1 t_flex t_vertical">
+            <div class="_4-col micro-intro_aside">
+              <div class="micro-intro_sticky flex vertical gap-2 align-start t_gap-1">
+                <div class="flex vertical gap-0-75 align-start">
+                  {%- if mClient and mClient.logo %}<img src="{{ mClient.logo }}" alt="{{ mClient.name }}" class="case-hero_logo" loading="eager">{% endif %}
+                  {%- set mDate = [m.month, m.year] | select | join(" ") %}
+                  {%- if mDate %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ mDate }}</p>{% endif %}
+                  <h1 class="h2 micro-intro_title"><span class="services-highlight is-multiline">{{ m.title }}</span></h1>
+                  <p>{{ m.summary }}</p>
+                </div>
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Client</p>
+                  <p>{{ m.clientLabel or (mClient.name if mClient) }}</p>
+                </div>
+                {%- if mDate %}
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Date</p>
+                  <p>{{ mDate }}</p>
+                </div>
+                {%- endif %}
+                {%- if mServices.length %}
+                <div class="flex vertical gap-0-5">
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Service</p>
+                  {%- for s in mServices %}
+                  {%- set sCat = serviceCategories | findBy("slug", s.serviceCategory) %}
+                  <p><a href="{{ ('/services/' + s.slug) if (s.hasPage and not s.hidden) else ('/services#' + (sCat.slug if sCat else '')) }}" class="link-dark">{{ s.name }}</a></p>
+                  {%- endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </div>
+            <div class="_8-col">
+              <div class="height-1-5 none t_block"></div>
+              {#- Gallery: at the top of the right column, above the write-up (no heading). Opens in the lightbox. -#}
+              {%- set microGallery = m.gallery or [] %}
+              {%- if microGallery.length or m.hidden %}
+              <div class="media-grid micro-gallery">
+                {%- for img in microGallery %}
+                {%- set src = img.src or img %}
+                <a href="#" class="media-grid-item w-inline-block w-lightbox" aria-label="Open photo">
+                  <img src="{{ src }}" loading="lazy" alt="{{ img.alt or (m.title + ', photo ' + loop.index) }}" style="object-position: {{ img.focus or imageFocus[src] or '50% 50%' }}">
+                  <script type="application/json" class="w-json">{{ { items: [{ url: src, type: "image" }], group: "gallery" } | dump | replace("<", "\\u003c") | safe }}</script>
+                </a>
+                {%- endfor %}
+                {%- if not microGallery.length %}
+                {%- for i in range(0, 6) %}<div class="media-grid-item media-placeholder">Photo</div>{% endfor %}
+                {%- endif %}
+              </div>
+              <div class="height-2"></div>
+              {%- endif %}
+              <div class="text-rich-text w-richtext">{{ m.body | tidyHtml | safe }}</div>
+              {%- if m.captured and m.captured.length %}
+              <div class="height-2"></div>
+              <h2>What we captured</h2>
+              <div class="height-1"></div>
+              <ul role="list" class="service-list micro-list">
+                {%- for item in m.captured %}
+                <li class="relative padding-vertical padding-1">{{ item }}<div class="divider absolute bottom-0"></div></li>
+                {%- endfor %}
+              </ul>
+              {%- endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {%- set gallery = m.gallery or [] %}
+      {%- set skipGallery = true %}
+      {%- set videos = m.videos | playableVideos %}
+      {%- set svc = null %}
+      {%- include "service/media.njk" %}
+
+      {%- if moreFromClient.length or mServices.length %}
+      <section class="section padding-5">
+        <div class="container">
+          <div class="flex vertical align-center text-align-center gap-1">
+            {%- if moreFromClient.length %}
+            <h2 class="relative">More with {{ mClient.name if mClient else "this client" }}</h2>
+            <div class="height-1"></div>
+            <div class="flex gap-1 children-wrap justify-center">
+              {%- for cs in moreFromClient %}
+              <a href="/case-study/{{ cs.slug }}" class="button-secondary w-inline-block">
+                <div class="text-size-xsmall font-600 relative">
+                  <div class="text-breaking-no-wrap">{{ cs.title }}</div>
+                  <div class="button-secondary-bg"></div>
+                </div>
+              </a>
+              {%- endfor %}
+            </div>
+            {%- endif %}
+            {%- for s in mServices %}{% if s.hasPage and not s.hidden %}
+            <div class="height-2"></div>
+            <a href="/services/{{ s.slug }}" class="button primary w-inline-block">
+              <div>More about {{ s.name | lower }}</div>
+              <div class="hover-button-blur"></div>
+            </a>
+            {%- endif %}{% endfor %}
+          </div>
+        </div>
+      </section>
+      {%- endif %}
