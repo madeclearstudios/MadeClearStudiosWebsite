@@ -611,6 +611,43 @@ html.night-mode .footer-links_more:hover svg, html.night-mode .footer-links_more
 @media screen and (max-width: 991px) { .footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media screen and (max-width: 479px) { .footer-links { grid-template-columns: 1fr; gap: 1.5rem; } }
 
+/* ===== New look, site-wide parts (Nov 2026; case study pages carry the rest in css/case-look.css) =====
+   The MENU and Close buttons (top left) and the "Your content partner" banner above the footer, on every page. */
+@font-face { font-family: "Clearface Std"; src: url("../fonts/ClearfaceStd-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clearface Std"; src: url("../fonts/ClearfaceStd-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+
+/* MENU (closed) and Close (open): square yellow buttons, 2px black outline, hard shadow; lift on hover, press in on
+   click. On the black menu panel the shadow is white so it still shows. */
+.menu-toggle {
+  border: 2px solid #000; border-radius: 0; box-shadow: 4px 4px 0 #000;
+  font-family: Borna, "Helvetica Neue", Arial, sans-serif; letter-spacing: 0.1em;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
+.menu-toggle:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
+.site-menu .menu-toggle { box-shadow: 4px 4px 0 #fff; }
+.site-menu .menu-toggle:hover, .site-menu .menu-toggle:focus-visible { box-shadow: 6px 6px 0 #fff; }
+.site-menu .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
+.site-menu .menu-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+html.night-mode .menu-toggle { box-shadow: 4px 4px 0 #fff; }
+html.night-mode .menu-toggle:hover, html.night-mode .menu-toggle:focus-visible { box-shadow: 6px 6px 0 #fff; }
+html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
+
+/* Partner banner as a black stats band: yellow label chip, heavy sentence-case headline with a yellow block,
+   Clearface intro, stat values with a yellow rule on the left instead of outlined cards */
+.partner-banner_eyebrow { display: inline-block; background: #ff0; color: #000; padding: 0.4rem 0.55rem; font-family: Borna, "Helvetica Neue", Arial, sans-serif; }
+.partner-banner .partner-banner_title { color: #fff; text-transform: none; font-family: Borna, "Helvetica Neue", Arial, sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.partner-banner_accent { background: #ff0; color: #000; padding: 0 0.12em; }
+.partner-banner_intro { font-family: "Clearface Std", Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: 0; }
+.partner-banner_stat { border-radius: 0; border: 0; border-left: 3px solid #ff0; background: transparent; }
+.partner-banner_stat:hover { border-color: #ff0; background: rgba(255, 255, 255, 0.04); }
+.partner-banner_value { font-family: Borna, "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+.partner-banner .button.primary { border: 2px solid #000; border-radius: 0; box-shadow: 4px 4px 0 #fff; transition: transform 0.15s, box-shadow 0.15s; }
+.partner-banner .button.primary .hover-button-blur { display: none; }
+.partner-banner .button.primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #fff; }
+.partner-banner .button.primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #fff; }
+@media (prefers-reduced-motion: reduce) { .menu-toggle, .partner-banner .button.primary { transition: none; } }
+
 /* ===== Night mode =====
    html.night-mode is set by _includes/theme.njk (before paint) and the nav switch (js/night-mode.js).
    The Webflow styles use --dark for text and --light for backgrounds, so swapping those and the greys does most
