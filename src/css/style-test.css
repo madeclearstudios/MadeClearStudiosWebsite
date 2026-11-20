@@ -212,7 +212,9 @@
 /* KOL cards on Home: outlined with a hard shadow (room left for the shadow inside the slider) */
 .style-test #experts-slider .splide__slide > div { border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper); }
 .style-test #experts-slider .splide__slide img, .style-test #experts-slider .radius-0-25 { border-radius: 0 !important; }
-.style-test #experts-slider .splide__track { padding: 4px 8px 12px 4px; }
+/* The cards sit 20px below their slot (the live site leaves 22px for it), so leave that plus room for the
+   2px outline and the hard shadow, or the bottom edge is clipped by the slider */
+.style-test #experts-slider .splide__track { padding: 4px 8px 32px 4px; }
 
 /* Secondary link buttons ("Meet the experts", "More about ...") as outlined white buttons */
 .style-test .button-secondary {
