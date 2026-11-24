@@ -116,7 +116,6 @@ permalink: case-studies.html
                 <div class="list-full-width-link bg-light featured-row">
                   <div class="width-100-pct grid _12-col gap-4 padding-vertical padding-3 relative t_gap-2 m_flex m_vertical m_padding-2 m_gap-1-25">
                     <div class="_3-col flex vertical gap-1 align-start featured-row_intro">
-                      {%- if cs.year %}<p class="text-size-xsmall font-600 text-color-grey-4 featured-row_year">{{ cs.year }}</p>{% endif %}
                       {%- if csClient and csClient.logo %}<img src="{{ csClient.logo }}" loading="lazy" alt="{{ csClient.name }}" class="featured-row_logo">{% endif %}
                       <h3 class="h4"><a href="/case-study/{{ cs.slug }}" class="featured-row_link">{{ cs.title }}</a></h3>
                       <p fs-list-field="category" class="filter-hide{{ ' w-dyn-bind-empty' if not cat }}">{{ cat.name if cat }}</p>

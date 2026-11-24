@@ -199,7 +199,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
               <a href="/case-study/{{ cs.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
                 {%- if cs.coverPhoto %}<img src="{{ cs.coverPhoto }}" loading="lazy" alt="{{ cs.title }}" class="width-100-pct _16x9 fit-cover radius-0-25">{% endif %}
                 <div class="flex vertical gap-0-5">
-                  {%- if cs.year %}<p class="text-size-xsmall font-600 text-color-grey-4">{{ [cs.month, cs.year] | select | join(" ") }} · Case study</p>{% endif %}
+                  <p class="text-size-xsmall font-600 text-color-grey-4">Case study</p>
                   <h3>{{ cs.title }}</h3>
                   <p>{{ cs.overview }}</p>
                 </div>

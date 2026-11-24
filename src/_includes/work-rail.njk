@@ -2,16 +2,18 @@
     card is cut off and can be dragged (mouse) or swiped (touch) into view. The year on the left changes to the
     year of the cards in view as the row moves. Expects `railMicros` (micro case studies) and, optionally,
     `railCases` (full case studies). Both are mixed into one row, newest first by year and month (workRailMix
-    filter); case studies are marked "Case study" and, with no year set, sit at the end labelled "Case study".
+    filter); case studies show no date: they are marked "Case study" and come after the micro case studies. `railHideYear` drops the year column (Home's case study rail) and `railArrows` adds previous / next buttons under the row.
     Behaviour in js/work-rail.js, styles in the "Work rail" block of css/site.css. -#}
 {%- set railItems = (railMicros or []) | workRailMix(railCases or []) %}
 {%- set railFirstItem = railItems[0] if railItems.length else null %}
-{%- set railFirst = (railFirstItem.item.year or ("Case study" if railFirstItem.kind == "case" else "")) if railFirstItem else "" %}
-<div class="work-rail" data-work-rail>
+{%- set railFirst = ("Case study" if railFirstItem.kind == "case" else railFirstItem.item.year) if railFirstItem else "" %}
+<div class="work-rail{{ ' work-rail--no-year' if railHideYear }}" data-work-rail>
+  {%- if not railHideYear %}
   <div class="work-rail_year" aria-hidden="true">
     <p class="text-size-xsmall font-600 text-color-grey-4 work-rail_year-eyebrow">Year</p>
     <p class="h2 work-rail_year-value" data-work-rail-year>{{ railFirst }}</p>
   </div>
+  {%- endif %}
   <div role="list" class="work-rail_track" data-work-rail-track tabindex="0" aria-label="Projects, newest first. Scroll sideways for more.">
     {%- for entry in railItems %}
     {%- set m = entry.item %}
@@ -30,12 +32,12 @@
       </a>
     </div>
     {%- else %}
-    <div role="listitem" class="work-rail_item" data-year="{{ m.year or 'Case study' }}">
+    <div role="listitem" class="work-rail_item" data-year="Case study">
       <a href="/case-study/{{ m.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block" draggable="false">
         {%- if m.coverPhoto %}<img src="{{ m.coverPhoto }}" loading="lazy" alt="{{ m.title }}" class="width-100-pct _16x9 fit-cover radius-0-25" draggable="false">
         {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
         <div class="flex vertical gap-0-5">
-          <p class="text-size-xsmall font-600 text-color-grey-4">{{ (mDate + " · Case study") if mDate else "Case study" }}</p>
+          <p class="text-size-xsmall font-600 text-color-grey-4">Case study</p>
           <h3>{{ m.title }}</h3>
           <p>{{ m.overview }}</p>
         </div>
@@ -46,3 +48,9 @@
     {%- endfor %}
   </div>
 </div>
+{%- if railArrows %}
+<div class="work-rail_arrows" data-work-rail-arrows>
+  <button type="button" class="work-rail_arrow" data-work-rail-prev aria-label="Previous"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></button>
+  <button type="button" class="work-rail_arrow" data-work-rail-next aria-label="Next"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></button>
+</div>
+{%- endif %}

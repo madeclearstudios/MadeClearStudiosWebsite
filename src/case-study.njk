@@ -334,9 +334,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <a href="/case-study/{{ other.slug }}" class="border-1 radius-0-25 padding-1-5 width-100-pct m_padding-1-25 height-100-pct flex vertical gap-1 work-tile w-inline-block">
                   {%- if other.coverPhoto %}<img src="{{ other.coverPhoto }}" loading="lazy" alt="{{ other.title }}" class="width-100-pct _16x9 fit-cover radius-0-25">
                   {%- else %}<div class="width-100-pct _16x9 radius-0-25 media-placeholder">Photo</div>{% endif %}
-                  {%- set oDate = [other.month, other.year] | select | join(" ") %}
                   <div class="flex vertical gap-0-5">
-                    <p class="text-size-xsmall font-600 text-color-grey-4">{{ (oDate + " · Case study") if oDate else "Case study" }}</p>
+                    <p class="text-size-xsmall font-600 text-color-grey-4">Case study</p>
                     <h3>{{ other.title }}</h3>
                     <p class="{{ 'w-dyn-bind-empty' if not other.overview }}">{{ other.overview }}</p>
                   </div>
