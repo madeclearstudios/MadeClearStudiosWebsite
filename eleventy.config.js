@@ -172,9 +172,10 @@ export default function (eleventyConfig) {
       ...micros.map((item, i) => ({ kind: "micro", item, i })),
       ...cases.map((item, i) => ({ kind: "case", item, i: 1000 + i })),
     ];
+    // Case studies show no date, so they follow the micro case studies, in their Ordering order
     return all.sort((a, b) =>
-      (b.item.year || 0) - (a.item.year || 0) ||
-      monthNo(b.item.month) - monthNo(a.item.month) ||
+      (a.kind === "case") - (b.kind === "case") ||
+      (a.kind === "case" ? 0 : (b.item.year || 0) - (a.item.year || 0) || monthNo(b.item.month) - monthNo(a.item.month)) ||
       a.i - b.i
     );
   });

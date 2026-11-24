@@ -62,6 +62,30 @@
     updateOverflow();
     window.addEventListener("resize", function () { updateEndSpace(); updateOverflow(); updateYear(); });
 
+    // Previous / next buttons (railArrows): step one card at a time; each is disabled at its end of the row
+    var arrows = rail.nextElementSibling && rail.nextElementSibling.matches("[data-work-rail-arrows]") ? rail.nextElementSibling : null;
+    var prevBtn = arrows && arrows.querySelector("[data-work-rail-prev]");
+    var nextBtn = arrows && arrows.querySelector("[data-work-rail-next]");
+    function step(dir) {
+      var first = items[0];
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      var by = first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+      track.scrollBy({ left: dir * by, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+    function updateArrows() {
+      if (!arrows) return;
+      prevBtn.disabled = track.scrollLeft <= 2;
+      nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      arrows.hidden = track.scrollWidth <= track.clientWidth + 4;
+    }
+    if (arrows) {
+      prevBtn.addEventListener("click", function () { step(-1); });
+      nextBtn.addEventListener("click", function () { step(1); });
+      track.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+    }
+
     // Mouse drag to scroll
     var down = false, startX = 0, startScroll = 0, moved = false;
     track.addEventListener("pointerdown", function (e) {

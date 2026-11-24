@@ -707,6 +707,22 @@ html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
 @media screen and (max-width: 767px) { .featured-row { padding-left: 1.1rem; padding-right: 1.1rem; } }
 @media (prefers-reduced-motion: reduce) { .featured-row { transition: none; } }
 
+/* Work rail without the year column (Home's case study rail): the row starts in line with the page content.
+   Previous / next arrows under it, square outlined buttons like the others. */
+.work-rail--no-year { gap: 0; padding-left: max(var(--_spacings---section--section-padding, 1.25rem), calc((100% - 85rem) / 2)); }
+.work-rail_arrows { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
+.work-rail_arrows[hidden] { display: none; }
+.work-rail_arrow {
+  display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; cursor: pointer;
+  background: #ff0; color: #000; border: 2px solid #000; border-radius: 0; box-shadow: 4px 4px 0 var(--dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.work-rail_arrow:hover:not(:disabled), .work-rail_arrow:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--dark); }
+.work-rail_arrow:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--dark); }
+.work-rail_arrow:disabled { opacity: 0.35; cursor: default; }
+.home-work-all { margin-top: 2rem; }
+@media (prefers-reduced-motion: reduce) { .work-rail_arrow { transition: none; } }
+
 /* ===== Night mode =====
    html.night-mode is set by _includes/theme.njk (before paint) and the nav switch (js/night-mode.js).
    The Webflow styles use --dark for text and --light for backgrounds, so swapping those and the greys does most
