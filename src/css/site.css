@@ -691,21 +691,22 @@ html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
 /* The name and role under a single quote line up with it, on the left */
 .case-testimonial .text-align-center, .testimonial-item .text-align-center { text-align: left; align-items: flex-start; }
 
-/* Featured work rows (Case Studies page) as bold panels: each row an outlined card with a hard shadow that lifts
+/* Featured work rows (Case Studies page) and the Insights list rows (.panel-row) as bold panels: each row an outlined card with a hard shadow that lifts
    on hover (and turns yellow, as before), with a gap between cards as they stack. Service tags get the same
    square 2px outline. */
-.w-dyn-item:has(> .featured-row) { padding: 0 8px 1.5rem 0; }
-.featured-row {
+.w-dyn-item:has(> .featured-row), .w-dyn-item:has(> .panel-row) { padding: 0 8px 1.5rem 0; }
+.featured-row, .panel-row {
   min-width: 0; margin-left: 0; margin-right: 0; padding-left: 1.75rem; padding-right: 1.75rem;
   border: 2px solid var(--dark); box-shadow: 5px 5px 0 var(--dark);
   transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
 }
-.featured-row:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
-.featured-row .section-padding-negative { display: none; }
-.featured-row img._16x9 { border: 2px solid var(--dark); border-radius: 0 !important; }
+.featured-row:hover, .panel-row:hover, .panel-row:focus-visible { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
+.featured-row .section-padding-negative, .panel-row .section-padding-negative { display: none; }
+.panel-row { background-color: var(--light); }
+.featured-row img._16x9, .panel-row img._16x9 { border: 2px solid var(--dark); border-radius: 0 !important; }
 .featured-row_service { border-width: 2px; border-radius: 0; }
-@media screen and (max-width: 767px) { .featured-row { padding-left: 1.1rem; padding-right: 1.1rem; } }
-@media (prefers-reduced-motion: reduce) { .featured-row { transition: none; } }
+@media screen and (max-width: 767px) { .featured-row, .panel-row { padding-left: 1.1rem; padding-right: 1.1rem; } }
+@media (prefers-reduced-motion: reduce) { .featured-row, .panel-row { transition: none; } }
 
 /* Work rail without the year column (Home's case study rail): the row starts in line with the page content.
    Previous / next arrows under it, square outlined buttons like the others. */

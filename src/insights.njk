@@ -87,7 +87,7 @@ permalink: insights.html
               {%- for insight in insights | published | sortByOrder %}
               {%- set cat = insightCategories | findBy("slug", insight.insightCategory) %}
               <div role="listitem" class="sticky top-4-25 flex justify-center w-dyn-item">
-                <a href="/insights/{{ insight.slug }}" class="list-full-width-link w-inline-block">
+                <a href="/insights/{{ insight.slug }}" class="list-full-width-link panel-row w-inline-block">
                   <div class="width-100-pct grid _12-col gap-4 padding-vertical padding-3 relative t_gap-2 m_flex m_vertical m_padding-2 m_gap-1-25">
                     <div class="_3-col">
                       <h3 class="h4">{{ insight.title }}</h3>
