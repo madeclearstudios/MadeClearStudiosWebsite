@@ -681,6 +681,32 @@ html.night-mode .menu-toggle:active { box-shadow: 2px 2px 0 #fff; }
   background: linear-gradient(#000, #000) center / 0.7rem 2px no-repeat, #ff0;
 }
 
+/* Testimonials on every page (sliders, the KOL Hub single quote, case study quotes), as on Home: Clearface Bold
+   Italic quotes, left-aligned, with a yellow rule */
+#testimonial-slider blockquote, .testimonial-item blockquote, .case-testimonial blockquote {
+  font-family: "Clearface Std", Georgia, "Times New Roman", serif; font-weight: 700; font-style: italic;
+  font-size: 1.2rem; line-height: 1.45; letter-spacing: 0; text-align: left;
+  border-left: 4px solid #ff0; padding-left: 1.25rem; margin-left: 0;
+}
+/* The name and role under a single quote line up with it, on the left */
+.case-testimonial .text-align-center, .testimonial-item .text-align-center { text-align: left; align-items: flex-start; }
+
+/* Featured work rows (Case Studies page) as bold panels: each row an outlined card with a hard shadow that lifts
+   on hover (and turns yellow, as before), with a gap between cards as they stack. Service tags get the same
+   square 2px outline. */
+.w-dyn-item:has(> .featured-row) { padding: 0 8px 1.5rem 0; }
+.featured-row {
+  min-width: 0; margin-left: 0; margin-right: 0; padding-left: 1.75rem; padding-right: 1.75rem;
+  border: 2px solid var(--dark); box-shadow: 5px 5px 0 var(--dark);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.featured-row:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
+.featured-row .section-padding-negative { display: none; }
+.featured-row img._16x9 { border: 2px solid var(--dark); border-radius: 0 !important; }
+.featured-row_service { border-width: 2px; border-radius: 0; }
+@media screen and (max-width: 767px) { .featured-row { padding-left: 1.1rem; padding-right: 1.1rem; } }
+@media (prefers-reduced-motion: reduce) { .featured-row { transition: none; } }
+
 /* ===== Night mode =====
    html.night-mode is set by _includes/theme.njk (before paint) and the nav switch (js/night-mode.js).
    The Webflow styles use --dark for text and --light for backgrounds, so swapping those and the greys does most

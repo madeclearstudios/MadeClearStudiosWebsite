@@ -191,8 +191,6 @@ html.night-mode .case-look .case-hero_logo { filter: invert(1) grayscale(1); }
   color: var(--st-yellow) !important; font: 700 1.3rem/1 var(--st-head) !important; letter-spacing: 0 !important;
 }
 .case-look .home-service-panels { padding: 0 11px 11px 0; }
-/* Testimonials: Clearface quotes with a yellow rule */
-.case-look #testimonial-slider blockquote { font-family: var(--st-serif); font-weight: 700; font-style: italic; font-size: 1.2rem; line-height: 1.45; letter-spacing: 0; border-left: 4px solid var(--st-yellow); padding-left: 1.25rem; }
 /* KOL cards: outlined with a hard shadow; the track leaves room for the outline and shadow */
 .case-look #experts-slider .splide__slide > div { border: var(--st-line) !important; border-radius: 0 !important; box-shadow: var(--st-shadow-sm); background: var(--st-paper); }
 .case-look #experts-slider .splide__slide img, .case-look #experts-slider .radius-0-25 { border-radius: 0 !important; }
